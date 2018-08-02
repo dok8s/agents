@@ -47,7 +47,7 @@ if ($keys=='add'){
 	while (list($key, $value) = each($row)) {
 
 		if (preg_match("/Scene/i",$key) || preg_match ("/Bet/i",$key) || preg_match ("/Turn/i",$key)){
-			$tt=split('_',$key);
+			$tt=explode('_',$key);
 			$cou=count($tt);
 
 			if (preg_match("/_Turn/i",$key)){
