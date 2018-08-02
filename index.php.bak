@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <?
 require ("app/member/include/config.inc.php");
 $langx=$_REQUEST['langx'];

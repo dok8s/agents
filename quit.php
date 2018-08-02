@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <?php
 
 require ("./app/member/include/config.inc.php");

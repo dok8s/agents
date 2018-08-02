@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <?
 var_dump("adsf");die;
 require ("app/member/include/config.inc.php");
