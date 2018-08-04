@@ -45,7 +45,7 @@ exit;
     <td width="115">预设汇率</td>
   </tr>
   <tr  class="m_cen" > 
-    <td>人民币</td>
+    <td>美金</td>
     <td>RMB</td>
     <td>1</td>
     <td>1</td>

@@ -347,7 +347,7 @@ while ($row = mysql_fetch_array($result)){
             <td class="m_title">金额</td>
             <td>&nbsp; 
               <input type="text" name="gold" size="10" maxlength="10" class="za_text" onKeyUp="Chg_Mcy();" onKeyPress="return CheckKey()" value="0">
-              人民币 :<font color=red id=mcy_gold>0</font></td>
+              美金 :<font color=red id=mcy_gold>0</font></td>
           </tr>
           <tr bgcolor="E1E1D2"> 
             <td class="m_title">&nbsp;</td>

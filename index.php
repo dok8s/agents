@@ -1,295 +1,158 @@
-<?php
+<?
 require ("app/member/include/config.inc.php");
-require ("app/member/include/define_function_list.inc.php");
-if(ip_drop()){
-    echo "<script>location.href='/ip_drop.htm';</script>";
-    exit;
-}
-$langx = "zh-cn";
-if(array_key_exists('langx', $_REQUEST)){
-    $langx=$_REQUEST['langx'];
+$langx=$_REQUEST['langx'];
+$sql = "select website,systime,systime1 from web_system";
+$result = mysql_query($sql);
+$row = mysql_fetch_array($result);
+if ($row['website']==1){
+?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>System Maintenance</title>
+<style type="text/css">
+<!--
+html, body { margin:0; padding:0; text-align:center; background:url(images/fix_bg.gif) repeat-x 0 298px; font-size:12px; font-family:Arial, Helvetica, sans-serif;}
+body { padding-top:110px;}
+#box {margin:0 auto;}
+.main { background:url(images/fix_line.gif) no-repeat right top; text-align:left; color:#FFF;}
+.main2 { text-align:left; color:#FFF;}
+.info td  { padding-left:19px;text-align:left; }
+p { line-height:24px; font-weight:bold; margin:8px  0 0;}
+em {	font-style: normal;	font-weight: normal;}
+td.email { padding-left:0;}
+.foot { text-align:center; line-height:24px;}
+-->
+</style>
+</head>
+<body>
+<? 
+$m=date('m');
+switch($m){
+	case '1':
+		$m_en="Jan";
+		break;
+	case '2':
+		$m_en="Feb";
+		break;
+	case '3':
+		$m_en="Mar";
+		break;
+	case '4':
+		$m_en="Apr";
+		break;
+	case '5':
+		$m_en="May";
+		break;
+	case '6':
+		$m_en="Jun";
+		break;
+	case '7':
+		$m_en="Jul";
+		break;
+	case '8':
+		$m_en="Aug";
+		break;
+	case '9':
+		$m_en="Sep";
+		break;
+	case '10':
+		$m_en="Oct";
+		break;
+	case '11':
+		$m_en="Nov";
+		break;
+	case '12':
+		$m_en="Dec";
+		break;
 }
 ?>
-<?php if($langx=="zh-tw"):?>
-
-
-  <html>
-  <head>
-    <title>index</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <link rel="stylesheet" href="/style/control/index4.css" type="text/css">
-    <script language="JavaScript" src="/js/HttpRequest.js"></script>
-    <script language="JavaScript" src="/js/index.js"></script>
-    <script language="JavaScript" src="/js/ga.js"></script>
-    <script language="JavaScript" src="/js/zh-tw.js"></script>
-    <script language="JavaScript" type="text/JavaScript">
-      var def_user = "登錄帳號";
-      var def_passwd = "密碼";
-      var def_passwd_safe = "安全代碼";
-      var info_user = "請輸入帳號";
-      var info_passwd = "請輸入密碼";
-      var info_passwd_safe = "請輸入安全代碼";
-    </script>
-  </head>
-
-  <body oncontextmenu="window.event.returnValue=false" onLoad="onload();">
-  <div class="main">
-    <div class="lang">
-      <a href="./index.php?langx=zh-tw"><span name="link_tw" class="lan_word_on">繁體版</span></a>
-      <a href="./index.php?langx=zh-cn"><span name="link_cn" class="lan_word">简体版</span></a>
-      <a href="./index.php?langx=en-us"><span name="link_us" class="lan_word">English</span></a>
-    </div>
-
-    <div class="agLOGO"></div>
-
-    <div class="new" style="
-    width: 100%;
-">
-      <div id="new_btn" class="new_btn_on" onclick="chgdomain('new');" style="
-    width: 50%;
-    height: 40px;
-    line-height: 40px;
-    text-align: center;
-    background-color: #CA9D49;
-    color: #FFFFFF;
-    float: left;
-    cursor: pointer;
-">新版</div>
-      <div id="old_btn" class="new_btn" onclick="chgdomain('old');" style="
-    background-color: #D8D5D5;
-    color: #737373;
-    width: 50%;
-    height: 40px;
-    line-height: 40px;
-    text-align: center;
-    float: left;
-    cursor: pointer;
-">舊版</div>
-    </div>
-    <div class="loginBOX">
-      <form id="LoginForm" name="LoginForm" method="post" action="" onSubmit="return chk_acc();">
-        <input id="langx" type="hidden" name="langx" value=zh-tw>
-        <div class="log_btnG">
-          <span id="btn_A" onClick="checkF('A');" class="log_btnON">登入 1</span>
-          <span id="btn_B" onClick="checkF('B');" class="log_btn">登入 2</span>
-          <span id="btn_C" onClick="checkF('C');" class="log_btn">登入 3</span>
-        </div>
-        <div class="login">
-          <div class="account">
-            <input id="username" class="input_box" type="text" name="username" value="" maxlength="26" tabindex="1" onFocus="inputFocus(this,def_user);" onBlur="inputBlur(this,def_user);" placeholder="登錄帳號">
-          </div>
-          <div class="password">
-            <input id="passwd" class="input_box" type="password" name="passwd" value="" maxlength="28" tabindex="2" onFocus="inputFocus(this,def_passwd);" onBlur="inputBlur(this,def_passwd);" placeholder="密碼">
-          </div>
-
-          <div id="Sefe">
-            <div class="notice">未設定安全代碼不需輸入</div>
-            <div class="safe">
-              <input id="passwd_safe" class="input_box" type="password" name="passwd_safe" value="" maxlength="28" tabindex="2" onFocus="inputFocus(this,def_passwd_safe);" onBlur="inputBlur(this,def_passwd_safe);" placeholder="安全代碼">
-            </div>
-          </div>
-
-          <div id="hr_info" class="warn" style="display:none;"><span>請輸入帳號</span></div>
-          <div class="remember">
-            <label><input type="checkbox" id="remember"/><span></span></label>
-            <span class="remember_word">記住我的帳號</span>
-          </div>
-          <input class="send_btn" type="button" id="Forms Button1" onClick="chk_type();" value="登入">
-        </div>
-      </form>
-    </div>
-  </div>
-  </div>
-
-  <div class="foot_tw"></div>
-  </body>
-  </html>
-<?php endif?>
-<?php if($langx=="en-us"):?>
-
-  <html>
-  <head>
-    <title>index</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <link rel="stylesheet" href="/style/control/index4.css" type="text/css">
-    <script language="JavaScript" src="/js/HttpRequest.js"></script>
-    <script language="JavaScript" src="/js/index.js"></script>
-    <script language="JavaScript" src="/js/ga.js"></script>
-    <script language="JavaScript" src="/js/en-us.js"></script>
-    <script language="JavaScript" type="text/JavaScript">
-      var def_user = "Login ID";
-      var def_passwd = "Password";
-      var def_passwd_safe = "Safe Code";
-      var info_user = "Please enter your Login ID!";
-      var info_passwd = "Please enter your Password!";
-      var info_passwd_safe = "Please enter your Safe Code!";
-    </script>
-  </head>
-
-  <body oncontextmenu="window.event.returnValue=false" onLoad="onload();">
-  <div class="main">
-    <div class="lang">
-      <a href="./index.php?langx=zh-tw"><span name="link_tw" class="lan_word">繁體版</span></a>
-      <a href="./index.php?langx=zh-cn"><span name="link_cn" class="lan_word">简体版</span></a>
-      <a href="./index.php?langx=en-us"><span name="link_us" class="lan_word_on">English</span></a>
-    </div>
-
-    <div class="agLOGO"></div>
-    <div class="new" style="
-    width: 100%;
-">
-      <div id="new_btn" class="new_btn_on" onclick="chgdomain('new');" style="
-    width: 50%;
-    height: 40px;
-    line-height: 40px;
-    text-align: center;
-    background-color: #CA9D49;
-    color: #FFFFFF;
-    float: left;
-    cursor: pointer;
-">New Site</div>
-      <div id="old_btn" class="new_btn" onclick="chgdomain('old');" style="
-    background-color: #D8D5D5;
-    color: #737373;
-    width: 50%;
-    height: 40px;
-    line-height: 40px;
-    text-align: center;
-    float: left;
-    cursor: pointer;
-">Old Site</div>
-    </div>
-    <div class="loginBOX">
-      <form id="LoginForm" name="LoginForm" method="post" action="" onSubmit="return chk_acc();">
-        <input id="langx" type="hidden" name="langx" value=en-us>
-
-        <div class="log_btnG">
-          <span id="btn_A" onClick="checkF('A');" class="log_btnON">LOGIN 1</span>
-          <span id="btn_B" onClick="checkF('B');" class="log_btn">LOGIN 2</span>
-          <span id="btn_C" onClick="checkF('C');" class="log_btn">LOGIN 3</span>
-        </div>
-        <div class="login">
-          <div class="account">
-            <input id="username" class="input_box" type="text" name="username" value="" maxlength="26" tabindex="1" onFocus="inputFocus(this,def_user);" onBlur="inputBlur(this,def_user);" placeholder="Login ID">
-          </div>
-          <div class="password">
-            <input id="passwd" class="input_box" type="password" name="passwd" value="" maxlength="28" tabindex="2" onFocus="inputFocus(this,def_passwd);" onBlur="inputBlur(this,def_passwd);" placeholder="Password">
-          </div>
-
-          <div id="Sefe">
-            <div class="notice_en">Enter Safe Code if it is set for your account.</div>
-            <div class="safe_en">
-              <input id="passwd_safe" class="input_box" type="password" name="passwd_safe" value="" maxlength="28" tabindex="2" onFocus="inputFocus(this,def_passwd_safe);" onBlur="inputBlur(this,def_passwd_safe);" placeholder="Safe Code">
-            </div>
-          </div>
-
-          <div id="hr_info" class="warn" style="display:none;">Please enter your username!</div>
-          <div class="remember">
-            <label><input type="checkbox" id="remember"/><span></span></label>
-            <span class="remember_word_en">Remember Me</span>
-          </div>
-          <input class="send_btn" type="button" id="Forms Button1" onClick="chk_type();" value="LOG IN">
-        </div>
-      </form>
-    </div>
-
-  </div>
-  </div>
-  <div class="foot_us"></div>
-  </body>
-  </html>
-<?php endif?>
-<?php if($langx=="zh-cn"):?>
-  <html>
-  <head>
-    <title>index</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <link rel="stylesheet" href="/style/control/index4.css" type="text/css">
-    <script language="JavaScript" src="/js/HttpRequest.js"></script>
-    <script language="JavaScript" src="/js/index.js"></script>
-    <script language="JavaScript" src="/js/ga.js"></script>
-    <script language="JavaScript" src="/js/zh-cn.js"></script>
-    <script language="JavaScript" type="text/JavaScript">
-      var def_user = "登录帐号";
-      var def_passwd = "密码";
-      var def_passwd_safe = "安全代码";
-      var info_user = "请输入帐号";
-      var info_passwd = "请输入密码";
-      var info_passwd_safe = "请输入安全代码";
-    </script>
-  </head>
-
-  <body  onLoad="onload();">
-  <div class="main">
-    <div class="lang">
-      <a href="./index.php?langx=zh-tw"><span name="link_tw" class="lan_word">繁体版</span></a>
-      <a href="./index.php?langx=zh-cn"><span name="link_cn" class="lan_word_on">简体版</span></a>
-      <a href="./index.php?langx=en-us"><span name="link_us" class="lan_word">English</span></a>
-    </div>
-
-    <div class="agLOGO"></div>
-    <div class="new" style="
-    width: 100%;
-">
-      <div id="new_btn" class="new_btn_on" onclick="chgdomain('new');" style="
-    width: 50%;
-    height: 40px;
-    line-height: 40px;
-    text-align: center;
-    background-color: #CA9D49;
-    color: #FFFFFF;
-    float: left;
-    cursor: pointer;
-">新版</div>
-      <div id="old_btn" class="new_btn" onclick="chgdomain('old');" style="
-    background-color: #D8D5D5;
-    color: #737373;
-    width: 50%;
-    height: 40px;
-    line-height: 40px;
-    text-align: center;
-    float: left;
-    cursor: pointer;
-">旧版</div>
-    </div>
-    <div class="loginBOX">
-
-      <form id="LoginForm" name="LoginForm" method="post" action="" onSubmit="return chk_acc();">
-        <input id="langx" type="hidden" name="langx" value=zh-cn>
-
-        <div class="log_btnG">
-          <span id="btn_A" onClick="checkF('A');" class="log_btnON">登入 1</span>
-          <span id="btn_B" onClick="checkF('B');" class="log_btn">登入 2</span>
-          <span id="btn_C" onClick="checkF('C');" class="log_btn">登入 3</span>
-        </div>
-        <div class="login">
-          <div class="account">
-            <input id="username" class="input_box" type="text" name="username" value="" maxlength="26" tabindex="1" onFocus="inputFocus(this,def_user);" onBlur="inputBlur(this,def_user);" placeholder="登录帐号">
-          </div>
-          <div class="password">
-            <input id="passwd" class="input_box" type="password" name="passwd" value="" maxlength="28" tabindex="2" onFocus="inputFocus(this,def_passwd);" onBlur="inputBlur(this,def_passwd);" placeholder="密码">
-          </div>
-
-          <div id="Sefe">
-            <div class="notice">未设定安全代码不需输入</div>
-            <div class="safe">
-              <input id="passwd_safe" class="input_box" type="password" name="passwd_safe" value="" maxlength="28" tabindex="2" onFocus="inputFocus(this,def_passwd_safe);" onBlur="inputBlur(this,def_passwd_safe);" placeholder="安全代码">
-            </div>
-          </div>
-
-          <div id="hr_info" class="warn" style="display:none;">请输入帐号</div>
-          <div class="remember">
-            <label><input type="checkbox" id="remember"/><span></span></label>
-            <span class="remember_word">记住我的帐号</span>
-          </div>
-          <input class="send_btn" type="button" id="Forms Button1" onClick="chk_type();" value="登入">
-        </div>
-      </form>
-    </div>
-  </div>
-  </div>
-
-  <div class="foot_tw"></div>
-  </body>
-  </html>
-<?php endif?>
+<table width="1049" border="0" cellpadding="0" cellspacing="0" id="box">
+  <tr>
+    <td align="right"><img src="images/fix_1.jpg" width="263" height="188" /><img src="images/fix_2.gif" width="613" height="188" /></td>
+  </tr>
+  <tr>
+    <td><table width="100%" border="0" cellspacing="0" cellpadding="0" height="219">
+      <tr>
+        <td valign="top" class="main"><table width="351" border="0" cellspacing="0" cellpadding="0" class="info">
+          <tr>
+            <td colspan="2"><img src="images/fix_3.gif" width="303" height="84" /></td>
+          </tr>
+          <tr>
+            <td height="73" colspan="2" valign="top">
+            <p>服务中断期间 - <em><?=date('Y')?>年<?=date('m')?>月<?=date('d')?>日</em><br />
+           <?=date('m/d')?>   <?=$row['systime']?>（北京时间）</p>
+            </td>
+          </tr>
+          <tr>
+            <td width="147">电话号码: <br />
+              +63 915 195 0193<br />
+              +63 915 195 5533</td>
+            <td valign="top" class="email">电子邮箱:<br />
+royal888crown@hotmail.com</td>
+          </tr>
+        </table></td>
+        <td valign="top" class="main"><table width="364" border="0" cellspacing="0" cellpadding="0" class="info">
+          <tr>
+            <td colspan="2"><img src="images/fix_4.gif" alt="" width="327" height="84" /></td>
+          </tr>
+          <tr>
+            <td height="73" colspan="2" valign="top"><p>Service Disruption Period - <em><?=date('d')?> <?=$m_en?> <?=date('Y')?></em><br />
+            <?=date('m/d')?>  <?=$row['systime']?>(GMT +08:00) </p></td>
+          </tr>
+          <tr>
+            <td width="163">Telephone Nos.: <br />
+              +63 915 195 0193<br />
++63 915 195 5533</td>
+            <td valign="top" class="email">Email :<br />
+              royal888crown@hotmail.com</td>
+          </tr>
+          </table></td>
+        <td valign="top" class="main2"><table width="334" border="0" cellspacing="0" cellpadding="0" class="info">
+          <tr>
+            <td colspan="2"><img src="images/fix_5.gif" alt="" width="314" height="84" /></td>
+          </tr>
+          <tr>
+            <td height="73" colspan="2" valign="top"><p>ระยะเวลาที่ไม่สามารถให้บริการ - <em><?=date('d')?> <?=$m_en?> <?=date('Y')?></em><br />
+            <?=date('m/d')?>  <?=$row['systime']?>(GMT +08:00)</p></td>
+          </tr>
+          <tr class="info">
+            <td width="164">เบอร์โทรศัพท์: <br />
+              +63 915 195 0193<br />
++63 915 195 5533</td>
+            <td valign="top" class="email">อีเมล:<br />
+              royal888crown@hotmail.com</td>
+          </tr>
+          </table></td>
+      </tr>
+    </table></td>
+  </tr>
+  <tr>
+    <td class="foot">© Copyright  2006 - 2012  SBC.com</td>
+  </tr>
+</table>
+<div style="display:none">
+<script src="https://s95.cnzz.com/z_stat.php?id=1260314708&web_id=1260314708" language="JavaScript"></script></div>
+</body>
+</html>
+<?
+}else{
+?>
+<html>
+<head>
+<title>管理端</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<frameset rows="*,0" frameborder="NO" border="0" framespacing="0"> 
+<frame name="ddnet_corp_index" src="new_index.php?type_chk=&langx=<?=$langx?>">
+<frame name="ddnet_corp_func" scrolling="NO" noresize src="ok.html">
+</frameset>
+<noframes> 
+<body bgcolor="#FFFFFF" text="#000000">
+</body>
+</noframes> 
+</html>
+<?
+}
+?>

@@ -47,7 +47,7 @@ if ($keys=='add'){
 	while (list($key, $value) = each($row)) {
 
 		if (preg_match("/Scene/i",$key) || preg_match ("/Bet/i",$key) || preg_match ("/Turn/i",$key)){
-			$tt=explode('_',$key);
+			$tt=split('_',$key);
 			$cou=count($tt);
 
 			if (preg_match("/_Turn/i",$key)){
@@ -353,7 +353,7 @@ function ChkMem(){
       <td class="m_mem_ed">汇率设定:</td>
       <td>
 <select name="currency" class="za_select" onChange="Chg_Mcy('now');Chg_Mcy('mx')">
-	  <option value="RMB">人民币 -> 人民币</option>
+	  <option value="RMB">美金 -> 美金</option>
 
 
         </select>
@@ -363,7 +363,7 @@ function ChkMem(){
       <td class="m_mem_ed">总信用额度:</td>
       <td>
         <input type=TEXT name="maxcredit" value="0" size=12 maxlength=12 class="za_text" onKeyUp="Chg_Mcy('mx');" onKeyPress="return CheckKey();">
-        人民币:<font color="#FF0033" id="mcy_mx">0</font> </td>
+        美金:<font color="#FF0033" id="mcy_mx">0</font> </td>
     </tr>
     <tr class="m_bc_ed">
       <td class="m_mem_ed">现金额度:</td>

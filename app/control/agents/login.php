@@ -6,8 +6,7 @@ $langx=$_REQUEST['langx'];
 $str = time();
 
 $langx=$_REQUEST['langx'];
-// $uid=$_REQUEST['uid'];
-$uid = '';
+$uid=$_REQUEST['uid'];
 if ($uid==''){
 	$uid=substr(md5($str),0,14);
 }
@@ -21,7 +20,6 @@ $password=substr(md5(md5($_REQUEST["passwd"]."abc123")),0,16);
 $sql = "select Agname from `web_agents` where Agname ='$username' and Passwd='$password' and passwd_safe=''";
 $result = mysql_query($sql);
 $cou=mysql_num_rows($result);
-// var_dump($cou);die;
 if($cou>0){	
 	echo "<SCRIPT language='javascript'>self.location='account/chg_passwd_safe.php?username=$username&password=$password&langx=$langx';</script>";
 	exit;

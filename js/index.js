@@ -68,7 +68,6 @@ function do_login(){
 
 function chk_type(){
 	var tmpPathUrl = "";
-	
 	switch(selLayer){
 		case "A":
 			pathUrl = "app/corprator/";
