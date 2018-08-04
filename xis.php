@@ -1,75 +1,14 @@
-<?php
-// ï¿½è¶¨ï¿½ï¿½Òªï¿½ï¿½ï¿½BOMï¿½Ä¸ï¿½Ä¿Â¼ï¿½ï¿½ï¿½ï¿½ï¿½Ô¶ï¿½É¨ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¿Â¼ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½
-$HOME = dirname(__FILE__);
-// ï¿½ï¿½ï¿½ï¿½ï¿½WindowsÏµÍ³ï¿½ï¿½ï¿½Þ¸ï¿½Îªï¿½ï¿½$WIN = 1;
-$WIN = 0;
-?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>UTF8 BOM ï¿½ï¿½ï¿½ï¿½ï¿½</title>
-<style>
-body { font-size: 10px; font-family: Arial, Helvetica, sans-serif; background: #FFF; color: #000; }
-.FOUND { color: #F30; font-size: 14px; font-weight: bold; }
-</style>
-</head>
-<body>
-<?php
-$BOMBED = array();
-RecursiveFolder($HOME);
-echo '<h2>These files had UTF8 BOM, but i cleaned them:</h2><p class="FOUND">';
-foreach ($BOMBED as $utf) { echo $utf ."<br />\n"; }
-echo '</p>';
-// ï¿½Ý¹ï¿½É¨ï¿½ï¿½
-function RecursiveFolder($sHOME) {
- global $BOMBED, $WIN;
- $win32 = ($WIN == 1) ? "\\" : "/";
- $folder = dir($sHOME);
- $foundfolders = array();
- while ($file = $folder->read()) {
-  if($file != "." and $file != "..") {
-   if(filetype($sHOME . $win32 . $file) == "dir"){
-    $foundfolders[count($foundfolders)] = $sHOME . $win32 . $file;
-   } else {
-    $content = file_get_contents($sHOME . $win32 . $file);
-    $BOM = SearchBOM($content);
-    if ($BOM) {
-     $BOMBED[count($BOMBED)] = $sHOME . $win32 . $file;
-     // ï¿½Æ³ï¿½BOMï¿½ï¿½Ï¢
-     $content = substr($content,3);
-     // Ð´ï¿½Øµï¿½Ô­Ê¼ï¿½Ä¼ï¿½
-     file_put_contents($sHOME . $win32 . $file, $content);
-    }
-   }
-  }
- }
- $folder->close();
- if(count($foundfolders) > 0) {
-  foreach ($foundfolders as $folder) {
-   RecursiveFolder($folder, $win32);
-  }
- }
-}
-// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç°ï¿½Ä¼ï¿½ï¿½Ç·ï¿½ï¿½ï¿½BOM
-function SearchBOM($string) { 
-  if(substr($string,0,3) == pack("CCC",0xef,0xbb,0xbf)) return true;
-  return false; 
-}
-?>
-</body>
-=======
 <?php 
-// ï¿½è¶¨ï¿½ï¿½Òªï¿½ï¿½ï¿½BOMï¿½Ä¸ï¿½Ä¿Â¼ï¿½ï¿½ï¿½ï¿½ï¿½Ô¶ï¿½É¨ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¿Â¼ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½
+// Éè¶¨ÄãÒªÇå³ýBOMµÄ¸ùÄ¿Â¼£¨»á×Ô¶¯É¨ÃèËùÓÐ×ÓÄ¿Â¼ºÍÎÄ¼þ£©
 $HOME = dirname(__FILE__);
-// ï¿½ï¿½ï¿½ï¿½ï¿½WindowsÏµÍ³ï¿½ï¿½ï¿½Þ¸ï¿½Îªï¿½ï¿½$WIN = 1;
+// Èç¹ûÊÇWindowsÏµÍ³£¬ÐÞ¸ÄÎª£º$WIN = 1;
 $WIN = 0;
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>UTF8 BOM ï¿½ï¿½ï¿½ï¿½ï¿½</title>
+<title>UTF8 BOM Çå³ýÆ÷</title>
 <style>
 body { font-size: 10px; font-family: Arial, Helvetica, sans-serif; background: #FFF; color: #000; }
 .FOUND { color: #F30; font-size: 14px; font-weight: bold; }
@@ -82,7 +21,7 @@ RecursiveFolder($HOME);
 echo '<h2>These files had UTF8 BOM, but i cleaned them:</h2><p class="FOUND">';
 foreach ($BOMBED as $utf) { echo $utf ."<br />\n"; }
 echo '</p>';
-// ï¿½Ý¹ï¿½É¨ï¿½ï¿½
+// µÝ¹éÉ¨Ãè
 function RecursiveFolder($sHOME) {
  global $BOMBED, $WIN;
  $win32 = ($WIN == 1) ? "\\" : "/";
@@ -97,9 +36,9 @@ function RecursiveFolder($sHOME) {
     $BOM = SearchBOM($content);
     if ($BOM) {
      $BOMBED[count($BOMBED)] = $sHOME . $win32 . $file;
-     // ï¿½Æ³ï¿½BOMï¿½ï¿½Ï¢
+     // ÒÆ³öBOMÐÅÏ¢
      $content = substr($content,3);
-     // Ð´ï¿½Øµï¿½Ô­Ê¼ï¿½Ä¼ï¿½
+     // Ð´»Øµ½Ô­Ê¼ÎÄ¼þ
      file_put_contents($sHOME . $win32 . $file, $content);
     }
    }
@@ -112,12 +51,11 @@ function RecursiveFolder($sHOME) {
   }
  }
 }
-// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç°ï¿½Ä¼ï¿½ï¿½Ç·ï¿½ï¿½ï¿½BOM
+// ËÑË÷µ±Ç°ÎÄ¼þÊÇ·ñÓÐBOM
 function SearchBOM($string) { 
   if(substr($string,0,3) == pack("CCC",0xef,0xbb,0xbf)) return true;
   return false; 
 }
 ?>
 </body>
->>>>>>> bf841b75f7a17bcbe0192419782a1ed7c86f8fa4
 </html>
