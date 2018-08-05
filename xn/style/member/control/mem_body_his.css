@@ -1,0 +1,83 @@
+/*2011-04-19-For NewSI2 ======= history / tody wager ======*/
+/*------ today_wagers  ,  today_wagers_fail , history_data , history_view ------*/
+
+#MWAG td#page_no { width:100px;}
+.wag_btn { height:19px; cursor:hand; padding:2px; border:solid 1px #B6ADAA;color:#FFF; background-color:#7B716E;}
+.wag_btn2 { height:19px; padding:2px; border:solid 1px #B6ADAA;color:#FFF; background-color:#7B716E;}/*取消單-無資料*/
+
+/*取消單-細單*/
+.wag_btn_back { height:19px; cursor:hand; padding:2px 2px 2px 20px; border:solid 1px #B6ADAA; color:#FFF; background:#7B716E url(/images/member/mem_icon.gif) no-repeat 0 -196px;}
+/*交易狀況*/
+input.wag_btn, input.wag_btn_back, input.wag_none { margin:0; padding:0;}
+/*html>body .wag_btn_back  { padding-left:20px;}*/
+a.wag_btn_back:link, a.wag_btn_back:visited, a.wag_btn:link, a.wag_btn:visited { color:#FFF;}
+/*取消單-有資料*/
+.wag_lis { color:#0F0;}
+/*取消單-無資料*/
+.wag_none { color:#FFF;}
+/*input.wag_none {margin:0; padding:-2px 0 0;height:19px; border:solid 1px #B6ADAA;color:#FFF; background-color:#ccc;}*/
+
+.sum_bar { height:26px; color:#FFF;background-color:#4A3D34; font-weight:bold;}
+/*tr color*/
+.his_first { background-color:#E9DBC6;}
+.his_even {background-color:#F2E9DD;}
+/*tody wagers cancel*/
+body.bodyset_cal .his_first { color:#8f8f8f!important; background-color:#E9DBC6;}
+body.bodyset_cal .his_even {color:#8f8f8f!important;background-color:#F2E9DD;}
+.danger { padding-left:20px; background:url(../../images/member/icon_Danger.gif) no-repeat 0 50%;}
+.dan_red { color:#d60008!important;font-weight: bold;}
+.dan_blue {color: #0101f7!important;font-weight: bold;}
+.dan_green {color: #090!important;font-weight: bold;}
+h3#page_bar {white-space:nowrap; margin:0; padding: 10px 8px 0px; *padding-bottom:10px; height:26px;text-align:center; color:#FFF; font:normal 0.75em Arial, Helvetica, sans-serif; background-color:#85725D;border:1px solid #B9B9A3; border-bottom:1px solid #D7D7C1;}
+h3#page_bar a:link, h3 a:visited {color:#FFF;}
+h3#page_bar a:hover { color:#FF0;}
+h3 span { display: block; float: left; height:11px; background: url(/images/member/mem_icon.gif) no-repeat;}
+.page_lis { width:200px; margin:auto; text-align:center;}
+.preious_btn {padding-left:40px; background-position: 0 -118px;}
+.next_btn {padding-right:40px;background-position: 100% -138px;}
+h3#page_bar .line { float: left; margin:0px 10px; margin-top:-2px; height:6px;}
+/*無頁次*/
+.page_none { width:230px; margin:auto;text-align:center; color: #B3B3B3;}
+.page_none .preious_btn {padding-left:40px; background-position: 0 -158px;}
+.page_none .next_btn {padding-right:40px;background-position: 100% -178px;}
+/*=============history_data=============*/
+body.HIS a:link, body.HIS a:visited  { color:#000;}
+body.HIS a:hover { color:#000; text-decoration:underline;}
+.his_list_none { height:25px; text-align:center; color:#000;}/*無金額日期*/
+.his_list {text-align:center; color: #000;font-weight:bold;}/*有金額日期*/
+/*td over color*/
+.his_over { *cursor:hand; cursor:pointer;text-align:center; color:#000;font-weight:bold; text-decoration:underline;}/*有金額日期--滑過*/
+
+.his_td { height:25px; text-align: right;}
+
+body.HIS th { line-height:25px;}
+.his_time { width:360px;}
+.his_wag { width:120px; }
+.his_total { height:25px;}
+.his_name { text-align:left;/*word-break:break-all;/*強迫斷行*/ white-space:normal;}
+
+/*history 刷新*/
+td.his_refresh { width:350px; padding-left:8px;}
+td.his_refresh div {  color:#F9C100; cursor:hand; height:26px; width:38px; text-align: center; padding:6px 3px 0 10px; background:url(/images/member/his_refresh_btn.gif) no-repeat 0 0;}
+html>body td.his_refresh div  { margin-top: 5px;}
+.his_refresh font { margin-left:25px; width:36px;}
+html>body td.his_refresh div font {  float: left; clear:right;padding:0 3px 0 0;}/*Mac Hack*/
+/*滑過變色*//**/
+td.his_refresh div:hover {background:url(/images/member/his_refresh_btn.gif) no-repeat 0 -30px;} 
+
+/*選擇欄位內*/
+.his_result { color:#d20107; text-decoration:none;white-space:nowrap;}/*結果font-weight:bold; */
+.his_score { color:#F00;}/*比分*//**/
+.his_odd { color:#d20107; font-weight:bold;}/*@xx */
+.gold { text-align:left; display: block; padding-top:2px;}/*Paying money*/
+/**/
+.his_h, .his_a, .his_vs { color:#000; }
+/*聯賽已選擇隊伍
+.sel_team { color:#C00; white-space:nowrap;}*/
+/*
+主 class="his_h"
+客 class="his_a"
+vs class="his_vs"
+比分 class="his_score"
+和(結果) class="his_ result"
+@xx  class="his_odd"*/

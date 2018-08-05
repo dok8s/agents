@@ -1,0 +1,224 @@
+body {
+	margin: 0px;
+	font-family: Arial, Helvetica, sans-serif;
+	left: 0px;
+	top: 0px;
+	color: #000000;
+}
+.main_bg {
+	background-image:   url(/images/2004/index_tabbg.jpg);
+	background-repeat: repeat-x;
+}
+.main {
+	margin-top: 10px;
+}
+.line {
+	border: 1px solid #336699;
+	width: 500px;
+	height: 130px;
+}
+.main h1 {
+	color: #000000;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 12px;
+	font-family: Arial, Helvetica, sans-serif;
+	display: block;
+	position: absolute;
+	border-right-width: 1px;
+	border-right-style: solid;
+	border-right-color: #0066CC;
+	height: 90px;
+	left: 300px;
+	margin-top: 10px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	margin-left: 0px;
+	padding-right: 20px;
+	width: 200px;
+}
+.main h2 {
+	color: #000000;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 13px;
+	font-family: Arial, Helvetica, sans-serif;
+	position: absolute;
+	text-align: center;
+	white-space: nowrap;
+	padding-top: 30px;
+}
+h3 {
+	color: #000000;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 12px;
+	margin: 0px;
+	font-family: Arial, Helvetica, sans-serif;
+}
+.main p {
+	padding-left: 20px;
+	color: #000000;
+	margin: 0px;
+	padding-top: 2px;
+	font-size: 12px;
+	font-family: Arial, Helvetica, sans-serif;
+}
+p input {
+	font-family: Arial;
+	font-size: 12px;
+	height: 20px;
+	width: 80px;
+}
+
+.login {
+	margin-left: 15px;
+}
+form {
+	margin: 0px;
+	padding: 0px;
+}
+.lang {
+	position: absolute;
+	height: 30px;
+}
+.link {
+	vertical-align: bottom;
+}
+.link ul {
+	display: inline;
+	list-style-type: none;
+	margin: 0; padding: 0;
+}
+.link li {
+	list-style-type: none;
+	display: inline;
+	margin: 0px;
+	padding: 0px;
+}
+.link img {
+	border: 0px;
+	margin: 0px;
+}
+.code {
+	color: #000000;
+	padding-top: 8px;
+}
+.code2 {
+	text-align: center;
+	margin-top: 30px;
+}
+.number {
+	font-size: 16px;
+	font-weight: bold;
+	color: #0000FF;
+	text-align: center;
+}
+.flash {
+	display: block;
+	margin-top: 2px;
+	text-align: right;
+	width: 500px;
+}
+.div {
+	width: 450px;
+	height: 220px;
+	margin-left: 300px;
+	border: 1px dashed #FFFFFF;
+}
+.div_cen {
+	text-align: left;
+	background-image: url(/images/2004/index_bg.gif);
+	background-repeat: no-repeat;
+	background-position: left top;
+	padding: 0px;
+	position: absolute;
+	top: 0px;
+	width: 100%;
+	height: 312px;
+}
+.icon {
+	background-image: url(/images/member/icon_new01.gif);
+	background-repeat: no-repeat;
+	list-style-type: none;
+	padding-right: 80px;
+}
+.logo {
+	background-image: url(/images/2004/index_logo.jpg);
+	background-repeat: no-repeat;
+	height: 78px;
+	width: 157px;
+	margin-left: 300px;
+}
+.div_cen .main hr {
+	width: 500px;
+	margin-left: 300px;
+	margin-top: 0px;
+}
+.sub {
+	margin-left: 300px;
+	display: block;
+	position: relative;
+	bottom: 2px;
+	color: #000000;
+	width: 500px;
+	font-size: 12px;
+	line-height: 18px;
+}
+.foot {
+	display: block;
+	position: relative;
+	bottom: 10px;
+	color: #000000;
+	width: 500px;
+	font-size: 12px;
+	line-height: 18px;
+	text-align: left;
+	padding-top: 30px;
+	padding-right: 0px;
+	padding-bottom: 0px;
+	padding-left: 0px;
+}
+.head {
+	background-image: url(/images/2004/head.gif);
+	background-repeat: no-repeat;
+	background-position: right;
+	background-color: #164BA8;
+	font-size: 17px;
+	padding-left: 10px;
+	padding-top: 2px;
+	padding-bottom: 2px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	color: #FFFFFF;
+}
+.safe {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 0.7em;
+	color: #FF0000;
+	padding-top: 8px;
+	padding-right: 80px;
+	padding-bottom: 8px;
+	padding-left: 255px;
+} 
+/*------------virus----------------*/
+.virus {
+	color: #FFFF00;
+	float: right;
+	font-size: 12px;
+	background-image: url(/images/index/index_virus.gif);
+	background-repeat: no-repeat;
+	padding-left: 25px;
+	margin-top: -20px;
+	text-decoration: none;
+	padding-top: 5px;
+	padding-right: 10px;
+}
+.virus a:link , .virus a:visited{
+	color: #FFFF00;
+	text-decoration: none;
+}
+a:hover {
+	color: #FFFFFF;
+	text-decoration: none;
+}
