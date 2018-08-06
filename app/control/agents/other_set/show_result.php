@@ -123,37 +123,19 @@ function chg_pg(pg)
 
 <body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" vlink="#0000FF" alink="#0000FF"   onLoad="onLoad()" >
 <div id="body_show" style=""><div id="result_all_FT" name="MaxTag" src="/js/result_all_FT.js" linkage="result_all_FT">
-		<div id="fastTemplate_ag" name="MaxTag" src="/js/lib/fastTemplate_ag.js" linkage="fastTemplate_ag"></div>
-		<!---------- 盘面切换 start ---------->
-		<div id="top_nav_container" name="fixHead" class="top_nav_container">
-			<div class="bet_MaxTag" name="MaxTag" src="/js/header_totalbets.js" linkage="header_totalbets">
-				<div id="overview_btn" class="nav_btn">总览</div>
-				<div id="inplay_btn" class="nav_btn">滚球</div>
-				<div id="today_btn" class="nav_btn">今日</div>
-				<div id="early_btn" class="nav_btn">早盘</div>
-				<div id="started_btn" class="nav_btn">已开赛</div>
-				<div id="parlay_btn" class="nav_btn">过关</div>
-				<div id="outright_btn" class="nav_btn">冠军</div>
-				<div id="results_btn" class="nav_btn_on">赛果</div>
-				<div id="wmc_btn" class="bet_wager">注单监视视窗<span id="wager_new" class="bet_wager_new"></span></div>
-			</div>
-		</div>
-		<!---------- 盘面切换 end ---------->
-
-
 		<div id="bet_main" class="bet_main" onresize="setDivSize(this)" style="width: 1280px;">
 			<div class="bet_mainpadding">
 				<!---------main------------->
 				<!---------yallowBTN------------->
 				<div class="bet_resultBTNG noFloat">
-					<span id="yellowEvent" class="bet_resultBTNon">赛事</span><span id="yellowOutright" class="bet_resultBTN">冠军</span>
+					<span id="yellowEvent" class="bet_resultBTNon">赛事</span>
 				</div>
 				<div class="bet_inplayTitle">
         <span class="bet_TitleName">
 
         <!------特制下拉罢--------->
         <ul class="bet_selectSP" id="gtype_sel"><li><a class="bet_selectSP_first">足球</a>
-        	<ul id="sport_sel" class="bet_selectSP_options" style="display:none;">
+        	<ul id="sport_sel" class="bet_selectSP_options" >
             	<li id="FT_sel"><a>足球</a></li>
                 <li id="BK_sel"><a>篮球 / 美式足球</a></li>
                 <li id="TN_sel"><a>网球</a></li>
