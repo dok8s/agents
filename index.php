@@ -1,4 +1,5 @@
 <?
+error_reporting(0);
 require ("app/member/include/config.inc.php");
 $langx=$_REQUEST['langx'];
 $sql = "select website,systime,systime1 from web_system";
