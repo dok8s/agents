@@ -1,4 +1,5 @@
 <?
+error_reporting(0);
 foreach ($_GET as $get_key=>$get_var)
 {
     if (is_numeric($get_var))
