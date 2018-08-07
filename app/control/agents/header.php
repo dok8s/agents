@@ -184,6 +184,7 @@ if ($subuser==1 || $row['status']==2){
   <title>-代理商界面</title>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   <link rel="stylesheet" href="/style/control/control_header.css" type="text/css">
+  <link rel="stylesheet" href="/style/home.css" type="text/css">
 </head>
 <script src="/js/wmenu.js" type="text/javascript"></script>
 <script type="text/javascript">
