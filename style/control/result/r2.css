@@ -413,7 +413,7 @@ label.selectBar_filter:before { position:absolute;top:0px;right:0; width:30px;he
 
 
 /*Results*/
-.bet_resultBTNG, .bet_wagerBTNG{width:100%;padding-top:10px; background: url(../../images/control/bet_resultBTNG.jpg) repeat-x bottom;}
+.bet_resultBTNG, .bet_wagerBTNG{width:100%;padding-top:10px; background: url(../../../images/control/bet_resultBTNG.jpg) repeat-x bottom;}
 .bet_resultBTN, .bet_resultBTNon{display:block; float:left;width:117px; line-height:36px; background-color:#ca9d49; text-align:center; color:#fff; font-size:13px; border-color:#ca9d49; border-style:solid; border-width:1px 0 0 0; }
 .bet_resultBTNon{ background-color:#fff;color:#3b3b3b;border-width:1px 1px 0 1px; }
 .bet_result_closeTR{ height:40px;background-color:#fff; }

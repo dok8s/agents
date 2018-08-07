@@ -134,8 +134,8 @@ function chg_pg(pg)
         <span class="bet_TitleName">
 
         <!------特制下拉罢--------->
-        <ul class="bet_selectSP" id="gtype_sel"><li><a class="bet_selectSP_first">足球</a>
-        	<ul id="sport_sel" class="bet_selectSP_options" >
+        <ul class="bet_selectSP" id="gtype_sel" onmouseover='javascript:document.all["sport_sel"].style.display="block";' onmouseout="javascript:document.all['sport_sel'].style.display='none';"><li><a class="bet_selectSP_first">足球</a>
+        	<ul id="sport_sel" class="bet_selectSP_options" style="display:none;">
             	<li id="FT_sel"><a>足球</a></li>
                 <li id="BK_sel"><a>篮球 / 美式足球</a></li>
                 <li id="TN_sel"><a>网球</a></li>
@@ -662,114 +662,6 @@ function chg_pg(pg)
 			</div>
 		</div>
 	</div></div>
-<FORM NAME="REFORM">
-<table width="780" border="0" cellspacing="0" cellpadding="0">
-  <tr> 
-    <td class="m_tline"> 
-      <table border="0" cellspacing="0" cellpadding="0" >
-        <tr> 
-          
-          <td width="100" >&nbsp;&nbsp;
-<?
-if ($flag==''){
-?><A HREF="./show_result.php?uid=<?=$uid?>&gtype=<?=$gtype?>&flag=Y" target="_self">昨日</A>
-<?
-}else{
-?>
-<A HREF="./show_result.php?uid=<?=$uid?>&gtype=<?=$gtype?>" target="_self">今日</A>
-<?
-}
-?>
-&nbsp;&nbsp;&nbsp;&nbsp;赛程:
-</td>
-          
-        <td width="220" > 
-		<A HREF="./show_result.php?uid=<?=$uid?>&gtype=FT" target="_self">[足球]</A>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="./show_result.php?uid=<?=$uid?>&gtype=BK" target="_self">[篮球]</A>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="./show_result.php?uid=<?=$uid?>&gtype=TN" target="_self">[网球]</A>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="./show_result.php?uid=<?=$uid?>&gtype=VB" target="_self">[排球]</A> &nbsp;&nbsp;&nbsp;&nbsp;<A HREF="./show_result.php?uid=<?=$uid?>&gtype=BS" target="_self">[棒球]</A> 
-        </td>
-        <td>
-        <span id="pg_txt"></span>
-        </td>
-        </tr>
-      </table>
-    </td>
-    
-    <td width="30"><img src="/images/control/zh-tw/top_04.gif" width="30" height="24"></td>
-  </tr>
-  <tr> 
-    <td colspan="2" height="4"></td>
-  </tr>
-</table>
-<table id="glist_table" border="0" cellspacing="1" cellpadding="0"  bgcolor="006255" class="m_tab<?=$css?>" width="610">
-  <tr  class="m_title<?=$css1?>"> 
-		<td width="40">时间</td>
-		<td width="50" nowrap>联盟</td>
-		<td width="40">场次</td>
-		<td width="180">队伍</td>
-		<?
-		if($gtype=='FT' || $gtype=='BS'){
-			?>
-		<td width="150">上半</td>
-		<?
-	}
-	?>
-		<td width="150">完赛</td>
-	</tr>
-  </tr>
-<?
-while ($row = mysql_fetch_array($result)){
-
-if(count(explode("PK",$row['m_league']))==1 && count(explode("延时",$row['m_league']))==1){
-?>
-  <tr  bgcolor='#FFFFFF'> 
-    <td><?=$row['m_date']?><BR><?=$row['m_time']?></td>
-
-    <td align='center'><?
-	if ($row['m_sleague']==''){
-		echo $row['m_league'];
-	}else{
-		echo $row['m_sleague'];
-	}?></td>
-    <td ><?=$row['mb_mid']?><br><?=$row['tg_mid']?></td>
-    <td ><?=$row['mb_team']?><br><?=$row['tg_team']?></td>
-    <!--td ></td-->
-<?
-		if($gtype=='FT' || $gtype=='BS'){
-			if ($row['mb_inball_hr']==-1 || $row['mb_inball_hr']==-1){
-				$ball_hr='<font color="#CC0000">赛事延赛</font>';
-			}else{
-				$ball_hr=$row['mb_inball_hr'].'<br>'.$row['tg_inball_hr'];
-			}
-
-			if ($row['mb_inball']==-1 || $row['tg_inball']==-1){
-				if ($row['mb_inball_hr']==-1 || $row['mb_inball_hr']==-1){
-					$ball='<font color="#CC0000">赛事延赛</font>';
-				}else{
-					$ball='<font color="#CC0000">赛事腰斩</font>';
-				}
-			}else{
-				$ball=$row['mb_inball'].'<br>'.$row['tg_inball'];
-			}
-			
-			?>
-    <td align='center'><?=$ball_hr?></td>
-    <td align='center'><?=$ball?></td>
-    <?
-  }else{
-?>    <td align='center'><?=$row['mb_inball']?><br><?=$row['tg_inball']?></td>
-  <?	
-  	}
-  	?>
-  </tr> 
-<?
-}
-}
-?>
-
-</table>
-</form>
-<span id="bodyP" style="position:absolute; display: none">
-  页次:&nbsp;*SHOW_P*
-</span>
 </body>
 </html>
 <?
