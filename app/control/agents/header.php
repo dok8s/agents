@@ -8,6 +8,17 @@ if (!$_SESSION["bkbk"])
 require ("../../member/include/config.inc.php");
 $uid=$_REQUEST["uid"];
 $langx=$_REQUEST["langx"];
+//会员总数
+$sql = "select * from web_agents where Oid='$uid'";
+$result = mysql_query($sql);
+$agents = mysql_fetch_array($result);
+$agname=$agents['Agname'];
+
+$sql="select  count(*) as count from web_member where Agents='$agname' AND Status=1";
+$web_marquee = mysql_query($sql);
+$row = mysql_fetch_array($web_marquee);
+$member_count=$row['count'];
+
 $sql = "select id,subuser,agname,passwd_safe,subname,status,wager from web_agents where Oid='$uid'";
 $result = mysql_query($sql);
 $cou=mysql_num_rows($result);
@@ -297,14 +308,9 @@ if ($subuser==1 || $row['status']==2){
                   <span id="sel_langx" name="sel_langx" class="lang_txt">简体</span>
                 </div>
               </div>
-              <div id="online_mem" class="online_btn" title="">线上会员: <span id="online_mem_count">0</span></div>
-              <div id="update_browser" class="take_survey" style="display:none;">升级浏览器</div>
-              <div id="take_survey" class="take_survey" style="display:none;">线上问卷</div>
+              <div id="online_mem" class="online_btn" title="">会员总数: <span id="online_mem_count"><?=$member_count?></span></div>
 
-              <div id="uesr_code" class="uesr_code">登入3--<?=$agname?>--<?=$passwd_safe?>|<a href="/quit.php?level=3&uid=<?=$uid?>" target="_top" onMouseOver="window.status='登出'; return true;" onMouseOut="window.status='';return true;">登出</a></div>
-              <div id="problem_account" class="problem_account" title="问题帐户" style="display: none;">
-                <span id="problem_account_count" style="display:none;">0</span></div>
-              <div id="note" class="note" title="个人公告"><span id="note_count" style="display:none;">0</span></div>
+              <div id="uesr_code" class="uesr_code">登入3--<?=$agname?>--<?=$passwd_safe?>|<a href="/quit.php?level=3&uid=<?=$uid?>" target="_top" onMouseOver="window.status='登出'; return true;" onMouseOut="window.status='';return true;" style="color: #1e1e1e;">登出</a></div>
               <div id="contactus" class="contact_us">联系我们</div>
               <div id="live_chat" class="live_chat">在线客服
               </div>
@@ -312,12 +318,11 @@ if ($subuser==1 || $row['status']==2){
             </div>
 
             <div id="header_tr2" name="fixHead" class="nav_container">
-              <div id="back_btn" class="nav_back">&nbsp;</div>
               <div id="home_btn" class="nav_box_on"><a href="/app/control/agents/body_home.php?uid=<?$uid?>&langx=<?=$langx?>" class="top_a" target="main" onMouseOver="window.status='首页'; return true;" onMouseOut="window.status='';return true;">首页</a></div>
-              <div id="anno_btn" class="nav_box">公告内容</div>
+              <div id="anno_btn" class="nav_box"><a href="/app/control/agents/body_home.php?uid=<?$uid?>&langx=<?=$langx?>"  class="top_a" target="main" onMouseOver="window.status='公告内容'; return true;" onMouseOut="window.status='';return true;">公告内容</a></div>
               <div id="bet_btn" class="nav_box"><a href="/app/control/agents/other_set/show_result.php?uid=<?=$uid?>"  class="top_a" target="main" onMouseOver="window.status='赛果'; return true;" onMouseOut="window.status='';return true;">赛果</a></div>
-              <div id="account_btn" class="nav_box">现金系统</div>
-              <div id="account_btn" class="nav_box">帐号管理</div>
+              <div id="account_btn" class="nav_box"><a href="/app/control/agents/body_home.php?uid=<?$uid?>&langx=<?=$langx?>"  class="top_a" target="main" onMouseOver="window.status='现金系统'; return true;" onMouseOut="window.status='';return true;">现金系统</a></div>
+              <div id="account_btn" class="nav_box"><a href="/app/control/agents/body_home.php?uid=<?$uid?>&langx=<?=$langx?>"  class="top_a" target="main" onMouseOver="window.status='帐号管理'; return true;" onMouseOut="window.status='';return true;">帐号管理</a></div>
               <div id="report_btn" class="nav_box"><a href="/app/control/agents/report/report.php?uid=<?=$uid?>" class="top_a" target="main" onMouseOver="window.status='报表'; return true;" onMouseOut="window.status='';return true;">报表</a></div>
             </div>
           </div>
@@ -329,7 +334,7 @@ if ($subuser==1 || $row['status']==2){
           </div>
           <div id="user_select" class="user_select" style="display:none;" tabindex="9527">
             <span id="chg_pass"><a href="#" onClick="Go_Chg_pass(2);">变更密码</a></span>
-            <span id="logout"><a href="/quit.php?level=3&uid=<?=$uid?>" target="_top" onMouseOver="window.status='登出'; return true;" onMouseOut="window.status='';return true;">登出</a></span>
+            <span id="logout"><a href="/quit.php?level=3&uid=<?=$uid?>" target="_top" onMouseOver="window.status='登出'; return true;" onMouseOut="window.status='';return true;" style="color: #000000;">登出</a></span>
           </div>
           <div name="MaxTag" id="langxMC" src="/js/conf/zh_cn.js" linkage="zh_cn" style="display:none;"></div>
           <div name="MaxTag" id="zh-cn" src="/js/zh-cn.js?7742" style="display:none;"></div>

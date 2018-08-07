@@ -26,6 +26,9 @@ $web_marquee = mysql_query($sql);
 $row = mysql_fetch_array($web_marquee);
 $member_count=$row['count'];
 
+$sql="select  ndate,message from web_marquee WHERE `level` = 4  limit 5";
+$im_web_marquee = mysql_query($sql);
+$im_row = mysql_fetch_array($im_web_marquee);
 $sql="select  ndate,message from web_marquee order by ntime desc limit 0,5";
 $web_marquee = mysql_query($sql);
 $row = mysql_fetch_array($web_marquee);
@@ -71,6 +74,7 @@ b { color:#C30;}
 
         <div id="home_contain" class="home_contain" onresize="setDivSize(this)" style="width: 67%;min-width: 1200px;">
           <div id="home_box" class="home_box">
+            <div id="top_title" class="top_title"><span>首页</span></div>
             <div id="account_contain" class="account_contain">
               <div id="ac_title" class="ac_title"><span class="left_panding">帐户摘要</span></div>
               <div id="credits" class="acc_box">
@@ -97,7 +101,7 @@ b { color:#C30;}
 
             <div id="status_contain" class="status_contain">
               <div id="status_title" class="status_title">
-                <span class="title_box" style="min-width: 145px;">时间</span>
+                <span class="title_box" style="min-width: 150px;">时间</span>
                 <span class="title_box2 margin_right" style="min-width: 60px;">操作者</span>
                 <span class="title_box2" style="min-width: 60px;">项目</span>
                 <span class="title_box2" style="min-width: 60px;">帐号</span>
@@ -115,7 +119,7 @@ b { color:#C30;}
                       while ($row = mysql_fetch_array($result)){
                           ?>
                       <div id="last_login" class="acc_box">
-                        <span class="info_box" style="min-width: 145px;"><?=$row["M_DateTime"]?></span>
+                        <span class="info_box" style="min-width: 150px;"><?=$row["M_DateTime"]?></span>
                         <span class="info_box2 margin_right red" style="min-width: 60px;"><font id="member_suspended"><?=$row["M_czz"]?></font></span>
                         <span class="info_box2 black" style="min-width: 60px;"><font id="member_view"><?=$row["M_xm"]?></font></span>
                         <span class="info_box2 gray" style="min-width: 60px;"><font id="member_inactive"><?=$row["M_user"]?></font></span>
@@ -128,6 +132,31 @@ b { color:#C30;}
             </div>
           </div>
               <div id="important_title" class="important_title"><span>重要公告</span></div>
+              <div id="important_contain" class="important_contain">
+                  <table id="important_table" border="0" cellpadding="0" cellspacing="0">
+                      <tbody>
+                      <?
+                      while ($row = mysql_fetch_array($im_web_marquee)){
+                          ?>
+                          <tr id="important_tr" name="important_tr" class="anno_tr" style="">
+                              <td id="datetime" name="datetime" width="20%" class="table_line">
+                                  <div id="date" class="date_box"><?=$row["ndate"]?></div>
+                              </td>
+                              <td id="text" name="text" width="75%" height="34" valign="top">
+                                  <span class="table_txt"><?=$row["message"]?></span>
+                              </td>
+                          </tr>
+                          <?
+                      }
+                      ?>
+                      </tbody></table>
+              </div>
+              <div id="viewmore_contain" class="viewmore_contain">
+                  <input id="btn" type="button" class="btn_more" value="查看更多">
+                  <div id="load" class="load"></div>
+              </div>
+
+              <div id="important_title" class="important_title"><span>最新公告</span></div>
               <div id="important_contain" class="important_contain">
                   <table id="important_table" border="0" cellpadding="0" cellspacing="0">
                       <tbody>
