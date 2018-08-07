@@ -187,6 +187,7 @@ if ($subuser==1 || $row['status']==2){
   <link rel="stylesheet" href="/style/home.css" type="text/css">
 </head>
 <script src="/js/wmenu.js" type="text/javascript"></script>
+<script src="/js/jquery-1.10.2.js" type="text/javascript"></script>
 <script type="text/javascript">
   <!--
   document.onmousedown = initDown;
@@ -312,12 +313,12 @@ if ($subuser==1 || $row['status']==2){
 
             <div id="header_tr2" name="fixHead" class="nav_container">
               <div id="back_btn" class="nav_back">&nbsp;</div>
-              <div id="home_btn" class="nav_box_on">首页</div>
+              <div id="home_btn" class="nav_box_on"><a href="/app/control/agents/body_home.php?uid=<?$uid?>&langx=<?=$langx?>" class="top_a" target="main" onMouseOver="window.status='首页'; return true;" onMouseOut="window.status='';return true;">首页</a></div>
               <div id="anno_btn" class="nav_box">公告内容</div>
-              <div id="bet_btn" class="nav_box">赛果</div>
+              <div id="bet_btn" class="nav_box"><a href="/app/control/agents/other_set/show_result.php?uid=<?=$uid?>"  class="top_a" target="main" onMouseOver="window.status='赛果'; return true;" onMouseOut="window.status='';return true;">赛果</a></div>
               <div id="account_btn" class="nav_box">现金系统</div>
               <div id="account_btn" class="nav_box">帐号管理</div>
-              <div id="report_btn" class="nav_box">报表</div>
+              <div id="report_btn" class="nav_box"><a href="/app/control/agents/report/report.php?uid=<?=$uid?>" class="top_a" target="main" onMouseOver="window.status='报表'; return true;" onMouseOut="window.status='';return true;">报表</a></div>
             </div>
           </div>
 
@@ -447,13 +448,32 @@ if ($subuser==1 || $row['status']==2){
     margin: 0 25px;
     text-transform: uppercase;
   }
-  .nav_box_on, .nav_box:hover {
+  .nav_box_on, .nav_box, .top_a:hover {
     color: #FF9999;
     background: url(../../images/control/nav_btn_on.jpg) center bottom no-repeat;
   }
   #home_btn {
     margin: 0 25px 0 20px;
     background-position: center bottom;
+  }
+  .top_a {
+    float: left;
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
+    display: inline;
+    cursor: pointer;
+    margin: 0 25px;
+    text-transform: uppercase;
+    color: #ffffff;
+  }
+  a:visited {
+    text-decoration: none;
+    color: #ffffff;
+  }
+  a:link {
+    text-decoration: none;
+    color: #ffffff;
   }
 </style>
 <?

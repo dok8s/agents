@@ -69,7 +69,7 @@ b { color:#C30;}
   <div id="body_show" style=""><div>
       <div name="MaxTag" id="home" src="/js/home.js" linkage="home">
 
-        <div id="home_contain" class="home_contain" onresize="setDivSize(this)" style="width: 100%;">
+        <div id="home_contain" class="home_contain" onresize="setDivSize(this)" style="width: 67%;min-width: 1200px;">
           <div id="home_box" class="home_box">
             <div id="account_contain" class="account_contain">
               <div id="ac_title" class="ac_title"><span class="left_panding">帐户摘要</span></div>
@@ -97,13 +97,14 @@ b { color:#C30;}
 
             <div id="status_contain" class="status_contain">
               <div id="status_title" class="status_title">
-                <span class="title_box">时间</span>
-                <span class="title_box2 margin_right">操作者</span>
-                <span class="title_box2">项目</span>
-                <span class="title_box2">帐号</span>
-                <span class="title_box3">阶层</span>
+                <span class="title_box" style="min-width: 145px;">时间</span>
+                <span class="title_box2 margin_right" style="min-width: 60px;">操作者</span>
+                <span class="title_box2" style="min-width: 60px;">项目</span>
+                <span class="title_box2" style="min-width: 60px;">帐号</span>
+                <span class="title_box3" style="min-width: 60px;">阶层</span>
               </div>
-              <div id="member" class="acc_box " style="">
+              <div id="member" class="acc_box">
+                <div style="height:205px;overflow-y:auto">
                       <?
                       if($ag==""){
                           $sql="select  * from agents_log  where Status=5 and M_czz='$agname' order by M_DateTime desc";
@@ -113,14 +114,17 @@ b { color:#C30;}
                       $result = mysql_query($sql);
                       while ($row = mysql_fetch_array($result)){
                           ?>
-                        <span class="info_box" style="width:166px;"><?=$row["M_DateTime"]?></span>
-                        <span class="info_box2 margin_right red"><font id="member_suspended"><?=$row["M_czz"]?></font></span>
-                        <span class="info_box2 black"><font id="member_view"><?=$row["M_xm"]?></font></span>
-                        <span class="info_box2 gray"><font id="member_inactive"><?=$row["M_user"]?></font></span>
-                        <span class="info_box3 green"><font id="member_active"><?=$row["M_jc"]?></font></span>
+                      <div id="last_login" class="acc_box">
+                        <span class="info_box" style="min-width: 145px;"><?=$row["M_DateTime"]?></span>
+                        <span class="info_box2 margin_right red" style="min-width: 60px;"><font id="member_suspended"><?=$row["M_czz"]?></font></span>
+                        <span class="info_box2 black" style="min-width: 60px;"><font id="member_view"><?=$row["M_xm"]?></font></span>
+                        <span class="info_box2 gray" style="min-width: 60px;"><font id="member_inactive"><?=$row["M_user"]?></font></span>
+                        <span class="info_box3 green" style="min-width: 60px;"><font id="member_active"><?=$row["M_jc"]?></font></span>
+                      </div>
                           <?
                       }
                       ?>
+                </div>
             </div>
           </div>
               <div id="important_title" class="important_title"><span>重要公告</span></div>
