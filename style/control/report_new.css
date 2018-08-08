@@ -1,0 +1,1120 @@
+.reportNew{
+    width: 100%;
+    min-width: 1200px;
+    /*max-width: 1600px;*/
+	padding: 0 20px;
+	padding-top: 40px;
+}
+.reportHead{
+	height: 56px;
+	line-height: 48px;
+	border-bottom: #ecf0f1 solid 1px;
+}
+.reportHead ul{
+	clear: both;
+}
+.reportHead li{
+	display: inline-block;
+	vertical-align: middle;
+	margin-right: -4px;
+
+	display: block\9;
+	float: left\9;
+}
+.reportHead li.now{
+	margin-top: 1px;
+	color: #c0392b;
+	border-bottom: #c0392b solid 2px;
+}
+.modeBtn{
+	min-width: 100px;
+	padding: 0 20px;
+	line-height: 54px;
+	font-size: 14px;
+    text-align: center;
+	color: #828282;
+	cursor: pointer;
+}
+.modeBtn:hover{
+	margin-top: 1px;
+	color: #c0392b;
+	/*border-bottom: #c0392b solid 2px;*/
+}
+.reportTitle{
+	font-size: 18px;
+	color: #3c3c3c;
+	line-height: 56px;
+	margin-right: 20px!important;
+}
+.rightBtn{
+	float: right!important;
+	position: relative;
+}
+.rightBtn i,.rightBtn a,.rightBtn span{
+	display: inline-block;
+	vertical-align: middle;
+
+    display: block\9;
+    float: left\9;
+}
+.mainBtn>a{
+	font-size: 12px;
+	color: #2980b9;
+	margin: 0 9px;
+	cursor: pointer;
+}
+.mainBtn>a:hover{
+	opacity: 0.8;
+}
+.mainBtn>i{
+	width: 5px;
+	height: 7px;
+	background: url('../../images/control/iconArrow.png') no-repeat center;
+
+	height: 48px\9;
+}
+.burgerBtn{
+	width: 26px;
+	height: 26px;
+	margin-right: 14px;
+	background: url('../../images/control/iconBurger.png') no-repeat center;
+	cursor: pointer;
+
+	margin-top: 10px\9;
+}
+.burgerBtn:hover{
+	background: url('../../images/control/iconBurger.png') no-repeat center #c7edfc;
+}
+.reportTable{
+	width: 100%;
+	padding: 10px;
+}
+.reportTable th{
+	height: 40px;
+	font-size: 12px;
+	color: #828282;
+	font-weight: normal;
+	padding: 0 20px;
+	white-space: nowrap;
+}
+.reportTable th span{
+	cursor: pointer;
+}
+.reportTable th tt,.reportTable th i{
+	display: inline-block;
+	vertical-align: middle;
+
+	display: block\9;
+	float: left\9;
+}
+.reportTable th i{
+	margin-left: 6px;
+	width: 10px;
+	height: 14px;
+}
+.reportTableLegacy td,.reportTableLegacy th{
+	border: #c8c8c8 solid 1px;
+	padding: 0 5px!important;
+}
+.reportTableLegacy .TRuser,.TRprofit{
+	border-bottom: none;
+}
+.SMA .TDCode{width: 30%;text-align: left;}
+.SMA .TDClass{width: 20%;text-align: right;}
+.SMA .TDrusult{width: 20%;text-align: right;}
+.SMA .TDstock{width: 20%;text-align: right;}
+
+.TRbg{background: #F7F7F7;}
+.txtBold{font-weight: bold;}
+.TDpaddingRight{padding-right:20px;}
+.TDpaddingLeft{padding-left:20px;}
+
+.iconUp{
+	background: url('../../images/control/iconUp.png') no-repeat center;
+}
+.iconDown{
+	background: url('../../images/control/iconDown.png') no-repeat center;
+}
+.iconDown_b{
+	background: url('../../images/control/iconDown_b.png') no-repeat center;
+}
+.reportTable td{
+	font-size: 14px;
+	padding: 0 20px;
+}
+.TRtotal{
+	background: #2c3e50; 
+	height: 32px;
+	color: #FFF;
+}
+.TRtotal>.TDCode{
+	font-size: 13px;
+}
+.TRwater{
+	background: #C0CFDD;
+	height: 32px;
+}
+.TRwater td.TDtime{
+	font-size: 14px;
+}
+.TRuser,.TRprofit{
+	height: 30px;
+	border-bottom: #c8c8c8 solid 1px;
+	color: #000;
+}
+.TRuser:hover{
+	background: #c7edfc;
+}
+.TRtotal td.TDCode{
+	font-size: 14px;
+}
+.TRuser>.TDCode{
+	color: #2980b9;
+	cursor: pointer;
+}
+td.TDCode span:visited{
+	color: #3d29b9!important;
+}
+td.TDCode span:hover{
+	opacity: 0.8;
+}
+.TRprofit{
+	font-weight: bold;
+	text-align: right;
+}
+.TRprofit tt{
+	margin-left: 10px;
+}
+.TRprofit tt{
+	/*font-size: 13px;*/
+}
+.TRnodata{
+	height: 30px;
+	border-top: #c8c8c8 solid 1px;
+    border-bottom: #c8c8c8 solid 1px;
+    color: #000;
+    text-align: center;
+}
+.iconTop{
+    display: block;
+    width: 30px;
+    height: 12px;
+	background: url('../../images/control/burgerMenu_i.png') no-repeat top;
+}
+/*burgerMenu*/
+.burgerMenu{
+	position: absolute;
+	top: 35px;
+	right: 10px;
+	z-index: 2;
+}
+.burgerMenu>div{
+    position: relative;
+    padding-top: 12px;
+}
+.burgerMenu ul{
+	display: block;
+	background: #FFF;
+	padding: 8px 0;
+	min-width: 200px;
+	color: #3c3c3c;
+	box-shadow: 0 1px 8px rgba(0, 0, 0, 0.25);
+	clear: both;
+
+	border: #EEE solid 2px\9;
+	height: 96px\9;
+}
+.reporDetail .burgerMenu ul{
+	height: 138px\9;
+}
+.burgerMenu li{
+	width: 100%;
+	display: block;
+	padding: 0 16px;
+	line-height: 40px;
+	height: 40px;
+	font-size: 14px;
+	cursor: pointer;
+}
+.burgerMenu li:hover{
+	background: #c7edfc;
+}
+.burgerMenu .iconTop{
+    position: absolute;
+    top: 0;
+    right: 2px;
+
+    top: 2px\9;
+}
+
+.LIexcel tt{
+	display: block\9;
+	float: left\9;
+}
+i.iconExcel{
+    width: 18px;
+    height: 18px;
+    margin-left: 10px;
+    vertical-align: text-bottom;
+	background: url('../../images/control/iconExcel.png') no-repeat center;
+
+	height: 40px\9;
+	vertical-align: middle\9;
+}
+.tipsMask{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	z-index: 99;
+}
+.blackMask{
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	background: rgba(0, 0, 0, 0.5);
+
+	background: url('../../images/control/blackMask.png')\9;
+}
+.tipsMask .reportHead{
+    background: #FFF;
+    width: 225px;
+    height: 66px;
+    position: absolute;
+    top: 115px;
+    left: 88px;
+    border-radius: 5px;
+}
+.tipsMask .reportHead ul{
+	height: 56px;
+	padding: 0 10px;
+	border-bottom: #ecf0f1 solid 1px;
+}
+.DIVtips{
+	position: absolute;
+	top: 180px; /*70px*/
+    left: 110px; /*190px*/
+
+    left: 110px\9;
+}
+.DIVtips>div{
+    position: relative;
+    padding-top: 12px;
+}
+.DIVtips .iconTop{
+	position: absolute;
+    top: 1px;
+    left: 85px;
+}
+.DIVtips ul{
+	width: 200px;
+	height: 57px;
+	background: #FFF;
+	padding: 15px;
+	border: #c8c8c8 solid 1px;
+	border-radius: 5px;
+	box-shadow: 0 1px 8px rgba(0, 0, 0, 0.25);
+}
+.DIVtips li{
+	display: inline-block;
+	vertical-align: middle;
+}
+.DIVtips .tipsText{
+	font-size: 14px;
+	color: #3c3c3c;
+	font-weight: bold;
+	width: 145px;
+}
+.btnxClose{
+	width: 14px;
+	height: 14px;
+	cursor: pointer;
+	background: url('../../images/control/iconClose.png') no-repeat center;
+}
+.showFilters{
+	height: 48px;
+	border-bottom: #ecf0f1 solid 1px;
+}
+.showFilters ul{
+	clear: both;
+}
+.showFilters .liSelect, .showFilters .liSelect_on, .showFilters .btnxClose{
+	display: inline-block;
+	vertical-align: middle;
+	padding: 5px 20px;
+	height: 48px;
+	display: block\9;
+	float: left\9;
+}
+.liSelect,.liSelect_on{
+	position: relative;
+}
+.showFilters .liSelect_on{
+	cursor: pointer;
+}
+.showFilters .liSelect_on:hover{
+	background: #ceecfa;
+}
+.showFilters .liSelect .btnCancle,.showFilters .liSelect .btnSubmit{
+	cursor: pointer;
+}
+.showFilters .btnxClose:hover{
+	background: url('../../images/control/iconClose.png') no-repeat center #ceecfa;
+}
+.showFilters .liSubmit:hover{
+	background: none;
+}
+
+.itemSelect,.nowSelect{
+	display: block;
+	line-height: 16px;
+}
+.itemSelect{
+	color: #828282;
+	font-size: 12px;
+    padding-bottom: 2px;
+}
+.itemSelectDate{
+	background: url('../../images/control/iconSelect.png') no-repeat right 12px;
+}
+.nowSelect{
+	display: block;
+    position: relative;
+}
+
+.nowSelect .DIVSelect{
+	border: #c8c8c8 solid 1px;
+    background: #FFF;
+    white-space: nowrap;
+    padding: 8px 0;
+    margin: 2px 0;
+    font-size: 14px;
+    position: absolute;
+    top: 20px;
+    max-height: 368px;
+    overflow: auto;
+}
+.nowSelect .DIVSelect li{
+    line-height: 30px;
+    padding: 0 8px;
+}
+.nowSelect .DIVSelect li:hover{
+	background: #c7edfc;
+}
+.iconSelect{}
+.dateSelect{
+    display: block;
+    position: relative;
+}
+.dateSelect>div{
+    width: 100%;
+    display: inline-block;
+}
+.dateSelect input{
+	border: 0;
+    background: none;
+    font-size: 14px;
+    font-weight: bold;
+    width: 90px;
+    display: inline-block;
+    color: #3c3c3c;
+}
+.dateSelect .iconSelect{
+    display: block;
+    width: 20px;
+    height: 10px;
+    position: absolute;
+    top: -10px;
+    right: -10px;
+}
+
+.liSelect.liSubmit,.liSelect_on.liSubmit{
+	float: right!important;
+	padding: 7px 0;
+	/*min-width: 104px;*/
+	margin-right: 14px;
+}
+.btnSubmit,.btnCancle{
+	width: 104px;
+	height: 32px;
+	line-height: 32px;
+	text-align: center;
+	font-size: 13px;
+	display: block;
+}
+.liSubmit .btnSubmit,.btnCancle{
+	margin-left: 10px;
+    float: left;
+}
+.btnSubmit{
+	background: #27a67b;
+	color: #FFF;
+}
+.btnCancle{
+	background: #FFF;
+	color: #3c3c3c;
+	border: #c8c8c8 solid 1px;
+}
+.btnSubmit:hover{
+	opacity: 0.8;
+}
+.reportCont{
+	/*padding-right: 20px;*/
+	margin-bottom: 10px;
+}
+.reportTable th>span{
+	float: right\9;
+}
+.reportTable th.TDCode>span,.reportTable th.TDName>span,.reportTable th.TDtime>span,.reportTable th.TDMemCom>span,.reportTable th.TDid>span,.reportTable th.TDdetail>span{
+	float: left\9;
+}
+
+
+
+.MA .TDCode{width: 10%;text-align: left;}
+.MA .TDName{width: 10%;text-align: left;}
+.MA .TDMArusult{width: 9%;text-align: right;}
+.MA .TDMAstock{width: 10%;text-align: right;}
+.MA .TDSMA{width: 10%;text-align: right;}
+.MA .TDSMAposs{width: 8%;text-align: right;}
+.MA .TDSMArusult{width: 9%;text-align: right;}
+.MA .TDSMAstock{width: 9%;text-align: right;}
+
+.AG .TDCode{width: 12%; text-align: left;}
+.AG .TDName{width: 12%; text-align: left;}
+.AG .TDAGent{width: 12%; text-align: right;}
+.AG .TDAGposs{width: 8%; text-align: right;}
+.AG .TDAGrusult{width: 12%; text-align: right;}
+.AG .TDAGstock{width: 12%; text-align: right;}
+.AG .TDMAposs{width: 8%; text-align: right;}
+.AG .TDMArusult{width: 12%; text-align: right;}
+
+.MEM .TDCode{width: 11%; text-align: left;}
+.MEM .TDName{width: 12%; text-align: left;}
+.MEM .TDWagers{width: 10%; text-align: right;}
+.MEM .TDStake{width: 10%; text-align: right;}
+.MEM .TDValid{width: 10%; text-align: right;}
+.MEM .TDMem{width: 10%; text-align: right;}
+.MEM .TDMemCur{width: 10%; text-align: right;}
+.MEM .TDAGposs{width: 9%; text-align: right;}
+.MEM .TDAGrusult{width: 12%; text-align: right;}
+
+.vSMA .TDCode{width: 12%; text-align: left;}
+.vSMA .TDWagers{width: 12%; text-align: right;}
+.vSMA .TDStake{width: 12%; text-align: right;}
+.vSMA .TDValid{width: 12%; text-align: right;}
+.vSMA .TDMem{width: 12%; text-align: right;}
+.vSMA .TDAGent{width: 12%; text-align: right;}
+.vSMA .TDAGrusult{width: 12%; text-align: right;}
+.vSMA .TDMA{width: 12%; text-align: right;}
+
+.vMA .TDCode{width: 12%; text-align: left;}
+.vMA .TDName{width: 12%; text-align: left;}
+.vMA .TDWagers{width: 12%; text-align: right;}
+.vMA .TDStake{width: 12%; text-align: right;}
+.vMA .TDValid{width: 12%; text-align: right;}
+.vMA .TDMem{width: 12%; text-align: right;}
+.vMA .TDAGent{width: 12%; text-align: right;}
+.vMA .TDAGrusult{width: 12%; text-align: right;}
+
+.vAG .TDCode{width: 13%; text-align: left;}
+.vAG .TDName{width: 13%; text-align: left;}
+.vAG .TDWagers{width: 13%; text-align: right;}
+.vAG .TDStake{width: 13%; text-align: right;}
+.vAG .TDValid{width: 13%; text-align: right;}
+.vAG .TDMem{width: 13%; text-align: right;}
+.vAG .TDMemCur{width: 13%; text-align: right;}
+.vAG .TDicon{width: 5%; text-align: center;}
+
+.Detail .TDtime{width:9% ;text-align: left;}
+.Detail .TDMemCom{width:9% ;text-align: left;}
+.Detail .TDid{width:12% ;text-align: left;}
+.Detail .TDdetail{width:20% ;text-align: left;}
+.Detail .TDstake{width:10% ;text-align: right;}
+.Detail .TDwin{width:10% ;text-align: right;}
+.Detail .TDAG{width:8% ;text-align: right;}
+.Detail .TDMA{width:8% ;text-align: right;}
+.Detail .TDSMA{width:7% ;text-align: right;}
+.Detail .TDCO{width:7% ;text-align: right;}
+
+.TDicon>div{
+	position: relative;
+	width: 14px;
+	margin: 0 auto;
+}
+.infoBtn{
+	display: block;
+	margin: 0 auto;
+	width: 14px;
+	height: 14px;
+	background: url('../../images/control/iconInfo.png') no-repeat center;
+	cursor: pointer;
+}
+.infoBox{
+	position: absolute;
+	top: 10px;
+    right: -15px;
+}
+.infoBox>div{
+    position: relative;
+    padding-top: 12px;
+}
+.infoBox ul{
+	display: block;
+	background: #f5f5f5;
+	padding: 0 15px;
+	width: 200px;
+	color: #3c3c3c;
+	border: #c8c8c8 solid 1px;
+	text-align: left;
+	box-shadow: 0 1px 8px rgba(0, 0, 0, 0.25);
+}
+.infoBox li{
+	width: 100%;
+	display: block;
+	padding: 10px;
+	border-bottom: #c8c8c8 solid 1px;
+}
+.infoBox li span{
+	display: block;
+	color: #3c3c3c;
+	font-size: 14px;
+	font-weight: bold;
+	margin-bottom: 10px;
+}
+.infoBox li tt{
+	display: block;
+	font-size: 12px;
+	color: #3c3c3c;
+	line-height: 14px;
+}
+.infoBox .iconTop{
+    position: absolute;
+    top: 1px;
+    right: 8px;
+}
+.infoBox .btnxClose{
+	display: block;
+    position: absolute;
+    top:  21px;
+    right: 15px;
+}
+.Detail .TRuser td{
+	font-size:14px;
+	line-height: 20px;
+	padding-top: 8px;
+	padding-bottom: 8px;
+}
+
+.txtRed{color: #c0392b;}
+.txtBlue{color: #2980b9;}
+.txtGreen{color: #27a67b;}
+.txtOrange{color: #f39c12;}
+.txtPink{color: #ffbeb4;}
+.txtPurple{color: #3d29b9!important;}
+.txtBold{font-weight: bold;}
+.txtLine{text-decoration: line-through;}
+.txtCn{font-size:14px!important;}
+
+.typeBlue{color:#00F;}
+
+.raceResult{
+	width: 100%;
+	display: block;
+	border-top: #c8c8c8 dotted 1px;
+	margin-top: 10px;
+	padding-top: 10px;
+}
+.Detail .TDdetail div,.Detail .TDdetail i{
+	display: inline-block;
+	vertical-align: middle;
+}
+.Detail .TDdetail div{
+	width: 85%;
+}
+.iconDash{
+	display: block;
+	width: 15px;
+	height: 15px;
+	background: url('../../images/control/iconDash.png') no-repeat center;
+	cursor: pointer;
+}
+.iconPlus{
+	display: block;
+	width: 15px;
+	height: 15px;
+	background: url('../../images/control/iconPlus.png') no-repeat center;
+	cursor: pointer;
+}
+.TRunder{
+	border-bottom: #c8c8c8 solid 1px;
+    color: #000;
+}
+.TRunder td{
+	font-size:14px; 
+	line-height: 20px;
+}
+.TRunder ul{
+	padding-top: 10px;
+	padding-bottom: 10px;
+	border-top: #ebebeb solid 1px;
+}
+.TRunder li{
+	display: inline-block;
+	margin: 10px 24px 10px 0; 
+}
+.noBorder{
+	border: none;
+}
+
+
+
+/*Report Home Page add in 2016/11/10 */
+.reportBg{
+    background: #ecf0f1;
+    width: 100%;
+    min-height: 100%;
+    position: absolute;
+    top: 0;
+    padding-top: 75px;
+}
+.reportSearch{
+	padding-top: 20px;
+}
+.DIVsearch{
+	float: left;
+	width: 400px;
+	background: #fff0d7;
+    margin-right: 20px;
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.1);
+
+    border: #EEE solid 2px\9;
+}
+.DIVsearch .modeBtn{
+	color: #a69e92;
+}
+.DIVsearch .reportTitle{
+	margin: 0 20px;
+}
+.DIVsearch .reportHead{
+    border-bottom: #d4caba solid 1px;
+	margin-bottom: 20px;
+}
+.DIVsearch select{
+    height: 28px;
+    border: 0;
+    background: #FFF;
+    border-radius: 0;
+    color: #3c3c3c;
+    padding: 0 8px;
+    font-size: 14px;
+    -webkit-appearance: none;
+	height: auto\9;
+    padding-top: 6px\9;
+}
+.searchSet{
+	padding: 0 20px;
+	font-size: 14px;
+}
+.searchSet .selectBarLabel{
+    position: relative;
+    display: block;
+    margin-bottom: 23px;
+    /*border: #c8c8c8 solid 1px;*/
+    width: 100%;
+    height: 32px;
+    background: url(../../images/control/iconSelect.png) no-repeat #FFFFFF;
+    background-position: 96% center;
+}
+.searchSet .selectBarLabel:hover{
+	background: url(../../images/control/iconSelect2.png) no-repeat #FFFFFF;
+	background-position: 96% center;
+}
+.selectBar select{
+	width: 100%;
+}
+.selectBar .nowChoose{
+	width: 100%;
+}
+
+.selectBar>div{
+	border: #c8c8c8 solid 1px;
+}
+.selectBar>div:hover{
+	border: #A4A4A4 solid 1px;
+}
+.nowChoose{
+	line-height: 30px;
+    display: block;
+    margin-left: 10px;
+    /*padding-left: 8px;*/
+
+    width: 100px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    display: block;
+}
+.showFilters .nowChoose{
+    font-size: 14px;
+    margin-left: 0;
+    font-weight: bold;
+    line-height: 17px;
+    display: inline-block!important;
+    width: auto!important;
+}
+.showFilters .searchArrow{
+    background: url(../../images/control/iconSelect.png) no-repeat;
+    display: inline-block;
+    width: 9px;
+    height: 9px;
+    margin-left: 14px;
+    vertical-align: top;
+}
+.showFilters .dateSelect .searchArrow{
+    width: 16px;
+    height: 15px;
+    background: url(../../images/control/calendar.gif) center no-repeat #FFFFFF;
+}
+.selectBar .DIVselect{
+    position: relative;
+	background: #FFF;
+	border-top: #c8c8c8 solid 1px;
+    width: 100%;
+    padding: 8px 0;
+    z-index: 2;
+    max-height: 368px;
+    overflow: auto;
+}
+.selectBar .DIVselect li{
+	line-height: 30px;
+	padding: 0 8px;
+}
+.selectBar .DIVselect li:hover{
+	background: #c7edfc;
+}
+.dateSet{
+	display: inline-block;
+	margin-bottom: 24px;
+	font-size: 14px;
+}
+span.dateSet{
+	width: 26px;
+	text-align: center;
+
+	width: 18px\9;
+}
+.dateSet input{
+	line-height: 28px;
+	/*width: 165px;*/
+    /*border: #c8c8c8 solid 1px;*/
+    color: #3c3c3c;
+    padding: 0 8px;
+    font-size: 13px;
+
+    border: 0;
+    padding-left: 8px;
+    height: 28px\9;
+    width: 100%;
+}
+div.dateSet{
+	position: relative;
+	width: 160px;
+	height: 32px;
+	border: #c8c8c8 solid 1px;
+	background: #FFF;
+}
+div.dateSet:hover{
+	border: #A4A4A4 solid 1px;
+}
+div.dateSet .iconSelect{
+    display: block;
+    width: 28px;
+    height: 25px;
+    right: 2px;
+    top: 2px;
+    padding: 0px 0 2px;
+    position: absolute;
+    background: url('../../images/control/calendar.gif') center no-repeat #FFFFFF;
+    /*pointer-events: none;*/
+}
+.dateBox{
+	margin-bottom: 10px;
+}
+.dateBox3{
+	margin: 10px 0 24px 0;
+}
+.dateBox .now{
+	background: #ca9d48;
+	color: #FFF;
+	border: #ca9d48 solid 1px;
+}
+.dateBox2 .now,.dateBox3 .now{
+	background: #ca9d48;
+	color: #FFF;
+	border: #ca9d48 solid 1px;
+}
+.dateBoxBtn,.dateBoxBtn2{
+    display: inline-block;
+    height: 32px;
+    line-height: 32px;
+    margin-right: 6px;
+    width: 112px;
+    width: 110px\9;
+    border: #c8c8c8 solid 1px;
+    background: #FFF;
+    text-align: center;
+}
+.dateBox2 .dateBoxBtn,.dateBox2 .dateBoxBtn2,.dateBox3 .dateBoxBtn,.dateBox3 .dateBoxBtn2{
+    width: 175px;
+    width: 172px\9;
+}
+.dateBoxBtn:hover,.dateBoxBtn2:hover{
+	background: #F4EBDC;
+	box-shadow: 0 0 5px rgba(0,0,0,0.12);
+}
+.dateBox .now:hover,.dateBox2 .now:hover,.dateBox3 .now:hover{
+	background: #ca9d48;
+	color: #FFF;
+	border: #ca9d48 solid 1px;
+	box-shadow: none;
+}
+.dateBoxBtn2{
+	margin-right: -4px;
+}
+.selectType{
+	margin-bottom: 30px!important;
+}
+.btnBox{
+	width: 100%;
+	text-align: right;
+	margin-bottom: 20px;
+}
+.btnBox .btnClear,.btnBox .btnSubmit{
+    width: 112px;
+    height: 32px;
+	line-height: normal;
+    text-align: center;
+    font-size: 14px;
+    display: inline-block;
+    border: 0;
+    margin: 0 0 0 16px;
+}
+.btnBox .btnClear{
+	background: #FFF;
+	border: #c8c8c8 solid 1px;
+	color: #3c3c3c;
+}
+.DIVresult{
+    float: left;
+    width: 440px;
+    background: #FFF;
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.1);
+    padding-bottom: 24px;
+    margin-bottom: 20px;
+
+    border: #EEE solid 2px\9;
+}
+.reportBox{
+	/*padding: 0 20px 20px;*/
+}
+.resultTable{
+	width: 100%;
+	color: #3c3c3c;
+	font-size: 13px;
+}
+.resultTable .noHover:hover{
+	background: #FFF;
+}
+.resultTable .reportNo{
+    display: inline-block;
+    vertical-align: middle;
+    text-align: left;
+    padding-left: 20px;
+    padding-right: 5px;
+}
+.resultTable .reportYear{
+    text-align: center;
+    vertical-align: middle;
+    display: inline-block;
+}
+.resultTable.sheetTable th{
+	height: 48px;
+	border-bottom: #c8c8c8 solid 2px;
+	font-size: 14px;
+	color: #828282;
+    font-weight: normal;
+}
+.resultTable.sheetTable td{
+	height: 40px;
+	border-bottom: #c8c8c8 solid 1px;
+}
+.sheetTable td:hover{
+	background: #c7edfc;
+}
+th.reportYear{
+	color: #828282;
+	font-size: 14px;
+	font-weight: normal;
+}
+.resultTable .grayBg{
+	background: #f7f7f7;
+}
+.resultTable td.now{
+	background: #828282;
+	color: #FFF;
+}
+.resultTable .grayBg td.nextyear{
+	background: #f7f7f7!important;
+	color: #3c3c3c!important;
+}
+.resultTable td.nextyear{
+    background: #FFF!important;
+    color: #3c3c3c!important;
+}
+.summaryTable tr:hover{
+	background: #c7edfc;
+}
+.summaryTable th{
+    height: 45px;
+    padding-top: 10px;
+    font-size: 14px;
+    font-weight: normal;
+}
+.summaryTable td{
+	height: 40px;
+	border-bottom: #c8c8c8 solid 1px;
+}
+.summaryTable .subTh td{
+	height: 30px;
+	border-bottom: #c8c8c8 solid 2px;
+	color: #828282;
+	font-size: 12px;
+	padding-bottom: 15px;
+}
+.summaryTable .txtRed{color: #c0392b;}
+.summaryTable .txtGreen{color: #27a67b;}
+
+.sportName{width: 25%; text-align: left; padding-left: 20px; font-size: 14px;}
+.todayNo{width: 15%; text-align: center; color: #c0392b;}
+.todayYes{width: 15%; text-align: center;}
+.yestNo{width: 15%; text-align: center; color: #c0392b;}
+.yestYes{width: 15%; text-align: center;}
+
+/*傳統報表*/
+.SMA_le {}
+.SMA_le .TDCode{width:10%; text-align: left;}
+.SMA_le .TDWagers{width:9%; text-align: right;}
+.SMA_le .TDStake{width:9%; text-align: right;}
+.SMA_le .TDValid{width:9%; text-align: right;}
+.SMA_le .TDMem{width:9%; text-align: right;}
+.SMA_le .TDAGent{width:9%; text-align: right;}
+.SMA_le .TDAGrusult{width:9%; text-align: right;}
+.SMA_le .TDMA{width:9%; text-align: right;}
+.SMA_le .TDClass{width:9%; text-align: right;}
+.SMA_le .TDrusult{width:9%; text-align: right;}
+.SMA_le .TDstock{width:9%; text-align: right;}
+
+.MEM_le .TDCode{width:13%; text-align: left;}
+.MEM_le .TDName{width:13%; text-align: left;}
+.MEM_le .TDWagers{width:8%; text-align: right;}
+.MEM_le .TDStake{width:11%; text-align: right;}
+.MEM_le .TDValid{width:12%; text-align: right;}
+.MEM_le .TDMem{width:11%; text-align: right;}
+.MEM_le .TDAGposs{width:10%; text-align: right;}
+.MEM_le .TDAGrusult{width:11%; text-align: right;}
+.MEM_le .TDMemCur{width:12%; text-align: right;}
+
+.MA_le {}
+.MA_le .TDCode{width:6%; text-align: left;}
+.MA_le .TDName{width:7%; text-align: left;}
+.MA_le .TDWagers{width:6%; text-align: right;}
+.MA_le .TDStake{width:6%; text-align: right;}
+.MA_le .TDValid{width:6%; text-align: right;}
+.MA_le .TDMem{width:6%; text-align: right;}
+.MA_le .TDAGent{width:6%; text-align: right;}
+.MA_le .TDAGrusult{width:6%; text-align: right;}
+.MA_le .TDMArusult{width:6%; text-align: right;}
+.MA_le .TDSMA{width:6%; text-align: right;}
+.MA_le .TDMAstock{width:6%; text-align: right;}
+.MA_le .TDMAstock2{width:6%; text-align: right;}
+.MA_le .TDSMAposs{width:5%; text-align: right;}
+.MA_le .TDSMArusult{width:6%; text-align: right;}
+.MA_le .TDSMAstock{width:6%; text-align: right;}
+.MA_le .TDSMAstock2{width:6%; text-align: right;}
+.MA_le .TDicon{width: 4%; text-align: right;}
+
+.AG_le {}
+.AG_le .TDCode{width: 8%; text-align: left;}
+.AG_le .TDName{width: 8%; text-align: left;}
+.AG_le .TDWagers{width: 7%; text-align: right;}
+.AG_le .TDStake{width: 7%; text-align: right;}
+.AG_le .TDValid{width: 7%; text-align: right;}
+.AG_le .TDMem{width: 7%; text-align: right;}
+.AG_le .TDAGent{width: 7%; text-align: right;}
+.AG_le .TDAGposs{width: 6%; text-align: right;}
+.AG_le .TDAGrusult{width: 8%; text-align: right;}
+.AG_le .TDMAposs{width: 6%; text-align: right;}
+.AG_le .TDMArusult{width: 8%; text-align: right;}
+.AG_le .TDMemCur{width: 8%; text-align: right;}
+.AG_le .TDAGstock{width: 9%; text-align: right;}
+.AG_le .TDicon{width: 4%; text-align: right;}
+
+.subMessage{display: inline-block; background: #FFE6E1; color:#F00; padding:0 15px; height: 28px; line-height: 28px; margin: 15px 0 5px 0;font-size: 14px;}
+.subMessage tt{vertical-align: middle;}
+.subMessage i{
+	display: inline-block;
+	width: 14px;
+	height: 14px;
+	vertical-align: middle;
+	margin-right: 10px;
+	background: url('../../images/control/icon_i_R.png') center no-repeat;
+
+	display: block\9;
+	float: left\9;
+	margin-top: 7px\9;
+}
+.wager_btn{position: relative;}
+.iconNew{position: absolute; display: block; width: 24px; height: 12px; background: url('../../images/control/iconNew.png') no-repeat; top: 2px; right: -14px;}
+
+
+
+/*cancelBet_TAG*/
+.cancelBetId{
+	color: #2980b9;
+	text-decoration: underline;
+}
+.cancelBetTag{
+	position: absolute;
+	z-index: 2;
+	margin-top: 4px;
+}
+.cancelBetTag>div{
+	position: relative;
+	padding-top: 12px;
+}
+.cancelBet_top{
+	position: absolute;
+	top: 2px;
+	display: inline-block;
+	vertical-align: middle;
+	width: 23px;
+	height: 11px;
+	background: url('../../images/control/cancelBet_i.png') no-repeat top;
+	z-index: 2;
+}
+.cancelBet_text{
+	display: block;
+	max-width: 320px;
+	background: #f5f5f5;
+	padding: 15px;
+	color: #3c3c3c;
+	font-size: 14px;
+	box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.25);
+	clear: both;
+	border: #c8c8c8 solid 1px;
+	word-wrap: break-word;
+}
