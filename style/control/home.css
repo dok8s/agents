@@ -1,0 +1,51 @@
+@charset "UTF-8";   
+html, body { margin:0px; padding:0px; width:100%; height:100%;}
+
+
+.loading_start { 
+		width:100%;
+		height:100%;
+		position: fixed;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background: url(../../images/control/home_mask.png);
+		z-index:99999;
+}
+/*IE8---*/
+@media \0screen\,screen\9 {
+.loading_start { position:absolute;}
+}
+
+.load_table { width:100%; height:100%; background: #FFF;}
+.load_star_01 { width:38px; height:38px; background:url(../../images/control/loading_star.png) no-repeat 0 0;}
+.load_star_02 { width:38px; height:38px; background:url(../../images/control/loading_star.png) no-repeat -40px 0;}
+.load_star_03 { width:38px; height:38px; background:url(../../images/control/loading_star.png) no-repeat -80px 0;}
+.load_star_04 { width:38px; height:38px; background:url(../../images/control/loading_star.png) no-repeat -120px 0;}
+.load_star_05 { width:38px; height:38px; background:url(../../images/control/loading_star.png) no-repeat -160px 0;}
+.load_star_06 { width:38px; height:38px; background:url(../../images/control/loading_star.png) no-repeat -200px 0;}
+.load_star_07 { width:38px; height:38px; background:url(../../images/control/loading_star.png) no-repeat -240px 0;}
+.load_star_08 { width:38px; height:38px; background:url(../../images/control/loading_star.png) no-repeat -280px 0;}
+.load_star_09 { width:38px; height:38px; background:url(../../images/control/loading_star.png) no-repeat -320px 0;}
+.load_star_10 { width:38px; height:38px; background:url(../../images/control/loading_star.png) no-repeat -360px 0;}
+.load_star_11 { width:38px; height:38px; background:url(../../images/control/loading_star.png) no-repeat -400px 0;}
+.load_star_12 { width:38px; height:38px; background:url(../../images/control/loading_star.png) no-repeat -440px 0;}
+
+.home_newLoad{ display:block;width:26px; height:26px; background:url(../../images/control/load_s.gif) no-repeat; margin:auto}
+
+.body_header_blank {width: 100%; z-index:0; height: 105px;}
+.back_top { position:absolute; width:30px; height:30px; background:url(../../images/control/back_top.png) no-repeat; right:20px; bottom:142px; cursor:pointer;}
+/*back to TOP*/
+.bet_backTopBTN{position:fixed;width:30px; z-index:99; bottom:110px; right:10px;display:block; width:30px; height:30px; background: url(../../images/control/bet_backTopBTN.png) no-repeat top;}
+.bet_backTopBTN:hover{ background-position:bottom}
+
+/*150818-bg*/
+.big_index_tw { width:1920px; height:1080px; background:url(../../images/control/big_index_tw.jpg) no-repeat 0 0; z-index:500; position: fixed; top: 0; left: 0; right: 0; bottom: 0;}
+.big_index_cn { width:1920px; height:1080px; background:url(../../images/control/big_index_cn.jpg) no-repeat 0 0; z-index:500; position: fixed; top: 0; left: 0; right: 0; bottom: 0;}
+.big_index_en { width:1920px; height:1080px; background:url(../../images/control/big_index_en.jpg) no-repeat 0 0; z-index:500; position: fixed; top: 0; left: 0; right: 0; bottom: 0;}
+
+.ieScroll{
+	height: 100%\9;
+	overflow-y: auto\9;
+}
