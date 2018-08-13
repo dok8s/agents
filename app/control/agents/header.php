@@ -317,14 +317,73 @@ if ($subuser==1 || $row['status']==2){
               <div id="new_url" class="new_url"><a href="/url.html" target="_blank" >最新网址</a></div>
             </div>
 
-            <div id="header_tr2" name="fixHead" class="nav_container">
-              <div id="home_btn" class="nav_box_on"><a href="/app/control/agents/body_home.php?uid=<?$uid?>&langx=<?=$langx?>" class="top_a" target="main" onMouseOver="window.status='首页'; return true;" onMouseOut="window.status='';return true;">首页</a></div>
-              <div id="anno_btn" class="nav_box"><a href="/app/control/agents/body_home.php?uid=<?$uid?>&langx=<?=$langx?>"  class="top_a" target="main" onMouseOver="window.status='公告内容'; return true;" onMouseOut="window.status='';return true;">公告内容</a></div>
-              <div id="bet_btn" class="nav_box"><a href="/app/control/agents/other_set/show_result.php?uid=<?=$uid?>"  class="top_a" target="main" onMouseOver="window.status='赛果'; return true;" onMouseOut="window.status='';return true;">赛果</a></div>
-              <div id="account_btn" class="nav_box"><a href="/app/control/agents/body_home.php?uid=<?$uid?>&langx=<?=$langx?>"  class="top_a" target="main" onMouseOver="window.status='现金系统'; return true;" onMouseOut="window.status='';return true;">现金系统</a></div>
-              <div id="account_btn" class="nav_box"><a href="/app/control/agents/body_home.php?uid=<?$uid?>&langx=<?=$langx?>"  class="top_a" target="main" onMouseOver="window.status='帐号管理'; return true;" onMouseOut="window.status='';return true;">帐号管理</a></div>
-              <div id="report_btn" class="nav_box"><a href="/app/control/agents/report/report.php?uid=<?=$uid?>" class="top_a" target="main" onMouseOver="window.status='报表'; return true;" onMouseOut="window.status='';return true;">报表</a></div>
-            </div>
+<!--            <div id="header_tr2" name="fixHead" class="nav_container">-->
+<!--              <div id="home_btn" class="nav_box_on"><a href="/app/control/agents/body_home.php?uid=--><?//$uid?><!--&langx=--><?//=$langx?><!--" class="top_a" target="main" onMouseOver="window.status='首页'; return true;" onMouseOut="window.status='';return true;">首页</a></div>-->
+<!--              <div id="anno_btn" class="nav_box"><a href="/app/control/agents/body_home.php?uid=--><?//$uid?><!--&langx=--><?//=$langx?><!--"  class="top_a" target="main" onMouseOver="window.status='公告内容'; return true;" onMouseOut="window.status='';return true;">公告内容</a></div>-->
+<!--              <div id="bet_btn" class="nav_box"><a href="/app/control/agents/other_set/show_result.php?uid=--><?//=$uid?><!--"  class="top_a" target="main" onMouseOver="window.status='赛果'; return true;" onMouseOut="window.status='';return true;">赛果</a></div>-->
+<!--              <div id="account_btn" class="nav_box"><a href="/app/control/agents/body_home.php?uid=--><?//$uid?><!--&langx=--><?//=$langx?><!--"  class="top_a" target="main" onMouseOver="window.status='现金系统'; return true;" onMouseOut="window.status='';return true;">现金系统</a></div>-->
+<!--              <div id="account_btn" class="nav_box"><a href="/app/control/agents/body_home.php?uid=--><?//$uid?><!--&langx=--><?//=$langx?><!--"  class="top_a" target="main" onMouseOver="window.status='帐号管理'; return true;" onMouseOut="window.status='';return true;">帐号管理</a></div>-->
+<!--                <div id="account_btn" class="nav_box1">-->
+<!--                    <span>帐号管理-->
+<!--                        <ul>-->
+<!--                            <li>代理</li>-->
+<!--                            <li>会员</li>-->
+<!--                            <li>子账号</li>-->
+<!--                        </ul>-->
+<!--                    </span>-->
+<!--                </div>-->
+<!--                <div id="report_btn" class="nav_box"><a href="/app/control/agents/report/report.php?uid=--><?//=$uid?><!--" class="top_a" target="main" onMouseOver="window.status='报表'; return true;" onMouseOut="window.status='';return true;">报表</a></div>-->
+<!--          </div>-->
+                <div class="navbox">
+                    <div class="nav">
+
+                        <li class="drop-menu-effect"><a href="/app/control/agents/body_home.php?uid=<?$uid?>&langx=<?=$langx?>"
+                                                        target="main" onMouseOver="window.status='首页'; return true;" onMouseOut="window.status='';return true;">
+                                <span>首页</span></a>
+                        </li>
+                        <li class="drop-menu-effect"><a href="/app/control/agents/body_home.php?uid=<?$uid?>&langx=<?=$langx?>" target="main" onMouseOver="window.status='公告内容'; return true;" onMouseOut="window.status='';return true;"><span>公告内容</span></a>
+                        </li>
+
+                        <li class="drop-menu-effect"> <a href="/app/control/agents/other_set/show_result.php?uid=<?=$uid?>"
+                                                         target="main" onMouseOver="window.status='赛果'; return true;" onMouseOut="window.status='';return true;"><span>赛果</span></a>
+                        </li>
+                        <li class="drop-menu-effect"> <a href="/app/control/agents/body_home.php?uid=<?$uid?>&langx=<?=$langx?>"
+                                                         target="main" onMouseOver="window.status='现金系统'; return true;" onMouseOut="window.status='';return true;"><span>现金系统</span></a>
+                        </li>
+                        <li class="drop-menu-effect"> <a href="/app/control/agents/body_home.php?uid=<?$uid?>&langx=<?=$langx?>" target="main" onMouseOver="window.status='帐号管理'; return true;" onMouseOut="window.status='';return true;"><span>帐号管理</span></a>
+                            <div class="submenu">
+                                <div class="mj_menu_pro_bg">
+                                    <div class="mj_menu_pro_main">
+                                        <div class="mj_menu_pro_li">
+                                            <div class="mj_menu_li_txt">
+                                                <a href="/app/control/agents/ag_list.php?uid=<?=$uid?>"
+                                                   target="main" onMouseOver="window.status='代理'; return true;" onMouseOut="window.status='';return true;">代理</font></a><br />
+                                            </div>
+                                        </div>
+                                        <div class="mj_menu_pro_li" style="padding-left:48px;">
+                                            <div class="mj_menu_li_txt">
+                                                <a href="/app/control/agents/members/ag_members.php?uid=<?=$uid?>"
+                                                   target="main" onMouseOver="window.status='会员'; return true;" onMouseOut="window.status='';return true;"><font>会员</font></a><br />
+                                            </div>
+                                        </div>
+                                        <div class="mj_menu_pro_li" style="padding-left:48px;">
+                                            <div class="mj_menu_li_txt">
+                                                <a href="/app/control/agents/ag_subuser.php?uid=<?=$uid?>"
+                                                   target="main" onMouseOver="window.status='子账号'; return true;" onMouseOut="window.status='';return true;"><font>子账号</font></a><br />
+                                            </div>
+                                        </div>
+                                        <div style="clear:both; height:0px; overflow:hidden;"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li class="drop-menu-effect"> <a href="/app/control/agents/report/report.php?uid=<?=$uid?>"
+                                                         target="main" onMouseOver="window.status='报表'; return true;" onMouseOut="window.status='';return true;"><span>报表</span></a>
+                        </li>
+
+                    </div>
+                </div>
           </div>
 
           <div id="lang_select" class="lang_select" style="display:none;" tabindex="9527">
@@ -339,11 +398,37 @@ if ($subuser==1 || $row['status']==2){
           <div name="MaxTag" id="langxMC" src="/js/conf/zh_cn.js" linkage="zh_cn" style="display:none;"></div>
           <div name="MaxTag" id="zh-cn" src="/js/zh-cn.js?7742" style="display:none;"></div>
         </div>
-      </div></div>
+      </div>
+    </div>
   </tr>
 </table>
 </body>
 </html>
+<script>
+    $(function(){
+        lanrenzhijia(".drop-menu-effect");
+    });
+    function lanrenzhijia(_this){
+        $(_this).each(function(){
+            var $this = $(this);
+            var theMenu = $this.find(".submenu");
+            var tarHeight = theMenu.height();
+            theMenu.css({height:0});
+            $this.hover(
+                function(){
+                    $(this).addClass("mj_hover_menu");
+                    theMenu.stop().show().animate({height:tarHeight},400);
+                },
+                function(){
+                    $(this).removeClass("mj_hover_menu");
+                    theMenu.stop().animate({height:0},400,function(){
+                        $(this).css({display:"none"});
+                    });
+                }
+            );
+        });
+    }
+</script>
 <style>
   .top_option_contain {
     position: relative;
@@ -480,6 +565,32 @@ if ($subuser==1 || $row['status']==2){
     text-decoration: none;
     color: #ffffff;
   }
+  .navbox{height:40px;position:relative;z-index:9; margin:auto;background:#7E1414;filter:alpha(opacity=90);-moz-opacity:0.90;opacity:0.90;font-family:'微软雅黑';}
+  .nav{width:1002px;height:40px; list-style:none;}
+  .nav li{float:left;height:40px;position:relative; list-style:none;}
+  .nav li.last{background:none;}
+  .nav li a{text-decoration:none;}
+  .nav li a span{float:left;display:block;line-height:40px;font-size:14px;color:#ffffff;cursor:pointer;width:143px;text-align:center; }
+  .mj_hover_menu{text-decoration:none; width:143px; background:url(images/menu_hover.jpg); height:40px;}
+  .nav li.selected .submenu{display:block;z-index: 1000;}
+  .nav li .submenu{display:none;position:absolute;top:40px;left:-9px;}
+  .nav li .submenu li{float:none;padding:0;background:none;height:auto;border-bottom:dotted 0px #BEBEBE;}
+  .mj_menu_pro_bg{width:825px; height:235px; background:url(images/menu_pro_bg.png) no-repeat;}
+  .mj_menu_pro_main{width:765px; margin:auto; padding-top:12px;}
+  .mj_menu_pro_li{ float:left;}
+  .mj_menu_li_txt{line-height:22px; font-size:12px; color:#7E1414;}
+  .mj_menu_li_txt font{font-size:14px; color:#bb1721;}
+  .mj_menu_li_txt a{color:#7E1414; text-decoration:none;}
+  .mj_menu_li_txt a:hover{color:#7E1414; text-decoration:underline;}
+
+  .mj_menu_news_bg{width:480px; height:185px; background:url(images/menu_news_bg.png) no-repeat;}
+  .mj_menu_news_main{width:440px; margin:auto; padding-top:12px;}
+  .mj_menu_news_li{padding:0px 30px; margin-right:30px; height:150px; float:left; border-right:solid 1px #cccccc; }
+  .mj_menu_news_img{float:left; text-align:left; color:#bb1721; line-height:30px; font-size:14px;}
+  .mj_menu_news_li2{padding:0px 30px; height:150px; float:right; border-left:solid 1px #cccccc; }
+  .mj_menu_news_img2{float:left; margin-left:30px; text-align:left; color:#bb1721; line-height:30px; font-size:14px;}
+  .mj_menu_news_li3{padding:0px 25px; height:150px; float:right; border-left:solid 1px #cccccc; }
+  .mj_menu_news_img3{float:left; margin-left:10px; text-align:left; color:#bb1721; line-height:30px; font-size:14px;}
 </style>
 <?
 mysql_close();

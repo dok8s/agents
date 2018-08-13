@@ -58,7 +58,7 @@ top.flash_cont_cutoff = \'Y\';top.flash_cont_flag = \'300\';top.langx = \'zh-tw\
 <title>管理端</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 </head>
-<frameset rows="80px,*" frameborder="NO" border="0" framespacing="0">
+<frameset rows="120px,*" frameborder="NO" border="0" framespacing="0">
 <frame name="topFrame" scrolling="NO" marginheight="150" noresize src="header.php?langx=zh-tw&uid='.$uid.'">
 <frame name="main" src="body_home.php?langx=zh-tw&uid='.$uid.'">
 </frameset>
