@@ -112,15 +112,23 @@ function show_page(){
 	var temp="";
 	var pg_str=""
 	for(var i=0;i<t_page;i++){
-
 		if (pg!=i)
-			pg_str=pg_str+"<a href=# onclick='chg_pg("+i+");'><font color='#000099'>"+(i+1)+"</font></a>&nbsp;&nbsp;&nbsp;&nbsp;";
+			pg_str=pg_str+"<li class><a onclick='chg_pg("+i+");'>"+(i+1)+"</a></li>";
 		else
-			pg_str=pg_str+"<B><font color='#FF0000'>"+(i+1)+"</font></B>&nbsp;&nbsp;&nbsp;&nbsp;";			
+            pg_str=pg_str+"<li class='On'><a onclick='chg_pg("+i+");'>"+(i+1)+"</a></li>";
 	}
-	txt_bodyP= bodyP.innerHTML;			
-	txt_bodyP =txt_bodyP.replace("*SHOW_P*",pg_str);    
-	pg_txt.innerHTML=txt_bodyP;
+	$("#pageBox").html(pg_str);
+	if (pg < (t_page-1)) {
+        document.getElementById("btn_next").style.display="";
+    } else {
+        document.getElementById("btn_next").style.display="none";
+    }
+
+    if (pg > 0) {
+        document.getElementById("btn_pre").style.display="";
+    } else {
+        document.getElementById("btn_pre").style.display="none";
+    }
 }
 
 	function onLoad()
@@ -128,9 +136,14 @@ function show_page(){
 		show_page();
 	}
 
-	function chg_pg(pg)
+	function chg_pg(i)
 	{
-		self.location = './show_result.php?uid='+uid+'&page_no='+pg+'&flag='+flag+'&gtype='+gtype;
+	    if (i === '-') {
+            i = parseInt(pg) - 1;
+        } else if (i === '+') {
+            i = parseInt(pg) + 1;
+        }
+        self.location = './show_result.php?uid='+uid+'&page_no='+i+'&flag='+flag+'&gtype='+gtype;
 	}
 
 	function add_class()
@@ -199,7 +212,7 @@ function show_page(){
 									<?
 									} else {
 									?>
-										<td width="20%" class="TDcenter">完赛</td>
+										<td width="20%" class="TDcenter">赛果</td>
 									<?
 									}
 									?>
@@ -209,15 +222,37 @@ function show_page(){
 									if (count(explode("PK", $row['m_league'])) == 1 && count(explode("延时", $row['m_league'])) == 1) {
 						?>
 								<!----------close TR-------------->
-								<tr id="closeTR_3321728" class="bet_result_closeTR">
-									<td id="td_3321728" width="15%" class="bet_result_padTD"><span
-											id="close_btn_3321728"
-											class="bet_resultOpenBTN"
-											style="display: none;"></span><span><?=$row["m_date"]?> <?=$row["m_time"]?></span>
+								<tr id="closeTR_<?=$row['mb_mid']?>" class="bet_result_closeTR">
+									<td id="td_<?=$row['mb_mid']?>" width="15%" class="bet_result_padTD"><span><?=$row["m_date"]?> <?=$row["m_time"]?></span>
 									</td>
 									<td width="45%" class="TDleft"><?=$row['mb_team']?> v <?=$row['tg_team']?></td>
-									<td width="20%">0 - 1</td>
-									<td width="20%" class="noRightLine">2 - 2</td>
+									<?
+                                    if($gtype=='FT' || $gtype=='BS'){
+                                        if ($row['mb_inball_hr']==-1 || $row['mb_inball_hr']==-1){
+                                            $ball_hr='赛事延赛';
+                                        }else{
+                                            $ball_hr=$row['mb_inball_hr'].' - '.$row['tg_inball_hr'];
+                                        }
+
+                                        if ($row['mb_inball']==-1 || $row['tg_inball']==-1){
+                                            if ($row['mb_inball_hr']==-1 || $row['mb_inball_hr']==-1){
+                                                $ball='赛事延赛';
+                                            }else{
+                                                $ball='赛事腰斩';
+                                            }
+                                        }else{
+                                            $ball=$row['mb_inball'].' - '.$row['tg_inball'];
+                                        }
+									?>
+                                    <td width="20%"><?=$ball_hr?></td>
+                                    <td width="20%" class="noRightLine"><?=$ball?></td>
+									<?
+									} else {
+									?>
+                                    <td width="20%" class="noRightLine"><?=$row['mb_inball']?> - <?=$row['tg_inball']?></td>
+                                    <?
+									}
+                                    ?>
 								</tr>
 								</tbody>
 						<?
@@ -231,22 +266,16 @@ function show_page(){
 
 
 				<!-----pageBTN--------->
-				<div id="pageBTN" name="MaxTag" src="/js/lib/Page_ag.js" linkage="Page_ag">
-					<div class="bet_pageDIV">
-						<ul>
-							<li id="btn_first" class="bet_firstBTN" style="display:none;"><a>&nbsp;</a></li>
-							<li id="btn_pre" class="bet_preBTN" style="display:none;"><a>&nbsp;</a></li>
-							<span id="pageBox">
-									<li id="pg_1" class="On" style="display: none;"><a>1</a></li>
+                <div id="pageBTN" name="MaxTag"  linkage="Page_ag">
+                    <div class="bet_pageDIV">
+                        <ul>
+                            <li id="btn_pre" class="bet_preBTN" style="display:none;" onclick="chg_pg('-')"><a>&nbsp;</a></li>
+                            <span id="pageBox">
 								</span>
-							<li id="btn_next" class="bet_nextBTN" style="display:none;"><a>&nbsp;</a></li>
-							<li id="btn_last" class="bet_lastBTN" style="display:none;"><a>&nbsp;</a></li>
-						</ul>
-					</div>
-					<div id="model_page" style="display:none;">
-						<li id="pg_*PAGEID*" class="*PGCLASS*"><a>*PAGEID*</a></li>
-					</div>
-				</div>
+                            <li id="btn_next" class="bet_nextBTN" style="display:none;" onclick="chg_pg('+')"><a>&nbsp;</a></li>
+                        </ul>
+                    </div>
+                </div>
 				<!-----pageBTN--------->
 
 
