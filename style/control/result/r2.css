@@ -277,7 +277,7 @@ td.bet_started_PSTD{  white-space:nowrap;font-size:14px; width:30%; text-align:l
 
 /*Parlay*/
 .bet_selectSP, .bet_selectSP_wmc{ text-align:left; position:relative; z-index:2}
-.bet_selectSP_first{display:inline-block; font-size:19px; line-height:21px; color:#6e4f30;background: url(../../images/control/bet_selectSP_icon.png) no-repeat right center #fff; padding-right:17px; white-space:nowrap;text-transform:uppercase}
+.bet_selectSP_first{display:inline-block; font-size:19px; line-height:21px; color:#6e4f30;background: url(../../../images/control/bet_selectSP_icon.png) no-repeat right center #fff; padding-right:17px; white-space:nowrap;text-transform:uppercase}
 
 .bet_selectSP_options{ position:absolute;display:inline-block; width:178px; background-color:#fff; border:1px solid #585555;top:21px; left:0 }
 .bet_selectSP:hover .bet_selectSP_options, .bet_selectSP_wmc:hover .bet_selectSP_options{ }
