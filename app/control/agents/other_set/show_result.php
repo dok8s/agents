@@ -26,7 +26,7 @@ if ($flag==''){
 }else if($flag=='Y'){
 	$bdate=date('m-d',time()-24*60*60);
 }
-$bdate = '05-14';
+//$bdate = '05-14';
 if ($gtype==''){
 	$gtype='FT';
 }
@@ -37,32 +37,38 @@ case 'FT':
 	$table=',mb_inball_hr,tg_inball_hr from foot_match';
 	$css='';
 	$css1='_ft';
+	$gname = '足球';
 	break;
 case 'BK':
 	$table=' from bask_match';
 	$css='';
 	$css1='_ft';
+    $gname = '篮球';
 	break;
 case 'VB':
 	$table=' from volleyball';
 	$css='_vb';
 	$css1='_vb';
+    $gname = '排球';
 	break;
 case 'TN':
 	$table=' from tennis';
 	$css='_tn';
 	$css1='_tn';
+    $gname = '网球';
 	break;
 case 'BS':
 	$table=' from baseball';
 	$css='_bs';
 	$css1='_bs';
+    $gname = '棒球';
 	break;
 default:
 	$table='foot_match';
 	$css1='_ft';
 	$css='';
 	$gtype='FT';
+    $gname = '足球';
 	break;
 }
 if ($gtype=='FT'){
@@ -78,6 +84,21 @@ $page_count=ceil($cou/$page_size);
 $offset=($page)*$page_size;
 $mysql=$sql."  limit $offset,$page_size;";
 $result = mysql_query( $mysql);
+$data = array();
+while ($row = mysql_fetch_array($result)){
+	$data[$row["m_time"]][] = $row;
+}
+$rData = array();
+foreach ($data as $time => $items) {
+	foreach ($items as $item) {
+		if ($item['m_sleague']==''){
+			$leage = $item['m_league'];
+		}else{
+			$leage = $item['m_sleague'];
+		}
+		$rData[$time][$leage][] = $item;
+	}
+}
 
 ?>
 <script>var pg='<?=$page?>';
@@ -91,38 +112,73 @@ var gtype='<?=$gtype?>';
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <link rel="stylesheet" href="/style/control/result/r1.css" type="text/css">
 <link rel="stylesheet" href="/style/control/result/r2.css" type="text/css">
+<script src="/js/jquery-1.10.2.js" type="text/javascript"></script>
 <script language="JavaScript"> 
 function show_page(){
 	var temp="";
 	var pg_str=""
 	for(var i=0;i<t_page;i++){
-
 		if (pg!=i)
-			pg_str=pg_str+"<a href=# onclick='chg_pg("+i+");'><font color='#000099'>"+(i+1)+"</font></a>&nbsp;&nbsp;&nbsp;&nbsp;";
+			pg_str=pg_str+"<li class><a onclick='chg_pg("+i+");'>"+(i+1)+"</a></li>";
 		else
-			pg_str=pg_str+"<B><font color='#FF0000'>"+(i+1)+"</font></B>&nbsp;&nbsp;&nbsp;&nbsp;";			
+            pg_str=pg_str+"<li class='On'><a onclick='chg_pg("+i+");'>"+(i+1)+"</a></li>";
 	}
-	txt_bodyP= bodyP.innerHTML;			
-	txt_bodyP =txt_bodyP.replace("*SHOW_P*",pg_str);    
-	pg_txt.innerHTML=txt_bodyP;
+	$("#pageBox").html(pg_str);
+	if (pg < (t_page-1)) {
+        document.getElementById("btn_next").style.display="";
+    } else {
+        document.getElementById("btn_next").style.display="none";
+    }
+
+    if (pg > 0) {
+        document.getElementById("btn_pre").style.display="";
+    } else {
+        document.getElementById("btn_pre").style.display="none";
+    }
 }
 
- function onLoad()
- {
-	show_page();
- }
+	function onLoad()
+	{
+		show_page();
+	}
 
-function chg_pg(pg)
-{
-	self.location = './show_result.php?uid='+uid+'&page_no='+pg+'&flag='+flag+'&gtype='+gtype;
-}
- 
+	function chg_pg(i)
+	{
+	    if (i === '-') {
+            i = parseInt(pg) - 1;
+        } else if (i === '+') {
+            i = parseInt(pg) + 1;
+        }
+        self.location = './show_result.php?uid='+uid+'&page_no='+i+'&flag='+flag+'&gtype='+gtype;
+	}
+
+	function add_class()
+	{
+		$("#sport_sel li").each(function(){
+			$(this).unbind("mouseover");
+			$(this).unbind("mouseout");
+			$(this).bind(
+				"mouseover", function(){
+					$(this).addClass("bet_selectBG");
+				}
+			).bind(
+				"mouseout", function(){
+					$(this).removeClass("bet_selectBG");
+				}
+			)
+		});
+	}
+
+	function chg_game(i)
+    {
+        self.location = './show_result.php?uid='+uid+'&gtype='+i;
+    }
 </SCRIPT>
 
 </head>
 
 <body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" vlink="#0000FF" alink="#0000FF"   onLoad="onLoad()" >
-<div id="body_show" style=""><div id="result_all_FT" name="MaxTag" src="/js/result_all_FT.js" linkage="result_all_FT">
+<div id="body_show" style="">
 		<div id="bet_main" class="bet_main" onresize="setDivSize(this)" style="width: 1280px;">
 			<div class="bet_mainpadding">
 				<!---------main------------->
@@ -134,522 +190,122 @@ function chg_pg(pg)
         <span class="bet_TitleName">
 
         <!------特制下拉罢--------->
-        <ul class="bet_selectSP" id="gtype_sel" onmouseover='javascript:document.all["sport_sel"].style.display="block";' onmouseout="javascript:document.all['sport_sel'].style.display='none';"><li><a class="bet_selectSP_first">足球</a>
+        <ul class="bet_selectSP" id="gtype_sel" onmouseover="javascript:document.all['sport_sel'].style.display='block';add_class();" onmouseout="javascript:document.all['sport_sel'].style.display='none'">
+            <li>
+                <a class="bet_selectSP_first">
+                    <? echo $gname; ?>
+                </a>
         	<ul id="sport_sel" class="bet_selectSP_options" style="display:none;">
-            	<li id="FT_sel"><a>足球</a></li>
-                <li id="BK_sel"><a>篮球 / 美式足球</a></li>
-                <li id="TN_sel"><a>网球</a></li>
-                <li id="VB_sel"><a>排球</a></li>
-                <li id="BM_sel"><a>羽毛球</a></li>
-                <li id="TT_sel"><a>乒乓球</a></li>
-                <li id="BS_sel"><a>棒球</a></li>
-                <li id="SK_sel"><a>斯诺克/台球</a></li>
-                <li id="OP_sel"><a>其他球类</a></li>
+            	<li id="FT_sel" onclick="chg_game('FT')"><a >足球</a></li>
+                <li id="BK_sel" onclick="chg_game('BK')"><a >篮球</a></li>
+                <li id="TN_sel" onclick="chg_game('TN')"><a >网球</a></li>
+                <li id="VB_sel" onclick="chg_game('VB')"><a >排球</a></li>
+                <li id="BS_sel" onclick="chg_game('BS')"><a >棒球</a></li>
             </ul>
         </li></ul>
         <h2>赛果</h2></span>
 					<div id="bets_search_setting" name="MaxTag" class="bet_DetailTitle" src="/js/bets_search_setting.js" linkage="bets_search_setting">
-						<span id="dateresult_span" class="bet_DetailName"><h1 id="dateresult">日期</h1><h2 id="dateresult_set">今日</h2></span>
-						<span id="league_span" class="bet_DetailName"><h1 id="league">联盟</h1><h2 id="league_set">所有联盟</h2></span>
+						<span id="dateresult_span" class="bet_DetailName"><h1 id="dateresult">日期</h1>
+                            <h2 id="dateresult_set">
+                                <?
+                                if ($flag==''){
+                                    ?><A HREF="./show_result.php?uid=<?=$uid?>&gtype=<?=$gtype?>&flag=Y" target="_self">昨日</A>
+                                    <?
+                                }else{
+                                    ?>
+                                    <A HREF="./show_result.php?uid=<?=$uid?>&gtype=<?=$gtype?>" target="_self">今日</A>
+                                    <?
+                                }
+                                ?>
+                            </h2>
+                        </span>
+						<span id="league_span" class="bet_DetailName">
+<!--                            <h1 id="league">联盟</h1><h2 id="league_set">所有联盟</h2>-->
+                        </span>
 					</div>
 				</div>
 
 				<div id="div_show">
 					<table id="MainTable" cellspacing="0" cellpadding="0" class="bet_MainTable">
-
-
-
-						<tbody><tr class="bet_leagueNO_hand" style="display:*DISPLAY*;">
-							<td width="60%" colspan="2" class="TDleft">澳布里斯班女超</td>
-							<td width="20%" class="TDcenter">半场</td>
-							<td width="20%" class="TDcenter">全场</td>
-						</tr>
-
-						<!----------close TR-------------->
-						<tr id="closeTR_3321728" class="bet_result_closeTR">
-							<td id="td_3321728" width="15%" class="bet_result_padTD"><span id="close_btn_3321728" class="bet_resultOpenBTN" style="display: none;"></span><span>08-06 00:01</span></td>
-							<td width="45%" class="TDleft">维吉尼亚联(女)  v 潘尼苏拉(女)</td>
-							<td width="20%">0 - 1</td>
-							<td width="20%" class="noRightLine">2 - 2</td>
-						</tr>
-
-
-
-						</tbody><tbody><tr class="bet_leagueNO_hand" style="display:*DISPLAY*;">
-							<td width="60%" colspan="2" class="TDleft">俄U21</td>
-							<td width="20%" class="TDcenter">半场</td>
-							<td width="20%" class="TDcenter">全场</td>
-						</tr>
-
-						<!----------close TR-------------->
-						<tr id="closeTR_3317724" class="bet_result_closeTR">
-							<td id="td_3317724" width="15%" class="TDleft"><span id="close_btn_3317724" class="bet_resultOpenBTN"></span><span>08-06 02:00</span></td>
-							<td width="45%" class="TDleft">乌法U21  v 安郅马哈奇卡拉U21</td>
-							<td width="20%">0 - 0</td>
-							<td width="20%" class="noRightLine">0 - 1</td>
-						</tr>
-
-
-						<tr id="openMORE_3317724_PGF" class="bet_result_openTR" style="display: none;">
-							<td></td>
-							<td class="TDleft">最先进球</td>
-							<td colspan="2" class="noRightLine">安郅马哈奇卡拉U21</td>
-						</tr>
-
-						<tr id="openMORE_3317724_PGL" class="bet_result_openTR" style="display: none;">
-							<td></td>
-							<td class="TDleft">最后进球</td>
-							<td colspan="2" class="noRightLine">安郅马哈奇卡拉U21</td>
-						</tr>
-
-
-						</tbody><tbody><tr class="bet_leagueNO_hand" style="display:*DISPLAY*;">
-							<td width="60%" colspan="2" class="TDleft">越杯21外</td>
-							<td width="20%" class="TDcenter">半场</td>
-							<td width="20%" class="TDcenter">全场</td>
-						</tr>
-
-						<!----------close TR-------------->
-						<tr id="closeTR_3321848" class="bet_result_closeTR">
-							<td id="td_3321848" width="15%" class="TDleft"><span id="close_btn_3321848" class="bet_resultOpenBTN"></span><span>08-06 03:30</span></td>
-							<td width="45%" class="TDleft">同塔U21  v 平福U21</td>
-							<td width="20%">2 - 1</td>
-							<td width="20%" class="noRightLine">3 - 1</td>
-						</tr>
-
-
-						<tr id="openMORE_3321848_PGF" class="bet_result_openTR" style="display:none;">
-							<td></td>
-							<td class="TDleft">最先进球</td>
-							<td colspan="2" class="noRightLine">平福U21</td>
-						</tr>
-
-						<tr id="openMORE_3321848_PGL" class="bet_result_openTR" style="display:none;">
-							<td></td>
-							<td class="TDleft">最后进球</td>
-							<td colspan="2" class="noRightLine">同塔U21</td>
-						</tr>
-
-
-						</tbody><tbody><tr class="bet_leagueNO_hand" style="display:*DISPLAY*;">
-							<td width="60%" colspan="2" class="TDleft">中后备</td>
-							<td width="20%" class="TDcenter">半场</td>
-							<td width="20%" class="TDcenter">全场</td>
-						</tr>
-
-						<!----------close TR-------------->
-						<tr id="closeTR_3325350" class="bet_result_closeTR">
-							<td id="td_3325350" width="15%" class="bet_result_padTD"><span id="close_btn_3325350" class="bet_resultOpenBTN" style="display: none;"></span><span>08-06 04:00</span></td>
-							<td width="45%" class="TDleft">河北华夏幸福(后备)  v 天津泰达(后备)</td>
-							<td width="20%">1 - 1</td>
-							<td width="20%" class="noRightLine">2 - 1</td>
-						</tr>
-
-
-						<!----------close TR-------------->
-						<tr id="closeTR_3326628" class="bet_result_closeTR">
-							<td id="td_3326628" width="15%" class="bet_result_padTD"><span id="close_btn_3326628" class="bet_resultOpenBTN" style="display: none;"></span><span>08-06 04:00</span></td>
-							<td width="45%" class="TDleft">江苏苏宁(后备)  v 贵州恒丰(后备)</td>
-							<td width="20%">1 - 0</td>
-							<td width="20%" class="noRightLine">3 - 0</td>
-						</tr>
-
-
-
-						</tbody><tbody><tr class="bet_leagueNO_hand" style="display:*DISPLAY*;">
-							<td width="60%" colspan="2" class="TDleft">澳维20</td>
-							<td width="20%" class="TDcenter">半场</td>
-							<td width="20%" class="TDcenter">全场</td>
-						</tr>
-
-						<!----------close TR-------------->
-						<tr id="closeTR_3318882" class="bet_result_closeTR">
-							<td id="td_3318882" width="15%" class="TDleft"><span id="close_btn_3318882" class="bet_resultOpenBTN"></span><span>08-06 04:30</span></td>
-							<td width="45%" class="TDleft">布琳狮子U20  v 帕斯科华伦U20</td>
-							<td width="20%">1 - 0</td>
-							<td width="20%" class="noRightLine">2 - 2</td>
-						</tr>
-
-
-						<tr id="openMORE_3318882_PGF" class="bet_result_openTR" style="display:none;">
-							<td></td>
-							<td class="TDleft">最先进球</td>
-							<td colspan="2" class="noRightLine">布琳狮子U20</td>
-						</tr>
-
-						<tr id="openMORE_3318882_PGL" class="bet_result_openTR" style="display:none;">
-							<td></td>
-							<td class="TDleft">最后进球</td>
-							<td colspan="2" class="noRightLine">帕斯科华伦U20</td>
-						</tr>
-
-
-						</tbody><tbody><tr class="bet_leagueNO_hand" style="display:*DISPLAY*;">
-							<td width="60%" colspan="2" class="TDleft">捷克联赛U21</td>
-							<td width="20%" class="TDcenter">半场</td>
-							<td width="20%" class="TDcenter">全场</td>
-						</tr>
-
-						<!----------close TR-------------->
-						<tr id="closeTR_3318890" class="bet_result_closeTR">
-							<td id="td_3318890" width="15%" class="TDleft"><span id="close_btn_3318890" class="bet_resultOpenBTN"></span><span>08-06 05:00</span></td>
-							<td width="45%" class="TDleft">斯洛瓦茨科U21  v 布尔诺U21</td>
-							<td width="20%">1 - 1</td>
-							<td width="20%" class="noRightLine">2 - 2</td>
-						</tr>
-
-
-						<tr id="openMORE_3318890_AGMH" class="bet_result_openTR" style="display:none;">
-							<td></td>
-							<td class="TDleft">0 - 14:59</td>
-							<td colspan="2" class="noRightLine">0 - 0</td>
-						</tr>
-
-						<tr id="openMORE_3318890_BGMH" class="bet_result_openTR" style="display:none;">
-							<td></td>
-							<td class="TDleft">15 - 29:59</td>
-							<td colspan="2" class="noRightLine">0 - 1</td>
-						</tr>
-
-						<tr id="openMORE_3318890_CGMH" class="bet_result_openTR" style="display:none;">
-							<td></td>
-							<td class="TDleft">30 – 半场</td>
-							<td colspan="2" class="noRightLine">1 - 0</td>
-						</tr>
-
-						<tr id="openMORE_3318890_DGMH" class="bet_result_openTR" style="display:none;">
-							<td></td>
-							<td class="TDleft">45 – 59:59</td>
-							<td colspan="2" class="noRightLine">0 - 1</td>
-						</tr>
-
-						<tr id="openMORE_3318890_EGMH" class="bet_result_openTR" style="display:none;">
-							<td></td>
-							<td class="TDleft">60 – 74:59</td>
-							<td colspan="2" class="noRightLine">0 - 0</td>
-						</tr>
-
-						<tr id="openMORE_3318890_FGMH" class="bet_result_openTR" style="display:none;">
-							<td></td>
-							<td class="TDleft">75 – 全场</td>
-							<td colspan="2" class="noRightLine">1 - 0</td>
-						</tr>
-
-						<tr id="openMORE_3318890_ARG" class="bet_result_openTR" style="display:none;">
-							<td></td>
-							<td class="TDleft">第一进球</td>
-							<td colspan="2" class="noRightLine">布尔诺U21</td>
-						</tr>
-
-						<tr id="openMORE_3318890_BRG" class="bet_result_openTR" style="display:none;">
-							<td></td>
-							<td class="TDleft">第二进球</td>
-							<td colspan="2" class="noRightLine">斯洛瓦茨科U21</td>
-						</tr>
-
-						<tr id="openMORE_3318890_CRG" class="bet_result_openTR" style="display:none;">
-							<td></td>
-							<td class="TDleft">第三进球</td>
-							<td colspan="2" class="noRightLine">布尔诺U21</td>
-						</tr>
-
-						<tr id="openMORE_3318890_DRG" class="bet_result_openTR" style="display:none;">
-							<td></td>
-							<td class="TDleft">第四进球</td>
-							<td colspan="2" class="noRightLine">斯洛瓦茨科U21</td>
-						</tr>
-
-						<tr id="openMORE_3318890_ERG" class="bet_result_openTR" style="display:none;">
-							<td></td>
-							<td class="TDleft">第五进球</td>
-							<td colspan="2" class="noRightLine">否</td>
-						</tr>
-
-						<tr id="openMORE_3318890_T1G" class="bet_result_openTR" style="display:none;">
-							<td></td>
-							<td class="TDleft">首个进球时间</td>
-							<td colspan="2" class="noRightLine">15 - 29:59</td>
-						</tr>
-
-						<tr id="openMORE_3318890_T3G" class="bet_result_openTR" style="display:none;">
-							<td></td>
-							<td class="TDleft">首个进球时间-三项</td>
-							<td colspan="2" class="noRightLine">27分钟+</td>
-						</tr>
-
-						<tr id="openMORE_3318890_PGF" class="bet_result_openTR" style="display:none;">
-							<td></td>
-							<td class="TDleft">最先进球</td>
-							<td colspan="2" class="noRightLine">布尔诺U21</td>
-						</tr>
-
-						<tr id="openMORE_3318890_PGL" class="bet_result_openTR" style="display:none;">
-							<td></td>
-							<td class="TDleft">最后进球</td>
-							<td colspan="2" class="noRightLine">斯洛瓦茨科U21</td>
-						</tr>
-
-						<!----------close TR-------------->
-						<tr id="closeTR_3318896" class="bet_result_closeTR">
-							<td id="td_3318896" width="15%" class="TDleft"><span id="close_btn_3318896" class="bet_resultOpenBTN"></span><span>08-06 05:00</span></td>
-							<td width="45%" class="TDleft">卡尔维纳U21  v 奥斯泰华U21</td>
-							<td width="20%">1 - 0</td>
-							<td width="20%" class="noRightLine">1 - 0</td>
-						</tr>
-
-
-						<tr id="openMORE_3318896_PGF" class="bet_result_openTR" style="display:none;">
-							<td></td>
-							<td class="TDleft">最先进球</td>
-							<td colspan="2" class="noRightLine">卡尔维纳U21</td>
-						</tr>
-
-						<tr id="openMORE_3318896_PGL" class="bet_result_openTR" style="display:none;">
-							<td></td>
-							<td class="TDleft">最后进球</td>
-							<td colspan="2" class="noRightLine">卡尔维纳U21</td>
-						</tr>
-
-						<!----------close TR-------------->
-						<tr id="closeTR_3318894" class="bet_result_closeTR">
-							<td id="td_3318894" width="15%" class="TDleft"><span id="close_btn_3318894" class="bet_resultOpenBTN"></span><span>08-06 05:00</span></td>
-							<td width="45%" class="TDleft">斯洛瓦茨科U21  v 布尔诺U21</td>
-							<td width="20%">4 - 0</td>
-							<td width="20%" class="noRightLine">4 - 2</td>
-						</tr>
-
-
-						<tr id="openMORE_3318894_RNC1" class="bet_result_openTR" style="display:none;">
-							<td></td>
-							<td class="TDleft">第一个角球</td>
-							<td colspan="2" class="noRightLine">斯洛瓦茨科U21</td>
-						</tr>
-
-						<tr id="openMORE_3318894_RNC2" class="bet_result_openTR" style="display:none;">
-							<td></td>
-							<td class="TDleft">第二个角球</td>
-							<td colspan="2" class="noRightLine">斯洛瓦茨科U21</td>
-						</tr>
-
-						<tr id="openMORE_3318894_RNC3" class="bet_result_openTR" style="display:none;">
-							<td></td>
-							<td class="TDleft">第三个角球</td>
-							<td colspan="2" class="noRightLine">斯洛瓦茨科U21</td>
-						</tr>
-
-						<tr id="openMORE_3318894_RNC4" class="bet_result_openTR" style="display:none;">
-							<td></td>
-							<td class="TDleft">第四个角球</td>
-							<td colspan="2" class="noRightLine">斯洛瓦茨科U21</td>
-						</tr>
-
-						<tr id="openMORE_3318894_RNC5" class="bet_result_openTR" style="display:none;">
-							<td></td>
-							<td class="TDleft">第五个角球</td>
-							<td colspan="2" class="noRightLine">布尔诺U21</td>
-						</tr>
-
-						<tr id="openMORE_3318894_RNC6" class="bet_result_openTR" style="display:none;">
-							<td></td>
-							<td class="TDleft">第六个角球</td>
-							<td colspan="2" class="noRightLine">布尔诺U21</td>
-						</tr>
-
-						<tr id="openMORE_3318894_RNC7" class="bet_result_openTR" style="display:none;">
-							<td></td>
-							<td class="TDleft">第七个角球</td>
-							<td colspan="2" class="noRightLine">没有角球</td>
-						</tr>
-
-
-						</tbody><tbody><tr class="bet_leagueNO_hand" style="display:*DISPLAY*;">
-							<td width="60%" colspan="2" class="TDleft">澳昆士超20</td>
-							<td width="20%" class="TDcenter">半场</td>
-							<td width="20%" class="TDcenter">全场</td>
-						</tr>
-
-						<!----------close TR-------------->
-						<tr id="closeTR_3318874" class="bet_result_closeTR">
-							<td id="td_3318874" width="15%" class="TDleft"><span id="close_btn_3318874" class="bet_resultOpenBTN"></span><span>08-06 05:30</span></td>
-							<td width="45%" class="TDleft">威斯顿普德U20  v 瑞德兰茨联U20</td>
-							<td width="20%">1 - 1</td>
-							<td width="20%" class="noRightLine">5 - 3</td>
-						</tr>
-
-
-						<tr id="openMORE_3318874_PGF" class="bet_result_openTR" style="display:none;">
-							<td></td>
-							<td class="TDleft">最先进球</td>
-							<td colspan="2" class="noRightLine">瑞德兰茨联U20</td>
-						</tr>
-
-						<tr id="openMORE_3318874_PGL" class="bet_result_openTR" style="display:none;">
-							<td></td>
-							<td class="TDleft">最后进球</td>
-							<td colspan="2" class="noRightLine">威斯顿普德U20</td>
-						</tr>
-
-
-						</tbody><tbody><tr class="bet_leagueNO_hand" style="display:*DISPLAY*;">
-							<td width="60%" colspan="2" class="TDleft">越杯21外</td>
-							<td width="20%" class="TDcenter">半场</td>
-							<td width="20%" class="TDcenter">全场</td>
-						</tr>
-
-						<!----------close TR-------------->
-						<tr id="closeTR_3321844" class="bet_result_closeTR">
-							<td id="td_3321844" width="15%" class="TDleft"><span id="close_btn_3321844" class="bet_resultOpenBTN"></span><span>08-06 05:30</span></td>
-							<td width="45%" class="TDleft">胡志明市足球俱乐部U21  v 安江U21</td>
-							<td width="20%">0 - 1</td>
-							<td width="20%" class="noRightLine">3 - 4</td>
-						</tr>
-
-
-						<tr id="openMORE_3321844_PGF" class="bet_result_openTR" style="display:none;">
-							<td></td>
-							<td class="TDleft">最先进球</td>
-							<td colspan="2" class="noRightLine">安江U21</td>
-						</tr>
-
-						<tr id="openMORE_3321844_PGL" class="bet_result_openTR" style="display:none;">
-							<td></td>
-							<td class="TDleft">最后进球</td>
-							<td colspan="2" class="noRightLine">安江U21</td>
-						</tr>
-
-
-						</tbody><tbody><tr class="bet_leagueNO_hand" style="display:*DISPLAY*;">
-							<td width="60%" colspan="2" class="TDleft">澳昆士超20</td>
-							<td width="20%" class="TDcenter">半场</td>
-							<td width="20%" class="TDcenter">全场</td>
-						</tr>
-
-						<!----------close TR-------------->
-						<tr id="closeTR_3318878" class="bet_result_closeTR">
-							<td id="td_3318878" width="15%" class="TDleft"><span id="close_btn_3318878" class="bet_resultOpenBTN"></span><span>08-06 05:36</span></td>
-							<td width="45%" class="TDleft">布里斯班奥林匹克U20  v 布里斯班城U20</td>
-							<td width="20%">1 - 0</td>
-							<td width="20%" class="noRightLine">4 - 2</td>
-						</tr>
-
-
-						<tr id="openMORE_3318878_PGF" class="bet_result_openTR" style="display:none;">
-							<td></td>
-							<td class="TDleft">最先进球</td>
-							<td colspan="2" class="noRightLine">布里斯班奥林匹克U20</td>
-						</tr>
-
-						<tr id="openMORE_3318878_PGL" class="bet_result_openTR" style="display:none;">
-							<td></td>
-							<td class="TDleft">最后进球</td>
-							<td colspan="2" class="noRightLine">布里斯班奥林匹克U20</td>
-						</tr>
-
-
-						</tbody><tbody><tr class="bet_leagueNO_hand" style="display:*DISPLAY*;">
-							<td width="60%" colspan="2" class="TDleft">越杯21外</td>
-							<td width="20%" class="TDcenter">半场</td>
-							<td width="20%" class="TDcenter">全场</td>
-						</tr>
-
-						<!----------close TR-------------->
-						<tr id="closeTR_3321852" class="bet_result_closeTR">
-							<td id="td_3321852" width="15%" class="TDleft"><span id="close_btn_3321852" class="bet_resultOpenBTN"></span><span>08-06 05:40</span></td>
-							<td width="45%" class="TDleft">贝卡麦克斯U21  v 隆奈U21</td>
-							<td width="20%">2 - 0</td>
-							<td width="20%" class="noRightLine">3 - 2</td>
-						</tr>
-
-
-						<tr id="openMORE_3321852_PGF" class="bet_result_openTR" style="display:none;">
-							<td></td>
-							<td class="TDleft">最先进球</td>
-							<td colspan="2" class="noRightLine">贝卡麦克斯U21</td>
-						</tr>
-
-						<tr id="openMORE_3321852_PGL" class="bet_result_openTR" style="display:none;">
-							<td></td>
-							<td class="TDleft">最后进球</td>
-							<td colspan="2" class="noRightLine">贝卡麦克斯U21</td>
-						</tr>
-
-
-
-
-
-
-						<!-- START DYNAMIC BLOCK: WTYPE2 -->
-						<tr id="openMORE_*NO*_*WTYPE*" class="*TR_CLASS*" style="display:none;">
-							<td></td>
-							<td class="TDleft">*MORE_WTYPE*</td>
-							<td>*WTYPE_RSH*</td>
-							<td colspan="" class="noRightLine">*WTYPE_RSC*</td>
-						</tr>
-						<!-- END DYNAMIC BLOCK: WTYPE2 -->
-
-						</tbody></table>
+						<?
+						foreach ($rData as $items) {
+							foreach ($items as $leage => $rows) {
+						?>
+								<tbody>
+								<tr class="bet_leagueNO_hand" style="display:*DISPLAY*;">
+									<td width="60%" colspan="2" class="TDleft"><?=$leage?></td>
+									<?
+									if($gtype=='FT' || $gtype=='BS'){
+									?>
+										<td width="20%" class="TDcenter">半场</td>
+										<td width="20%" class="TDcenter">全场</td>
+									<?
+									} else {
+									?>
+										<td width="20%" class="TDcenter">赛果</td>
+									<?
+									}
+									?>
+								</tr>
+						<?
+								foreach ($rows as  $row) {
+									if (count(explode("PK", $row['m_league'])) == 1 && count(explode("延时", $row['m_league'])) == 1) {
+						?>
+								<!----------close TR-------------->
+								<tr id="closeTR_<?=$row['mb_mid']?>" class="bet_result_closeTR">
+									<td id="td_<?=$row['mb_mid']?>" width="15%" class="bet_result_padTD"><span><?=$row["m_date"]?> <?=$row["m_time"]?></span>
+									</td>
+									<td width="45%" class="TDleft"><?=$row['mb_team']?> v <?=$row['tg_team']?></td>
+									<?
+                                    if($gtype=='FT' || $gtype=='BS'){
+                                        if ($row['mb_inball_hr']==-1 || $row['mb_inball_hr']==-1){
+                                            $ball_hr='赛事延赛';
+                                        }else{
+                                            $ball_hr=$row['mb_inball_hr'].' - '.$row['tg_inball_hr'];
+                                        }
+
+                                        if ($row['mb_inball']==-1 || $row['tg_inball']==-1){
+                                            if ($row['mb_inball_hr']==-1 || $row['mb_inball_hr']==-1){
+                                                $ball='赛事延赛';
+                                            }else{
+                                                $ball='赛事腰斩';
+                                            }
+                                        }else{
+                                            $ball=$row['mb_inball'].' - '.$row['tg_inball'];
+                                        }
+									?>
+                                    <td width="20%"><?=$ball_hr?></td>
+                                    <td width="20%" class="noRightLine"><?=$ball?></td>
+									<?
+									} else {
+									?>
+                                    <td width="20%" class="noRightLine"><?=$row['mb_inball']?> - <?=$row['tg_inball']?></td>
+                                    <?
+									}
+                                    ?>
+								</tr>
+								</tbody>
+						<?
+									}
+								}
+							}
+						}
+						?>
+					</table>
 				</div>
 
-				<div id="div_model" style="display:none;">
-					<table id="MainTable" cellspacing="0" cellpadding="0" class="bet_MainTable">
-
-						<!-- START DYNAMIC BLOCK: RESULT -->
-
-						<tbody><tr class="bet_leagueNO_hand" style="display:*DISPLAY*;">
-							<td width="60%" colspan="2" class="TDleft">*LEAGUE*</td>
-							<td width="20%" class="TDcenter">半场</td>
-							<td width="20%" class="TDcenter">全场</td>
-						</tr>
-						<!-- END DYNAMIC BLOCK: RESULT -->
-
-						<!-- START DYNAMIC BLOCK: GAME -->
-						<!----------close TR-------------->
-						<tr id="closeTR_*NO*" class="*TR_CLASS*">
-							<td id="td_*NO*" width="15%" class="TDleft"><span id="close_btn_*NO*" class="bet_resultOpenBTN"></span><span>*MON*-*MDAY* *TIME*</span></td>
-							<td width="45%" class="TDleft">*TEAMH*  v *TEAMC*</td>
-							<td width="20%">*HGMH*</td>
-							<td width="20%" class="noRightLine">*GMH*</td>
-						</tr>
-
-						<!-- END DYNAMIC BLOCK: GAME -->
-
-						<!-- START DYNAMIC BLOCK: WTYPE -->
-						<tr id="openMORE_*NO*_*WTYPE*" class="*TR_CLASS*" style="display:none;">
-							<td></td>
-							<td class="TDleft">*MORE_WTYPE*</td>
-							<td colspan="2" class="noRightLine">*WTYPE_RS*</td>
-						</tr>
-						<!-- END DYNAMIC BLOCK: WTYPE -->
-
-						<!-- START DYNAMIC BLOCK: WTYPE2 -->
-						<tr id="openMORE_*NO*_*WTYPE*" class="*TR_CLASS*" style="display:none;">
-							<td></td>
-							<td class="TDleft">*MORE_WTYPE*</td>
-							<td>*WTYPE_RSH*</td>
-							<td colspan="" class="noRightLine">*WTYPE_RSC*</td>
-						</tr>
-						<!-- END DYNAMIC BLOCK: WTYPE2 -->
-
-						</tbody></table>
-				</div>
 
 				<!-----pageBTN--------->
-				<div id="pageBTN" name="MaxTag" src="/js/lib/Page_ag.js" linkage="Page_ag">
-					<div class="bet_pageDIV">
-						<ul>
-							<li id="btn_first" class="bet_firstBTN" style="display:none;"><a>&nbsp;</a></li>
-							<li id="btn_pre" class="bet_preBTN" style="display:none;"><a>&nbsp;</a></li>
-							<span id="pageBox">
-									<li id="pg_1" class="On" style="display: none;"><a>1</a></li>
+                <div id="pageBTN" name="MaxTag"  linkage="Page_ag">
+                    <div class="bet_pageDIV">
+                        <ul>
+                            <li id="btn_pre" class="bet_preBTN" style="display:none;" onclick="chg_pg('-')"><a>&nbsp;</a></li>
+                            <span id="pageBox">
 								</span>
-							<li id="btn_next" class="bet_nextBTN" style="display:none;"><a>&nbsp;</a></li>
-							<li id="btn_last" class="bet_lastBTN" style="display:none;"><a>&nbsp;</a></li>
-						</ul>
-					</div>
-					<div id="model_page" style="display:none;">
-						<li id="pg_*PAGEID*" class="*PGCLASS*"><a>*PAGEID*</a></li>
-					</div>
-				</div>
+                            <li id="btn_next" class="bet_nextBTN" style="display:none;" onclick="chg_pg('+')"><a>&nbsp;</a></li>
+                        </ul>
+                    </div>
+                </div>
 				<!-----pageBTN--------->
 
 
@@ -662,8 +318,14 @@ function chg_pg(pg)
 			</div>
 		</div>
 	</div></div>
+	</div>
 </body>
-</html>
+<script language="JavaScript">
+//	alert(document.getElementsByClassName('bet_selectSP_option'));
+//	document.getElementsByClassName('bet_selectSP_option').onmouseover = function(event) { addClass(this, 'bet_selectBG') };
+//	document.getElementsByClassName('bet_selectSP_option').onmouseout = function(event) { removeClass(this, 'bet_selectBG') };
+</script>
+	</html>
 <?
 mysql_close();
 ?>
