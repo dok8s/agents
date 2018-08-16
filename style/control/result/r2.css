@@ -6,7 +6,7 @@
 .bet_wager:hover{ background-position:bottom}
 .bet_wager_new{ display:block; position:absolute; width:23px; height:15px;background:url(../../../images/control/bet_wager_new_tw.png) no-repeat;  top:-2px; right:-12px;}
 
-.bet_main{padding-top:44px;}
+.bet_main{padding-top:10px;}
 .bet_mainpadding{width:100%;padding:0 20px 20px;margin:auto }
 
 .bet_over_table01{ clear:both;width:230px; border-top:1px solid #bfbfbf;border-left:1px solid #6b6b6b; color:#3b3b3b; font-size:15px; text-align:left;  margin:17px auto auto 0}
@@ -56,6 +56,7 @@ td.bet_TD_Whrite tt:hover, td.bet_TD_Gray tt:hover{ color:#B10918}
 .bet_DetailName{ float:left; margin-left:30px;}
 .bet_DetailName h1{ font-size:14px; line-height:15px;color:#3b3b3b;text-transform:uppercase}
 .bet_DetailName h2{ font-size:14px; line-height:20px;color:#007ee6;}
+.bet_DetailName a{ color:#007ee6; text-decoration:none;}
 
 .bet_MainTable{ width:100%; color:#3b3b3b; font-size:14px; text-align:left; margin:auto;}
 .bet_MainTableCut1{ margin-top:-1px;}
@@ -284,7 +285,7 @@ td.bet_started_PSTD{  white-space:nowrap;font-size:14px; width:30%; text-align:l
 
 @media \0screen\,screen\9 {.bet_selectSP_options{top:20px; left:0}}
 
-.bet_selectSP_options li a{ color:#3b3b3b; font-size:13px; line-height:30px; padding-left:5px;}
+.bet_selectSP_options li a{ color:#3b3b3b; font-size:13px; line-height:30px; padding-left:5px;text-decoration:none;}
 .bet_selectSP_options li.bet_selectBG{ background-color:#585555;}/*IE滑過沒效果只好靠程式換*/
 .bet_selectSP_options li.bet_selectBG a{ color:#fff}/*IE滑過沒效果只好靠程式換 */
 
