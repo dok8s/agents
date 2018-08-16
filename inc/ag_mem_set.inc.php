@@ -302,7 +302,7 @@ FS_chg_box_R_title = "请输入冠军-冠军设定";
 <body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" vlink="#0000FF" alink="#0000FF">
  <INPUT TYPE=HIDDEN NAME="id" VALUE="228509">
   <INPUT TYPE=HIDDEN NAME="sid" VALUE="{SID}">
-<table width="780" border="0" cellspacing="0" cellpadding="0">
+<table width="780" border="0" cellspacing="0" cellpadding="0" style="padding-left:20px;">
   <tr>  
     <td class="m_tline">&nbsp;&nbsp;<?=$mnu_member?><?=$mem_setopt?>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;帐号:<?=$row['Memname']?> 
       -- 会员名称:<?=$row['Alias']?> -- 盘口:<?=$row['OpenType']?> -- 使用币别:<?=$row['CurType']?> -- <?=$rep_pay_type?>: <?
@@ -312,7 +312,6 @@ FS_chg_box_R_title = "请输入冠军-冠军设定";
   	  	echo $rep_pay_type_m;
 	  }
 	  ?> --  <a href="./ag_members.php?uid=<?=$uid?>">回上一页</a></td>
-    <td width="30"><img src="/images/control/zh-tw/top_04.gif" width="30" height="24"></td>
   </tr>
   <tr> 
     <td colspan="2" height="4"></td>
@@ -324,47 +323,43 @@ FS_chg_box_R_title = "请输入冠军-冠军设定";
          <table border="1" id="demoTable" style="margin-top:5px;border-collapse: collapse;width: 1024px;">
              <tr id="my_tr">
                  <th class="center" rowspan="2">足球</th>
-                 <th class="center" colspan="4">退水设定</th>
+                 <th class="center" colspan="1">退水设定</th>
                  <th class="center" colspan="2">投注限额</th>
+                 <th rowspan="2" class="center" >功能</th>
              </tr>
              <tr>
                  <th class="center">A</th>
-                 <th class="center">B</th>
-                 <th class="center">C</th>
-                 <th class="center">D</th>
                  <th class="center">单场</th>
                  <th class="center">单注</th>
              </tr>
              <tr  class="m_cen">
                  <td nowrap align="right" class="m_ag_ed">让球, 大小, 单双</td>
-                 <td nowrap><?=$row["FT_Turn_R_A"]?></td>
-                 <td nowrap><?=$row["FT_Turn_R_B"]?></td>
-                 <td nowrap><?=$row["FT_Turn_R_C"]?></td>
-                 <td nowrap><?=$row["FT_Turn_R_D"]?></td>
-                 <td nowrap><?=$row["FT_R_Scene"]?></td>
-                 <td nowrap><?=$row["FT_R_Bet"]?></td>
+                 <td nowrap><?=$row['FT_Turn_R']?></td>
+                 <td nowrap><?=$row['FT_R_Scene']?></td>
+                 <td nowrap><?=$row['FT_R_Bet']?></td>
+                 <td ><a href="javascript:void(0)" onClick="show_win('','R','<?=$row['FT_R_Scene']?>','<?=$row['FT_R_Bet']?>',<?=$row['FT_Turn_R']?>,0.25,<?=$r_turn?>,'FT');"> 修改</a></td>
              </tr>
              <tr  class="m_cen">
                  <td nowrap class="m_ag_ed">滚球让球, 滚球大小</td>
-                 <td nowrap><?=$row["FT_Turn_RE_A"]?></td>
-                 <td nowrap><?=$row["FT_Turn_RE_B"]?></td>
-                 <td nowrap><?=$row["FT_Turn_RE_C"]?></td>
-                 <td nowrap><?=$row["FT_Turn_RE_D"]?></td>
-                 <td nowrap><?=$row["FT_RE_Scene"]?></td>
-                 <td nowrap><?=$row["FT_RE_Bet"]?></td>
-             </tr>
+                 <td nowrap><?=$row['FT_Turn_RE']?></td>
+                 <td nowrap><?=$row['FT_RE_Scene']?></td>
+                 <td nowrap><?=$row['FT_RE_Bet']?></td>
+                 <td ><a href="javascript:void(0)" onClick="show_win('','RE','<?=$row['FT_RE_Scene']?>','<?=$row['FT_RE_Bet']?>',<?=$row['FT_Turn_RE']?>,0.25,<?=$re_turn?>,'FT');"> 修改</a></td>
 
+             </tr>
              <tr  class="m_cen">
                  <td nowrap class="m_ag_ed">独赢, 滚球独赢</td>
-                 <td nowrap colspan="4" ><?=$row["FT_Turn_M"]?></td>
-                 <td nowrap><?=$row["FT_M_Scene"]?></td>
-                 <td nowrap><?=$row["FT_M_Bet"]?></td>
+                 <td nowrap><?=$row['FT_Turn_M']?></td>
+                 <td nowrap><?=$row['FT_M_Scene']?></td>
+                 <td nowrap><?=$row['FT_M_Bet']?></td>
+                 <td ><a href="javascript:void(0)" onClick="show_win('','M','<?=$row['FT_M_Scene']?>','<?=$row['FT_M_Bet']?>',<?=$row['FT_Turn_M']?>,1,<?=$ag_row['FT_Turn_M']?>,'FT');"> 修改</a></td>
              </tr>
              <tr  class="m_cen">
                  <td nowrap class="m_ag_ed">其他</td>
-                 <td nowrap colspan="4" ><?=$row["FT_Turn_PC"]?></td>
-                 <td nowrap><?=$row["FT_PC_Scene"]?></td>
-                 <td nowrap><?=$row["FT_PC_Bet"]?></td>
+                 <td nowrap><?=$row['FT_Turn_PC']?></td>
+                 <td nowrap><?=$row['FT_PC_Scene']?></td>
+                 <td nowrap><?=$row['FT_PC_Bet']?></td>
+                 <td ><a href="javascript:void(0)" onClick="show_win('','PC','<?=$row['FT_PC_Scene']?>','<?=$row['FT_PC_Bet']?>',<?=$row['FT_Turn_PC']?>,1,<?=$ag_row['FT_Turn_PC']?>,'FT');"> 修改</a></td>
              </tr>
          </table>
      </div>
@@ -376,42 +371,35 @@ FS_chg_box_R_title = "请输入冠军-冠军设定";
          <table border="1" id="demoTable" style="margin-top:5px;border-collapse: collapse;width: 1024px;">
              <tr id="my_tr">
                  <th class="center" rowspan="2">篮球</th>
-                 <th class="center" colspan="4">退水设定</th>
+                 <th class="center" colspan="1">退水设定</th>
                  <th class="center" colspan="2">投注限额</th>
+                 <th rowspan="2" class="center" >功能</th>
              </tr>
              <tr>
                  <th class="center">A</th>
-                 <th class="center">B</th>
-                 <th class="center">C</th>
-                 <th class="center">D</th>
                  <th class="center">单场</th>
                  <th class="center">单注</th>
              </tr>
              <tr  class="m_cen">
                  <td nowrap align="right" class="m_ag_ed">让球, 大小, 单双</td>
-                 <td nowrap><?=$row["BK_Turn_R_A"]?></td>
-                 <td nowrap><?=$row["BK_Turn_R_B"]?></td>
-                 <td nowrap><?=$row["BK_Turn_R_C"]?></td>
-                 <td nowrap><?=$row["BK_Turn_R_D"]?></td>
-                 <td nowrap><?=$row["BK_R_Scene"]?></td>
-                 <td nowrap><?=$row["BK_R_Bet"]?></td>
-
+                 <td nowrap><?=$row['BK_Turn_R']?></td>
+                 <td nowrap><?=$row['BK_R_Scene']?></td>
+                 <td nowrap><?=$row['BK_R_Bet']?></td>
+                 <td ><a href="javascript:void(0)" onClick="show_win('','R','<?=$row['BK_R_Scene']?>','<?=$row['BK_R_Bet']?>',<?=$row['BK_Turn_R']?>,0.25,<?=$bk_r_turn?>,'BK');"> 修改</a></td>
              </tr>
              <tr  class="m_cen">
                  <td nowrap class="m_ag_ed">滚球让球, 滚球大小</td>
-                 <td nowrap><?=$row["BK_Turn_RE_A"]?></td>
-                 <td nowrap><?=$row["BK_Turn_RE_B"]?></td>
-                 <td nowrap><?=$row["BK_Turn_RE_C"]?></td>
-                 <td nowrap><?=$row["BK_Turn_RE_D"]?></td>
-                 <td nowrap><?=$row["BK_RE_Scene"]?></td>
-                 <td nowrap><?=$row["BK_RE_Bet"]?></td>
-             </tr>
+                 <td nowrap><?=$row['BK_Turn_RE']?></td>
+                 <td nowrap><?=$row['BK_RE_Scene']?></td>
+                 <td nowrap><?=$row['BK_RE_Bet']?></td>
+                 <td ><a href="javascript:void(0)" onClick="show_win('','RE','<?=$row['BK_RE_Scene']?>','<?=$row['BK_RE_Bet']?>',<?=$row['BK_Turn_RE']?>,0.25,<?=$bk_re_turn?>,'BK');"> 修改</a></td>
 
              <tr  class="m_cen">
                  <td nowrap class="m_ag_ed">其他</td>
-                 <td nowrap colspan="4" ><?=$row["BK_Turn_PC"]?></td>
-                 <td nowrap><?=$row["BK_PC_Scene"]?></td>
-                 <td nowrap><?=$row["BK_PC_Bet"]?></td>
+                 <td nowrap><?=$row['BK_Turn_PC']?></td>
+                 <td nowrap><?=$row['BK_PC_Scene']?></td>
+                 <td nowrap><?=$row['BK_PC_Bet']?></td>
+                 <td ><a href="javascript:void(0)" onClick="show_win('','PC','<?=$row['BK_PC_Scene']?>','<?=$row['BK_PC_Bet']?>',<?=$row['BK_Turn_PC']?>,1,<?=$ag_row['BK_Turn_PC']?>,'BK');"> 修改</a></td>
              </tr>
          </table>
      </div>
@@ -423,48 +411,42 @@ FS_chg_box_R_title = "请输入冠军-冠军设定";
          <table border="1" id="demoTable" style="margin-top:5px;border-collapse: collapse;width: 1024px;">
              <tr id="my_tr">
                  <th class="center" rowspan="2">综合球类</th>
-                 <th class="center" colspan="4">退水设定</th>
+                 <th class="center" colspan="1">退水设定</th>
                  <th class="center" colspan="2">投注限额</th>
+                 <th rowspan="2" class="center" >功能</th>
              </tr>
              <tr>
                  <th class="center">A</th>
-                 <th class="center">B</th>
-                 <th class="center">C</th>
-                 <th class="center">D</th>
                  <th class="center">单场</th>
                  <th class="center">单注</th>
              </tr>
              <tr  class="m_cen">
                  <td nowrap align="right" class="m_ag_ed">让球, 大小, 单双</td>
-                 <td nowrap><?=$row["OP_Turn_R_A"]?></td>
-                 <td nowrap><?=$row["OP_Turn_R_B"]?></td>
-                 <td nowrap><?=$row["OP_Turn_R_C"]?></td>
-                 <td nowrap><?=$row["OP_Turn_R_D"]?></td>
-                 <td nowrap><?=$row["OP_R_Scene"]?></td>
-                 <td nowrap><?=$row["OP_R_Bet"]?></td>
-
+                 <td nowrap><?=$row['OP_Turn_R']+0?></td>
+                 <td nowrap><?=$row['OP_R_Scene']+0?></td>
+                 <td nowrap><?=$row['OP_R_Bet']+0?></td>
+                 <td ><a href="javascript:void(0)" onClick="show_win('','R','<?=$row['OP_R_Scene']+0?>','<?=$row['OP_R_Bet']+0?>',<?=$row['OP_Turn_R']+0?>,0.25,<?=$op_r_turn?>,'OP');"> 修改</a></td>
              </tr>
              <tr  class="m_cen">
                  <td nowrap class="m_ag_ed">滚球让球, 滚球大小</td>
-                 <td nowrap><?=$row["OP_Turn_RE_A"]?></td>
-                 <td nowrap><?=$row["OP_Turn_RE_B"]?></td>
-                 <td nowrap><?=$row["OP_Turn_RE_C"]?></td>
-                 <td nowrap><?=$row["OP_Turn_RE_D"]?></td>
-                 <td nowrap><?=$row["OP_RE_Scene"]?></td>
-                 <td nowrap><?=$row["OP_RE_Bet"]?></td>
-
+                 <td nowrap><?=$row['OP_Turn_RE']+0?></td>
+                 <td nowrap><?=$row['OP_RE_Scene']+0?></td>
+                 <td nowrap><?=$row['OP_RE_Bet']+0?></td>
+                 <td ><a href="javascript:void(0)" onClick="show_win('','RE','<?=$row['OP_RE_Scene']+0?>','<?=$row['OP_RE_Bet']+0?>',<?=$row['OP_Turn_RE']+0?>,0.25,<?=$op_re_turn?>,'OP');"> 修改</a></td>
              </tr>
              <tr  class="m_cen">
                  <td nowrap class="m_ag_ed">独赢, 滚球独赢</td>
-                 <td nowrap colspan="4" ><?=$row["OP_Turn_M"]?></td>
-                 <td nowrap><?=$row["OP_M_Scene"]?></td>
-                 <td nowrap><?=$row["OP_M_Bet"]?></td>
+                 <td nowrap><?=$row['OP_Turn_M']+0?></td>
+                 <td nowrap><?=$row['OP_M_Scene']+0?></td>
+                 <td nowrap><?=$row['OP_M_Bet']+0?></td>
+                 <td ><a href="javascript:void(0)" onClick="show_win('','M','<?=$row['OP_M_Scene']+0?>','<?=$row['OP_M_Bet']+0?>',<?=$row['OP_Turn_M']+0?>,1,<?=$ag_row['OP_Turn_M']+0?>,'OP');"> 修改</a></td>
              </tr>
              <tr  class="m_cen">
                  <td nowrap class="m_ag_ed">其他</td>
-                 <td nowrap colspan="4" ><?=$row["OP_Turn_PC"]?></td>
-                 <td nowrap><?=$row["OP_PC_Scene"]?></td>
-                 <td nowrap><?=$row["OP_PC_Bet"]?></td>
+                 <td nowrap><?=$row['OP_Turn_PC']+0?></td>
+                 <td nowrap><?=$row['OP_PC_Scene']+0?></td>
+                 <td nowrap><?=$row['OP_PC_Bet']+0?></td>
+                 <td ><a href="javascript:void(0)" onClick="show_win('','PC','<?=$row['OP_PC_Scene']+0?>','<?=$row['OP_PC_Bet']+0?>',<?=$row['OP_Turn_PC']+0?>,1,<?=$ag_row['OP_Turn_PC']+0?>,'OP');"> 修改</a></td>
              </tr>
          </table>
      </div>
@@ -476,178 +458,25 @@ FS_chg_box_R_title = "请输入冠军-冠军设定";
          <table border="1" id="demoTable" style="margin-top:5px;border-collapse: collapse; width: 1024px;">
              <tr id="my_tr">
                  <th class="center" rowspan="2">冠军</th>
-                 <th class="center" colspan="4">退水设定</th>
+                 <th class="center" colspan="1">退水设定</th>
                  <th class="center" colspan="2">投注限额</th>
+                 <th rowspan="2" class="center" >功能</th>
              </tr>
              <tr>
                  <th class="center">A</th>
-                 <th class="center">B</th>
-                 <th class="center">C</th>
-                 <th class="center">D</th>
                  <th class="center">单场</th>
                  <th class="center">单注</th>
              </tr>
              <tr  class="m_cen">
                  <td nowrap class="m_ag_ed">冠军</td>
-                 <td nowrap colspan="4" ><?=$row["FS_Turn_R"]?></td>
-                 <td nowrap><?=$row["FS_R_Scene"]?></td>
-                 <td nowrap><?=$row["FS_R_Bet"]?></td>
+                 <td nowrap><?=$row['FS_Turn_R']?></td>
+                 <td nowrap><?=$row['FS_R_Scene']?></td>
+                 <td nowrap><?=$row['FS_R_Bet']?></td>
+                 <td ><a href="javascript:void(0)" onClick="show_win('','R','<?=$row['FS_R_Scene']?>','<?=$row['FS_R_Bet']?>',<?=$row['FS_Turn_R']?>,1,<?=$ag_row['FS_Turn_R']?>,'FS');"> 修改</a></td>
              </tr>
          </table>
      </div>
  </div>
-<table id="FT_Coor" width="540" border="0" cellspacing="1" cellpadding="0" class="m_tab_ed">
-  <tr class="m_title_edit">
-    <td rowspan="2" width="140">足球 </td>
-    <td align="center" width="100">退水设定</td>
-    <td id ="FT_MY_col" colspan="2" >投注限额</td>
-	<!--td colspan="4">投注限额</td-->
-	<td rowspan="2" width="50" >功能</td>
-
-  </tr>
-   <tr class="m_title_edit" align="center">
-    <td width="100"><?=$row['OpenType']?></td>
-	<td width="125">单场</td>
-    <td width="125">单注</td>
-  </tr>
-  <tr  class="m_cen">
-    <td nowrap align="right" class="m_ag_ed">让球, 大小, 单双</td>
-    <td nowrap><?=$row['FT_Turn_R']?></td>
-	<td nowrap><?=$row['FT_R_Scene']?></td>
-	<td nowrap><?=$row['FT_R_Bet']?></td>
-	<td ><a href="javascript:void(0)" onClick="show_win('','R','<?=$row['FT_R_Scene']?>','<?=$row['FT_R_Bet']?>',<?=$row['FT_Turn_R']?>,0.25,<?=$r_turn?>,'FT');"> 修改</a></td>
-  </tr>
-  <tr  class="m_cen">
-    <td nowrap class="m_ag_ed">滚球让球, 滚球大小</td>
-    <td nowrap><?=$row['FT_Turn_RE']?></td>
-	<td nowrap><?=$row['FT_RE_Scene']?></td>
-	<td nowrap><?=$row['FT_RE_Bet']?></td>
-	<td ><a href="javascript:void(0)" onClick="show_win('','RE','<?=$row['FT_RE_Scene']?>','<?=$row['FT_RE_Bet']?>',<?=$row['FT_Turn_RE']?>,0.25,<?=$re_turn?>,'FT');"> 修改</a></td>
-
-  </tr>
-  <tr  class="m_cen">
-    <td nowrap class="m_ag_ed">独赢, 滚球独赢</td>
-    <td nowrap><?=$row['FT_Turn_M']?></td>
-	<td nowrap><?=$row['FT_M_Scene']?></td>
-	<td nowrap><?=$row['FT_M_Bet']?></td>
-	<td ><a href="javascript:void(0)" onClick="show_win('','M','<?=$row['FT_M_Scene']?>','<?=$row['FT_M_Bet']?>',<?=$row['FT_Turn_M']?>,1,<?=$ag_row['FT_Turn_M']?>,'FT');"> 修改</a></td>
-  </tr>
-  <tr  class="m_cen">
-    <td nowrap class="m_ag_ed">其他</td>
-    <td nowrap><?=$row['FT_Turn_PC']?></td>
-	<td nowrap><?=$row['FT_PC_Scene']?></td>
-	<td nowrap><?=$row['FT_PC_Bet']?></td>
-	<td ><a href="javascript:void(0)" onClick="show_win('','PC','<?=$row['FT_PC_Scene']?>','<?=$row['FT_PC_Bet']?>',<?=$row['FT_Turn_PC']?>,1,<?=$ag_row['FT_Turn_PC']?>,'FT');"> 修改</a></td>
-  </tr>
-</table>
-<BR>
-
-<table id="BK_Coor" width="540" border="0" cellspacing="1" cellpadding="0" class="m_tab_ed">
-  <tr class="m_title_edit">
-    <td rowspan="2" width="140">篮球 </td>
-    <td align="center" width="100">退水设定</td>
-    <td id ="BK_MY_col" colspan="2" >投注限额</td>
-	<!--td colspan="4">投注限额</td-->
-	<td rowspan="2" width="50" >功能</td>
-
-  </tr>
-   <tr class="m_title_edit">
-    <td width="100"><?=$row['OpenType']?></td>
-	<td width="125">单场</td>
-    <td width="125">单注</td>
-  </tr>
-  <tr  class="m_cen">
-    <td nowrap align="right" class="m_ag_ed">让球, 大小, 单双</td>
-    <td nowrap><?=$row['BK_Turn_R']?></td>
-	<td nowrap><?=$row['BK_R_Scene']?></td>
-	<td nowrap><?=$row['BK_R_Bet']?></td>
-	<td ><a href="javascript:void(0)" onClick="show_win('','R','<?=$row['BK_R_Scene']?>','<?=$row['BK_R_Bet']?>',<?=$row['BK_Turn_R']?>,0.25,<?=$bk_r_turn?>,'BK');"> 修改</a></td>
-  </tr>
-  <tr  class="m_cen">
-    <td nowrap class="m_ag_ed">滚球让球, 滚球大小</td>
-    <td nowrap><?=$row['BK_Turn_RE']?></td>
-	<td nowrap><?=$row['BK_RE_Scene']?></td>
-	<td nowrap><?=$row['BK_RE_Bet']?></td>
-	<td ><a href="javascript:void(0)" onClick="show_win('','RE','<?=$row['BK_RE_Scene']?>','<?=$row['BK_RE_Bet']?>',<?=$row['BK_Turn_RE']?>,0.25,<?=$bk_re_turn?>,'BK');"> 修改</a></td>
-  
-  <tr  class="m_cen">
-    <td nowrap class="m_ag_ed">其他</td>
-    <td nowrap><?=$row['BK_Turn_PC']?></td>
-	<td nowrap><?=$row['BK_PC_Scene']?></td>
-	<td nowrap><?=$row['BK_PC_Bet']?></td>
-	<td ><a href="javascript:void(0)" onClick="show_win('','PC','<?=$row['BK_PC_Scene']?>','<?=$row['BK_PC_Bet']?>',<?=$row['BK_Turn_PC']?>,1,<?=$ag_row['BK_Turn_PC']?>,'BK');"> 修改</a></td>
-  </tr>
-</table>
-<BR>
-
-<table id="OP_Coor" width="540" border="0" cellspacing="1" cellpadding="0" class="m_tab_ed">
-  <tr class="m_title_edit">
-    <td rowspan="2" width="140">综合球类</td>
-    <td align="center" width="100">退水设定</td>
-    <td id ="OP_MY_col" colspan="2" >投注限额</td>
-	<!--td colspan="4">投注限额</td-->
-	<td rowspan="2" width="50" >功能</td>
-
-  </tr>
-   <tr class="m_title_edit">
-    <td width="100"><?=$row['OpenType']?></td>
-	<td width="125">单场</td>
-    <td width="125">单注</td>
-  </tr>
-  <tr  class="m_cen">
-    <td nowrap align="right" class="m_ag_ed">让球, 大小, 单双</td>
-    <td nowrap><?=$row['OP_Turn_R']+0?></td>
-	<td nowrap><?=$row['OP_R_Scene']+0?></td>
-	<td nowrap><?=$row['OP_R_Bet']+0?></td>
-	<td ><a href="javascript:void(0)" onClick="show_win('','R','<?=$row['OP_R_Scene']+0?>','<?=$row['OP_R_Bet']+0?>',<?=$row['OP_Turn_R']+0?>,0.25,<?=$op_r_turn?>,'OP');"> 修改</a></td>
-  </tr>
-  <tr  class="m_cen">
-    <td nowrap class="m_ag_ed">滚球让球, 滚球大小</td>
-    <td nowrap><?=$row['OP_Turn_RE']+0?></td>
-	<td nowrap><?=$row['OP_RE_Scene']+0?></td>
-	<td nowrap><?=$row['OP_RE_Bet']+0?></td>
-	<td ><a href="javascript:void(0)" onClick="show_win('','RE','<?=$row['OP_RE_Scene']+0?>','<?=$row['OP_RE_Bet']+0?>',<?=$row['OP_Turn_RE']+0?>,0.25,<?=$op_re_turn?>,'OP');"> 修改</a></td>
-  </tr>
-  <tr  class="m_cen">
-    <td nowrap class="m_ag_ed">独赢, 滚球独赢</td>
-    <td nowrap><?=$row['OP_Turn_M']+0?></td>
-	<td nowrap><?=$row['OP_M_Scene']+0?></td>
-	<td nowrap><?=$row['OP_M_Bet']+0?></td>
-	<td ><a href="javascript:void(0)" onClick="show_win('','M','<?=$row['OP_M_Scene']+0?>','<?=$row['OP_M_Bet']+0?>',<?=$row['OP_Turn_M']+0?>,1,<?=$ag_row['OP_Turn_M']+0?>,'OP');"> 修改</a></td>
-  </tr>
-  <tr  class="m_cen">
-    <td nowrap class="m_ag_ed">其他</td>
-    <td nowrap><?=$row['OP_Turn_PC']+0?></td>
-	<td nowrap><?=$row['OP_PC_Scene']+0?></td>
-	<td nowrap><?=$row['OP_PC_Bet']+0?></td>
-	<td ><a href="javascript:void(0)" onClick="show_win('','PC','<?=$row['OP_PC_Scene']+0?>','<?=$row['OP_PC_Bet']+0?>',<?=$row['OP_Turn_PC']+0?>,1,<?=$ag_row['OP_Turn_PC']+0?>,'OP');"> 修改</a></td>
-  </tr>
-</table>
-<BR>
-
-<table id="FS_Coor" width="540" border="0" cellspacing="1" cellpadding="0" class="m_tab_ed">
-  <tr class="m_title_edit">
-    <td rowspan="2" width="140">冠军</td>
-    <td align="center" width="100">退水设定</td>
-    <td id ="FS_MY_col" colspan="2" >投注限额</td>
-	<!--td colspan="4">投注限额</td-->
-	<td rowspan="2" width="50" >功能</td>
-
-  </tr>
-   <tr class="m_title_edit">
-    <td width="100"><?=$row['OpenType']?></td>
-	<td width="125">单场</td>
-    <td width="125">单注</td>
-  </tr>			
-  <tr  class="m_cen">
-    <td nowrap class="m_ag_ed">冠军</td>
-    <td nowrap><?=$row['FS_Turn_R']?></td>
-	<td nowrap><?=$row['FS_R_Scene']?></td>
-	<td nowrap><?=$row['FS_R_Bet']?></td>
-	<td ><a href="javascript:void(0)" onClick="show_win('','R','<?=$row['FS_R_Scene']?>','<?=$row['FS_R_Bet']?>',<?=$row['FS_Turn_R']?>,1,<?=$ag_row['FS_Turn_R']?>,'FS');"> 修改</a></td>
-  </tr>
-
-</table>
 
 <!----------------------修改视窗2---------------------------->
 <div id=rs_window style="display: none;position:absolute">
