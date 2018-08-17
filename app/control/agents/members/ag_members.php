@@ -151,6 +151,10 @@ if ($cou<=0){
 -->
 </style>
 <link rel="stylesheet" href="/style/control/control_main.css" type="text/css">
+<link rel="stylesheet" href="/style/control/account_management.css" type="text/css">
+<link rel="stylesheet" href="/style/control/edit_agents2.css" type="text/css">
+<link rel="stylesheet" href="/bootstrap/css/bootstrap.css" type="text/css">
+<link rel="stylesheet" href="/bootstrap/css/bootstrap-theme.css" type="text/css">
 <SCRIPT>
 <!--
 function onLoad(){
@@ -198,118 +202,141 @@ function ChkSearch(){
 <body oncontextmenu="window.event.returnValue=false" bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" vlink="#0000FF" alink="#0000FF" onLoad="onLoad()";>
 <FORM NAME="myFORM" ACTION="/app/control/agents/members/ag_members.php?uid=<?=$uid?>" METHOD=POST>
 <input type="hidden" name="agent_id" value="28752">
-<table width="780" border="0" cellspacing="0" cellpadding="0">
+<table width="1024" border="0" cellspacing="0" cellpadding="0" style="margin-left:20px;margin-bottom: 10px;">
 <tr>
-<td class="m_tline">
+<td>
         <table border="0" cellspacing="0" cellpadding="0" >
-          <tr>
-            <td width="70">&nbsp;&nbsp;会员管理:</td>
-            <td>
+          <tr style="font-size: 15px;">
+            <td>&nbsp;&nbsp;会员管理：</td>
+            <td style="padding-right:30px;">
 		<select name="enable" onChange="self.myFORM.submit()" class="za_select" >
+                <option value="Y">请选择</option>
                 <option value="Y">启用</option>
                 <option value="N">停用</option>
                 <option value="S">只能看帐</option>
-				<option value="F">禁止登入</option>
+                <option value="F">禁止登入</option>
               </select>
             </td>
-<?
-if ($cou>0){
-?>
-            <td width="40"> -- 排序:</td>
-            <td>
+            <?
+            if ($cou>0){
+            ?>
+            <td>排序：</td>
+            <td style="padding-right:30px;">
               <select id="super_agents_id" name="sort" onChange="document.myFORM.submit();" class="za_select">
                 <option value="alias">会员名称</option>
                 <option value="memname">会员帐号</option>
                 <option value="adddate">新增日期</option>
               </select>
-              <select id="enable" name="orderby" onChange="self.myFORM.submit()" class="za_select">
+              <select id="super_agents_id" name="orderby" onChange="self.myFORM.submit()" class="za_select">
                 <option value="asc">升幂(由小到大)</option>
                 <option value="desc">降幂(由大到小)</option>
               </select>
-<?
-}
-?>
+            <?
+            }
+            ?>
             </td>
-            <td width="52"> -- 总页数:</td>
+            <td >总页数：</td>
             <td>
               <select id="page" name="page" onChange="self.myFORM.submit()" class="za_select">
-		<?
-		if ($page_count==0){
-				echo "<option value='0'>0</option>";
-		}else{
-			for($i=0;$i<$page_count;$i++){
-				echo "<option value='$i'>".($i+1)."</option>";
-			}
-		}
-		?>
-
+              <?
+              if ($page_count==0){
+                  echo "<option value='0'>0</option>";
+              }else{
+                for($i=0;$i<$page_count;$i++){
+                  echo "<option value='$i'>".($i+1)."</option>";
+                }
+              }
+              ?>
               </select>
             </td>
-            <td> / <?=$page_count?> <?=$mem_page?> -- </td>
-			<td>&nbsp;&nbsp;<input type="text" name="uname" id="uname" style="width:70px;">&nbsp;<input type=BUTTON name="seledd" value="查询会员" onClick="document.myFORM.submit();" class="za_button"></td>
+            <td style="padding-right:30px;"> / <?=$page_count?> <?=$mem_page?></td>
+            <td style="padding-right: 15px;">
+              <input type="text" name="uname" id="uname" style="width: 120px;height: 30px;">&nbsp;
+              <button type="button" class="btn btn-primary" onClick="document.myFORM.submit();">查询会员</button>
+            </td>
             <td>
-              <input type=BUTTON name="append" value="新增" onClick="document.location='./ag_mem_add.php?uid=<?=$uid?>'" class="za_button">
+              <button type="button" class="btn btn-success" onClick="document.location='./ag_mem_add.php?uid=<?=$uid?>'">新增会员</button>
+            </td>
             </td>
           </tr>
         </table>
 </td>
-
-    <td width="30"><img src="/images/control/zh-tw/top_04.gif" width="30" height="24"></td>
 </tr>
 <tr>
-<td colspan="2" height="4"></td>
 </tr>
-</table>
-  <table width="780" border="0" cellspacing="1" cellpadding="0"  bgcolor="E3D46E" class="m_tab">
-<? if ($cou==0){
-?>   <tr class="m_title">
-      <td height="30" >目前无任何会员</td>
-    </tr>
-<?
-}else{
-?>
-        <tr class="m_title">
-      <!--<td width="100" >代理商</td>-->
-      <td width="100">会员名称</td>
-      <td width="100">会员帐号</td>
-      <td width="100">登录帐号</td>
-	  <td width="95">信用额度</td>
-      <td width="76">新增日期</td>
-      <td width="61">帐号状况</td>
-      <td width="240">功能</td>
-      <!--<td width="70">押码跳动</td>-->
-    </tr>
-<?
-	while ($row = mysql_fetch_array($result)){
-	
-	?><tr  class="m_cen" >
-      <!--<td>xli365</td>-->
-      <td><?=$row['Alias'];?></td>
-      <td><?=$row['Memname'];?></td>
-      <td><?=$row['loginname'];?></td>
-	  <td align="right"><? if ($row['pay_type']==1){
-	echo mynumberformat($row['money']*$row['ratio'],2);
-	}else{
-	echo mynumberformat($row['Credit']*$row['ratio'],2);
-	}?></td>
-      <td><?=$row['AddDate'];?></td>
-      <td><?=$caption2?></td>
-      <td align="left">
-	  <a HREF="#" onClick="CheckENABLEPRI('/app/control/agents/members/ag_members.php?uid=<?=$uid?>&active=2&id=<?=$row['ID']?>&enable=<?=$memstop?>','<?=$memstop?>'); return false;"><?=$caption1?> /</a>&nbsp;
-				<SPAN style="color:#000FF0" >暂停</SPAN >	
-				<a HREF="#" onClick="MouEnter('/app/control/agents/members/ag_members.php?uid=<?=$uid?>&active=2&id=<?=$row['ID']?>&enable=S','S','/app/control/agents/members/ag_members.php?uid=<?=$uid?>&active=2&id=<?=$row['ID']?>&enable=F&enable_pri=N','N'); return false;">▼ </a>/&nbsp;		
-				<a href="./ag_mem_edit.php?uid=<?=$uid?>&mid=<?=$row['ID']?>&aid=<?=$agname?>">修改资料</a>&nbsp;/&nbsp;
-				<a href="ag_mem_set.php?uid=<?=$uid?>&pay_type=0&id=<?=$row['ID']?>&agents_id=<?=$agname?>">详细设定</a>
-	  
-	  </td>
+  <div class="container-fluid">
+    <div class="row-fluid">
+      <table class="table" style="width: 70%;margin-left:20px;">
+        <thead>
+        <tr style="background: #F4F1F1;height: 30px;">
+          <th style="border: none;border-bottom: #bfbfbf 1px solid;white-space: nowrap;color: #3B3B3B;width:8%">
+            会员名称
+          </th>
+          <th style="border: none;border-bottom: #bfbfbf 1px solid;white-space: nowrap;color: #3B3B3B;width:8%">
+            会员账号
+          </th>
+          <th style="border: none;border-bottom: #bfbfbf 1px solid;white-space: nowrap;color: #3B3B3B;width:8%">
+            登录账号
+          </th>
+          <th style="border: none;border-bottom: #bfbfbf 1px solid;white-space: nowrap;color: #3B3B3B;width:8%">
+            信用额度
+          </th>
+          <th style="border: none;border-bottom: #bfbfbf 1px solid;white-space: nowrap;color: #3B3B3B;width:8%">
+            新增日期
+          </th>
+          <th style="border: none;border-bottom: #bfbfbf 1px solid;white-space: nowrap;color: #3B3B3B;width:8%">
+            账号状况
+          </th>
+          <th style="border: none;border-bottom: #bfbfbf 1px solid;white-space: nowrap;color: #3B3B3B;width:20%">
+            功能
+          </th>
+        </tr>
+        </thead>
+        <tbody>
+        <? if ($cou==0){
+            ?>
+          <tr class="m_title">
+            <td>目前无任何会员</td>
+          </tr>
+            <?
+        }else {
+            ?>
+            <?
+            while ($row = mysql_fetch_array($result)) {
+                ?>
+              <tr class="">
+                <!--<td>xli365</td>-->
+                <td style="width:8%"><?= $row['Alias']; ?></td>
+                <td style="width:8%"><?= $row['Memname']; ?></td>
+                <td style="width:8%"><?= $row['loginname']; ?></td>
+                <td style="width:8%"><? if ($row['pay_type'] == 1) {
+                        echo mynumberformat($row['money'] * $row['ratio'], 2);
+                    } else {
+                        echo mynumberformat($row['Credit'] * $row['ratio'], 2);
+                    } ?></td>
+                <td style="width:8%"><?= $row['AddDate']; ?></td>
+                <td style="width:8%"><?= $caption2 ?></td>
+                <td align="left" style="width:20%">
+                  <a HREF="#"
+                     onClick="CheckENABLEPRI('/app/control/agents/members/ag_members.php?uid=<?= $uid ?>&active=2&id=<?= $row['ID'] ?>&enable=<?= $memstop ?>','<?= $memstop ?>'); return false;"><?= $caption1 ?>
+                    /</a>&nbsp;
+                  <SPAN style="color:#000FF0">暂停</SPAN>
+                  <a HREF="#"
+                     onClick="MouEnter('/app/control/agents/members/ag_members.php?uid=<?= $uid ?>&active=2&id=<?= $row['ID'] ?>&enable=S','S','/app/control/agents/members/ag_members.php?uid=<?= $uid ?>&active=2&id=<?= $row['ID'] ?>&enable=F&enable_pri=N','N'); return false;">▼ </a>/&nbsp;
+                  <a href="./ag_mem_edit.php?uid=<?= $uid ?>&mid=<?= $row['ID'] ?>&aid=<?= $agname ?>">修改资料</a>&nbsp;/&nbsp;
+                  <a href="ag_mem_set.php?uid=<?= $uid ?>&pay_type=0&id=<?= $row['ID'] ?>&agents_id=<?= $agname ?>">详细设定</a>
 
-    </tr>
-<?
-}
-}
-?>
+                </td>
+              </tr>
+                <?
+            }
+        }
+        ?>
+        </tbody>
+      </table>
+    </div>
+  </div>
 </table>
-
 </form>
 
 <div id="show_enable_table" style="display:none; position: absolute;" onMouseLeave="CLOSE_STOP_DIV();"></div>
@@ -355,6 +382,13 @@ if ($cou>0){
 </div>
 </body>
 </html>
+<style>
+  .za_select {
+    font-family: "Arial";
+    font-size: 15px;
+    height: 30px;
+  }
+</style>
 <?
 mysql_close();
 ?>
