@@ -312,9 +312,8 @@ if ($subuser==1 || $row['status']==2){
 
               <div id="uesr_code" class="uesr_code">登入3--<?=$agname?>--<?=$passwd_safe?>|<a href="/quit.php?level=3&uid=<?=$uid?>" target="_top" onMouseOver="window.status='登出'; return true;" onMouseOut="window.status='';return true;" style="color: #1e1e1e;">登出</a></div>
               <div id="contactus" class="contact_us">联系我们</div>
-              <div id="live_chat" class="live_chat">在线客服
-              </div>
-              <div id="new_url" class="new_url"><a href="/url.html" target="_blank" >最新网址</a></div>
+              <div id="live_chat" class="live_chat" style="width: 52px;">在线客服</div>
+              <div id="new_url" class="new_url"><a href="/url.html" style="color:#1e1e1e" target="main" onMouseOver="window.status='最新网址'; return true;" onMouseOut="window.status='';return true;">最新网址</a></div>
             </div>
 
 <!--            <div id="header_tr2" name="fixHead" class="nav_container">-->
@@ -381,7 +380,9 @@ if ($subuser==1 || $row['status']==2){
                         <li class="drop-menu-effect"> <a href="/app/control/agents/report/report.php?uid=<?=$uid?>"
                                                          target="main" onMouseOver="window.status='报表'; return true;" onMouseOut="window.status='';return true;"><span>报表</span></a>
                         </li>
-
+                      <li class="drop-menu-effect"> <a href="/app/control/agents/scroll_history.php?uid=<?=$uid?>&langx=<?=$langx?>"
+                                                       target="main" onMouseOver="window.status='历史讯息'; return true;" onMouseOut="window.status='';return true;"><span>历史讯息</span></a>
+                      </li>
                     </div>
                 </div>
           </div>
