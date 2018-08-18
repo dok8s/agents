@@ -323,7 +323,7 @@ if ($subuser==1 || $row['status']==2){
                                                         target="main" onMouseOver="window.status='首页'; return true;" onMouseOut="window.status='';return true;">
                                 <span>首页</span></a>
                         </li>
-                        <li class="drop-menu-effect"><a href="/app/control/agents/body_home.php?uid=<?$uid?>&langx=<?=$langx?>" target="main" onMouseOver="window.status='公告内容'; return true;" onMouseOut="window.status='';return true;"><span>公告内容</span></a>
+                        <li class="drop-menu-effect"><a href="/app/control/agents/announcement/get_an.php?uid=<?$uid?>&langx=<?=$langx?>" target="main" onMouseOver="window.status='公告内容'; return true;" onMouseOut="window.status='';return true;"><span>公告内容</span></a>
                         </li>
 
                         <li class="drop-menu-effect"> <a href="/app/control/agents/other_set/show_result.php?uid=<?=$uid?>"
