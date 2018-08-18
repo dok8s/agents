@@ -45,8 +45,23 @@ else{
 <title><?=$mnu_epasd?></title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <link rel="stylesheet" href="/style/control/mem_body.css" type="text/css">
+<link rel="stylesheet" href="css/loader.css" type="text/css">
 </head>
+<script src="/js/jquery-1.10.2.js" type="text/javascript"></script>
+<script type="text/javascript">
+    // 等待所有加载
+    $(window).load(function(){
+        $('body').addClass('loaded');
+        $('#loader-wrapper .load_title').remove();
+    });
+</script>
 <body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0">
+<div id="loader-wrapper">
+    <div id="loader"></div>
+    <div class="loader-section section-left"></div>
+    <div class="loader-section section-right"></div>
+    <div class="load_title">正在加载...</div>
+</div>
 <script language="JavaScript" src="/js/mem_chk_pass.js">
 </script>
 <table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
@@ -89,7 +104,17 @@ else{
   </tr>
 </table>
 </body>
-</html><script language='javascript'>
+</html>
+<script type="text/javascript">
+    $(window).load(function(){
+        $('body').addClass('loaded').Chameleon({
+            'current_item':'hoveralls',
+            'json_url':'../Envato/items.json'
+        });
+        $('#loader-wrapper .load_title').remove();
+    });
+</script>
+<script language='javascript'>
 function cancelMouse()
 {
     return false;

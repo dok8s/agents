@@ -310,29 +310,12 @@ if ($subuser==1 || $row['status']==2){
               </div>
               <div id="online_mem" class="online_btn" title="">会员总数: <span id="online_mem_count"><?=$member_count?></span></div>
 
-              <div id="uesr_code" class="uesr_code">登入3--<?=$agname?>--<?=$passwd_safe?>|<a href="/quit.php?level=3&uid=<?=$uid?>" target="_top" onMouseOver="window.status='登出'; return true;" onMouseOut="window.status='';return true;" style="color: #1e1e1e;">登出</a></div>
-              <div id="contactus" class="contact_us">联系我们</div>
+              <div id="uesr_code" class="uesr_code"><span style="color:#7e1414;">登入3--<?=$agname?>--<?=$passwd_safe?><span style="padding-left:7px;">|<a href="/quit.php?level=3&uid=<?=$uid?>" target="_top" onMouseOver="window.status='登出'; return true;" onMouseOut="window.status='';return true;" style="color: #1e1e1e;padding: 7px;">登出</a>|<a href="#" onClick="Go_Chg_pass(2);" style="color:#8C8B8B;padding-left:3px;padding-right:7px;">变更密码</a></div>
+                <div id="contactus" class="contact_us">联系我们</div>
               <div id="live_chat" class="live_chat" style="width: 52px;">在线客服</div>
-              <div id="new_url" class="new_url"><a href="/url.html" style="color:#1e1e1e" target="main" onMouseOver="window.status='最新网址'; return true;" onMouseOut="window.status='';return true;">最新网址</a></div>
+              <div id="new_url" class="new_url"><a href="/url.html" style="color:#5b534f" target="main" onMouseOver="window.status='最新网址'; return true;" onMouseOut="window.status='';return true;">最新网址</a></div>
             </div>
-
-<!--            <div id="header_tr2" name="fixHead" class="nav_container">-->
-<!--              <div id="home_btn" class="nav_box_on"><a href="/app/control/agents/body_home.php?uid=--><?//$uid?><!--&langx=--><?//=$langx?><!--" class="top_a" target="main" onMouseOver="window.status='首页'; return true;" onMouseOut="window.status='';return true;">首页</a></div>-->
-<!--              <div id="anno_btn" class="nav_box"><a href="/app/control/agents/body_home.php?uid=--><?//$uid?><!--&langx=--><?//=$langx?><!--"  class="top_a" target="main" onMouseOver="window.status='公告内容'; return true;" onMouseOut="window.status='';return true;">公告内容</a></div>-->
-<!--              <div id="bet_btn" class="nav_box"><a href="/app/control/agents/other_set/show_result.php?uid=--><?//=$uid?><!--"  class="top_a" target="main" onMouseOver="window.status='赛果'; return true;" onMouseOut="window.status='';return true;">赛果</a></div>-->
-<!--              <div id="account_btn" class="nav_box"><a href="/app/control/agents/body_home.php?uid=--><?//$uid?><!--&langx=--><?//=$langx?><!--"  class="top_a" target="main" onMouseOver="window.status='现金系统'; return true;" onMouseOut="window.status='';return true;">现金系统</a></div>-->
-<!--              <div id="account_btn" class="nav_box"><a href="/app/control/agents/body_home.php?uid=--><?//$uid?><!--&langx=--><?//=$langx?><!--"  class="top_a" target="main" onMouseOver="window.status='帐号管理'; return true;" onMouseOut="window.status='';return true;">帐号管理</a></div>-->
-<!--                <div id="account_btn" class="nav_box1">-->
-<!--                    <span>帐号管理-->
-<!--                        <ul>-->
-<!--                            <li>代理</li>-->
-<!--                            <li>会员</li>-->
-<!--                            <li>子账号</li>-->
-<!--                        </ul>-->
-<!--                    </span>-->
-<!--                </div>-->
-<!--                <div id="report_btn" class="nav_box"><a href="/app/control/agents/report/report.php?uid=--><?//=$uid?><!--" class="top_a" target="main" onMouseOver="window.status='报表'; return true;" onMouseOut="window.status='';return true;">报表</a></div>-->
-<!--          </div>-->
+          </div>
                 <div class="navbox">
                     <div class="nav">
 
@@ -349,7 +332,7 @@ if ($subuser==1 || $row['status']==2){
                         <li class="drop-menu-effect"> <a href="/app/control/agents/body_home.php?uid=<?$uid?>&langx=<?=$langx?>"
                                                          target="main" onMouseOver="window.status='现金系统'; return true;" onMouseOut="window.status='';return true;"><span>现金系统</span></a>
                         </li>
-                        <li class="drop-menu-effect"> <a href="/app/control/agents/body_home.php?uid=<?$uid?>&langx=<?=$langx?>" target="main" onMouseOver="window.status='帐号管理'; return true;" onMouseOut="window.status='';return true;"><span>帐号管理</span></a>
+                        <li class="drop-menu-effect"> <a href="/app/control/agents/ag_list.php?uid=<?$uid?>" target="main" onMouseOver="window.status='帐号管理'; return true;" onMouseOut="window.status='';return true;"><span>帐号管理</span></a>
                             <div class="submenu">
                                 <div class="mj_menu_pro_bg">
                                     <div class="mj_menu_pro_main">
@@ -371,7 +354,6 @@ if ($subuser==1 || $row['status']==2){
                                                    target="main" onMouseOver="window.status='子账号'; return true;" onMouseOut="window.status='';return true;"><font>子账号</font></a><br />
                                             </div>
                                         </div>
-                                        <div style="clear:both; height:0px; overflow:hidden;"></div>
                                     </div>
                                 </div>
                             </div>
@@ -405,9 +387,17 @@ if ($subuser==1 || $row['status']==2){
 </table>
 </body>
 </html>
+<style>
+    .highlight{
+        background-color: #bb1720;
+    }
+</style>
 <script>
     $(function(){
         lanrenzhijia(".drop-menu-effect");
+        $('.nav li').click(function(){
+            $(this).addClass('highlight').siblings().removeClass('highlight');
+        })
     });
     function lanrenzhijia(_this){
         $(_this).each(function(){

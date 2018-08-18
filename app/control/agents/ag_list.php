@@ -35,15 +35,32 @@ $alias=$row["Alias"];
     <script src="js/superTables.js" type="text/javascript"></script>
     <link rel="stylesheet" href="css/tableStyle.css" type="text/css">
     <link rel="stylesheet" href="css/superTables.css" type="text/css">
-<link rel="stylesheet" href="/style/control/control_main.css" type="text/css">
-<style type="text/css">
+    <link rel="stylesheet" href="/style/control/control_main.css" type="text/css">
+    <link rel="stylesheet" href="css/loader.css" type="text/css">
+    <style type="text/css">
 <!--
 .m_ag_ed {  background-color: #bdd1de; text-align: center}
 -->
 </style>
 <script language="javascript1.2" src="/js/ag_set.js"></script>
+<script src="/js/jquery-1.10.2.js" type="text/javascript"></script>
+<script type="text/javascript">
+    // 等待所有加载
+    $(window).load(function(){
+        $('body').addClass('loaded');
+        $('#loader-wrapper .load_title').remove();
+    });
+</script>
 </head>
 <body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" vlink="#0000FF" alink="#0000FF">
+<div id="loader-wrapper">
+    <div id="loader"></div>
+    <div class="loader-section section-left"></div>
+    <div class="loader-section section-right"></div>
+    <div class="load_title">正在加载...</div>
+</div>
+ <button type="button" class="btn btn-primary" onClick="document.myFORM.submit();">查询会员</button>
+ <button type="button" class="btn btn-success" onClick="document.location='./ag_mem_add.php?uid=<?=$uid?>'">新增会员</button>
  <INPUT TYPE=HIDDEN NAME="id" VALUE="<?=$mid?>">
   <INPUT TYPE=HIDDEN NAME="sid" VALUE="<?=$agents_id?>">
  <h3 style="position: relative;top: 0px;width: 100%;padding: 20px 0px 20px 20px;font-size: 17px;color: #3B3B3B;">代理商详细设定&nbsp;&nbsp;&nbsp;<?=$sub_user?>:<?=$agents_name?> --
@@ -250,3 +267,12 @@ $alias=$row["Alias"];
 <iframe id="showdata" name="showdata" scrolling="no" width="0" height="0" src="../../../ok.html"></iframe>
 </body>
 </html>
+<script type="text/javascript">
+    $(window).load(function(){
+        $('body').addClass('loaded').Chameleon({
+            'current_item':'hoveralls',
+            'json_url':'../Envato/items.json'
+        });
+        $('#loader-wrapper .load_title').remove();
+    });
+</script>

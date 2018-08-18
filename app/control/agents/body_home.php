@@ -49,6 +49,7 @@ $money = (int)$agents["Credit"] - (int)$member_money['credit'];
 <link rel="stylesheet" href="/style/control/control_main.css" type="text/css">
 <link rel="stylesheet" href="/style/control/control_main1.css" type="text/css">
 <link rel="stylesheet" href="/style/home.css" type="text/css">
+<link rel="stylesheet" href="css/loader.css" type="text/css">
 <style type="text/css">
 <!--
 div.bac {
@@ -64,11 +65,23 @@ b { color:#C30;}
 -->
 </style>
 </head>
+<script src="/js/jquery-1.10.2.js" type="text/javascript"></script>
+<script type="text/javascript">
+    // 等待所有加载
+    $(window).load(function(){
+        $('body').addClass('loaded');
+        $('#loader-wrapper .load_title').remove();
+    });
+</script>
 <!---->
 <body oncontextmenu="window.event.returnValue=false" bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" vlink="#0000FF" alink="#0000FF" >
+<div id="loader-wrapper">
+    <div id="loader"></div>
+    <div class="loader-section section-left"></div>
+    <div class="loader-section section-right"></div>
+    <div class="load_title">正在加载...</div>
+</div>
 <div>
-
-
   <div id="body_show" style=""><div>
       <div name="MaxTag" id="home" src="/js/home.js" linkage="home">
 
@@ -204,6 +217,15 @@ b { color:#C30;}
 <br>
 </body>
 </html>
+<script type="text/javascript">
+    $(window).load(function(){
+        $('body').addClass('loaded').Chameleon({
+            'current_item':'hoveralls',
+            'json_url':'../Envato/items.json'
+        });
+        $('#loader-wrapper .load_title').remove();
+    });
+</script>
 <?
 $sql='select salert as salert,alert_tw as alert from web_system';
 $result = mysql_query($sql);

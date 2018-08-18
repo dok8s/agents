@@ -56,7 +56,21 @@ if($week1==0){
 <link href="/style/jquery.selectlist.css" rel="stylesheet" type="text/css">
 <link id="bs-css" href="/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 <link id="bsdp-css" href="/datepicker/css/bootstrap-datepicker3.min.css" rel="stylesheet">
-
+<link rel="stylesheet" href="../css/loader.css" type="text/css">
+    <script src="../js/jquery.min.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        // 等待所有加载
+        $(window).load(function(){
+            $('body').addClass('loaded');
+            $('#loader-wrapper .load_title').remove();
+        });
+    </script>
+    <div id="loader-wrapper">
+        <div id="loader"></div>
+        <div class="loader-section section-left"></div>
+        <div class="loader-section section-right"></div>
+        <div class="load_title">正在加载...</div>
+    </div>
 	<div id="report_contain" class="reportNew" name="MaxTag" src="/js/w_report.js" linkage="w_report" extends="base_report">
 		<div id="base_report" class="" name="MaxTag" src="/js/base/base_report.js" linkage="base_report"></div>
 		<div id="Search_div" class="reportSearch">
@@ -961,10 +975,15 @@ mysql_close();
 <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
 <script src="http://www.agents.com/js/jquery.selectlist.js"></script>
 <script src="/datepicker/js/bootstrap-datepicker.min.js"></script>
-
-
-
-
+<script type="text/javascript">
+    $(window).load(function(){
+        $('body').addClass('loaded').Chameleon({
+            'current_item':'hoveralls',
+            'json_url':'../Envato/items.json'
+        });
+        $('#loader-wrapper .load_title').remove();
+    });
+</script>
 <script>
 $(function(){
 	$('select').selectlist({
