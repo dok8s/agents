@@ -112,7 +112,15 @@ var gtype='<?=$gtype?>';
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <link rel="stylesheet" href="/style/control/result/r1.css" type="text/css">
 <link rel="stylesheet" href="/style/control/result/r2.css" type="text/css">
-<script src="/js/jquery-1.10.2.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="../css/loader.css" type="text/css">
+    <script src="/js/jquery-1.10.2.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        // 等待所有加载
+        $(window).load(function(){
+            $('body').addClass('loaded');
+            $('#loader-wrapper .load_title').remove();
+        });
+    </script>
 <script language="JavaScript"> 
 function show_page(){
 	var temp="";
@@ -178,6 +186,12 @@ function show_page(){
 </head>
 
 <body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" vlink="#0000FF" alink="#0000FF"   onLoad="onLoad()" >
+<div id="loader-wrapper">
+    <div id="loader"></div>
+    <div class="loader-section section-left"></div>
+    <div class="loader-section section-right"></div>
+    <div class="load_title">正在加载...</div>
+</div>
 <div id="body_show" style="">
 		<div id="bet_main" class="bet_main" onresize="setDivSize(this)" style="width: 1280px;">
 			<div class="bet_mainpadding">
@@ -320,6 +334,15 @@ function show_page(){
 	</div></div>
 	</div>
 </body>
+<script type="text/javascript">
+    $(window).load(function(){
+        $('body').addClass('loaded').Chameleon({
+            'current_item':'hoveralls',
+            'json_url':'../Envato/items.json'
+        });
+        $('#loader-wrapper .load_title').remove();
+    });
+</script>
 <script language="JavaScript">
 //	alert(document.getElementsByClassName('bet_selectSP_option'));
 //	document.getElementsByClassName('bet_selectSP_option').onmouseover = function(event) { addClass(this, 'bet_selectBG') };
