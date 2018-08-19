@@ -328,11 +328,9 @@
 .acc_specilSelectDIV ul{z-index: 2;}
 .acc_specilSelectDIV  .divLi{width:100%;}
 .acc_specilSelect_first {display:block; width:100%; line-height:30px; background:url(../../../images/control/arrow_3.png) 126px center no-repeat;}
-.acc_specilSelect_options{visibility: hidden; position:absolute; display:inline-block; width:100%; background-color:#fff; border:#7d7d7d 1px solid; top: 29px; left: -1px;}
+.acc_specilSelect_options{ position:absolute; display:inline-block; width:100%; background-color:#fff; border:#7d7d7d 1px solid; top: 16px; left: -1px;}
 .divLi{display: none; color:#3b3b3b; font-size:13px; line-height:30px; padding-left:7px;}
 .divLi_selected{display: none;}
-.acc_specilSelectDIV:hover .acc_specilSelect_options{visibility: visible;}
-.acc_specilSelectDIV:hover .divLi{display:block;}
 .divLi:hover{background:#585555; color:#FFF;}
 .noticeWord{ clear:both; color:#757373; font-size:13px; padding:12px 10px 13px 10px;}
 
