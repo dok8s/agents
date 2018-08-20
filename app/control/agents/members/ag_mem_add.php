@@ -133,13 +133,35 @@ if ($keys=='add'){
 <title>main</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <link rel="stylesheet" href="/style/control/control_main.css" type="text/css">
+    <script src="/idz_indeziner/scriptaculous/lib/prototype.js" type="text/javascript"></script>
+    <script src="/idz_indeziner/scriptaculous/src/effects.js" type="text/javascript"></script>
+    <script type="text/javascript" src="/idz_indeziner/validation.js"></script>
+    <script type="text/javascript">
+        //<![CDATA[
+        <!--
+// Alternative Style: Working With Alternate Style Sheets
+// http://www.alistapart.com/articles/alternate/
+            function setActiveStyleSheet(title) {
+                var i, a, main;
+                for(i=0; (a = document.getElementsByTagName("link")[i]); i++) {
+                    if(a.getAttribute("rel").indexOf("style") != -1 && a.getAttribute("title")) {
+                        a.disabled = true;
+                        if(a.getAttribute("title") == title) a.disabled = false;
+                    }
+                }
+            }
+        //-->
+        //]]>
+    </script>
 <style type="text/css">
 <!--
 .m_mem_ed {  background-color: #bdd1de; text-align: right}
 -->
 </style>
-
-<script language="javascript" src="/js/set_odd_f.js"></script>
+    <link title="style1" rel="stylesheet" href="/idz_indeziner/style.css" type="text/css" />
+    <link title="style2" rel="alternate stylesheet" href="/idz_indeziner/style2.css" type="text/css" />
+    <link title="style3" rel="alternate stylesheet" href="/idz_indeziner/style3.css" type="text/css" />
+    <script language="javascript" src="/js/set_odd_f.js"></script>
 <SCRIPT>
 function LoadBody(){
 document.getElementById("type").value = "3";
@@ -262,128 +284,160 @@ function ChkMem(){
 }
 </SCRIPT>
 </head>
-
+<style>
+    .list-group {
+        padding-left: 0;
+        margin-bottom: 20px;
+    }
+    .list-group-item:first-child {
+        border-top-right-radius: 0px;
+        border-top-left-radius: 0px;
+    }
+    .list-group-item.active, .list-group-item.active:hover, .list-group-item.active:focus {
+        z-index: 2;
+        color: #fff;
+        background-color: #c12e36;
+        border-color: #c12e36;
+    }
+    a:link {
+        text-decoration: none;
+    }
+</style>
 <body oncontextmenu="window.event.returnValue=false" bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" vlink="#0000FF" alink="#0000FF" onLoad="LoadBody();Chg_Mcy('now');Chg_Mcy('mx')">
-<div id="Layer1" style="position:absolute; width:780px; height:26px; z-index:1; left: 0px; top: 268px; visibility: hidden; background-color: #FFFFFF; layer-background-color: #FFFFFF; border: 1px none #000000"></div>
- <FORM NAME="myFORM" ACTION="ag_mem_add.php" METHOD=POST onSubmit="return SubChk()">
-  <INPUT TYPE=HIDDEN NAME="keys" VALUE="add">
-  <INPUT TYPE=HIDDEN NAME="username" VALUE="">
-  <input type="hidden" name="aid" value="<?=$agid?>">
-  <input type="hidden" name="ratio" value="">
-  <input type="hidden" name="uid" value="<?=$uid?>">
-<input type="hidden" name="odd_f_str" value="">
+<ul class="list-group">
+    <li class="list-group-item active" style="
+    position: relative;
+    display: block;
+    padding: 10px 15px;
+    font-size: 14px;">
+        <a style="color:#ffffff;padding-right: 5px;" href="/app/control/agents/members/ag_members.php?uid=<?=$uid?>"
+           target="main" onMouseOver="window.status='会员'; return true;" onMouseOut="window.status='';return true;"><font>会员</font></a>
+        >><span>新增会员</span>
+    </li>
+</ul>
+<FORM NAME="myFORM" ACTION="ag_mem_add.php" METHOD=POST onSubmit="return SubChk()">
+    <INPUT TYPE=HIDDEN NAME="keys" VALUE="add">
+    <INPUT TYPE=HIDDEN NAME="username" VALUE="">
+    <input type="hidden" name="aid" value="<?=$agid?>">
+    <input type="hidden" name="ratio" value="">
+    <input type="hidden" name="uid" value="<?=$uid?>">
+    <input type="hidden" name="odd_f_str" value="">
+<div class="style_changer" style="display: none;">
+    <div class="style_changer_text">选择主题:</div>
+    <input type="submit" value="1" onclick="setActiveStyleSheet('style1');" />
+    <input type="submit" value="2" onclick="setActiveStyleSheet('style2');" />
+    <input type="submit" value="3" onclick="setActiveStyleSheet('style3');" />
+</div>
 
-  <table width="780" border="0" cellspacing="0" cellpadding="0">
-<tr>
-      <td class="m_tline">&nbsp;&nbsp;会员管理 </td>
+<div class="form_content">
+    <form id="test" action="#" method="get">
+        <fieldset>
+            <legend>基本资料设定</legend>
+            <div class="form-row">
+                <div class="field-label"><label for="field1">账号(<font id="ag_count">_<?=substr($agname,0,3)?></font>)</label>:</div>
+                <div class="field-widget"><input name="sname" id="sname" class="required"
+                                                                                                     onKeyPress="return checkaccKey(event.keyCode);"
+                                                                                                     title="帐号必须至少1个字元长，最多4个字元长，并只能有数字(0-9)，及英文大小写字母" />
 
-      <td width="30"><img src="/images/control/zh-tw/top_04.gif" width="30" height="24"></td>
-</tr>
-<tr>
-<td colspan="2" height="4"></td>
-</tr>
-</table>
-<table width="780" border="0" cellspacing="1" cellpadding="0" class="m_tab_ed">
-  <tr class="m_title_edit">
-    <td colspan="2" >基本资料设定</td>
-  </tr>
-  <tr class="m_bc_ed">
-    <td width="120" class="m_mem_ed"><input type=button name="chk" value="确认" class="za_button" onclick='ChkMem();'>  帐号:</td>
-      <td>
-      <font id="ag_count">_<?=substr($agname,0,3)?></font>
- <input type=TEXT name="sname" size=4 maxlength=4 class="za_text" onKeyPress="return checkaccKey(event.keyCode);">
- 帐号必须至少1个字元长，最多4个字元长，并只能有数字(0-9)，及英文大小写字母
-</td>
-  </tr>
-  <tr class="m_bc_ed">
-    <td class="m_mem_ed">密码:</td>
-      <td>
-        <input type=PASSWORD name="password" size=12 maxlength=12 class="za_text">
-        密码必须至少6个字元长，最多12个字元长，并只能有数字(0-9)，及英文大小写字母 </td>
-  </tr>
-  <tr class="m_bc_ed">
-    <td class="m_mem_ed">确认密码:</td>
-      <td>
-        <input type=PASSWORD name="repassword" size=12 maxlength=12 class="za_text">
-      </td>
-  </tr>
-  <tr class="m_bc_ed">
-      <td class="m_mem_ed">会员名称:</td>
-      <td>
-        <input type=TEXT name="alias" size=10 maxlength=10 class="za_text">
-      </td>
-  </tr>
-</table>
-  <table width="780" border="0" cellspacing="1" cellpadding="0" class="m_tab_ed">
-    <tr class="m_title_edit">
-      <td colspan="2" >下注资料设定</td>
-    </tr>
-    <tr class="m_bc_ed">
-      <td width="120" class="m_mem_ed">开放球类:</td>
-      <td>
-        <select name="type" class="za_select" onChange="show_count(0,this.value);">
-		<option value=""></option>
-          <option value="1">A盘</option>
-          <option value="2">B盘</option>
-          <option value="3">C盘</option>
-	 		<option value="4">D盘</option>
-        </select>
-      </td>
-    </tr>
-    <tr class="m_bc_ed">
-      <td class="m_mem_ed">投注方式:</td>
-      <td><table border="0" cellspacing="0" cellpadding=0>
-	<tr>
-		<td>
-			<input name="pay_type" class="za_select_02" type="radio" value="0" onClick="MM_showHideLayers('Layer1','','hide')" checked>
-		</td>
-		<td>
-			信用额度
-		</td>
-		<td>
-			<input name="pay_type" class="za_select_02" type="radio" value="1" onClick="MM_showHideLayers('Layer1','','show')">
-		</td>
-		<td>
-			现金
-		</td>
-	</tr>
-</table></td>
-    </tr>
-    <tr class="m_bc_ed">
-      <td class="m_mem_ed">汇率设定:</td>
-      <td>
-<select name="currency" class="za_select" onChange="Chg_Mcy('now');Chg_Mcy('mx')">
-	  <option value="RMB">美金 -> 美金</option>
+                </div>
+                <input class="reset" type="button" value="Check" onclick="ChkMem();" />
+                <p style="color:red;">帐号必须至少1个字元长，最多4个字元长，并只能有数字(0-9)，及英文大小写字母</p>
+            </div>
+
+            <div class="form-row">
+                <div class="field-label"><label for="field7">密码</label>:</div>
+                <div class="field-widget">
+                    <input type="password" name="password" id="password" class="required validate-password" title="Enter a password greater than 6 characters" />
+                </div>
+                <div class="field-widget" style="color:red;">密码必须至少6个字元长，最多12个字元长，并只能有数字(0-9)，及英文大小写字母</div>
+
+            </div>
 
 
-        </select>
-        目前汇率:<font color="#FF0033" id="mcy_now">0</font>&nbsp;(目前汇率仅供参考)</td>
-    </tr>
-    <tr class="m_bc_ed">
-      <td class="m_mem_ed">总信用额度:</td>
-      <td>
-        <input type=TEXT name="maxcredit" value="0" size=12 maxlength=12 class="za_text" onKeyUp="Chg_Mcy('mx');" onKeyPress="return CheckKey();">
-        美金:<font color="#FF0033" id="mcy_mx">0</font> </td>
-    </tr>
-    <tr class="m_bc_ed">
-      <td class="m_mem_ed">现金额度:</td>
-      <td>0 </td>
-    </tr>
-    <tr class="m_bc_ed">
-      <td class="m_mem_ed">盘口玩法:</td>
-      <td><span id=show_cb></span></td>
-    </tr>
-  </table>
-	<table width="780" border="0" cellspacing="1" cellpadding="0" class="m_tab_ed">
-    <tr align="center" bgcolor="#FFFFFF">
-      <td>
-        <input type=SUBMIT name="OK2" value="确定" class="za_button">
-        &nbsp; &nbsp; &nbsp;
-        <input type=BUTTON name="CANCEL2" value="取消" id="CANCEL" onClick="javascript:history.go(-1)" class="za_button">
-      </td>
-    </tr>
-  </table>
-</form>
+            <div class="form-row">
+                <div class="field-label"><label for="field9">确认密码</label>:</div>
+                <div class="field-widget"><input type="password" name="repassword" id="repassword" class="required validate-password-confirm" title="Enter the same password for confirmation" /></div>
+            </div>
+
+            <div class="form-row">
+                <div class="field-label"><label for="field2">会员名称</label>:</div>
+                <div class="field-widget"><input name="alias" id="alias" class="required" title="请输入会员名称！" /></div>
+            </div>
+
+        </fieldset>
+        <fieldset>
+            <legend>下注资料设定</legend>
+            <div class="form-row">
+                <div class="field-label"><label for="field4">总信用额度</label>:</div>
+                <div class="field-widget"><input name="maxcredit" id="maxcredit" class="required" title="请填写总信用额度" onKeyUp="Chg_Mcy('mx');" onKeyPress="return CheckKey();"/></div>
+                美金:<font color="#FF0033" id="mcy_mx">0</font> </td>
+            </div>
+
+            <div class="form-row">
+                <div class="field-label"><label for="field5">现金额度</label>:</div>
+                <div class="field-widget">0</div>
+            </div>
+
+            <div class="form-row">
+                <div class="field-label"><label for="field6">开放球类</label>:</div>
+                <div class="field-widget">
+                    <select id="type" name="type" class="validate-selection" title="Choose your department" onChange="show_count(0,this.value);">
+                        <option value="">请选择</option>
+                        <option value="1">A盘</option>
+                        <option value="2">B盘</option>
+                        <option value="3">C盘</option>
+                        <option value="4">D盘</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="field-label"><label for="field6">汇率设定</label>:</div>
+                <div class="field-widget">
+                    <select id="field6" name="currency" class="validate-selection" title="Choose your department" onChange="Chg_Mcy('now');Chg_Mcy('mx')">
+                        <option value="RMB">美金 -> 美金</option>
+                    </select>
+                    目前汇率:<font color="#FF0033" id="mcy_now">0</font>&nbsp;(目前汇率仅供参考)</td>
+                </div>
+            </div>
+
+            <div class="form-row-select">
+
+                <fieldset>
+                    <legend class="optional">投注方式</legend>
+                    <label class="left">
+                        <input type="radio" class="radio_input" name="pay_type" id="pay_type-male" value="0" onClick="MM_showHideLayers('Layer1','','hide')" checked/>信用额度 <br />
+                    </label>
+                    <label class="left">
+                        <input type="radio" class="radio_input" name="pay_type" id="pay_type-female" value="1" onClick="MM_showHideLayers('Layer1','','show')"/>现金<br />
+                    </label>
+
+                </fieldset>
+
+            </div>
+
+        </fieldset>
+        <input type="submit" class="submit" value="确认" /> <input class="reset" type="button" value="取消" onclick="valid.reset(); return false" />
+    </form>
+</div>
+<script type="text/javascript">
+    function formCallback(result, form) {
+        window.status = "valiation callback for form '" + form.id + "': result = " + result;
+    }
+
+    var valid = new Validation('test', {immediate : true, onFormValidate : formCallback});
+    Validation.addAllThese([
+        ['validate-password', '> 6 characters', {
+            minLength : 7,
+            notOneOf : ['password','PASSWORD','1234567','0123456'],
+            notEqualToField : 'field1'
+        }],
+        ['validate-password-confirm', 'please try again.', {
+            equalToField : 'field8'
+        }]
+    ]);
+</script>
+</FORM>
 <iframe id="getData" src="../../../../ok.html" width=0 height=0></iframe>
 
 </body>

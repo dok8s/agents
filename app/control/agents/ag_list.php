@@ -57,10 +57,10 @@ $alias=$row["Alias"];
 <body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" vlink="#0000FF" alink="#0000FF">
 <ul class="list-group">
   <li class="list-group-item active">
-    <a href="/app/control/agents/members/ag_members.php?uid=<?=$uid?>"
+    <a style="color:#ffffff;padding-right: 5px;" href="/app/control/agents/members/ag_members.php?uid=<?=$uid?>"
                                         target="main" onMouseOver="window.status='会员'; return true;" onMouseOut="window.status='';return true;"><font>会员</font></a>
-
-    <a href="/app/control/agents/ag_subuser.php?uid=<?=$uid?>"
+    |
+    <a style="color:#ffffff;padding-left: 5px;" href="/app/control/agents/ag_subuser.php?uid=<?=$uid?>"
        target="main" onMouseOver="window.status='子账号'; return true;" onMouseOut="window.status='';return true;"><font>子账号</font></a>
   </li>
 </ul>
@@ -277,7 +277,6 @@ $alias=$row["Alias"];
 </body>
 </html>
 <style>
-  <style>
   .list-group-item.active, .list-group-item.active:hover, .list-group-item.active:focus {
     z-index: 2;
     color: #fff;
@@ -289,7 +288,6 @@ $alias=$row["Alias"];
     border-top-right-radius: 0px;
     border-top-left-radius: 0px;
   }
-</style>
 </style>
 <script type="text/javascript">
     $(window).load(function(){

@@ -311,8 +311,8 @@ if ($subuser==1 || $row['status']==2){
               <div id="online_mem" class="online_btn" title="">会员总数: <span id="online_mem_count"><?=$member_count?></span></div>
 
               <div id="uesr_code" class="uesr_code"><span style="color:#7e1414;">登入3--<?=$agname?>--<?=$passwd_safe?><span style="padding-left:7px;">|<a href="/quit.php?level=3&uid=<?=$uid?>" target="_top" onMouseOver="window.status='登出'; return true;" onMouseOut="window.status='';return true;" style="color: #1e1e1e;padding: 7px;">登出</a>|<a href="#" onClick="Go_Chg_pass(2);" style="color:#8C8B8B;padding-left:3px;padding-right:7px;">变更密码</a></div>
-                <div id="contactus" class="contact_us">联系我们</div>
-              <div id="live_chat" class="live_chat" style="width: 52px;">在线客服</div>
+                <div id="contactus" class="contact_us" onclick="notice();">联系我们</div>
+              <div id="live_chat" class="live_chat" style="width: 52px;" onclick="notice();">在线客服</div>
               <div id="new_url" class="new_url"><a href="/url.html" style="color:#5b534f" target="main" onMouseOver="window.status='最新网址'; return true;" onMouseOut="window.status='';return true;">最新网址</a></div>
             </div>
           </div>
@@ -329,7 +329,7 @@ if ($subuser==1 || $row['status']==2){
                         <li class="drop-menu-effect"> <a href="/app/control/agents/other_set/show_result.php?uid=<?=$uid?>"
                                                          target="main" onMouseOver="window.status='赛果'; return true;" onMouseOut="window.status='';return true;"><span>赛果</span></a>
                         </li>
-                        <li class="drop-menu-effect"> <a href="/app/control/agents/body_home.php?uid=<?$uid?>&langx=<?=$langx?>"
+                        <li class="drop-menu-effect"> <a onclick="notice();"
                                                          target="main" onMouseOver="window.status='现金系统'; return true;" onMouseOut="window.status='';return true;"><span>现金系统</span></a>
                         </li>
                         <li class="drop-menu-effect"> <a href="/app/control/agents/ag_list.php?uid=<?$uid?>" target="main" onMouseOver="window.status='帐号管理'; return true;" onMouseOut="window.status='';return true;"><span>帐号管理</span></a>
@@ -583,6 +583,11 @@ if ($subuser==1 || $row['status']==2){
   .mj_menu_news_li3{padding:0px 25px; height:150px; float:right; border-left:solid 1px #cccccc; }
   .mj_menu_news_img3{float:left; margin-left:10px; text-align:left; color:#bb1721; line-height:30px; font-size:14px;}
 </style>
+<script>
+    function notice() {
+        alert("该模块即将上线，敬请期待！");
+    }
+</script>
 <?
 mysql_close();
 ?>

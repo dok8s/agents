@@ -200,6 +200,15 @@ function ChkSearch(){
 <SCRIPT language="javascript" src="/js/member.js"></script>
 </head>
 <body oncontextmenu="window.event.returnValue=false" bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" vlink="#0000FF" alink="#0000FF" onLoad="onLoad()";>
+<ul class="list-group">
+    <li class="list-group-item active">
+        <a style="color:#7E1414;padding-right: 5px;" href="/app/control/agents/members/ag_members.php?uid=<?=$uid?>"
+           target="main" onMouseOver="window.status='会员'; return true;" onMouseOut="window.status='';return true;"><font>会员</font></a>
+        |
+        <a style="color:#ffffff;padding-left: 5px;" href="/app/control/agents/ag_subuser.php?uid=<?=$uid?>"
+           target="main" onMouseOver="window.status='子账号'; return true;" onMouseOut="window.status='';return true;"><font>子账号</font></a>
+    </li>
+</ul>
 <FORM NAME="myFORM" ACTION="/app/control/agents/members/ag_members.php?uid=<?=$uid?>" METHOD=POST>
 <input type="hidden" name="agent_id" value="28752">
 <table width="1024" border="0" cellspacing="0" cellpadding="0" style="margin-left:20px;margin-bottom: 10px;">
@@ -383,11 +392,22 @@ function ChkSearch(){
 </body>
 </html>
 <style>
-  .za_select {
-    font-family: "Arial";
-    font-size: 15px;
-    height: 30px;
-  }
+    .list-group-item.active, .list-group-item.active:hover, .list-group-item.active:focus {
+        z-index: 2;
+        color: #fff;
+        background-color: #c12e36;
+        border-color: #c12e36;
+    }
+
+    .list-group-item:first-child {
+        border-top-right-radius: 0px;
+        border-top-left-radius: 0px;
+    }
+    .za_select {
+        font-family: "Arial";
+        font-size: 15px;
+        height: 30px;
+    }
 </style>
 <?
 mysql_close();
