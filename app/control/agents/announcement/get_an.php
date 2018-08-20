@@ -104,12 +104,23 @@ b { color:#C30;}
             <div id="announcement_contain" class="announcement_contain" onresize="setDivSize(this)" style="width: 1280px;">
 
                 <div id="top_nav_container" name="fixHead" class="top_nav_container_ann" >
-                    <div id="general_btn" class="nav_btn_on" onclick="ch_level(1);">一般公告</div>
-                    <div id="important_btn" class="nav_btn" onclick="ch_level(2);">重要公告</div>
-                    <div id="personal_btn" class="nav_btn" onclick="ch_level(3);">个人公告</div>
+                    <div id="general_btn" class="<? if ($level == 1) {echo 'nav_btn_on';} else {echo 'nav_btn';}?>" onclick="ch_level(1);">一般公告</div>
+                    <div id="important_btn" class="<? if ($level == 2) {echo 'nav_btn_on';} else {echo 'nav_btn';}?>" onclick="ch_level(2);">重要公告</div>
+                    <div id="personal_btn" class="<? if ($level == 3) {echo 'nav_btn_on';} else {echo 'nav_btn';}?>" onclick="ch_level(3);">个人公告</div>
                 </div>
 
-                <div id="top_title" class="top_title_ann"><span id="title_span">一般公告</span>
+                <div id="top_title" class="top_title_ann">
+                    <span id="title_span">
+                        <?
+                            if ($level == 1) {
+                                echo '一般公告';
+                            } elseif ($level == 2) {
+                                echo '重要公告';
+                            } else {
+                                echo '个人公告';
+                            }
+                        ?>
+                    </span>
                     <!--选择日期＆Search-->
                     <div id="date_select_box" class="date_select_box">
                         <span class="acc_specilSelect_first">日期</span>
@@ -117,13 +128,25 @@ b { color:#C30;}
                             <!--select id="sel_date" name="sel_date">
                             </select-->
                             <div id="sel_date" name="MaxTag" class="acc_specilSelectDIV"  onmouseover="javascript:document.all['showDiv'].style.display='block';$('.divLi').show();" onmouseout="javascript:document.all['showDiv'].style.display='none';$('.divLi').hide();">
-                                <span id="nowText" class="divSelect">所有</span>
+                                <span id="nowText" class="divSelect">
+                                    <?
+                                        if ($dateType == 1) {
+                                            echo '所有';
+                                        } elseif ($dateType == 2) {
+                                            echo '今日';
+                                        } elseif ($dateType == 3) {
+                                            echo '昨日';
+                                        } else {
+                                            echo '昨日之前';
+                                        }
+                                    ?>
+                                </span>
                                 <div id="showDiv" class="acc_specilSelect" style="display: none;">
                                     <ul id="divUl" class="acc_specilSelect_options" style="padding: 0px;">
-                                        <li id="value_All" class="divLi_selected" onclick="ch_date(1)">所有</li>
-                                        <li id="value_Today" class="divLi" onclick="ch_date(2)">今日</li>
-                                        <li id="value_Yesterday" class="divLi" onclick="ch_date(3)">昨日</li>
-                                        <li id="value_Before" class="divLi" onclick="ch_date(4)">昨日之前</li>
+                                        <li id="value_All" class="<? if ($dateType == 1) {echo 'divLi_selected';} else {echo 'divLi';}?>" onclick="ch_date(1)">所有</li>
+                                        <li id="value_Today" class="<? if ($dateType == 2) {echo 'divLi_selected';} else {echo 'divLi';}?>" onclick="ch_date(2)">今日</li>
+                                        <li id="value_Yesterday" class="<? if ($dateType == 3) {echo 'divLi_selected';} else {echo 'divLi';}?>" onclick="ch_date(3)">昨日</li>
+                                        <li id="value_Before" class="<? if ($dateType == 4) {echo 'divLi_selected';} else {echo 'divLi';}?>" onclick="ch_date(4)">昨日之前</li>
                                     </ul>
                                 </div>
                             </div>
@@ -144,7 +167,7 @@ b { color:#C30;}
                         <div id="anno_table_title" class="anno_table_title">
                 <span id="date_title_ann" class="date_title_ann">
                     <!--红色箭头往下  class="title_btn1", 红色箭头往上  class="title_btn2", 灰色箭头往下  class="title_btn3"-->
-                    <span id="title_btn" class="title_btn1" onclick="ch_order()">日期</span>
+                    <span id="title_btn" class="<? $class = $order == 'asc'?'title_btn2':'title_btn1';echo $class; ?>" onclick="ch_order()">日期</span>
                 </span>
                             <span class="anno_title">公告</span>
                         </div>
@@ -163,7 +186,7 @@ b { color:#C30;}
                                 <?
                                 while ($row = mysql_fetch_array($result)) {
                                     ?>
-                                    <tr id="announceTr" name="announceTr" class="anno_tr" style="border-bottom:#E5E5E5 1px solid;">
+                                    <tr id="announceTr" name="announceTr" class="anno_tr" >
                                         <td id="datetime" name="datetime" width="10%" class="table_line">
                                             <div id="mdate" class="date_box"><?echo date('n',strtotime($row["ndate"]))?>月<br><?echo date('j',strtotime($row["ndate"]))?>日</div>
                                         </td>
