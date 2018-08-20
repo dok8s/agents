@@ -165,7 +165,9 @@ b { color:#C30;}
                       </tbody></table>
               </div>
               <div id="viewmore_contain" class="viewmore_contain">
-                  <input id="btn" type="button" class="btn_more" value="查看更多">
+                  <a href="/app/control/agents/announcement/get_an.php?uid=<?$uid?>&langx=<?=$langx?>">
+                      <input id="btn" type="button" class="btn_more" value="查看更多">
+                  </a>
                   <div id="load" class="load"></div>
               </div>
 
@@ -190,7 +192,9 @@ b { color:#C30;}
                       </tbody></table>
               </div>
               <div id="viewmore_contain" class="viewmore_contain">
-                  <input id="btn" type="button" class="btn_more" value="查看更多">
+                  <a href="/app/control/agents/announcement/get_an.php?uid=<?$uid?>&langx=<?=$langx?>">
+                      <input id="btn" type="button" class="btn_more" value="查看更多">
+                  </a>
                   <div id="load" class="load"></div>
               </div>
         </div>
