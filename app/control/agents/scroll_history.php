@@ -31,15 +31,6 @@ $shistory='message';
 
 </head>
 <body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" vlink="#0000FF" alink="#0000FF">
-<div>
-<ol class="breadcrumb">
-    <li><a href="/">后台管理</a></li>
-    <li class="active"><a href="#">历史讯息</a></li>
-</ol>
-</div>
-
-
-
 <ul class="list-group">
     <li class="list-group-item active">历史公告讯息</li>
     <?
@@ -94,7 +85,6 @@ $shistory='message';
     mysql_close();
     ?>
 </ul>
-
 <ul class="pagination">
     <li><a href="<?=$preUrlPage?>">&laquo;</a></li>
     <?php for($i = 1; $i <= $pageCount ; $i++ ):?>
@@ -102,10 +92,19 @@ $shistory='message';
     <?php endfor;?>
     <li><a href="<?=$nextUrlPage?>">&raquo;</a></li>
 </ul>
-
-
-
-
 </form>
 </body>
 </html>
+<style>
+  .list-group-item.active, .list-group-item.active:hover, .list-group-item.active:focus {
+    z-index: 2;
+    color: #fff;
+    background-color: #c12e36;
+    border-color: #c12e36;
+  }
+
+  .list-group-item:first-child {
+    border-top-right-radius: 0px;
+    border-top-left-radius: 0px;
+  }
+</style>

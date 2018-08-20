@@ -44,6 +44,8 @@ $alias=$row["Alias"];
 </style>
 <script language="javascript1.2" src="/js/ag_set.js"></script>
 <script src="/js/jquery-1.10.2.js" type="text/javascript"></script>
+<link id="bs-css" href="/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<script src="/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
 <script type="text/javascript">
     // 等待所有加载
     $(window).load(function(){
@@ -53,14 +55,21 @@ $alias=$row["Alias"];
 </script>
 </head>
 <body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" vlink="#0000FF" alink="#0000FF">
+<ul class="list-group">
+  <li class="list-group-item active">
+    <a href="/app/control/agents/members/ag_members.php?uid=<?=$uid?>"
+                                        target="main" onMouseOver="window.status='会员'; return true;" onMouseOut="window.status='';return true;"><font>会员</font></a>
+
+    <a href="/app/control/agents/ag_subuser.php?uid=<?=$uid?>"
+       target="main" onMouseOver="window.status='子账号'; return true;" onMouseOut="window.status='';return true;"><font>子账号</font></a>
+  </li>
+</ul>
 <div id="loader-wrapper">
     <div id="loader"></div>
     <div class="loader-section section-left"></div>
     <div class="loader-section section-right"></div>
     <div class="load_title">正在加载...</div>
 </div>
- <button type="button" class="btn btn-primary" onClick="document.myFORM.submit();">查询会员</button>
- <button type="button" class="btn btn-success" onClick="document.location='./ag_mem_add.php?uid=<?=$uid?>'">新增会员</button>
  <INPUT TYPE=HIDDEN NAME="id" VALUE="<?=$mid?>">
   <INPUT TYPE=HIDDEN NAME="sid" VALUE="<?=$agents_id?>">
  <h3 style="position: relative;top: 0px;width: 100%;padding: 20px 0px 20px 20px;font-size: 17px;color: #3B3B3B;">代理商详细设定&nbsp;&nbsp;&nbsp;<?=$sub_user?>:<?=$agents_name?> --
@@ -267,6 +276,21 @@ $alias=$row["Alias"];
 <iframe id="showdata" name="showdata" scrolling="no" width="0" height="0" src="../../../ok.html"></iframe>
 </body>
 </html>
+<style>
+  <style>
+  .list-group-item.active, .list-group-item.active:hover, .list-group-item.active:focus {
+    z-index: 2;
+    color: #fff;
+    background-color: #c12e36;
+    border-color: #c12e36;
+  }
+
+  .list-group-item:first-child {
+    border-top-right-radius: 0px;
+    border-top-left-radius: 0px;
+  }
+</style>
+</style>
 <script type="text/javascript">
     $(window).load(function(){
         $('body').addClass('loaded').Chameleon({
