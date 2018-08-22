@@ -138,7 +138,7 @@ if ($keys=='add'){
     <script type="text/javascript" src="/idz_indeziner/validation.js"></script>
     <script type="text/javascript">
         //<![CDATA[
-        <!--
+
 // Alternative Style: Working With Alternate Style Sheets
 // http://www.alistapart.com/articles/alternate/
             function setActiveStyleSheet(title) {

@@ -46,24 +46,34 @@ $alias=$row["Alias"];
 <script src="/js/jquery-1.10.2.js" type="text/javascript"></script>
 <link id="bs-css" href="/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 <script src="/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+<link rel="stylesheet" href="/style/control/announcement/a1.css" type="text/css">
+<link rel="stylesheet" href="/style/control/announcement/a2.css" type="text/css">
+<script src="/js/jquery-1.10.2.js" type="text/javascript"></script>
+<script src="/js/ClassSelect_ag.js" type="text/javascript"></script>
 <script type="text/javascript">
     // 等待所有加载
     $(window).load(function(){
         $('body').addClass('loaded');
         $('#loader-wrapper .load_title').remove();
     });
+    var uid='<?=$uid?>';
+    var level='<?=$level?>';
+    function ch_level(i)
+    {
+        if(i === 1) {
+            self.location = '/app/control/agents/members/ag_members.php?uid='+uid+'&level='+i;
+        } else {
+            self.location = '/app/control/agents/ag_subuser.php?uid='+uid+'&level='+i;
+        }
+
+    }
 </script>
 </head>
-<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" vlink="#0000FF" alink="#0000FF">
-<ul class="list-group">
-  <li class="list-group-item active">
-    <a style="color:#ffffff;padding-right: 5px;" href="/app/control/agents/members/ag_members.php?uid=<?=$uid?>"
-                                        target="main" onMouseOver="window.status='会员'; return true;" onMouseOut="window.status='';return true;"><font>会员</font></a>
-    |
-    <a style="color:#ffffff;padding-left: 5px;" href="/app/control/agents/ag_subuser.php?uid=<?=$uid?>"
-       target="main" onMouseOver="window.status='子账号'; return true;" onMouseOut="window.status='';return true;"><font>子账号</font></a>
-  </li>
-</ul>
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" vlink="#0000FF" alink="#0000FF" style="padding:1px;">
+<div id="top_nav_container" name="fixHead" class="top_nav_container_ann" >
+    <div id="general_btn" class="<? if ($level == 1) {echo 'nav_btn_on';} else {echo 'nav_btn';}?>" onclick="ch_level(1);">会员</div>
+    <div id="important_btn" class="<? if ($level == 2) {echo 'nav_btn_on';} else {echo 'nav_btn';}?>" onclick="ch_level(2);">子账号</div>
+</div>
 <div id="loader-wrapper">
     <div id="loader"></div>
     <div class="loader-section section-left"></div>
@@ -72,7 +82,7 @@ $alias=$row["Alias"];
 </div>
  <INPUT TYPE=HIDDEN NAME="id" VALUE="<?=$mid?>">
   <INPUT TYPE=HIDDEN NAME="sid" VALUE="<?=$agents_id?>">
- <h3 style="position: relative;top: 0px;width: 100%;padding: 20px 0px 20px 20px;font-size: 17px;color: #3B3B3B;">代理商详细设定&nbsp;&nbsp;&nbsp;<?=$sub_user?>:<?=$agents_name?> --
+ <h3 style="position: relative;top: 0px;width: 100%;padding: 40px 0px 20px 20px;font-size: 17px;color: #3B3B3B;">代理商详细设定&nbsp;&nbsp;&nbsp;<?=$sub_user?>:<?=$agents_name?> --
      <?=$sub_name?>:<?=$alias?></h3>
  <div id="div_container" style="text-align:center;position: relative;
     margin: 0 20px;">

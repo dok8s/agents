@@ -139,7 +139,7 @@ $result = mysql_query( $mysql);
 if ($cou<=0){
 	$note='//';
 }
-
+$level=$_REQUEST['level']?$_REQUEST['level']:1;
 ?>
 <html>
 <head>
@@ -155,8 +155,22 @@ if ($cou<=0){
 <link rel="stylesheet" href="/style/control/edit_agents2.css" type="text/css">
 <link rel="stylesheet" href="/bootstrap/css/bootstrap.css" type="text/css">
 <link rel="stylesheet" href="/bootstrap/css/bootstrap-theme.css" type="text/css">
+<link rel="stylesheet" href="/style/control/announcement/a1.css" type="text/css">
+<link rel="stylesheet" href="/style/control/announcement/a2.css" type="text/css">
+<script src="/js/jquery-1.10.2.js" type="text/javascript"></script>
+<script src="/js/ClassSelect_ag.js" type="text/javascript"></script>
 <SCRIPT>
-<!--
+    var uid='<?=$uid?>';
+    var level='<?=$level?>';
+    function ch_level(i)
+    {
+        if(i === 1) {
+            self.location = '/app/control/agents/members/ag_members.php?uid='+uid+'&level='+i;
+        } else {
+            self.location = '/app/control/agents/ag_subuser.php?uid='+uid+'&level='+i;
+        }
+
+    }
 function onLoad(){
 	var obj_enable = document.getElementById('enable');
 	obj_enable.value = '<?=$enable?>';
@@ -195,21 +209,15 @@ function ChkSearch(){
 		self.location="./ag_members.php?mem_name="+document.getElementById("mem_name").value+"&uid=<?=$uid?>";
 	}
 }
-// -->
 </SCRIPT>
 <SCRIPT language="javascript" src="/js/member.js"></script>
 </head>
 <body oncontextmenu="window.event.returnValue=false" bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" vlink="#0000FF" alink="#0000FF" onLoad="onLoad()";>
-<ul class="list-group">
-    <li class="list-group-item active">
-        <a style="color:#7E1414;padding-right: 5px;" href="/app/control/agents/members/ag_members.php?uid=<?=$uid?>"
-           target="main" onMouseOver="window.status='会员'; return true;" onMouseOut="window.status='';return true;"><font>会员</font></a>
-        |
-        <a style="color:#ffffff;padding-left: 5px;" href="/app/control/agents/ag_subuser.php?uid=<?=$uid?>"
-           target="main" onMouseOver="window.status='子账号'; return true;" onMouseOut="window.status='';return true;"><font>子账号</font></a>
-    </li>
-</ul>
-<FORM NAME="myFORM" ACTION="/app/control/agents/members/ag_members.php?uid=<?=$uid?>" METHOD=POST>
+<div id="top_nav_container" name="fixHead" class="top_nav_container_ann">
+    <div id="general_btn" class="<? if ($level == 1) {echo 'nav_btn_on';} else {echo 'nav_btn';}?>" onclick="ch_level(1);">会员</div>
+    <div id="important_btn" class="<? if ($level == 2) {echo 'nav_btn_on';} else {echo 'nav_btn';}?>" onclick="ch_level(2);">子账号</div>
+</div>
+<FORM NAME="myFORM" ACTION="/app/control/agents/members/ag_members.php?uid=<?=$uid?>" METHOD=POST style="padding-top: 62px;">
 <input type="hidden" name="agent_id" value="28752">
 <table width="1024" border="0" cellspacing="0" cellpadding="0" style="margin-left:20px;margin-bottom: 10px;">
 <tr>

@@ -44,8 +44,16 @@ $result = mysql_query($sql);
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <link rel="stylesheet" href="/style/control/announcement/a1.css" type="text/css">
 <link rel="stylesheet" href="/style/control/announcement/a2.css" type="text/css">
+<link rel="stylesheet" href="../css/loader.css" type="text/css">
 <script src="/js/jquery-1.10.2.js" type="text/javascript"></script>
 <script src="/js/ClassSelect_ag.js" type="text/javascript"></script>
+<script type="text/javascript">
+    // 等待所有加载
+    $(window).load(function(){
+        $('body').addClass('loaded');
+        $('#loader-wrapper .load_title').remove();
+    });
+</script>
 <style type="text/css">
 <!--
 div.bac {
@@ -98,6 +106,12 @@ b { color:#C30;}
 </head>
 <!---->
 <body oncontextmenu="window.event.returnValue=false" bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" vlink="#0000FF" alink="#0000FF" >
+<div id="loader-wrapper">
+    <div id="loader"></div>
+    <div class="loader-section section-left"></div>
+    <div class="loader-section section-right"></div>
+    <div class="load_title">正在加载...</div>
+</div>
 <div id="body_show" style=""><div>
         <div name="MaxTag" id="announcement">
 
@@ -187,10 +201,10 @@ b { color:#C30;}
                                 while ($row = mysql_fetch_array($result)) {
                                     ?>
                                     <tr id="announceTr" name="announceTr" class="anno_tr" >
-                                        <td id="datetime" name="datetime" width="10%" class="table_line">
+                                        <td id="datetime" name="datetime" width="10%" class="table_line" style="border-bottom: #E5E5E5 1px solid;">
                                             <div id="mdate" class="date_box"><?echo date('n',strtotime($row["ndate"]))?>月<br><?echo date('j',strtotime($row["ndate"]))?>日</div>
                                         </td>
-                                        <td id="text" name="text" width="90%" height="34" valign="top">
+                                        <td id="text" name="text" width="90%" height="34" valign="top" style="border-bottom: #E5E5E5 1px solid;">
                                             <!--span class="table_time">14:01:28</span-->
                                             <span class="table_txt"><?echo $row["message"]?></span>
                                         </td>
