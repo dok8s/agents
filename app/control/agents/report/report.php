@@ -25,10 +25,10 @@ $row = mysql_fetch_array($result);
 $subuser=$row['subuser'];
 if ($row['subuser']==1){
 	$agname=$row['subname'];
-	$loginfo=$agname.'子帐号:'.$row['Agname'].'查询期间报表';
+	$loginfo=$agname.'Tài khoản phụ:'.$row['Agname'].'Báo cáo kỳ truy vấn';
 }else{
 	$agname=$row['Agname'];
-	$loginfo='查询期间'.$date_start.'至'.$date_end.'报表';
+	$loginfo='Thời gian truy vấn'.$date_start.'Để'.$date_end.'Báo cáo';
 }
 $agid=$row['ID'];
 $super=$row['super'];
@@ -69,7 +69,7 @@ if($week1==0){
         <div id="loader"></div>
         <div class="loader-section section-left"></div>
         <div class="loader-section section-right"></div>
-        <div class="load_title">正在加载...</div>
+        <div class="load_title">Đang tải...</div>
     </div>
 	<div id="report_contain" class="reportNew" name="MaxTag" src="/js/w_report.js" linkage="w_report" extends="base_report">
 		<div id="base_report" class="" name="MaxTag" src="/js/base/base_report.js" linkage="base_report"></div>
@@ -80,14 +80,14 @@ if($week1==0){
 
 			<!--创建报表-->
 			<div id="create_report_contain" class="DIVsearch">
-				<div id="creat_title" class="reportTitle">创建报表</div>
+				<div id="creat_title" class="reportTitle">Tạo báo cáo</div>
 				<!--报表设定-->
 				<div id="create_box">
 					<!--切页btn-->
 					<div id="btn_box_create" class="reportHead">
 						<ul>
-							<li id="btn_wager" data-id="#result_label" class="modeBtn now reportHead1">注单报表</li>
-							<li id="btn_cancelled"data-id="#cancel_label"  class="modeBtn reportHead1">取消单分析</li>
+							<li id="btn_wager" data-id="#result_label" class="modeBtn now reportHead1">Ghi chú</li>
+							<li id="btn_cancelled"data-id="#cancel_label"  class="modeBtn reportHead1">Hủy phân tích đơn lẻ</li>
 						</ul>
 					<!--
 						<div id="btn_wager">注单报表</div>
@@ -102,17 +102,17 @@ if($week1==0){
     	            <div id="cancel_label" class="result_cancle" style="display: none;">
 						<div id="abnormal_label" class="selectBar selectBarLabel" style="margin-bottom: 5px;">
     						 <select id="report_kind" name="report_kind" >
-    							<OPTION VALUE="D">取消单</OPTION>
-    							<OPTION VALUE="D4">非正常投注单</OPTION>
+    							<OPTION VALUE="D">Hủy bỏ</OPTION>
+    							<OPTION VALUE="D4">Vé cược bất thường</OPTION>
         					</select>
                         </div>
                     </div>
 					<div id="result_label" class="result_cancle" style="display: block;">
 						<div id="abnormal_label" class="selectBar selectBarLabel" style="margin-bottom: 5px;">
     						<select id="result_type" name="result_type" >
-    							<OPTION VALUE="Y">有结果</OPTION>
+    							<OPTION VALUE="Y">Có kết quả</OPTION>
     							<?php if($subuser != 1):?>
-    							<OPTION VALUE="N">未有结果</OPTION>
+    							<OPTION VALUE="N">Không có kết quả</OPTION>
     							<?php endif; ?>
     						</select>
                         </div>
@@ -120,10 +120,10 @@ if($week1==0){
 
 						<div class="input-daterange input-group" id="datepicker">
                             <input id="datepicker_start" type="text" class="input-sm form-control" name="date_start" 
-                            	placeholder="开始时间" value="<?=date('Y-m-d', strtotime('-1 day'))?>"  style="width:150px;height:30px;"/>
+                            	placeholder="Thời gian bắt đầu" value="<?=date('Y-m-d', strtotime('-1 day'))?>"  style="width:150px;height:30px;"/>
                             <span class="input-group-addon"> to </span>
                             <input id="datepicker_end" type="text" class="input-sm form-control" name="date_end" 
-                            	placeholder="结束时间" value="<?=date('Y-m-d', strtotime('-1 day')) ?>" style="width:150px;height:30px;" />
+                            	placeholder="Thời gian kết thúc" value="<?=date('Y-m-d', strtotime('-1 day')) ?>" style="width:150px;height:30px;" />
                         </div>
                         
 						<!--  <div id="date_start" class="dateSet" name="MaxTag" src="/js/calendar_ag.js" linkage="calendar_ag">
@@ -145,16 +145,16 @@ if($week1==0){
 						</div-->
 
 						<div id="date_box" class="dateBox">
-							<div id="today_btn" class="dateBoxBtn" data-val='0'>今日</div>
-							<div id="yesterday_btn" class="dateBoxBtn now" data-val="-86400000">昨日</div>
-							<div id="tomorrow_btn" class="dateBoxBtn dateBoxBtn2" data-val="86400000">明日</div>
+							<div id="today_btn" class="dateBoxBtn" data-val='0'>Hôm nay</div>
+							<div id="yesterday_btn" class="dateBoxBtn now" data-val="-86400000">Hôm qua</div>
+							<div id="tomorrow_btn" class="dateBoxBtn dateBoxBtn2" data-val="86400000">Ngày mai</div>
 						</div>
 						<div id="date_box2" class="dateBox2">
-							<div id="thisw_btn" class="dateBoxBtn" data-val="currentWeek">本星期</div>
-							<div id="lastw_btn" class=" dateBoxBtn dateBoxBtn2" data-val="lastWeek">上星期</div>
+							<div id="thisw_btn" class="dateBoxBtn" data-val="currentWeek">Tuần này</div>
+							<div id="lastw_btn" class=" dateBoxBtn dateBoxBtn2" data-val="lastWeek">Tuần trước</div>
 						</div>
 						<div id="date_box3" class="dateBox3">
-							<div id="priod_btn" class="dateBoxBtn" data-val="current">本期</div>
+							<div id="priod_btn" class="dateBoxBtn" data-val="current">Vấn đề hiện tại</div>
 							<!--  <div id="lastp_btn" class="dateBoxBtn dateBoxBtn2">上期</div>-->
 						</div>
 

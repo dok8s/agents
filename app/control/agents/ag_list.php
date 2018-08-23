@@ -71,38 +71,38 @@ $alias=$row["Alias"];
 </head>
 <body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" vlink="#0000FF" alink="#0000FF" style="padding:1px;">
 <div id="top_nav_container" name="fixHead" class="top_nav_container_ann" >
-    <div id="general_btn" class="<? if ($level == 1) {echo 'nav_btn_on';} else {echo 'nav_btn';}?>" onclick="ch_level(1);">会员</div>
-    <div id="important_btn" class="<? if ($level == 2) {echo 'nav_btn_on';} else {echo 'nav_btn';}?>" onclick="ch_level(2);">子账号</div>
+    <div id="general_btn" class="<? if ($level == 1) {echo 'nav_btn_on';} else {echo 'nav_btn';}?>" onclick="ch_level(1);">Thành viên</div>
+    <div id="important_btn" class="<? if ($level == 2) {echo 'nav_btn_on';} else {echo 'nav_btn';}?>" onclick="ch_level(2);">Tài khoản phụ</div>
 </div>
 <div id="loader-wrapper">
     <div id="loader"></div>
     <div class="loader-section section-left"></div>
     <div class="loader-section section-right"></div>
-    <div class="load_title">正在加载...</div>
+    <div class="load_title">Đang tải...</div>
 </div>
  <INPUT TYPE=HIDDEN NAME="id" VALUE="<?=$mid?>">
   <INPUT TYPE=HIDDEN NAME="sid" VALUE="<?=$agents_id?>">
- <h3 style="position: relative;top: 0px;width: 100%;padding: 40px 0px 20px 20px;font-size: 17px;color: #3B3B3B;">代理商详细设定&nbsp;&nbsp;&nbsp;<?=$sub_user?>:<?=$agents_name?> --
+ <h3 style="position: relative;top: 0px;width: 100%;padding: 40px 0px 20px 20px;font-size: 17px;color: #3B3B3B;">Cài đặt chi tiết đại lý&nbsp;&nbsp;&nbsp;<?=$sub_user?>:<?=$agents_name?> --
      <?=$sub_name?>:<?=$alias?></h3>
  <div id="div_container" style="text-align:center;position: relative;
     margin: 0 20px;">
  <div id="my_div" class="fakeContainer first_div" style="padding:1px">
      <table border="1" id="demoTable" style="margin-top:5px;border-collapse: collapse;width: 1024px;">
          <tr id="my_tr">
-             <th class="center" rowspan="2">足球</th>
-             <th class="center" colspan="4">退水设定</th>
-             <th class="center" colspan="2">投注限额</th>
+             <th class="center" rowspan="2">Bóng đá</th>
+             <th class="center" colspan="4">Cài đặt thu hồi nước</th>
+             <th class="center" colspan="2">Giới hạn đặt cược</th>
          </tr>
          <tr>
              <th class="center">A</th>
              <th class="center">B</th>
              <th class="center">C</th>
              <th class="center">D</th>
-             <th class="center">单场</th>
-             <th class="center">单注</th>
+             <th class="center">Trường đơn</th>
+             <th class="center">Ghi chú duy nhất</th>
          </tr>
          <tr  class="m_cen">
-             <td nowrap align="right" class="m_ag_ed">让球, 大小, 单双</td>
+             <td nowrap align="right" class="m_ag_ed">Hãy để bóng, Kích thước, Đơn và đôi</td>
              <td nowrap><?=$row["FT_Turn_R_A"]?></td>
              <td nowrap><?=$row["FT_Turn_R_B"]?></td>
              <td nowrap><?=$row["FT_Turn_R_C"]?></td>
@@ -111,7 +111,7 @@ $alias=$row["Alias"];
              <td nowrap><?=$row["FT_R_Bet"]?></td>
          </tr>
          <tr  class="m_cen">
-             <td nowrap class="m_ag_ed">滚球让球, 滚球大小</td>
+             <td nowrap class="m_ag_ed">Lăn bóng để làm bóng, Kích thước bóng lăn</td>
              <td nowrap><?=$row["FT_Turn_RE_A"]?></td>
              <td nowrap><?=$row["FT_Turn_RE_B"]?></td>
              <td nowrap><?=$row["FT_Turn_RE_C"]?></td>
@@ -121,13 +121,13 @@ $alias=$row["Alias"];
          </tr>
 
          <tr  class="m_cen">
-             <td nowrap class="m_ag_ed">独赢, 滚球独赢</td>
+             <td nowrap class="m_ag_ed">Giành chiến thắng, Rolling ball thắng</td>
              <td nowrap colspan="4" ><?=$row["FT_Turn_M"]?></td>
              <td nowrap><?=$row["FT_M_Scene"]?></td>
              <td nowrap><?=$row["FT_M_Bet"]?></td>
          </tr>
          <tr  class="m_cen">
-             <td nowrap class="m_ag_ed">其他</td>
+             <td nowrap class="m_ag_ed">Khác</td>
              <td nowrap colspan="4" ><?=$row["FT_Turn_PC"]?></td>
              <td nowrap><?=$row["FT_PC_Scene"]?></td>
              <td nowrap><?=$row["FT_PC_Bet"]?></td>
@@ -141,9 +141,9 @@ $alias=$row["Alias"];
      <div id="my_div" class="fakeContainer first_div" style="padding:1px">
          <table border="1" id="demoTable" style="margin-top:5px;border-collapse: collapse;width: 1024px;">
              <tr id="my_tr">
-                 <th class="center" rowspan="2">篮球</th>
-                 <th class="center" colspan="4">退水设定</th>
-                 <th class="center" colspan="2">投注限额</th>
+                 <th class="center" rowspan="2">Bóng rổ</th>
+                 <th class="center" colspan="4">Cài đặt thu hồi nước</th>
+                 <th class="center" colspan="2">Giới hạn đặt cược</th>
              </tr>
              <tr>
                  <th class="center">A</th>

@@ -32,7 +32,7 @@ $shistory='message';
 </head>
 <body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" vlink="#0000FF" alink="#0000FF">
 <ul class="list-group">
-    <li class="list-group-item active">历史公告讯息</li>
+    <li class="list-group-item active">Thông báo lịch sử</li>
     <?
     $sqlCount = "select count(id) as count from web_marquee where level=4 order by id desc";
     $resultCount = mysql_query($sqlCount);
@@ -73,7 +73,7 @@ $shistory='message';
     <li class="list-group-item <?php if(rand(1, 100)< 0):?> active<?php endif;?>" >
         <span class="badge"><?=$row['ntime']?></span>
         <h4 class="list-group-item-heading">
-            <span class="label label-success">公告<?=$row['id']?></span>
+            <span class="label label-success">Thông báo<?=$row['id']?></span>
         </h4>
         <p class="list-group-item-text">
             <?=$row['message']?>
