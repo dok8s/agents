@@ -467,7 +467,7 @@ $D = 3600*24;
 $Q = $D*7*4;
 for($i=1; $i<=13; $i++){
 	$d_s = date('Y/m/d', $timestart+($i-1)*$Q);
-	if($i==1){//2015第一月5周
+	if($i==1){//2015第Tháng Một5周
 		$Q = $D*7*5;
 		$d_e = date('Y/m/d', $timestart+$i*$Q-$D);
 	}else{

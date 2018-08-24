@@ -150,11 +150,11 @@ $alias=$row["Alias"];
                  <th class="center">B</th>
                  <th class="center">C</th>
                  <th class="center">D</th>
-                 <th class="center">单场</th>
-                 <th class="center">单注</th>
+                 <th class="center">Trường đơn</th>
+                 <th class="center">Ghi chú duy nhất</th>
              </tr>
              <tr  class="m_cen">
-                 <td nowrap align="right" class="m_ag_ed">让球, 大小, 单双</td>
+                 <td nowrap align="right" class="m_ag_ed"> Hãy để bóng,  Kích thước, Đơn và đôi</td>
                  <td nowrap><?=$row["BK_Turn_R_A"]?></td>
                  <td nowrap><?=$row["BK_Turn_R_B"]?></td>
                  <td nowrap><?=$row["BK_Turn_R_C"]?></td>
@@ -164,7 +164,7 @@ $alias=$row["Alias"];
 
              </tr>
              <tr  class="m_cen">
-                 <td nowrap class="m_ag_ed">滚球让球, 滚球大小</td>
+                 <td nowrap class="m_ag_ed">Cán bóng Hãy để bóng, Cán bóng Kích thước</td>
                  <td nowrap><?=$row["BK_Turn_RE_A"]?></td>
                  <td nowrap><?=$row["BK_Turn_RE_B"]?></td>
                  <td nowrap><?=$row["BK_Turn_RE_C"]?></td>
@@ -174,7 +174,7 @@ $alias=$row["Alias"];
              </tr>
 
              <tr  class="m_cen">
-                 <td nowrap class="m_ag_ed">其他</td>
+                 <td nowrap class="m_ag_ed">  Khác</td>
                  <td nowrap colspan="4" ><?=$row["BK_Turn_PC"]?></td>
                  <td nowrap><?=$row["BK_PC_Scene"]?></td>
                  <td nowrap><?=$row["BK_PC_Bet"]?></td>
@@ -188,20 +188,20 @@ $alias=$row["Alias"];
      <div id="my_div" class="fakeContainer first_div" style="padding:1px">
          <table border="1" id="demoTable" style="margin-top:5px;border-collapse: collapse;width: 1024px;">
              <tr id="my_tr">
-                 <th class="center" rowspan="2">综合球类</th>
-                 <th class="center" colspan="4">退水设定</th>
-                 <th class="center" colspan="2">投注限额</th>
+                 <th class="center" rowspan="2">Bóng tích hợp</th>
+                 <th class="center" colspan="4">Cài đặt thu hồi nước</th>
+                 <th class="center" colspan="2">Giới hạn đặt cược</th>
              </tr>
              <tr>
                  <th class="center">A</th>
                  <th class="center">B</th>
                  <th class="center">C</th>
                  <th class="center">D</th>
-                 <th class="center">单场</th>
-                 <th class="center">单注</th>
+                 <th class="center">Trường đơn</th>
+                 <th class="center">Ghi chú duy nhất</th>
              </tr>
              <tr  class="m_cen">
-                 <td nowrap align="right" class="m_ag_ed">让球, 大小, 单双</td>
+                 <td nowrap align="right" class="m_ag_ed"> Hãy để bóng,  Kích thước, Đơn và đôi</td>
                  <td nowrap><?=$row["OP_Turn_R_A"]?></td>
                  <td nowrap><?=$row["OP_Turn_R_B"]?></td>
                  <td nowrap><?=$row["OP_Turn_R_C"]?></td>
@@ -211,7 +211,7 @@ $alias=$row["Alias"];
 
              </tr>
              <tr  class="m_cen">
-                 <td nowrap class="m_ag_ed">滚球让球, 滚球大小</td>
+                 <td nowrap class="m_ag_ed">Cán bóng Hãy để bóng, Cán bóng Kích thước</td>
                  <td nowrap><?=$row["OP_Turn_RE_A"]?></td>
                  <td nowrap><?=$row["OP_Turn_RE_B"]?></td>
                  <td nowrap><?=$row["OP_Turn_RE_C"]?></td>
@@ -221,13 +221,13 @@ $alias=$row["Alias"];
 
              </tr>
              <tr  class="m_cen">
-                 <td nowrap class="m_ag_ed">独赢, 滚球独赢</td>
+                 <td nowrap class="m_ag_ed"> Giành chiến thắng, Cán bóng Giành chiến thắng</td>
                  <td nowrap colspan="4" ><?=$row["OP_Turn_M"]?></td>
                  <td nowrap><?=$row["OP_M_Scene"]?></td>
                  <td nowrap><?=$row["OP_M_Bet"]?></td>
              </tr>
              <tr  class="m_cen">
-                 <td nowrap class="m_ag_ed">其他</td>
+                 <td nowrap class="m_ag_ed">Khác</td>
                  <td nowrap colspan="4" ><?=$row["OP_Turn_PC"]?></td>
                  <td nowrap><?=$row["OP_PC_Scene"]?></td>
                  <td nowrap><?=$row["OP_PC_Bet"]?></td>
@@ -241,20 +241,20 @@ $alias=$row["Alias"];
      <div id="my_div" class="fakeContainer first_div" style="padding:1px">
          <table border="1" id="demoTable" style="margin-top:5px;border-collapse: collapse; width: 1024px;">
              <tr id="my_tr">
-                 <th class="center" rowspan="2">冠军</th>
-                 <th class="center" colspan="4">退水设定</th>
-                 <th class="center" colspan="2">投注限额</th>
+                 <th class="center" rowspan="2">Quán quân</th>
+                 <th class="center" colspan="4">Cài đặt thu hồi nước</th>
+                 <th class="center" colspan="2">Giới hạn đặt cược</th>
              </tr>
              <tr>
                  <th class="center">A</th>
                  <th class="center">B</th>
                  <th class="center">C</th>
                  <th class="center">D</th>
-                 <th class="center">单场</th>
-                 <th class="center">单注</th>
+                 <th class="center">Trường đơn</th>
+                 <th class="center">Ghi chú duy nhất</th>
              </tr>
              <tr  class="m_cen">
-                 <td nowrap class="m_ag_ed">冠军</td>
+                 <td nowrap class="m_ag_ed">Quán quân</td>
                  <td nowrap colspan="4" ><?=$row["FS_Turn_R"]?></td>
                  <td nowrap><?=$row["FS_R_Scene"]?></td>
                  <td nowrap><?=$row["FS_R_Bet"]?></td>
@@ -266,13 +266,13 @@ $alias=$row["Alias"];
 <div id="list" style="visibility:hidden;">
 	<table border="0" cellpadding="1" cellspacing="1" class="ta_div">
 		<tr class="m_title_ft_future">
-			<td width=30>编号</td>
-			<td width=100 >新帐号</td>
-			<td width=100 >旧帐号</td>
-			<td width=100 >修改日期</td>
+			<td width=30>Số</td>
+			<td width=100 >Tài khoản mới</td>
+			<td width=100 >Tài khoản cũ</td>
+			<td width=100 >Ngày sửa đổi</td>
 		</tr>
 		*LIST_RECORD*
-		<tr><td colspan="4" class="m_cen"><input type="button" value="关闭" onClick="close_divs();" class="za_button"></td></tr>
+		<tr><td colspan="4" class="m_cen"><input type="button" value="Đóng" onClick="close_divs();" class="za_button"></td></tr>
 	</table>
 </div>
 <div id="hidden_list" style="visibility:hidden;">

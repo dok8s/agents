@@ -8,7 +8,7 @@ if (!$_SESSION["bkbk"])
 require ("../../member/include/config.inc.php");
 $uid=$_REQUEST["uid"];
 $langx=$_REQUEST["langx"];
-//会员总数
+//Tổng số thành viên
 $sql = "select * from web_agents where Oid='$uid'";
 $result = mysql_query($sql);
 $agents = mysql_fetch_array($result);
@@ -59,15 +59,15 @@ if ($subuser==1 || $row['status']==2){
 }
 ?>
 <script>
-  top.str_FT = "足球";
-  top.str_FS = "冠军";
-  top.str_BK = "篮球";
-  top.str_TN = "网球";
-  top.str_VB = "排球";
-  top.str_BS = "棒球";
-  top.str_OP = "其他";
-  top.str_RB = "滚球";
-  top.str_SFS = "特殊冠军";
+  top.str_FT = "Bóng đá";
+  top.str_FS = "Quán quân";
+  top.str_BK = "Bóng rổ";
+  top.str_TN = "Quần vợt";
+  top.str_VB = "Bóng chuyền";
+  top.str_BS = "Bóng chày";
+  top.str_OP = "Khác";
+  top.str_RB = "Cán bóng";
+  top.str_SFS = "Nhà vô địch đặc biệt";
 
   //信用额度
   top.str_maxcre = "总信用额度仅能输入数字!!";
@@ -96,21 +96,21 @@ if ($subuser==1 || $row['status']==2){
 
   //帐号
   top.str_co = "股东";
-  top.str_su = "总代理";
-  top.str_ag = "代理商";
-  top.str_mem = "会员";
+  top.str_su = "总Đại lý";
+  top.str_ag = "Đại lý商";
+  top.str_mem = "Thành viên";
   top.str_input_account = "帐号请务必输入!!";
   top.str_input_alias = "名称请务必输入!!";
   top.str_input_credit = "总信用额度请务必输入!!";
-  top.str_confirm_add_su = "是否确定写入总代理?";
-  top.str_confirm_add_ag = "是否确定写入代理商?";
-  top.chk_input_use_date = "是否确定写入会员资料?";
+  top.str_confirm_add_su = "是否确定写入总Đại lý?";
+  top.str_confirm_add_ag = "是否确定写入Đại lý商?";
+  top.chk_input_use_date = "是否确定写入Thành viên资料?";
   top.str_sub_select ="请选择类型帐号!!";
-  top.str_mem_ag="请务必选择代理商!!";
+  top.str_mem_ag="请务必选择Đại lý商!!";
   top.str_input_pwd_self="安全代码请勿和帐号密码相同!!";
-  top.str_input_name="会员名称请务必输入!!";
+  top.str_input_name="Thành viên名称请务必输入!!";
   top.str_use_length="帐号至少4个字元长!!!";
-  top.str_use_ag_chg_Detail="你已变更此之会员代理商~~请重新设定该会员之详细设定!!";
+  top.str_use_ag_chg_Detail="你已变更此之Thành viênĐại lý商~~请重新设定该Thành viên之详细设定!!";
   top.str_Pre_inquiry_use="请输入预查询之帐号!";
   top.str_Pre_inquiry_use1="请输入查询帐号!!";
   top.ck_del_user="确定删除帐号??";
@@ -128,7 +128,7 @@ if ($subuser==1 || $row['status']==2){
   top.str_confirm_default_winloss1 = "预设的成数将在 ";
   top.str_confirm_default_winloss2 = " 后生效!!确认预设吗?";
   top.str_default = "预设";
-  top.str_err_winloss_range = " 总代理及代理商的成数总和须在 5 - 8 成内 , 请重新设定 !! ";
+  top.str_err_winloss_range = " 总Đại lý及Đại lý商的成数总和须在 5 - 8 成内 , 请重新设定 !! ";
 
   //密码
   top.str_input_pwd = "密码请务必输入!!";
@@ -192,7 +192,7 @@ if ($subuser==1 || $row['status']==2){
 </script>
 <html>
 <head>
-  <title>-代理商界面</title>
+  <title>-Đại lý Giao diện kinh doanh</title>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   <link rel="stylesheet" href="/style/control/control_header.css" type="text/css">
   <link rel="stylesheet" href="/style/home.css" type="text/css">
@@ -305,53 +305,53 @@ if ($subuser==1 || $row['status']==2){
             <div id="header_tr" name="fixHead" class="top_option_contain">
               <div id="header_td" class="lang_contain">
                 <div id="lang_btn" class="lang_btn">
-                  <span id="sel_langx" name="sel_langx" class="lang_txt">简体</span>
+                  <span id="sel_langx" name="sel_langx" class="lang_txt">Đơn giản hóa</span>
                 </div>
               </div>
-              <div id="online_mem" class="online_btn" title="">会员总数: <span id="online_mem_count"><?=$member_count?></span></div>
+              <div id="online_mem" class="online_btn" title="">Tổng số thành viên: <span id="online_mem_count"><?=$member_count?></span></div>
 
-              <div id="uesr_code" class="uesr_code"><span style="color:#7e1414;">登入3--<?=$agname?>--<?=$passwd_safe?><span style="padding-left:7px;">|<a href="/quit.php?level=3&uid=<?=$uid?>" target="_top" onMouseOver="window.status='登出'; return true;" onMouseOut="window.status='';return true;" style="color: #1e1e1e;padding: 7px;">登出</a>|<a href="#" onClick="Go_Chg_pass(2);" style="color:#8C8B8B;padding-left:3px;padding-right:7px;">变更密码</a></div>
-                <div id="contactus" class="contact_us" onclick="notice();">联系我们</div>
-              <div id="live_chat" class="live_chat" style="width: 52px;" onclick="notice();">在线客服</div>
-              <div id="new_url" class="new_url"><a href="/url.html" style="color:#5b534f" target="main" onMouseOver="window.status='最新网址'; return true;" onMouseOut="window.status='';return true;">最新网址</a></div>
+              <div id="uesr_code" class="uesr_code"><span style="color:#7e1414;">Đăng nhập 3--<?=$agname?>--<?=$passwd_safe?><span style="padding-left:7px;">|<a href="/quit.php?level=3&uid=<?=$uid?>" target="_top" onMouseOver="window.status='Đăng xuất'; return true;" onMouseOut="window.status='';return true;" style="color: #1e1e1e;padding: 7px;">Đăng xuất</a>|<a href="#" onClick="Go_Chg_pass(2);" style="color:#8C8B8B;padding-left:3px;padding-right:7px;">Thay đổi mật khẩu</a></div>
+                <div id="contactus" class="contact_us" onclick="notice();">Liên lạc với chúng tôi</div>
+              <div id="live_chat" class="live_chat" style="width: 52px;" onclick="notice();">Dịch vụ khách hàng trực tuyến</div>
+              <div id="new_url" class="new_url"><a href="/url.html" style="color:#5b534f" target="main" onMouseOver="window.status='URL mới nhất'; return true;" onMouseOut="window.status='';return true;">URL mới nhất</a></div>
             </div>
           </div>
                 <div class="navbox">
                     <div class="nav">
 
                         <li class="drop-menu-effect"><a href="/app/control/agents/body_home.php?uid=<?$uid?>&langx=<?=$langx?>"
-                                                        target="main" onMouseOver="window.status='首页'; return true;" onMouseOut="window.status='';return true;">
-                                <span>首页</span></a>
+                                                        target="main" onMouseOver="window.status='Trang chủ'; return true;" onMouseOut="window.status='';return true;">
+                                <span>Trang chủ</span></a>
                         </li>
                         <li class="drop-menu-effect"><a href="/app/control/agents/announcement/get_an.php?uid=<?$uid?>&langx=<?=$langx?>" target="main" onMouseOver="window.status='公告内容'; return true;" onMouseOut="window.status='';return true;"><span>公告内容</span></a>
                         </li>
 
                         <li class="drop-menu-effect"> <a href="/app/control/agents/other_set/show_result.php?uid=<?=$uid?>"
-                                                         target="main" onMouseOver="window.status='赛果'; return true;" onMouseOut="window.status='';return true;"><span>赛果</span></a>
+                                                         target="main" onMouseOver="window.status='Kết quả'; return true;" onMouseOut="window.status='';return true;"><span>Kết quả</span></a>
                         </li>
                         <li class="drop-menu-effect"> <a onclick="notice();"
-                                                         target="main" onMouseOver="window.status='现金系统'; return true;" onMouseOut="window.status='';return true;"><span>现金系统</span></a>
+                                                         target="main" onMouseOver="window.status='Hệ thống tiền mặt'; return true;" onMouseOut="window.status='';return true;"><span>Hệ thống tiền mặt</span></a>
                         </li>
-                        <li class="drop-menu-effect"> <a href="/app/control/agents/ag_list.php?uid=<?$uid?>" target="main" onMouseOver="window.status='帐号管理'; return true;" onMouseOut="window.status='';return true;"><span>帐号管理</span></a>
+                        <li class="drop-menu-effect"> <a href="/app/control/agents/ag_list.php?uid=<?$uid?>" target="main" onMouseOver="window.status='Quản lý tài khoản'; return true;" onMouseOut="window.status='';return true;"><span>Quản lý tài khoản</span></a>
                             <div class="submenu">
                                 <div class="mj_menu_pro_bg">
                                     <div class="mj_menu_pro_main">
                                         <div class="mj_menu_pro_li">
                                             <div class="mj_menu_li_txt">
                                                 <a href="/app/control/agents/ag_list.php?uid=<?=$uid?>"
-                                                   target="main" onMouseOver="window.status='代理'; return true;" onMouseOut="window.status='';return true;">代理</font></a><br />
+                                                   target="main" onMouseOver="window.status='Đại lý'; return true;" onMouseOut="window.status='';return true;">Đại lý</font></a><br />
                                             </div>
                                         </div>
                                         <div class="mj_menu_pro_li" style="padding-left:48px;">
                                             <div class="mj_menu_li_txt">
                                                 <a href="/app/control/agents/members/ag_members.php?uid=<?=$uid?>"
-                                                   target="main" onMouseOver="window.status='会员'; return true;" onMouseOut="window.status='';return true;"><font>会员</font></a><br />
+                                                   target="main" onMouseOver="window.status='Thành viên'; return true;" onMouseOut="window.status='';return true;"><font>Thành viên</font></a><br />
                                             </div>
                                         </div>
                                         <div class="mj_menu_pro_li" style="padding-left:48px;">
                                             <div class="mj_menu_li_txt">
                                                 <a href="/app/control/agents/ag_subuser.php?uid=<?=$uid?>"
-                                                   target="main" onMouseOver="window.status='子账号'; return true;" onMouseOut="window.status='';return true;"><font>子账号</font></a><br />
+                                                   target="main" onMouseOver="window.status='Tài khoản phụ'; return true;" onMouseOut="window.status='';return true;"><font>Tài khoản phụ</font></a><br />
                                             </div>
                                         </div>
                                     </div>
@@ -360,10 +360,10 @@ if ($subuser==1 || $row['status']==2){
                         </li>
 
                         <li class="drop-menu-effect"> <a href="/app/control/agents/report/report.php?uid=<?=$uid?>"
-                                                         target="main" onMouseOver="window.status='报表'; return true;" onMouseOut="window.status='';return true;"><span>报表</span></a>
+                                                         target="main" onMouseOver="window.status='Báo cáo'; return true;" onMouseOut="window.status='';return true;"><span>Báo cáo</span></a>
                         </li>
                       <li class="drop-menu-effect"> <a href="/app/control/agents/scroll_history.php?uid=<?=$uid?>&langx=<?=$langx?>"
-                                                       target="main" onMouseOver="window.status='历史讯息'; return true;" onMouseOut="window.status='';return true;"><span>历史讯息</span></a>
+                                                       target="main" onMouseOver="window.status='Thông tin lịch sử'; return true;" onMouseOut="window.status='';return true;"><span>Thông tin lịch sử</span></a>
                       </li>
                     </div>
                 </div>
@@ -371,12 +371,12 @@ if ($subuser==1 || $row['status']==2){
 
           <div id="lang_select" class="lang_select" style="display:none;" tabindex="9527">
             <span id="lang_en-us">ENG</span>
-            <span id="lang_zh-cn">简体</span>
+            <span id="lang_zh-cn">Đơn giản hóa</span>
             <span id="lang_zh-tw">繁體</span>
           </div>
           <div id="user_select" class="user_select" style="display:none;" tabindex="9527">
-            <span id="chg_pass"><a href="#" onClick="Go_Chg_pass(2);">变更密码</a></span>
-            <span id="logout"><a href="/quit.php?level=3&uid=<?=$uid?>" target="_top" onMouseOver="window.status='登出'; return true;" onMouseOut="window.status='';return true;" style="color: #000000;">登出</a></span>
+            <span id="chg_pass"><a href="#" onClick="Go_Chg_pass(2);">Thay đổi mật khẩu</a></span>
+            <span id="logout"><a href="/quit.php?level=3&uid=<?=$uid?>" target="_top" onMouseOver="window.status='Đăng xuất'; return true;" onMouseOut="window.status='';return true;" style="color: #000000;">Đăng xuất</a></span>
           </div>
           <div name="MaxTag" id="langxMC" src="/js/conf/zh_cn.js" linkage="zh_cn" style="display:none;"></div>
           <div name="MaxTag" id="zh-cn" src="/js/zh-cn.js?7742" style="display:none;"></div>

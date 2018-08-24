@@ -63,8 +63,8 @@ case "RE":
     <td width="52" nowrap>联盟</td>
     <td width="28">场次</td>
     <td width="200">队伍</td>
-    <td width="195">全场让球 / 注单</td>
-    <td width="195">全场大小 / 注单</td>
+    <td width="195">Khán giả đầy đủ让球 / 注单</td>
+    <td width="195">Khán giả đầy đủ大小 / 注单</td>
     <td width="195" class="1st">上半让球 / 注单</td>
     <td width="195" class="1st">上半大小 / 注单</td>';
 	break;
@@ -106,7 +106,7 @@ case "F":
 	$table='      <td width="38">时间</td>
       <td width="52" nowrap>联盟</td>
       <td width="200">主客队伍</td>
-      <td width="120">半全场</td>';
+      <td width="120">半Khán giả đầy đủ</td>';
 	break;
 case "P":
 	$caption=$rel_parlay;
@@ -337,16 +337,16 @@ if($rtype<>'PL'){?>
 			<tr class="m_title_ft">
 				<td nowrap>独赢</td>
 				<td nowrap>波胆</td>
-				<td nowrap>半场波胆</td>
+				<td nowrap>Giờ nghỉ giải lao波胆</td>
 				<td nowrap>单双</td>
 				<td nowrap>总入球</td>
-				<td nowrap>半全场</td>
+				<td nowrap>半Khán giả đầy đủ</td>
 				<td nowrap>过关</td>
-				<td nowrap>半场滚球让球</td>
-				<td nowrap>半场滚球大小</td>
-				<td nowrap>半场让球</td>
-				<td nowrap>半场大小</td>
-				<td nowrap>半场独赢</td>
+				<td nowrap>Giờ nghỉ giải lao滚球让球</td>
+				<td nowrap>Giờ nghỉ giải lao滚球大小</td>
+				<td nowrap>Giờ nghỉ giải lao让球</td>
+				<td nowrap>Giờ nghỉ giải lao大小</td>
+				<td nowrap>Giờ nghỉ giải lao独赢</td>
 			</tr>
 		</table>
 		<input type='button' class="za_button" onClick="document.all.line_window.style.visibility='hidden';" value='关闭'>

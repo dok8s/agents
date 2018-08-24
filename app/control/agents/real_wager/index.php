@@ -87,7 +87,7 @@ function ShowLeague(lid){
    case 'OU':	//单式
     ShowData_OU(show_table,GameFT,gamount);
     break;
-   case 'HOU':	//上半场
+   case 'HOU':	//上Giờ nghỉ giải lao
     ShowData_HOU(show_table,GameFT,gamount);
     break;
    case 'RE':	//走地
@@ -102,7 +102,7 @@ function ShowLeague(lid){
    case 'EO':	//总入球
     ShowData_EO(show_table,GameFT,gamount);
     break;
-   case 'F':	//半全场
+   case 'F':	//半Khán giả đầy đủ
     ShowData_F(show_table,GameFT,gamount);
     break;
    case 'P':	//过关
@@ -202,7 +202,7 @@ function ShowLeague(lid){
   }//with(obj_table);
  }
 
-//显示上半场画面资料
+//显示上Giờ nghỉ giải lao画面资料
  function ShowData_HOU(obj_table,GameData,data_amount)
  {
   with(obj_table)
@@ -832,7 +832,7 @@ function ShowData_PL_DETAIL(obj_table,GameData){
 			nowTD = insertCell();
 			nowTD.vAlign = 'top';
 			nowTD.innerHTML = '<A HREF=\"FT_list_bet.php?uid='+uid+'&gid='+GameData[0]+'&linetype=6\"><font color=\"#FF0000\">'+warge_A+'/'+gold_A+'</font></A>';
-			//半全场/注单
+			//半Khán giả đầy đủ/注单
 			nowTD = insertCell();
 			nowTD.vAlign = 'top';
 			nowTD.innerHTML = '<A HREF=\"FT_list_bet.php?uid='+uid+'&gid='+GameData[0]+'&linetype=14\"><font color=\"#FF0000\">'+GameData[65]+'/'+GameData[66]+'</font></A>';
@@ -843,30 +843,30 @@ function ShowData_PL_DETAIL(obj_table,GameData){
 			nowTD.vAlign = 'top';
 			nowTD.innerHTML = '<A HREF=\"FT_list_bet.php?uid='+uid+'&gid='+GameData[0]+'&linetype=8\"><font color=\"#FF0000\">'+warge_RP+'/'+gold_RP+'</font></A>';
 
-			//半场滚球让球
+			//Giờ nghỉ giải lao滚球让球
 			nowTD = insertCell();
 			nowTD.vAlign = 'top';
 			nowTD.innerHTML = '<a href=\"FT_list_bet.php?uid='+uid+'&gid='+GameData[81]+'&type=H&linetype=19\"><font color=\"#FF0000\">'+GameData[87]+'/'+GameData[89]+'</font></a><br>'+
 					'<a href=\"FT_list_bet.php?uid='+uid+'&gid='+GameData[81]+'&type=C&linetype=19\"><font color=\"#FF0000\">'+GameData[88]+'/'+GameData[90]+'</font></a>';
 
-			//半场滚球大小
+			//Giờ nghỉ giải lao滚球大小
 			nowTD = insertCell();
 			nowTD.vAlign = 'top';
 			nowTD.innerHTML = '<A HREF=\"FT_list_bet.php?uid='+uid+'&gid='+GameData[81]+'&type=C&linetype=30\"><font color=\"#FF0000\">'+GameData[91]+'/'+GameData[93]+'</font></A><BR>'+
 					'<A HREF=\"FT_list_bet.php?uid='+uid+'&gid='+GameData[81]+'&type=H&linetype=30\"><font color=\"#FF0000\">'+GameData[92]+'/'+GameData[94]+'</font></A>';
 
-			//半场让球
+			//Giờ nghỉ giải lao让球
 			nowTD = insertCell();
 			nowTD.vAlign = 'top';
 			nowTD.innerHTML = '<a href=\"FT_list_bet.php?uid='+uid+'&gid='+GameData[81]+'&type=H&linetype=12\"><font color=\"#FF0000\">'+GameData[67]+'/'+GameData[69]+'</font></a><br>'+
 					'<a href=\"FT_list_bet.php?uid='+uid+'&gid='+GameData[81]+'&type=C&linetype=12\"><font color=\"#FF0000\">'+GameData[68]+'/'+GameData[70]+'</font></a>';
-			//半场上下盘/注单
+			//Giờ nghỉ giải lao上下盘/注单
 			nowTD = insertCell();
 			nowTD.vAlign = 'top';
 			nowTD.innerHTML = '<A HREF=\"FT_list_bet.php?uid='+uid+'&gid='+GameData[81]+'&type=C&linetype=13\"><font color=\"#FF0000\">'+GameData[71]+'/'+GameData[73]+'</font></A><BR>'+
 					'<A HREF=\"FT_list_bet.php?uid='+uid+'&gid='+GameData[81]+'&type=H&linetype=13\"><font color=\"#FF0000\">'+GameData[72]+'/'+GameData[74]+'</font></A>';
 
-			//半场独赢/注单
+			//Giờ nghỉ giải lao独赢/注单
 			nowTD = insertCell();
 			nowTD.vAlign = 'top';
 			nowTD.innerHTML = '<A HREF=\"FT_list_bet.php?uid='+uid+'&gid='+GameData[81]+'&type=H&linetype=11\"><font color=\"#FF0000\">'+GameData[75]+'/'+GameData[78]+'</font></A><BR>'+
@@ -973,7 +973,7 @@ function ShowData_FS(obj_table,GameData,data_amount){
 			}
 			nowTR = insertRow();
 			nowTR.className = tr_class;
-			//主队半全场资料显示
+			//主队半Khán giả đầy đủ资料显示
 			with(nowTR){
 				//日期时间
 				nowTD = insertCell();

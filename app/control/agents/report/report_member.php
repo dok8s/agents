@@ -96,7 +96,7 @@ function init(){
   <table width="100%" border="0" cellspacing="0" cellpadding="0">
     <tr>
       <td width="750" class="m_tline">&nbsp;&nbsp;报表管理: <?=$aid?>--<font color="#CC0000"><?=$mid?></font>&nbsp;&nbsp;&nbsp;&nbsp;日期:<?=$date_start?>~<?=$date_end?>
-        -- 下注管道:网路下注 -- <a href="javascript:history.go( -1 );">回上一页</a> -- <a href="./report.php?uid=<?=$uid?>">回报表查询</a></td>
+        -- 下注管道:网路下注 -- <a href="javascript:history.go( -1 );">回上Một页</a> -- <a href="./report.php?uid=<?=$uid?>">回报表查询</a></td>
       <td width="30"><img src="/images/control/zh-tw/top_04.gif" width="30" height="24"></td>
     </tr>
     <tr>
@@ -141,11 +141,11 @@ function init(){
 		</td>
     <td align="center"><?=$row['M_Name']?><font color="#CC0000"> <?=$row['TurnRate']?></font><br></td>
     <td align="center"><font color=green><?=$ODDS[$row['odd_type']]?></font><br><?=substr(show_voucher($row['LineType'],$row['ID']),2)?><br><?
-	$bet=str_replace("半全场","$$",$row['BetType']);
-	$bet=str_replace("半场"," 半场",$bet);
-	$bet=str_replace("全场"," ",$bet);
+	$bet=str_replace("半Khán giả đầy đủ","$$",$row['BetType']);
+	$bet=str_replace("Giờ nghỉ giải lao"," Giờ nghỉ giải lao",$bet);
+	$bet=str_replace("Khán giả đầy đủ"," ",$bet);
 	$bet=str_replace("-","",$bet);
-	$bet=str_replace("$$","半全场",$bet);
+	$bet=str_replace("$$","半Khán giả đầy đủ",$bet);
 	echo $bet;
 	
 	?>

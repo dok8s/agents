@@ -172,7 +172,7 @@ function init(){
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
 	<tr class="m_tline">
 		<td>&nbsp;&nbsp;代理商:<?=$aid?> -- 日期:<?=$date_start?>~<?=$date_end?>
-      -- 报表分类:总帐 -- 投注方式:<?=$rep_pay?> -- 投注总类:全部 -- 下注管道:网路下注 -- <a href="javascript:history.go( -1 );">回上一页</a></td>
+      -- 报表分类:总帐 -- 投注方式:<?=$rep_pay?> -- 投注总类:全部 -- 下注管道:网路下注 -- <a href="javascript:history.go( -1 );">回上Một页</a></td>
     <td width="30"><img src="/images/control/zh-tw/top_04.gif" width="30" height="24"></td>
   </tr>
   <tr>
