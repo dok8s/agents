@@ -70,125 +70,125 @@ if ($subuser==1 || $row['status']==2){
   top.str_SFS = "Nhà vô địch đặc biệt";
 
   //信用额度
-  top.str_maxcre = "总信用额度仅能输入数字!!";
+  top.str_maxcre = "Tổng hạn mức tín dụng chỉ có thể nhập số!!";
 
-  top.str_gopen = "开放";
-  top.str_gameclose = "关闭";
-  top.str_gopenY = "是否确定赛程开放";
-  top.str_gopenN = "是否确定赛程关闭";
-  top.str_strongH = "是否确定强弱互换";
-  top.str_strongC = "是否确定强弱互换";
-  top.str_close_ioratio = "是否确定关闭赔率";
-  top.str_checknum = "验证码错误,请重新输入";
+  top.str_gopen = "Mở";
+  top.str_gameclose = "Đóng";
+  top.str_gopenY = "Bạn có chắc chắn lịch biểu đang mở?";
+  top.str_gopenN = "Bạn có chắc chắn lịch biểu đã bị đóng không?";
+  top.str_strongH = "Bạn có chắc chắn về các giao dịch hoán đổi mạnh và yếu không?";
+  top.str_strongC = "Bạn có chắc chắn về các giao dịch hoán đổi mạnh và yếu không?";
+  top.str_close_ioratio = "Bạn có chắc chắn để đóng tỷ lệ cược?";
+  top.str_checknum = "Mã xác minh không chính xác, vui lòng nhập lại";
 
   //新冠军
-  top.str_scoreY = "负";
-  top.str_scoreN = "胜";
-  top.str_change = "确定重置结果!!";
-  top.str_eliminate = "是否淘汰";
-  top.str_format = "请填入正确格式";
-  top.str_close_time = "是否确定关闭时间??"
-  top.str_check_date = "请检查日期格式 !!";
-  top.str_champ_win = "冠军是否为:";
-  top.str_champ_wins = "请再确认冠军是否为:";
-  top.str_NOchamp = "无胜出队伍，请重新设定!!";
-  top.str_NOloser = "无淘汰队伍，请重新设定!!";
+  top.str_scoreY = "Phủ định";
+  top.str_scoreN = "Thắng";
+  top.str_change = "Xác định kết quả đặt lại!!";
+  top.str_eliminate = "Liệu có nên loại bỏ";
+  top.str_format = "Vui lòng điền đúng định dạng";
+  top.str_close_time = "Cho dù để xác định thời gian đóng cửa??"
+  top.str_check_date = "Vui lòng kiểm tra định dạng ngày !!";
+  top.str_champ_win = "Là nhà vô địch:";
+  top.str_champ_wins = "Vui lòng xác nhận xem nhà vô địch có:";
+  top.str_NOchamp = "Không có đội chiến thắng, vui lòng đặt lại!!";
+  top.str_NOloser = "Không có nhóm loại trừ, vui lòng đặt lại!!";
 
   //帐号
-  top.str_co = "股东";
-  top.str_su = "总Đại lý";
-  top.str_ag = "Đại lý商";
+  top.str_co = "Cổ đông";
+  top.str_su = "Trụ sở chính";
+  top.str_ag = "Đại lý";
   top.str_mem = "Thành viên";
-  top.str_input_account = "帐号请务必输入!!";
-  top.str_input_alias = "名称请务必输入!!";
-  top.str_input_credit = "总信用额度请务必输入!!";
-  top.str_confirm_add_su = "是否确定写入总Đại lý?";
-  top.str_confirm_add_ag = "是否确定写入Đại lý商?";
-  top.chk_input_use_date = "是否确定写入Thành viên资料?";
-  top.str_sub_select ="请选择类型帐号!!";
-  top.str_mem_ag="请务必选择Đại lý商!!";
-  top.str_input_pwd_self="安全代码请勿和帐号密码相同!!";
-  top.str_input_name="Thành viên名称请务必输入!!";
-  top.str_use_length="帐号至少4个字元长!!!";
+  top.str_input_account = "Vui lòng nhập số tài khoản của bạn!!";
+  top.str_input_alias = "Vui lòng đảm bảo nhập tên!!";
+  top.str_input_credit = "Vui lòng nhập tổng hạn mức tín dụng!!";
+  top.str_confirm_add_su = "Bạn có chắc chắn để viết Đại lý?";
+  top.str_confirm_add_ag = "Bạn có chắc chắn để viết Đại lý?";
+  top.chk_input_use_date = "Bạn có chắc chắn để viết Thành viên Thông tin?";
+  top.str_sub_select ="Vui lòng chọn một loại tài khoản!!";
+  top.str_mem_ag="Hãy chắc chắn để lựa chọn Đại lý!!";
+  top.str_input_pwd_self="Mã bảo mật không được giống như mật khẩu tài khoản!!";
+  top.str_input_name="Thành viênVui lòng đảm bảo nhập tên!!";
+  top.str_use_length="Tài khoản dài ít nhất 4 ký tự!!!";
   top.str_use_ag_chg_Detail="你已变更此之Thành viênĐại lý商~~请重新设定该Thành viên之详细设定!!";
-  top.str_Pre_inquiry_use="请输入预查询之帐号!";
-  top.str_Pre_inquiry_use1="请输入查询帐号!!";
-  top.ck_del_user="确定删除帐号??";
-  top.str_safe_paswrd="安全代码";
-  top.str_longinuser="登录帐号";
-  top.str_confirm_enableY = "是否确定\"启用\"该";
-  top.str_confirm_enableN = "是否确定\"停用\"该";
-  top.str_confirm_enableS = "是否确定\"暂停\"该";
-  top.str_input_please = "请输入";
-  top.str_water_set = "退水";
+  top.str_Pre_inquiry_use="Vui lòng nhập số tài khoản được truy vấn trước!";
+  top.str_Pre_inquiry_use1="Vui lòng nhập tài khoản truy vấn!!";
+  top.ck_del_user="Xác nhận xóa tài khoản??";
+  top.str_safe_paswrd="Mã bảo mật";
+  top.str_longinuser="Đăng nhập tài khoản";
+  top.str_confirm_enableY = "Có ổn không?\"Bật\"Các";
+  top.str_confirm_enableN = "Có ổn không?\"Tắt\"Các";
+  top.str_confirm_enableS = "Có ổn không?\"Tạm ngưng\"Các";
+  top.str_input_please = "Vui lòng nhập";
+  top.str_water_set = "Retreat";
 
   //成数
-  top.str_winloss_set = "占成数";
-  top.str_err_default_winloss = "预设成数不可有 [ - ] 号";
-  top.str_confirm_default_winloss1 = "预设的成数将在 ";
-  top.str_confirm_default_winloss2 = " 后生效!!确认预设吗?";
-  top.str_default = "预设";
+  top.str_winloss_set = "Nghề nghiệp";
+  top.str_err_default_winloss = "Không thể đặt trước số đặt trước [ - ] Số";
+  top.str_confirm_default_winloss1 = "Số mặc định sẽ là ";
+  top.str_confirm_default_winloss2 = " Hiệu quả sau!!Xác nhận mặc định??";
+  top.str_default = "Đặt trước";
   top.str_err_winloss_range = " 总Đại lý及Đại lý商的成数总和须在 5 - 8 成内 , 请重新设定 !! ";
 
   //密码
-  top.str_input_pwd = "密码请务必输入!!";
-  top.str_input_repwd = "确认密码请务必输入!!";
+  top.str_input_pwd = "Vui lòng nhập mật khẩu của bạn;
+  top.str_input_repwd = "Vui lòng xác nhận mật khẩu và nhập mật khẩu.!!";
   top.str_input_pwd2 = top.str_input_pwd;
   top.str_input_repwd2 = top.str_input_repwd;
-  top.str_pwd_limit = "您的密码必须6至12个字元长,您只能使用数字和英文字母并至少 1 个英文字母,其他特殊符号不能使用 。";
-  top.str_pwd_limit1 = "安全代码最少必须有2个英文大小写字母和数字(0~9)组合输入限制(6~12字元)";
-  top.str_pwd_limit2 = "您的密码需使用字母加上数字!!";
-  top.str_err_pwd = "密码确认错误,请重新输入!!";
-  top.str_err_pwd_fail = "该密码您已使用过, 为了安全起见, 请使用新密码!!";
+  top.str_pwd_limit = "Mật khẩu của bạn phải dài từ 6 đến 12 ký tự, bạn chỉ có thể sử dụng số và chữ cái tiếng Anh và ít nhất 1 chữ cái tiếng Anh. 。";
+  top.str_pwd_limit1 = "Mã bảo mật phải có ít nhất 2 chữ hoa và chữ thường và chữ số (0 ~ 9) giới hạn đầu vào kết hợp (6 ~ 12 ký tự)";
+  top.str_pwd_limit2 = "Mật khẩu của bạn yêu cầu một chữ cái và một số!!";
+  top.str_err_pwd = "Lỗi xác nhận mật khẩu, vui lòng nhập lại!!";
+  top.str_err_pwd_fail = "Mật khẩu này đã được sử dụng. Để bảo mật cho bạn, vui lòng sử dụng mật khẩu mới.!!";
 
-  top.str_input_longin_id = "登录帐号请务必输入!!";
-  top.str_longin_limit1 = "登录帐号最少必须有2个英文大小写字母和数字(0~9)组合输入限制(6~12字元)";
-  top.str_longin_limit2 = "您的登录帐号需使用字母加上数字!!";
+  top.str_input_longin_id = "Vui lòng đăng nhập để đăng nhập!!";
+  top.str_longin_limit1 = "Tài khoản đăng nhập phải có ít nhất 2 chữ cái tiếng Anh và chữ thường và chữ số (0 ~ 9) giới hạn đầu vào kết hợp (6 ~ 12 ký tự)";
+  top.str_longin_limit2 = "Tài khoản đăng nhập của bạn yêu cầu một chữ cái và một số!!";
 
   //私域网址
-  top.dPrivate = "私域";
-  top.dPublic = "公有";
-  top.grep = "群组";
-  top.grepIP = "群组IP";
-  top.IP_list = "IP列表";
-  top.Group = "组别";
-  top.choice = "请选择";
-  top.webset="资讯网";
+  top.dPrivate = "Miền riêng";
+  top.dPublic = "Công khai";
+  top.grep = "Nhóm";
+  top.grepIP = "IP nhóm";
+  top.IP_list = "Danh sách IP";
+  top.Group = "Nhóm";
+  top.choice = "Vui lòng chọn";
+  top.webset="Mạng thông tin";
 
-  top.str_oddf="盘口玩法请务必输入";
+  top.str_oddf="Hãy nhớ nhập trò chơi";
 
-  top.str_PlsSel = "请选择";
-  top.str_please_select = "请选择";
+  top.str_PlsSel = "Vui lòng chọn";
+  top.str_please_select = "Vui lòng chọn";
 
   top.strRtypeSP = new Array();
-  top.strRtypeSP["PGF"]="最先进球";
-  top.strRtypeSP["OSF"]="最先越位";
-  top.strRtypeSP["STF"]="最先替补球员";
-  top.strRtypeSP["CNF"]="第一颗角球";
-  top.strRtypeSP["CDF"]="第一张卡";
-  top.strRtypeSP["RCF"]="会进球";
-  top.strRtypeSP["YCF"]="第一张黄卡";
-  top.strRtypeSP["GAF"]="有失球";
-  top.strRtypeSP["PGL"]="最后进球";
-  top.strRtypeSP["OSL"]="最后越位";
-  top.strRtypeSP["STL"]="最后替补球员";
-  top.strRtypeSP["CNL"]="最后一颗角球";
-  top.strRtypeSP["CDL"]="最后一张卡";
-  top.strRtypeSP["RCL"]="不会进球";
-  top.strRtypeSP["YCL"]="最后一张黄卡";
-  top.strRtypeSP["GAL"]="没有失球";
-  top.strRtypeSP["PG"]="最先/最后进球球队";
-  top.strRtypeSP["OS"]="最先/最后越位球队";
-  top.strRtypeSP["ST"]="最先/最后替补球员球队";
-  top.strRtypeSP["CN"]="第一颗/最后一颗角球";
-  top.strRtypeSP["CD"]="第一张/最后一张卡";
-  top.strRtypeSP["RC"]="会进球/不会进球";
-  top.strRtypeSP["YC"]="第一张/最后一张黄卡";
-  top.strRtypeSP["GA"]="有失球/没有失球";
+  top.strRtypeSP["PGF"]="Bóng tiên tiến nhất";
+  top.strRtypeSP["OSF"]="Việt vị đầu tiên";
+  top.strRtypeSP["STF"]="Người chơi thay thế đầu tiên";
+  top.strRtypeSP["CNF"]="Cú đá phạt góc đầu tiên";
+  top.strRtypeSP["CDF"]="Thẻ đầu tiên";
+  top.strRtypeSP["RCF"]="Điểm số sẽ";
+  top.strRtypeSP["YCF"]="Thẻ vàng đầu tiên";
+  top.strRtypeSP["GAF"]="Đã thừa nhận";
+  top.strRtypeSP["PGL"]="Mục tiêu cuối cùng";
+  top.strRtypeSP["OSL"]="Việt vị cuối cùng";
+  top.strRtypeSP["STL"]="Người chơi băng ghế dự bị cuối cùng";
+  top.strRtypeSP["CNL"]="Quả phạt góc cuối cùng";
+  top.strRtypeSP["CDL"]="Thẻ cuối cùng";
+  top.strRtypeSP["RCL"]="Sẽ không ghi bàn";
+  top.strRtypeSP["YCL"]="Thẻ vàng cuối cùng";
+  top.strRtypeSP["GAL"]="Không thừa nhận";
+  top.strRtypeSP["PG"]="Đầu tiên/Đội mục tiêu cuối cùng";
+  top.strRtypeSP["OS"]="Đầu tiên/Đội việt vị cuối cùng";
+  top.strRtypeSP["ST"]="Đầu tiên/ Đội chơi thay thế cuối cùng";
+  top.strRtypeSP["CN"]="Đầu tiên/Quả phạt góc cuối cùng";
+  top.strRtypeSP["CD"]="Đầu tiên/Thẻ cuối cùng";
+  top.strRtypeSP["RC"]="Điểm số sẽ/Sẽ không ghi bàn";
+  top.strRtypeSP["YC"]="Đầu tiên/Thẻ vàng cuối cùng";
+  top.strRtypeSP["GA"]="Đã thừa nhận/Không thừa nhận";
 
   //停權
-  top.str_confirm_enable_priY = "是否确定\"启用\"该";
-  top.str_confirm_enable_priN = "是否确定\"禁止登入\"该";
+  top.str_confirm_enable_priY = "Có ổn không?\"Bật\"Các";
+  top.str_confirm_enable_priN = "Có ổn không?\"Không đăng nhập\"Các";
 </script>
 <html>
 <head>
@@ -323,7 +323,7 @@ if ($subuser==1 || $row['status']==2){
                                                         target="main" onMouseOver="window.status='Trang chủ'; return true;" onMouseOut="window.status='';return true;">
                                 <span>Trang chủ</span></a>
                         </li>
-                        <li class="drop-menu-effect"><a href="/app/control/agents/announcement/get_an.php?uid=<?$uid?>&langx=<?=$langx?>" target="main" onMouseOver="window.status='公告内容'; return true;" onMouseOut="window.status='';return true;"><span>公告内容</span></a>
+                        <li class="drop-menu-effect"><a href="/app/control/agents/announcement/get_an.php?uid=<?$uid?>&langx=<?=$langx?>" target="main" onMouseOver="window.status='Nội dung thông báo'; return true;" onMouseOut="window.status='';return true;"><span>Nội dung thông báo</span></a>
                         </li>
 
                         <li class="drop-menu-effect"> <a href="/app/control/agents/other_set/show_result.php?uid=<?=$uid?>"
@@ -585,7 +585,7 @@ if ($subuser==1 || $row['status']==2){
 </style>
 <script>
     function notice() {
-        alert("该模块即将上线，敬请期待！");
+        alert("Mô-đun đang trực tuyến, vì vậy hãy chú ý theo dõi！");
     }
 </script>
 <?
