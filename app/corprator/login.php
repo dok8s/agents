@@ -53,7 +53,7 @@ top.flash_cont_cutoff = \'Y\';top.flash_cont_flag = \'300\';top.langx = \'zh-cn\
 <title>登入1</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 </head>
-<frameset rows="51,*,0" frameborder="NO" border="0" framespacing="0">
+<frameset rows="75px,*,0" frameborder="NO" border="0" framespacing="0">
 <frame name="topFrame" scrolling="NO" noresize src="header.php?langx=zh-cn&uid='.$uid.'">
 <frame name="main" src="body_home.php?langx=zh-cn&uid='.$uid.'">
 <frame name="swfFrame" scrolling="NO" noresize src="../../../tpl/FlashContent.html">

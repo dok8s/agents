@@ -1,6 +1,6 @@
 <?
 Session_start();
-if (!$_SESSION["akak"])
+if (!$_SESSION["bkbk"])
 {
 echo "<script>window.open('/index.php','_top')</script>";
 exit;
@@ -19,7 +19,7 @@ $week1=date('w+1');
 $row = mysql_fetch_array($result);
 if ($row['subuser']==1){
 	$agname=$row['subname'];
-	$loginfo=$agname.'子帐号:'.$row['subname'].'查询期间报表';
+	$loginfo=$agname.'子帐号:'.$row['Agname'].'查询期间报表';
 }else{
 	$agname=$row['Agname'];
 	$loginfo='查询期间'.$date_start.'至'.$date_end.'报表';
@@ -27,23 +27,21 @@ if ($row['subuser']==1){
 $agid=$row['ID'];
 $super=$row['super'];
 
-$langx=$row['language'];
-require ("../../member/include/traditional.$langx.inc.php");
+$langx='zh-cn';
+require ("../../../member/include/traditional.$langx.inc.php");
 
-$langx=$row['language'];
+$langx='zh-cn';
 $date_s=date('Y-m-d',time()-24*3600);
 $date_e=date('Y-m-d',time()-24*3600);
 
 $today=date('Y-m-d');
 $nowday=TDate();
-
 $week1=date('w');
 if($week1==0){
 	$week1=6;
 }else{
 	$week1=$week1-1;
 }
-
 ?>
 <html>
 <head>
@@ -125,7 +123,8 @@ function report_bg(){
 			<table border="0" cellspacing="0" cellpadding="0">
 				<tr>
 					<td width="60">&nbsp;&nbsp;报表管理:</td>
-									<td><select name="gtype" class="za_select">
+					<td>
+						<select name="gtype" class="za_select">
 								<option value="">全部</option>
 								<option value="FT">足球</option>
 								<option value="BK">篮球</option>
@@ -141,7 +140,6 @@ function report_bg(){
 							&nbsp;<a href="./report.php?uid=<?=$uid?>" onMouseOver="window.status='报表'; return true;" onMouseOut="window.status='';return true;"style="background-color:">报表</a>
 							&nbsp;<a href="./report_cancel_wager.php?uid=<?=$uid?>" onMouseOver="window.status='取消单分析'; return true;" onMouseOut="window.status='';return true;"style="background-color:#3399FF">取消单分析</a>
 						</td>
-
 				</tr>
 			</table>
 		</td>
@@ -182,7 +180,6 @@ function report_bg(){
 		<td class="m_title_re"> 报表分类: </td>
 		<td colspan="4">
 			<select name="report_kind" class="za_select">
-				
 				<option value="D">取消</option>
 				<option value="D4">非正常投注单</option>
 				<!--option value="C">分类帐</option-->
@@ -234,7 +231,6 @@ function report_bg(){
 			</select>
 		</td>
 	</tr>
-	
 	<tr bgcolor="#FFFFFF">
 		<td height="30" colspan="6">
 			<table>
@@ -257,14 +253,74 @@ function report_bg(){
 	</tr>
 </table>
 
- </td>
-</tr></table>
-</form></body>
+ </td><!--td>
+<table width=246 border=0 cellpadding=0 cellspacing=1 class="m_tab_ed">
+  <tr>
+    <td height="9" colspan=2 class="small_top">2008年月帐期数</td>
+  </tr>
+  <tr>
+    <td width="70" height="10" class="small">第1期</td>
+    <td width="174" class="m_cen_top"  id="2008_1">2007/12/31 ~ 2008/01/27</td>
+  </tr>
+  <tr>
+    <td height="10" class="small">第2期</td>
+    <td class="m_cen_top"  id="2008_2">2008/01/28 ~ 2008/02/24</td>
+  </tr>
+  <tr>
+    <td height="10" class="small">第3期</td>
+    <td class="m_cen_top"  id="2008_3">2008/02/25 ~ 2008/03/23</td>
+  </tr>
+  <tr>
+    <td height="10" class="small">第4期</td>
+    <td class="m_cen_top"  id="2008_4">2008/03/24 ~ 2008/04/20</td>
+  </tr>
+  <tr>
+    <td height="10" class="small">第5期</td>
+    <td class="m_cen_top"  id="2008_5">2008/04/21 ~ 2008/05/18</td>
+  </tr>
+  <tr>
+    <td height="10" class="small">第6期</td>
+    <td class="m_cen_top"  id="2008_6">2008/05/19 ~ 2008/06/15</td>
+  </tr>
+  <tr>
+    <td height="10" class="small">第7期</td>
+    <td class="m_cen_top"  id="2008_7">2008/06/16 ~ 2008/07/13</td>
+  </tr>
+  <tr>
+    <td height="10" class="small">第8期</td>
+    <td class="m_cen_top"  id="2008_8">2008/07/14 ~ 2008/08/10</td>
+  </tr>
+  <tr>
+    <td height="10" class="small">第9期</td>
+    <td class="m_cen_top"  id="2008_9">2008/08/11 ~ 2008/09/07</td>
+  </tr>
+  <tr>
+    <td height="10" class="small">第10期</td>
+    <td class="m_cen_top"  id="2008_10">2008/09/08 ~ 2008/10/05</td>
+  </tr>
+  <tr>
+    <td height="10" class="small">第11期</td>
+    <td class="m_cen_top"  id="2008_11">2008/10/06 ~ 2008/11/02</td>
+  </tr>
+  <tr>
+    <td height="10" class="small">第12期</td>
+    <td class="m_cen_top"  id="2008_12">2008/11/03 ~ 2008/11/30</td>
+  </tr>
+  <tr>
+    <td height="10" class="small">第13期</td>
+    <td class="m_cen_top"  id="2008_13">2008/12/01 ~ 2008/12/28</td>
+  </tr>
+</table>
+</td-->
+
+</td></tr></table>
+</form>
+</body>
 </html>
 
 <?
 $ip_addr = $_SERVER['REMOTE_ADDR'];
-$mysql="insert into web_mem_log(username,logtime,context,logip,level) values('$agname',now(),'$loginfo','$ip_addr','1')";
+$mysql="insert into web_mem_log(username,logtime,context,logip,level) values('$agname',now(),'$loginfo','$ip_addr','3')";
 mysql_query($mysql);
 mysql_close();
 ?>

@@ -294,75 +294,278 @@ function ShowNumber(){
 
 </script>
 <body onLoad="show_webs();" oncontextmenu="window.event.returnValue=false"  bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" >
-
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td width="183"><img src="/images/800/800_top_01.gif" width="183" height="29"></td>
-    <td class="top_color">登入1--<?=$agname?>
-	<? if($d1set['d1_ag_online_show']==1){ ?>
-	<a href='system/syslog.php?uid=<?=$uid?>' target="main"><span style='color:#FFFF66'>代理在线</span></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-	<? } ?>
-	<? if($d1set['d1_mem_online_show']==1){ ?>
-	<a href='system/memlog.php?uid=<?=$uid?>' target="main"><span style='color:#FFFF66'>会员在线</span></a>
-	<? } ?>
-	<div class="rig">
-                    <a href="/url.html" target="_blank" >最新网址</a>
-                    | <a href="javascript:void(0);" OnClick="" class="customer"><img src="/images/control/header_customer.gif" width="16" height="15" border="0">在线客服</a>
-                    | <a href="javascript:void(0);" OnClick=""><font class="service">联系我们</font></a>
-					| <a href="#" onClick="Go_Chg_pass(2);" style="cursor:hand">变更密码</a>
-                    | <a href="/quit.php?level=3&uid=<?=$uid?>" target="_top" onMouseOver="window.status='登出'; return true;" onMouseOut="window.status='';return true;">登出</a>
-      </div>
-	</td>
-  </tr>
-  <tr>
-    <td><img src="/images/800/800_top_02.gif" width="183" height="21"></td>
-    <td  class="coolBar">
-	<table border="0" cellspacing="0" cellpadding="0"  style="position: relative; z-index: 99; top: 0px; left: 0px;" id="toolbar1">
-	<tr>
-	<td nowrap class="coolButton" onClick="show_webs('ad');">&nbsp;<nobr>[即时注单]</nobr>&nbsp;</td>
-	<td id=ad_list style="color: blue;"><nobr>
-	<a onClick="go_web(0,0,'/app/corprator/real_wager/index.php?uid=<?=$uid?>');" style="cursor:hand"><img src="/images/control/tri.gif">足球</a>
-	<a onClick="go_web(0,1,'/app/corprator/real_wager_BK/index.php?uid=<?=$uid?>');" style="cursor:hand"><img src="/images/control/tri.gif">篮球/美足</a>
-	<a onClick="go_web(0,0,'/app/corprator/real_wager_TN/index.php?uid=<?=$uid?>');" style="cursor:hand"><img src="/images/control/tri.gif">网球</a>
-	<a onClick="go_web(0,0,'/app/corprator/real_wager_VB/index.php?uid=<?=$uid?>');" style="cursor:hand"><img src="/images/control/tri.gif">排球</a>
-	<a onClick="go_web(0,0,'/app/corprator/real_wager_BS/index.php?uid=<?=$uid?>');" style="cursor:hand"><img src="/images/control/tri.gif">棒球</a>
-	<a onClick="go_web(0,1,'/app/corprator/voucher.php?uid=<?=$uid?>');" style="cursor:hand"><img src="/images/control/tri.gif">流水注单</a>
-	</nobr></td>
-	<td nowrap class="coolButton" onClick="show_webs('mad');">&nbsp;<nobr>[早餐注单]</nobr>&nbsp;</td>
-	<td id=mad_list style="color: blue;"><nobr>
-	<a onClick="go_web(0,1,'/app/corprator/real_wager_FU/index.php?uid=<?=$uid?>');" style="cursor:hand"><img src="/images/control/tri.gif">足球早餐</a>
-	<a onClick="go_web(0,1,'/app/corprator/real_wager_BU/index.php?uid=<?=$uid?>');" style="cursor:hand"><img src="/images/control/tri.gif">篮球/美足早餐</a>
-	<a onClick="go_web(0,1,'/app/corprator/real_wager_BSFU/index.php?uid=<?=$uid?>');" style="cursor:hand"><img src="/images/control/tri.gif">棒球早餐</a>
-	<a onClick="go_web(0,0,'/app/corprator/real_wager_TU/index.php?uid=<?=$uid?>');" style="cursor:hand"><img src="/images/control/tri.gif">网球早餐</a>
-	<a onClick="go_web(0,0,'/app/corprator/real_wager_VU/index.php?uid=<?=$uid?>');" style="cursor:hand"><img src="/images/control/tri.gif">排球早餐</a>
-	</nobr></td>
-	
-	
-	
-	<<?=$CFLAG_S?>td nowrap class="coolButton" onClick="show_webs('mo');">&nbsp;<nobr>[帐号管理]</nobr>&nbsp;</td>
-	<td id=mo_list style="color: blue;"><nobr>
-	<a onClick="go_web(1,1,'/app/corprator/cor_list.php?uid=<?=$uid?>');" style="cursor:hand"><img src="/images/control/tri.gif">股东</a>
-	<a onClick="go_web(1,1,'/app/corprator/super_agent/body_super_agents.php?uid=<?=$uid?>');" style="cursor:hand"><img src="/images/control/tri.gif">总代理</a>
-	<a onClick="go_web(1,2,'/app/corprator/agents/su_agents.php?uid=<?=$uid?>');" style="cursor:hand"><img src="/images/control/tri.gif">代理</a>
-	<a onClick="go_web(1,3,'/app/corprator/members/su_members.php?uid=<?=$uid?>');" style="cursor:hand"><img src="/images/control/tri.gif">会员</a>
-	<a onClick="go_web(1,4,'/app/corprator/su_subuser.php?uid=<?=$uid?>');" style="cursor:hand;"><img src="/images/control/tri.gif">子帐号</a>
-	<? if($d1set['d1_wager_add']==1){ ?>
-	<a onClick="go_web(1,6,'/app/corprator/wager_list/wager_add.php?uid=<?=$uid?>');" style="cursor:hand"><img src="/images/control/tri.gif">添单帐号</a>
-	<? } ?>
-	<? if($d1set['d1_wager_hide']==1){ ?>
-	<a onClick="go_web(1,7,'/app/corprator/wager_list/wager_hide.php?uid=<?=$uid?>');" style="cursor:hand"><img src="/images/control/tri.gif">隐单帐号</a>
-	<? } ?>
-	</nobr></td<?=$GFLAG_E?>>
-	<td nowrap><a href="/app/corprator/report_new/report.php?uid=<?=$uid?>" style="cursor:hand;color:#bb0000" target="main" onMouseOver="window.status='报表'; return true;" onMouseOut="window.status='';return true;">&nbsp;[报表]</a></td>
-	<<?=$GFLAG_S?>td nowrap><a href="/app/corprator/other_set/show_currency.php?uid=<?=$uid?>" style="cursor:hand;color:#bb0000" target="main" onMouseOver="window.status='币值'; return true;" onMouseOut="window.status='';return true;">&nbsp;[币值]</a></td>
-	<td nowrap><a href="/app/corprator/other_set/show_result.php?uid=<?=$uid?>" style="cursor:hand;color:#bb0000" target="main" onMouseOver="window.status='赛果'; return true;" onMouseOut="window.status='';return true;">&nbsp;[赛果]</a></td<?=$GFLAG_E?>>
-	<td nowrap><A HREF="javascript://" style="cursor:hand;color:#bb0000" onClick="javascript: window.showModalDialog('scroll_history.php?uid=<?=$uid?>&langx=<?=$langx?>&scoll_set=scoll_set3','','help:no')">&nbsp;[历史讯息]</a></td>
-	<td nowrap><A HREF="javascript://" style="cursor:hand;color:#bb0000" onClick="javascript: window.showModalDialog('scroll_history.php?uid=<?=$uid?>&langx=<?=$langx?>&scoll_set=scoll_cor_set','','help:no')">&nbsp;[股东历史讯息]</a></td>
-	<td nowrap><a href="/app/corprator/body_home.php?uid=<?=$uid?>&langx=<?=$langx?>" style="cursor:hand;color:#bb0000" target="main" onMouseOver="window.status='公告'; return true;" onMouseOut="window.status='';return true;">&nbsp;[公告]</a></td>
-	</tr>
-	</table>
-    </td>
-  </tr>
+    <tr>
+        <div id="header_show" style="position: fixed;width:100%;z-index:99; top:0px;"><div>
+                <div name="MaxTag" id="header" src="/js/header.js" linkage="header">
+                    <div id="header_div">
+                        <div id="header_tr" name="fixHead" class="top_option_contain">
+                            <div id="header_td" class="lang_contain">
+                                <div id="lang_btn" class="lang_btn">
+                                    <span id="sel_langx" name="sel_langx" class="lang_txt">简体</span>
+                                </div>
+                            </div>
+                            <? if($d1set['d1_ag_online_show']==1){ ?>
+                                <a href='system/syslog.php?uid=<?=$uid?>' target="main"><span style='color:#FFFF66'>代理在线</span></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <? } ?>
+                            <? if($d1set['d1_mem_online_show']==1){ ?>
+                                <a href='system/memlog.php?uid=<?=$uid?>' target="main"><span style='color:#FFFF66'>会员在线</span></a>
+                            <? } ?>
+
+                            <div id="uesr_code" class="uesr_code"><span style="color:#7e1414;">登入1--<?=$agname?><span style="padding-left:7px;">|<a href="/quit.php?level=3&uid=<?=$uid?>" target="_top" onMouseOver="window.status='登出'; return true;" onMouseOut="window.status='';return true;" style="color: #1e1e1e;padding: 7px;">登出</a>|<a href="#" onClick="Go_Chg_pass(2);" style="color:#8C8B8B;padding-left:3px;padding-right:7px;">变更密码</a></div>
+                            <div id="contactus" class="contact_us" onclick="notice();">联系我们</div>
+                            <div id="live_chat" class="live_chat" style="width: 52px;" onclick="notice();">在线客服</div>
+                            <div id="new_url" class="new_url"><a href="/url.html" style="color:#5b534f" target="main" onMouseOver="window.status='最新网址'; return true;" onMouseOut="window.status='';return true;">最新网址</a></div>
+                        </div>
+                    </div>
+                    <div class="navbox">
+                        <div class="nav">
+
+                            <li class="drop-menu-effect"><a href="/app/corprator/body_home.php?uid=<?$uid?>&langx=<?=$langx?>"
+                                                            target="main" onMouseOver="window.status='首页'; return true;" onMouseOut="window.status='';return true;">
+                                    <span>首页</span></a>
+                            </li>
+                            <li class="drop-menu-effect"><a href="/app/corprator/announcement/get_an.php?uid=<?$uid?>&langx=<?=$langx?>" target="main" onMouseOver="window.status='公告内容'; return true;" onMouseOut="window.status='';return true;"><span>公告内容</span></a>
+                            </li>
+
+                            <li class="drop-menu-effect"> <a href="/app/corprator/other_set/show_result.php?uid=<?=$uid?>"
+                                                             target="main" onMouseOver="window.status='赛果'; return true;" onMouseOut="window.status='';return true;"><span>赛果</span></a>
+                            </li>
+                            <li class="drop-menu-effect"> <a href="/app/corprator/other_set/show_currency.php?uid=<?=$uid?>"
+                                                             target="main" onMouseOver="window.status='币值'; return true;" onMouseOut="window.status='';return true;"><span>币值</span></a>
+                            </li>
+                            <li class="drop-menu-effect"> <a href="/app/corprator/cor_list.php?uid=<?=$uid?>" target="main" onMouseOver="window.status='帐号管理'; return true;" onMouseOut="window.status='';return true;"><span>帐号管理</span></a>
+                            </li>
+
+                            <li class="drop-menu-effect"> <a href="/app/corprator/report_new/report.php?uid=<?=$uid?>"
+                                                             target="main" onMouseOver="window.status='报表'; return true;" onMouseOut="window.status='';return true;"><span>报表</span></a>
+                            </li>
+                            <li class="drop-menu-effect"> <a href="/app/corprator/scroll_history.php?uid=<?=$uid?>"
+                                                             target="main" onMouseOver="window.status='历史讯息'; return true;" onMouseOut="window.status='';return true;"><span>历史讯息</span></a>
+                            </li>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="lang_select" class="lang_select" style="display:none;" tabindex="9527">
+                    <span id="lang_en-us">ENG</span>
+                    <span id="lang_zh-cn">简体</span>
+                    <span id="lang_zh-tw">繁體</span>
+                </div>
+                <div id="user_select" class="user_select" style="display:none;" tabindex="9527">
+                    <span id="chg_pass"><a href="#" onClick="Go_Chg_pass(2);">变更密码</a></span>
+                    <span id="logout"><a href="/quit.php?level=3&uid=<?=$uid?>" target="_top" onMouseOver="window.status='登出'; return true;" onMouseOut="window.status='';return true;" style="color: #000000;">登出</a></span>
+                </div>
+                <div name="MaxTag" id="langxMC" src="/js/conf/zh_cn.js" linkage="zh_cn" style="display:none;"></div>
+                <div name="MaxTag" id="zh-cn" src="/js/zh-cn.js?7742" style="display:none;"></div>
+            </div>
+        </div>
+        </div>
+    </tr>
 </table>
 </body>
 </html>
+    <style>
+        .highlight{
+            background-color: #bb1720;
+        }
+    </style>
+    <script>
+        $(function(){
+            lanrenzhijia(".drop-menu-effect");
+            $('.nav li').click(function(){
+                $(this).addClass('highlight').siblings().removeClass('highlight');
+            })
+        });
+        function lanrenzhijia(_this){
+            $(_this).each(function(){
+                var $this = $(this);
+                var theMenu = $this.find(".submenu");
+                var tarHeight = theMenu.height();
+                theMenu.css({height:0});
+                $this.hover(
+                    function(){
+                        $(this).addClass("mj_hover_menu");
+                        theMenu.stop().show().animate({height:tarHeight},400);
+                    },
+                    function(){
+                        $(this).removeClass("mj_hover_menu");
+                        theMenu.stop().animate({height:0},400,function(){
+                            $(this).css({display:"none"});
+                        });
+                    }
+                );
+            });
+        }
+    </script>
+    <style>
+        .top_option_contain {
+            position: relative;
+            width: 100%;
+            height: 35px;
+            background-color: #FFFFFF;
+            color: #5b534f;
+            font-size: 13px;
+        }
+        .lang_contain {
+            margin-left: 20px;
+            width: 66px;
+            float: left;
+            -display: inline;
+        }
+        .lang_btn {
+            background: url(../../images/control/icon_lang.jpg) left no-repeat;
+            height: 35px;
+            line-height: 35px;
+        }
+        .lang_txt {
+            display: block;
+            padding: 0px 0px 0px 19px;
+            background: url(../../images/control/icon_arrow.jpg) right no-repeat;
+            width: auto;
+            cursor: pointer;
+        }
+        .online_btn {
+            margin-left: 27px;
+            width: auto;
+            height: 35px;
+            white-space: nowrap;
+            line-height: 35px;
+            float: left;
+            cursor: pointer;
+        }
+        .online_btn span {
+            color: #7e1414;
+        }
+        .uesr_code {
+            float: right;
+            margin-right: 20px;
+            -display: inline;
+            height: 35px;
+            line-height: 35px;
+            background: url(../../images/control/icon_arrow.jpg) right no-repeat;
+            cursor: pointer;
+            padding-right: 22px;
+        }
+        .note {
+            position: relative;
+            float: right;
+            width: 16px;
+            height: 17px;
+            background: url(../../images/control/icon_note.png) no-repeat;
+            margin-right: 23px;
+            margin-top: 12px;
+            cursor: pointer;
+            z-index: 100;
+        }
+        .contact_us {
+            width: 52px;
+            height: 35px;
+            float: right;
+            line-height: 35px;
+            margin-right: 25px;
+            cursor: pointer;
+        }
+        .live_chat {
+            width: 70px;
+            height: 35px;
+            float: right;
+            line-height: 35px;
+            margin-right: 18px;
+            text-align: right;
+            cursor: pointer;
+            background: url(../../images/control/icon_chat.jpg) no-repeat left center;
+        }
+        .new_url {
+            height: 35px;
+            line-height: 35px;
+            float: right;
+            margin-right: 25px;
+            cursor: pointer;
+        }
+        .nav_container {
+            position: relative;
+            clear: both;
+            width: 100%;
+            height: 40px;
+            background-color: #7E1414;
+            color: #FFFFFF;
+            font-size: 15px;
+        }
+        .nav_back {
+            margin: 0;
+            width: 40px;
+            background: url(../../images/control/nav_back.gif) no-repeat 0 0;
+        }
+        .nav_box, .nav_box_on, .nav_back {
+            float: left;
+            height: 40px;
+            text-align: center;
+            line-height: 40px;
+            display: inline;
+            cursor: pointer;
+            margin: 0 25px;
+            text-transform: uppercase;
+        }
+        .nav_box_on, .nav_box, .top_a:hover {
+            color: #FF9999;
+            background: url(../../images/control/nav_btn_on.jpg) center bottom no-repeat;
+        }
+        #home_btn {
+            margin: 0 25px 0 20px;
+            background-position: center bottom;
+        }
+        .top_a {
+            float: left;
+            height: 40px;
+            text-align: center;
+            line-height: 40px;
+            display: inline;
+            cursor: pointer;
+            margin: 0 25px;
+            text-transform: uppercase;
+            color: #ffffff;
+        }
+        a:visited {
+            text-decoration: none;
+            color: #ffffff;
+        }
+        a:link {
+            text-decoration: none;
+            color: #ffffff;
+        }
+        .navbox{height:40px;position:relative;z-index:9; margin:auto;background:#7E1414;filter:alpha(opacity=90);-moz-opacity:0.90;opacity:0.90;font-family:'微软雅黑';}
+        .nav{width:1002px;height:40px; list-style:none;}
+        .nav li{float:left;height:40px;position:relative; list-style:none;}
+        .nav li.last{background:none;}
+        .nav li a{text-decoration:none;}
+        .nav li a span{float:left;display:block;line-height:40px;font-size:14px;color:#ffffff;cursor:pointer;width:143px;text-align:center; }
+        .mj_hover_menu{text-decoration:none; width:143px; background:url(images/menu_hover.jpg); height:40px;}
+        .nav li.selected .submenu{display:block;z-index: 1000;}
+        .nav li .submenu{display:none;position:absolute;top:40px;left:-9px;}
+        .nav li .submenu li{float:none;padding:0;background:none;height:auto;border-bottom:dotted 0px #BEBEBE;}
+        .mj_menu_pro_bg{width:825px; height:235px; background:url(images/menu_pro_bg.png) no-repeat;}
+        .mj_menu_pro_main{width:765px; margin:auto; padding-top:12px;}
+        .mj_menu_pro_li{ float:left;}
+        .mj_menu_li_txt{line-height:22px; font-size:12px; color:#7E1414;}
+        .mj_menu_li_txt font{font-size:14px; color:#bb1721;}
+        .mj_menu_li_txt a{color:#7E1414; text-decoration:none;}
+        .mj_menu_li_txt a:hover{color:#7E1414; text-decoration:underline;}
+
+        .mj_menu_news_bg{width:480px; height:185px; background:url(images/menu_news_bg.png) no-repeat;}
+        .mj_menu_news_main{width:440px; margin:auto; padding-top:12px;}
+        .mj_menu_news_li{padding:0px 30px; margin-right:30px; height:150px; float:left; border-right:solid 1px #cccccc; }
+        .mj_menu_news_img{float:left; text-align:left; color:#bb1721; line-height:30px; font-size:14px;}
+        .mj_menu_news_li2{padding:0px 30px; height:150px; float:right; border-left:solid 1px #cccccc; }
+        .mj_menu_news_img2{float:left; margin-left:30px; text-align:left; color:#bb1721; line-height:30px; font-size:14px;}
+        .mj_menu_news_li3{padding:0px 25px; height:150px; float:right; border-left:solid 1px #cccccc; }
+        .mj_menu_news_img3{float:left; margin-left:10px; text-align:left; color:#bb1721; line-height:30px; font-size:14px;}
+    </style>
+    <script>
+        function notice() {
+            alert("该模块即将上线，敬请期待！");
+        }
+    </script>
+<?
+mysql_close();
+?>

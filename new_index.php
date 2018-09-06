@@ -33,12 +33,10 @@ if($langx=="zh-tw"){
 <body oncontextmenu="window.event.returnValue=false" onLoad="onload();">
 	<div class="main">
 		<div class="lang">
-			<!--a href="./new_index.php?langx=zh-tw"><span name="link_tw" class="lan_word_on">繁體版</span></a-->
-			<a href="./new_index.php?langx=zh-cn"><span name="link_cn" class="lan_word">简体版</span></a>
-			<a href="./new_index.php?langx=en-us"><span name="link_us" class="lan_word">English</span></a>
-			
-			<a href="./new_index.php?langx=vi_VN"><span name="link_us" class="lan_word_on">Người việt </span></a>
-		</div>
+            <a href="./new_index.php?langx=zh-cn"><span name="link_cn" class="lan_word_on">简体版</span></a>
+            <a href="./xn-/new_index.php?langx=en-us"><span name="link_us" class="lan_word">English</span></a>
+            <a href="./xn/new_index.php?langx=vi_VN"><span name="link_us" class="lan_word">Người việt </span></a>
+        </div>
 		
 		<div class="agLOGO"></div>
 		
@@ -129,12 +127,10 @@ if($langx=="zh-tw"){
 <body oncontextmenu="window.event.returnValue=false" onLoad="onload();">
 	<div class="main">
 		<div class="lang">
-			<a href="./new_index.php?langx=zh-tw"><span name="link_tw" class="lan_word">繁體版</span></a>
-			<a href="./new_index.php?langx=zh-cn"><span name="link_cn" class="lan_word">简体版</span></a>
-			<!--a href="./new_index.php?langx=en-us"><span name="link_us" class="lan_word_on">English</span></a-->
-			
-			<a href="./new_index.php?langx=vi_VN"><span name="link_us" class="lan_word_on">Người việt </span></a>
-		</div>
+            <a href="./new_index.php?langx=zh-cn"><span name="link_cn" class="lan_word">简体版</span></a>
+            <a href="./xn-/new_index.php?langx=en-us"><span name="link_us" class="lan_word_on">English</span></a>
+            <a href="./xn/new_index.php?langx=vi_VN"><span name="link_us" class="lan_word">Người việt </span></a>
+        </div>
 		
 		<div class="agLOGO"></div>
 		<div class="new" style="
@@ -225,9 +221,9 @@ if($langx=="zh-tw"){
 	<div class="main">
 		<div class="lang">
 			<!--<a href="./new_index.php?langx=zh-tw"><span name="link_tw" class="lan_word">繁体版</span></a>-->
-			<a href="./new_index.php?langx=zh-cn"><span name="link_cn" class="lan_word">简体版</span></a>
-			<a href="./new_index.php?langx=en-us"><span name="link_us" class="lan_word">English</span></a>
-			<a href="./new_index.php?langx=vi_VN"><span name="link_us" class="lan_word_on">Người việt </span></a>
+            <a href="./new_index.php?langx=zh-cn"><span name="link_cn" class="lan_word">简体版</span></a>
+            <a href="./xn-/new_index.php?langx=en-us"><span name="link_us" class="lan_word">English</span></a>
+            <a href="./xn/new_index.php?langx=vi_VN"><span name="link_us" class="lan_word_on">Người việt </span></a>
 		</div>
 		
 		<div class="agLOGO"></div>
@@ -321,7 +317,7 @@ if($langx=="zh-tw"){
 		<div class="lang">
 			<!--<a href="./new_index.php?langx=zh-tw"><span name="link_tw" class="lan_word">繁体版</span></a>-->
 			<a href="./new_index.php?langx=zh-cn"><span name="link_cn" class="lan_word_on">简体版</span></a>
-			<a href="./new_index.php?langx=en-us"><span name="link_us" class="lan_word">English</span></a>
+			<a href="./xn-/new_index.php?langx=en-us"><span name="link_us" class="lan_word">English</span></a>
 			<a href="./xn/new_index.php?langx=vi_VN"><span name="link_us" class="lan_word">Người việt </span></a>
 		</div>
 		

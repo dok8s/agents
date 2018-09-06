@@ -1,6 +1,6 @@
 <?
 Session_start();
-if (!$_SESSION["akak"])
+if (!$_SESSION["bkbk"])
 {
 echo "<script>window.open('/index.php','_top')</script>";
 exit;
@@ -38,27 +38,28 @@ case "":
 	$sgold="block";
 	break;
 }
+if ($result_type=='Y'){
+	$QQ526738='<font color=blue>(有)</font>';
+}else{
+	$QQ526738='<font color=blue>(无)</font>';
+}
 
-$sql = "select super,Agname,ID,language,subname,subuser from web_corprator where Oid='$uid' and oid<>''";
+$sql = "select super,Agname,ID,language,subname,subuser from web_corprator where Oid='$uid' and Oid<>''";
 $result = mysql_query($sql);
 $cou=mysql_num_rows($result);
 if($cou==0){
 	echo "<script>window.open('$site/index.php','_top')</script>";
 	exit;
 }
-if ($result_type=='Y'){
-	$QQ526738='<font color=blue>(有)</font>';
-}else{
-	$QQ526738='<font color=blue>(无)</font>';
-}
 $row = mysql_fetch_array($result);
 if ($row['subuser']==1){
 	$agname=$row['subname'];
-	$loginfo='子帐号:'.$row['subname'].'查询会员<font color=red>'.$mid.'</font>:'.$date_start.'至'.$date_end.$QQ526738.'报表明细';
+	$loginfo='子帐号:'.$row['Agname'].'查询会员<font color=red>'.$mid.'</font>:'.$date_start.'至'.$date_end.$QQ526738.'报表投注明细';
 }else{
 	$agname=$row['Agname'];
-	$loginfo='查询会员<font color=red>'.$mid.'</font>:'.$date_start.'至'.$date_end.$QQ526738.'报表明细';
+	$loginfo='查询会员<font color=red>'.$mid.'</font>:'.$date_start.'至'.$date_end.$QQ526738.'报表投注明细';
 }
+
 $agid=$row['ID'];
 $super=$row['super'];
 $where=get_report($gtype,$wtype,$result_type,$report_kind,$date_start,$date_end,$row['subuser']);
@@ -68,8 +69,7 @@ $result = mysql_query($sql);
 $row = mysql_fetch_array($result);
 $aid=$row['agents'];
 
-$sql="select odd_type,mid,showtype,active,status,result_type,danger,QQ526738,LineType,cancel,date_format(BetTime,'%m-%d <br> %H:%i:%s') as BetTime,OpenType,M_Result,TurnRate,M_Name,date_format(BetTime,'%m%d%H%i%s')+id as ID,$bettype as BetType,Middle,BetScore,Agents,a_result,agent_point,world_point,corpor_point from web_db_io where ".$where." and M_Name='$mid' order by orderby,BetTime desc";
-
+$sql="select odd_type,mid,showtype,active,status,result_type,danger,QQ526738,LineType,cancel,date_format(BetTime,'%m-%d <br> %H:%i:%s') as BetTime,OpenType,M_Result,TurnRate,M_Name,date_format(BetTime,'%m%d%H%i%s')+id as ID,$bettype as BetType,Middle,BetScore,a_result,agent_point from web_db_io where ".$where." and M_Name='$mid' and super='$super' order by orderby,BetTime desc";
 ?>
 <html>
 <head>
@@ -103,7 +103,7 @@ function init(){
       <td colspan="2" height="4"></td>
     </tr>
   </table>
-<table width="980" border="0" cellspacing="1" cellpadding="0" class="m_tab" bgcolor="#000000">
+<table width="870" border="0" cellspacing="1" cellpadding="0" class="m_tab" bgcolor="#000000">
   <tr class="m_title" >
     <td width="70" > 时间</td>
     <td width="90"> 退水</td>
@@ -112,8 +112,6 @@ function init(){
     <td width="90"> 金额</td>
     <td width="100"> 结果</td>
     <td width="60"> 代理商<br>(佔成)</td>
-    <td width="60"> 总代理<br>(佔成)</td>
-    <td width="60"> 股东<br>(佔成)</td>
     </tr>
 	<?
 	$ncount=0;
@@ -121,25 +119,27 @@ function init(){
 	$win=0;
 	$result = mysql_query($sql);
 	$cou=mysql_num_rows($result);
-
 	while ($row = mysql_fetch_array($result)){
 		$ncount+=1;
 		$score+=$row['BetScore'];
 		$awin+=$row['a_result'];
 		$win+=$row['M_Result'];
 		$middle=$row['Middle'];
+		$row['BetType']= str_replace("<br>","",$row['BetType']);
+		$row['BetType']= str_replace("<div>","",$row['BetType']);
+		$row['BetType']= str_replace("</div>","",$row['BetType']);
   ?>
   <tr class="m_rig" onMouseOver="setPointer(this, 0, 'over', '#FFFFFF', '#FFCC66', '#FFCC99');" onMouseOut="setPointer(this, 0, 'out', '#FFFFFF', '#FFCC66', '#FFCC99');">
     <td align="center">
-    <?
-		if($row['danger']>0){
-			echo '<font color=#ffffff style=background-color:#ff0000>'.$row['BetTime'].'</font>';
-		}else{
-			echo $row['BetTime'];
-		}
-		?>
+    	<?
+			if($row['danger']>0){
+				echo '<font color=#ffffff style=background-color:#ff0000>'.$row['BetTime'].'</font>';
+			}else{
+				echo $row['BetTime'];
+			}
+			?>
 		</td>
-    <td align="center"><?=$row['M_Name']?><font color="#CC0000"> <?=$row['TurnRate']?></font></td>
+    <td align="center"><?=$row['M_Name']?><font color="#CC0000"> <?=$row['TurnRate']?></font><br></td>
     <td align="center"><font color=green><?=$ODDS[$row['odd_type']]?></font><br><?=substr(show_voucher($row['LineType'],$row['ID']),2)?><br><?
 	$bet=str_replace("半全场","$$",$row['BetType']);
 	$bet=str_replace("半场"," 半场",$bet);
@@ -166,24 +166,47 @@ function init(){
 			?>
 		</td>
     <td>
-    <?
-		if ($row['LineType']==7 or $row['LineType']==8 or $row['LineType']==17){
-			$midd=explode('<br>',$row['Middle']);
-			$ball=explode('<br>',$row['QQ526738']);
-
-			for($t=0;$t<(sizeof($midd)-1)/2;$t++){
-				echo $midd[2*$t].'<br>';
-				if($row['result_type']==1){
-					echo '<font color="#009900"><b>'.$ball[$t].'</b></font>  ';
+    	<? 
+				if(sizeof(explode("足球",$row['BetType']))>1){
+					$sql1="select * from foot_match where MID=".$row['mid'];
 				}
-				echo $midd[2*$t+1].'<br>';
-			}
-		}else{
-			$midd=explode('<br>',$row['Middle']);
-			for($t=0;$t<sizeof($midd)-1;$t++){
-				echo $midd[$t].'<br>';
-			}
-			if($row['result_type']==1){
+				if(sizeof(explode("篮球",$row['BetType']))>1){
+					$sql1="select * from bask_match where MID=".$row['mid'];
+				}
+				if(sizeof(explode("网球",$row['BetType']))>1){
+					$sql1="select * from tennis where MID=".$row['mid'];
+				}
+				if(sizeof(explode("排球",$row['BetType']))>1){
+					$sql1="select * from volleyball where MID=".$row['mid'];
+				}
+				if(sizeof(explode("棒球",$row['BetType']))>1){
+					$sql1="select * from baseball where MID=".$row['mid'];
+				}
+				if(sizeof(explode("其他",$row['BetType']))>1){
+					$sql1="select * from other_play where MID=".$row['mid'];
+				}
+				
+				$result1 = mysql_query($sql1);
+				$row1 = mysql_fetch_array($result1);
+				
+				
+				if ($row['LineType']==7 or $row['LineType']==8 or $row['LineType']==17){
+				$midd=explode('<br>',$row['Middle']);
+				$ball=explode('<br>',$row['QQ526738']);
+
+				for($t=0;$t<(sizeof($midd)-1)/2;$t++){
+					echo $midd[2*$t].'<br>';
+					if($row['result_type']==1){
+						echo '<font color="#009900"><b>'.$ball[$t].'</b></font>  ';
+					}
+					echo $midd[2*$t+1].'<br>';
+				}
+			}else{
+				$midd=explode('<br>',$row['Middle']);
+				for($t=0;$t<sizeof($midd)-1;$t++){
+					echo $midd[$t].'<br>';
+				}
+				if($row['result_type']==1){
 								echo '<font color="#009900"><b>';
 								if(strlen($row['QQ526738'])<3){
 									echo $match_status[$row['QQ526738']];
@@ -191,13 +214,13 @@ function init(){
 									echo $row['QQ526738'];
 								}
 								echo '</b></font>  ';
-			}else{
-				echo getscore($row['mid'],$row['active'],$row['showtype'],$row['LineType'],$dbname);
+				}else{
+					echo getscore($row['mid'],$row['active'],$row['showtype'],$row['LineType'],$dbname);
+				}
+				//echo str_replace(';<font color=red>-&nbsp;</font><font color=gray>[上半]</font>&nbsp','', str_replace(';<font color=red>-&nbsp;</font><font color=#666666>[上半]</font>&nbsp','', $midd[sizeof($midd)-1]));
+				echo  $midd[sizeof($midd)-1];
 			}
-			//echo str_replace(';<font color=red>-&nbsp;</font><font color=gray>[上半]</font>&nbsp','', str_replace(';<font color=red>-&nbsp;</font><font color=#666666>[上半]</font>&nbsp','', $midd[sizeof($midd)-1]));
-			echo  $midd[sizeof($midd)-1];
-		}
-		?>
+				?>
   	</td>
     <td><?
     	if($row['status']>0){
@@ -214,9 +237,7 @@ function init(){
     		echo mynumberformat($row['M_Result'],1);
     	}?>
 		</td>
-		<td><?=$row['agent_point']?></td>
-    <td><?=$row['world_point']?></td>
-    <td><?=$row['corpor_point']?></td>
+	<td><?=$row['agent_point']?></td>
   </tr>
  <?
  }
@@ -229,8 +250,8 @@ function init(){
       <td ><?=mynumberformat($score,1)?></td>
       <td bgcolor="#000033"><font color="#FFFFFF"><?=mynumberformat($win,1)?></font></td>
       <td>&nbsp;</td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
+      <!--<td>&nbsp;</td>
+      <td>&nbsp;</td>-->
     </tr>
   </table>
 <table width="780" border="0" cellspacing="0" cellpadding="0">
@@ -262,7 +283,7 @@ function init(){
 </html>
 <?
 $ip_addr = $_SERVER['REMOTE_ADDR'];
-$mysql="insert into web_mem_log(username,logtime,context,logip,level) values('$agname',now(),'$loginfo','$ip_addr','1')";
+$mysql="insert into web_mem_log(username,logtime,context,logip,level) values('$agname',now(),'$loginfo','$ip_addr','3')";
 mysql_query($mysql);
 mysql_close();
 ?>
