@@ -34,14 +34,14 @@ case "OU":
 	$caption=$rel_straight;
 	$width="973";
 	$back_ou="#3399ff";
-	$table='   <td width = "38"> Thời gian </ td>
-     <td width = "52" nowrap> Liên minh </ td>
-     <td width = "28"> Sự kiện </ td>
-     <td width = "200"> Nhóm </ td>
-     <td width = "200"> Thỏa thuận / ghi chú </ td>
-     <td width = "195"> Kích thước / ghi chú </ td>
-     <td width = "130"> Chỉ giành chiến thắng </ td>
-     <td width = "130"> Đơn và Đôi </ td>';
+	$table='    <td width="38">时间</td>
+    <td width="52" nowrap>联盟</td>
+    <td width="28">场次</td>
+    <td width="200">队伍</td>
+    <td width="200">让局 / 注单</td>
+    <td width="195">大小盘 / 注单</td>
+    <td width="130">独赢</td>
+    <td width="130">单双</td>';
 	break;
 case "PD":
 	$caption=$rel_correct;
@@ -53,28 +53,28 @@ case "P":
 	$caption=$rel_parlay;
 	$width="360";
 	$back_par="#3399ff";
-	$table='    <td width = 38> Thời gian </ td>
-     <td width = 28> Liên minh </ td>
-     <td width = 28> Phiên </ td>
-     <td width = 120> Nhóm </ td>
-     <td width = 120> Giao nhau </ td>';
+	$table='    <td width=38>时间</td>
+    <td width=28>联盟</td>
+    <td width=28>场次</td>
+    <td width=120>队伍</td>
+    <td width=120>过关</td>';
 	break;
 case "PL":
 	$caption=$rel_haveopen;
 	$back_p="#3399ff";
 	$width="940";
-	$table='    <td width = "38"> Thời gian </ td>
-     <td width = "52" nowrap> Liên minh </ td>
-     <td width = "28"> Sự kiện </ td>
-     <td width = "200"> Nhóm </ td>
-     <td width = "165"> Giao dịch </ td>
-     <td nowrap> Đĩa có kích thước </ td>
-     <td nowrap> Bóng polo </ td>
-     <td nowrap> Kích thước con lăn </ td>
-     <td nowrap> Thắng một mình </ td>
-     <td nowrap> Túi mật máu </ td>
-     <td nowrap> Đơn và Đôi </ td>
-     <td nowrap> đi qua </ td>';
+	$table='    <td width="38">时间</td>
+    <td width="52" nowrap>联盟</td>
+    <td width="28">场次</td>
+    <td width="200">队伍</td>
+    <td width="165">让局</td>
+    <td nowrap>大小盘</td>
+    <td nowrap>滚球</td>
+    <td nowrap>滚球大小</td>
+    <td nowrap>独赢</td>
+    <td nowrap>波胆</td>
+    <td nowrap>单双</td>
+    <td nowrap>过关</td>';
 	break;
 }
 ?>
@@ -200,16 +200,16 @@ function chg_league(){
   <table height="0" cellpadding="0" cellspacing="0">
 	<tr>
 		<td width='70'><font color="#000099">&nbsp;&nbsp;<?=$caption?></font></td>
-		<td>Theo dõi cách&nbsp;<select id="set_account" name="set_account" onChange="chg_account(this.value);" class="za_select">
-        		<option value="0">Tất cả</option>
-			<option value="1">Bản thân bạn</option>
+		<td>观看方式&nbsp;<select id="set_account" name="set_account" onChange="chg_account(this.value);" class="za_select">
+        		<option value="0">全部</option>
+			<option value="1">自己</option>
 			<!--option value="2">公司</option-->
 		</select></td>
 
 <?
 if ($rtype=='OU' or $rtype=='V' or $rtype=='PD' or $rtype=='F' or $rtype=='P'){
 ?>
-		<td>&nbsp;Chọn liên minh <span id="show_h"></span></td>
+		<td>&nbsp;选择联盟 <span id="show_h"></span></td>
 <?
 }
 
@@ -245,7 +245,7 @@ if ($rtype!='RE'){
        	</select>
 </span>
 <span id="bodyP" style="position:absolute; display: none">
-  Số lần trang:&nbsp;*SHOW_P*
+  页次:&nbsp;*SHOW_P*
 </span>
 </body>
 </html>

@@ -21,7 +21,7 @@ if($cou==0){
 $agents_id=$wd_row["ID"];
 $corprator=$wd_row["corprator"];
 
-require ("../member/include/traditional.vi_VN.inc.php");
+require ("../member/include/traditional.zh-tw.inc.php");
 
 $agents_name=$row["Agname"];
 $alias=$row["Alias"];
@@ -44,8 +44,8 @@ $alias=$row["Alias"];
   <INPUT TYPE=HIDDEN NAME="sid" VALUE="<?=$agents_id?>">
 <table width="780" border="0" cellspacing="0" cellpadding="0">
   <tr> 
-    <td class="m_tline">&nbsp;&nbsp;Chi tiết đại lý&nbsp;&nbsp;&nbsp;Tài khoản:<?=$agents_name?> -- 
-      Tên:<?=$alias?> -- <a href="javascript:history.go( -1 );">Quay lại trang trước</a></td>
+    <td class="m_tline">&nbsp;&nbsp;代理商详细设定&nbsp;&nbsp;&nbsp;帐号:<?=$agents_name?> -- 
+      名称:<?=$alias?> -- <a href="javascript:history.go( -1 );">回上一页</a></td>
     <td width="30"><img src="/images/control/zh-tw/top_04.gif" width="30" height="24"></td>
   </tr>
   <tr> 

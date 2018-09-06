@@ -46,7 +46,7 @@ exit;
   </tr>
   <tr  class="m_cen" > 
     <td>美金</td>
-    <td>USD</td>
+    <td>RMB</td>
     <td>1</td>
     <td>1</td>
   </tr>

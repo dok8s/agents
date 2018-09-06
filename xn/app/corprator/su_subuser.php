@@ -131,26 +131,26 @@ function onLoad(){
 			<td class="m_tline">
 				<table border="0" cellspacing="0" cellpadding="0">
 					<tr>
-<td nowrap> & nbsp; & nbsp; Sắp xếp & nbsp;: & nbsp; </ td>
-<td>
-<select id = "sort" name = "sort" onChange = "document.myFORM.submit ();" class = "za_select">
-<option value = "username"> Tài khoản </ option>
-<option value = "adddate"> Thêm ngày </ option>
-</ select>
-<select id = "orderby" name = "orderby" onChange = "self.myFORM.submit ()" class = "za_select">
-<option value = "asc"> Tăng sức mạnh (nhỏ đến lớn) </ option>
-<option value = "desc"> Công suất thấp hơn (lớn hơn đến nhỏ hơn) </ option>
-</ select>
-</ td>
-<td nowrap> & nbsp; - & nbsp; Tổng số trang & nbsp;: & nbsp; </ td>
+						<td nowrap>&nbsp;&nbsp;排序&nbsp;:&nbsp;</td>
+						<td>
+							<select id="sort" name="sort" onChange="document.myFORM.submit();" class="za_select">
+								<option value="username">帐号</option>
+								<option value="adddate">新增日期</option>
+							</select>
+							<select id="orderby" name="orderby" onChange="self.myFORM.submit()" class="za_select">
+								<option value="asc">升幂(由小到大)</option>
+								<option value="desc">降幂(由大到小)</option>
+							</select>
+						</td>
+						<td nowrap>&nbsp;--&nbsp;总页数&nbsp;:&nbsp;</td>
 						<td>
 							<select id="page" name="page" onChange="self.myFORM.submit()" class="za_select">
 								<option value="0">1</option>
 							</select>
 						</td>
-						<td nowrap>&nbsp;/&nbsp;1&nbsp;Trang&nbsp;--&nbsp;</td>
+						<td nowrap>&nbsp;/&nbsp;1&nbsp;页&nbsp;--&nbsp;</td>
 						<td>
-							<input type="button" name="append" value="Đã thêm" onClick="show_win();" class="za_button">
+							<input type="button" name="append" value="新增" onClick="show_win();" class="za_button">
 						</td>
 					</tr>
 				</table>
@@ -164,12 +164,12 @@ function onLoad(){
 </table>
 <table width="780" border="0" cellspacing="1" cellpadding="0" bgcolor="#4B8E6F" class="m_tab">
 	<tr class="m_title">
-	<td width = "150"> Tài khoản </ td>
-<td width = "150"> Mã bảo mật </ td>
-<td width = "150"> Mật khẩu </ td>
-<td width = "150"> Tên </ td>
-<td width = "150"> Thêm ngày </ td>
-<td width = "180"> Chức năng </ td>
+		<td width="150">帐号</td>
+		<td width="150">安全代码</td>
+		<td width="150">密码</td>
+		<td width="150">名称</td>
+		<td width="150">新增日期</td>
+		<td width="180">功能</td>
 	</tr>
 
     <?
@@ -180,9 +180,9 @@ function onLoad(){
     <INPUT TYPE="HIDDEN" NAME="id" value="<?=$agid?>">
     <INPUT TYPE="HIDDEN" NAME="edituser" value="Y">
 	<input TYPE="HIDDEN" NAME="uid" VALUE="<?=$uid?>">		<input type="hidden" NAME="act" value="2">
-		<input type="hidden" NAME="e_user" VALUE="Không tìm kiếm dữ liệu có liên quan được chỉ định">
+		<input type="hidden" NAME="e_user" VALUE="未搜寻到指定相关资料">
 		<tr class="m_cen">
-			<td>Không tìm kiếm dữ liệu có liên quan được chỉ định</td>
+			<td>未搜寻到指定相关资料</td>
 			<td>
 				<input type="password" name="e_pass" value="" size="12" maxlength="12" class="za_text" onKeyPress="return ChkKeyCode();">
 			</td>
@@ -211,8 +211,8 @@ function onLoad(){
 			</td>
 			<td><?=$row['AddDate']?></td>
 			<td align="left">
-				<a href="javascript:ChkData('<?=$row['ID']?>')" style="cursor:hand;">Sửa đổi</a> 
-				/ <a href="javascript:CheckDEL('./su_subuser.php?uid=<?=$uid?>&deluser=Y&id=<?=$row['ID']?>')">Xóa</a>
+				<a href="javascript:ChkData('<?=$row['ID']?>')" style="cursor:hand;">修改</a> 
+				/ <a href="javascript:CheckDEL('./su_subuser.php?uid=<?=$uid?>&deluser=Y&id=<?=$row['ID']?>')">删除</a>
 			</td>
     	</tr>
 		</FORM>
@@ -233,14 +233,14 @@ function onLoad(){
 				<td bgcolor="#FFFFFF">
 					<table width="250" border="0" cellspacing="0" cellpadding="0" bgcolor="#A4C0CE" class="m_tab_fix">
 						<tr bgcolor="#0163A2">
-							<td id=r_title width="200"><font color="#FFFFFF">Người dùng mới</font></td>
+							<td id=r_title width="200"><font color="#FFFFFF">新增使用者</font></td>
 							<td align="right" valign="top"><a style="cursor:hand;" onClick="close_win();"><img src="/images/control/zh-tw/edit_dot.gif" width="16" height="14"></a></td>
 						</tr>
 						<tr>
 							<td colspan="2" height="1" bgcolor="#000000"></td>
 						</tr>
 						<tr>
-							<td colspan="2">Số tài khoản&nbsp;&nbsp;
+							<td colspan="2">帐　号&nbsp;&nbsp;
 								<input type="text" name="e_user" value="" size="12" maxlength="10" class="za_text" onKeyPress="return ChkKeyCode();">
 							</td>
 						</tr>
@@ -248,7 +248,7 @@ function onLoad(){
 							<td colspan="2" height="1"></td>
 						</tr>
 						<tr>
-							<td colspan="2">Mật khẩu&nbsp;&nbsp;
+							<td colspan="2">密　码&nbsp;&nbsp;
 								<input type="password" name="e_pass" value="" size="12" maxlength="12" class="za_text" onKeyPress="return ChkKeyCode();">
 							</td>
 						</tr>
@@ -256,7 +256,7 @@ function onLoad(){
 							<td colspan="2" height="1"></td>
 						</tr>
 						<tr>
-							<td colspan="2">Bí danh&nbsp;&nbsp;
+							<td colspan="2">别　名&nbsp;&nbsp;
 								<input type="text" name="e_alias" value="" size="12" maxlength="10" class="za_text">
 							</td>
 						</tr>
@@ -265,7 +265,7 @@ function onLoad(){
 						</tr>
 						<tr align="center">
 							<td colspan="2">
-								<input type="submit" value="OK" class="za_button">
+								<input type="submit" value="确定" class="za_button">
 							</td>
 						</tr>
 					</table>

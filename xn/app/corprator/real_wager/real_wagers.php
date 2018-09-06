@@ -47,53 +47,53 @@ case "V":
 	$rtype='HOU';
 	$width="838";
 	$back_hou="#3399ff";
-	$table='<td width = "38"> Thời gian </ td>
-     <td width = "52" nowrap> Liên minh </ td>
-     <td width = "28"> Sự kiện </ td>
-     <td width = "200"> Nhóm </ td>
-     <td width = "195"> Nhận thẻ bóng / ghi chú </ td>
-     <td width = "195"> Kích thước / ghi chú </ td>
-     <td width = "130"> Chỉ giành chiến thắng </ td> ';
+	$table='<td width="38">时间</td>
+    <td width="52" nowrap>联盟</td>
+    <td width="28">场次</td>
+    <td width="200">队伍</td>
+    <td width="195">让球 / 注单</td>
+    <td width="195">大小盘 / 注单</td>
+    <td width="130">独赢</td>';
 	break;
 case "RE":
 	$caption=$rel_running;
 	$width="1098";
 	$back_re="#3399ff";
-	$table='<td width = "38"> Thời gian </ td>
-     <td width = "52" nowrap> Liên minh </ td>
-     <td width = "28"> Sự kiện </ td>
-     <td width = "200"> Nhóm </ td>
-     <td width = "195"> Thẻ bóng / ghi chú đầy đủ </ td>
-     <td width = "195"> Kích thước / ghi chú đầy đủ </ td>
-     <td width = "195" class = "1st"> Nửa bóng / ghi chú </ td>
-     <td width = "195" class = "1st"> Half-sized / Note </ td>';
+	$table='<td width="38">时间</td>
+    <td width="52" nowrap>联盟</td>
+    <td width="28">场次</td>
+    <td width="200">队伍</td>
+    <td width="195">全场让球 / 注单</td>
+    <td width="195">全场大小 / 注单</td>
+    <td width="195" class="1st">上半让球 / 注单</td>
+    <td width="195" class="1st">上半大小 / 注单</td>';
 	break;
 case "PD":
 	$caption=$rel_correct;
 	$back_pd="#3399ff";
 	$width="410";
-	$table='      <td width = "38"> Thời gian </ td>
-       <td width = "52" nowrap> Liên minh </ td>
-       <td width = "200"> Máy chủ và nhóm </ td>
-       <td width = "120"> mật mã </ td>';
+	$table='      <td width="38">时间</td>
+      <td width="52" nowrap>联盟</td>
+      <td width="200">主客队伍</td>
+      <td width="120">波胆</td>';
 	break;
 case "HPD":
 	$caption=$rel_correct;
 	$back_hpd="#3399ff";
 	$width="410";
-	$table='      <td width = "38"> Thời gian </ td>
-       <td width = "52" nowrap> Liên minh </ td>
-       <td width = "200"> Máy chủ và nhóm </ td>
-       <td width = "120"> mật mã </ td>';
+	$table='      <td width="38">时间</td>
+      <td width="52" nowrap>联盟</td>
+      <td width="200">主客队伍</td>
+      <td width="120">波胆</td>';
 	break;
 case "EO":
 	$caption=$rel_total;
 	$back_eo="#3399ff";
 	$width="718";
-	$table='    <td width = "38"> Thời gian </ td>
-     <td width = "200"> Máy chủ và nhóm </ td>
-     <td width = "80"> Đơn </ td>
-     <td width = "80"> Đôi </ td>
+	$table='    <td width="38">时间</td>
+    <td width="200">主客队伍</td>
+    <td width="80">单</td>
+    <td width="80">双</td>
     <td width="80">0~1</td>
     <td width="80">2~3</td>
     <td width="80">4~6</td>
@@ -103,35 +103,35 @@ case "F":
 	$caption=$rel_halffull;
 	$width="410";
 	$back_f="#3399ff";
-	$table='     <td width = "38"> Thời gian </ td>
-       <td width = "52" nowrap> Liên minh </ td>
-       <td width = "200"> Máy chủ và nhóm </ td>
-       <td width = "120"> Nửa thời gian </ td>';
+	$table='      <td width="38">时间</td>
+      <td width="52" nowrap>联盟</td>
+      <td width="200">主客队伍</td>
+      <td width="120">半全场</td>';
 	break;
 case "P":
 	$caption=$rel_parlay;
 	$width="438";
 	$back_par="#3399ff";
-	$table='    <td width = "38"> Thời gian </ td>
-     <td width = "52" nowrap> Liên minh </ td>
-     <td width = "28"> Sự kiện </ td>
-     <td width = "200"> Nhóm </ td>
-     <td width = "120"> Giao nhau </ td>';
+	$table='    <td width="38">时间</td>
+    <td width="52" nowrap>联盟</td>
+    <td width="28">场次</td>
+    <td width="200">队伍</td>
+    <td width="120">过关</td>';
 	break;
 case "PL":
 	$caption=$rel_haveopen;
 	$back_p="#3399ff";
 	$width="880";
 	//$table="<td  width=38 >$rel_body_time</td>\n    <td  width=28>$rel_body_league</td>\n    <td  width=28>$rel_mid</td>\n    <td  width=120>$rel_shometeam</td>\n    <td  width=165>$rel_let</td>\n    <td nowrap>$rel_hsthalf</td>\n    <td nowrap>$rel_running</td>\n    <td nowrap>$rel_dime</td>\n    <td nowrap>$rel_vou</td>\n    <td nowrap>$rel_running$rep_wtype_ou</td>\n      <td nowrap>$rel_running$rel_odd$rel_even</td>\n     <td nowrap>$rel_win</td>\n    <td nowrap>$rep_wtype_vm</td>\n    <td nowrap>$rel_halffull</td>\n    <td nowrap>$rel_correct</td>\n    <td nowrap>$rel_odd$rel_even</td>\n    <td nowrap>$rel_total</td>\n    <td nowrap>$rel_parlay</td>";
-	$table='			<td nowrap width = "38"> Thời gian </ td>
-<td nowrap width = "52"> Liên minh </ td>
-<td nowrap width = "28"> Sự kiện </ td>
-<td nowrap width = "200"> Nhóm </ td>
-<td nowrap width = "150"> Lấy bóng </ td>
-<td nowrap width = "150"> Kích thước tấm </ td>
-<td nowrap width = "100"> Roulette </ td>
-<td nowrap width = "100"> Kích thước bi lăn </ td>
-<td nowrap width = "36"> Tính năng </ td>';
+	$table='			<td nowrap width="38">时间</td>
+			<td nowrap width="52">联盟</td>
+			<td nowrap width="28">场次</td>
+			<td nowrap width="200">队伍</td>
+			<td nowrap width="150">让球</td>
+			<td nowrap width="150">大小盘</td>
+			<td nowrap width="100">滚球</td>
+			<td nowrap width="100">滚球大小</td>
+			<td nowrap width="36">功能</td>';
 	break;
 }
 ?>
@@ -240,29 +240,29 @@ function show_one(){
       <td class="m_tline">
         <table border="0" cellspacing="0" cellpadding="0" >
           <tr>
-            <td width="60" >&nbsp;&nbsp;Giao dịch trực tuyến:</td>
+            <td width="60" >&nbsp;&nbsp;线上操盘:</td>
             <td>
               <select id="ltype" name="ltype" onChange="chg_ltype()" class="za_select">
-                <option value="1">Chân A</option>
-                <option value="2">Chân B</option>
-                <option value="3">Chân C</option>
-                <option value="4">Chân D</option>
+                <option value="1">足A</option>
+                <option value="2">足B</option>
+                <option value="3">足C</option>
+                <option value="4">足D</option>
               </select>
             </td>
-            <td width="65"> -- Làm mới</td>
+            <td width="65"> -- 重新整理</td>
             <td>
               <select id="retime" name="retime" onChange="chg_retime()" class="za_select">
-                <option value="-1" >Chưa cập nhật</option>
+                <option value="-1" >不更新</option>
 				<option value="180" >180 sec</option>
               </select>
             </td>
-            <td id="dt_now"> -- Giờ miền đông:</td>
+            <td id="dt_now"> -- 美东时间:</td>
             <td> -- <A HREF="#" onClick="chg_page('ou');" onMouseOver="window.status='<?=$rel_straight?>'; return true;" onMouseOut="window.status='';return true;" style="background-color: <?=$back_ou?>"><?=$rel_straight?></a>
               &nbsp;<A HREF="#" onClick="chg_page('v');" onMouseOver="window.status='<?=$rel_hsthalf?>'; return true;" onMouseOut="window.status='';return true;" style="background-color:<?=$back_hou?>"><?=$rel_hsthalf?></a>
               &nbsp;<A HREF="#" onClick="chg_page('re');" onMouseOver="window.status='<?=$rel_running?>'; return true;" onMouseOut="window.status='';return true;"style="background-color:<?=$back_re?>"><?=$rel_running?></a>
               &nbsp;<A HREF="#" onClick="chg_page('pd');" onMouseOver="window.status='<?=$rel_correct?>'; return true;" onMouseOut="window.status='';return true;"style="background-color:<?=$back_pd?>"><?=$rel_correct?></a>
-              &nbsp;<A HREF="#" onClick="chg_page('hpd');" onMouseOver="window.status='<?=$rel_correct?>'; return true;" onMouseOut="window.status='';return true;"style="background-color:<?=$back_hpd?>">Nửa đầu của sóng</a>
-              &nbsp;<A HREF="#" onClick="chg_page('eo');" onMouseOver="window.status='Số bàn thắng'; return true;" onMouseOut="window.status='';return true;"style="background-color:<?=$back_eo?>">Số bàn thắng</a>
+              &nbsp;<A HREF="#" onClick="chg_page('hpd');" onMouseOver="window.status='<?=$rel_correct?>'; return true;" onMouseOut="window.status='';return true;"style="background-color:<?=$back_hpd?>">上半波胆</a>
+              &nbsp;<A HREF="#" onClick="chg_page('eo');" onMouseOver="window.status='入球数'; return true;" onMouseOut="window.status='';return true;"style="background-color:<?=$back_eo?>">入球数</a>
               &nbsp;<a href="#" onClick="chg_page('f');" onMouseOver="window.status='<?=$rel_halffull?>'; return true;" onMouseOut="window.status='';return true;"style="background-color:<?=$back_f?>"><?=$rel_halffull?></a>
               &nbsp;<A HREF="#" onClick="chg_page('p');" onMouseOver="window.status='<?=$rel_parlay?>'; return true;" onMouseOut="window.status='';return true;"style="background-color:<?=$back_par?>"><?=$rel_parlay?></a>
               <A HREF="#" onClick="chg_page('pl');" onMouseOver="window.status='<?=$rel_haveopen?>'; return true;" onMouseOut="window.status='';return true;"style="background-color:<?=$back_p?>"><?=$rel_haveopen?></a>
@@ -279,16 +279,16 @@ function show_one(){
   <table height="0" cellpadding="0" cellspacing="0">
 	<tr>
 		<td width='70'><font color="#000099">&nbsp;&nbsp;<?=$caption?></font></td>
-		<td>Theo dõi cách&nbsp;<select id="set_account" name="set_account" onChange="chg_account(this.value);" class="za_select">
-        		<option value="0">Tất cả</option>
-			<option value="1">Bản thân bạn</option>
+		<td>观看方式&nbsp;<select id="set_account" name="set_account" onChange="chg_account(this.value);" class="za_select">
+        		<option value="0">全部</option>
+			<option value="1">自己</option>
 			<!--option value="2">公司</option-->
 		</select></td>
 
 <?
 if ($rtype=='OU' or $rtype=='HOU' or $rtype=='HPD'  or $rtype=='PD' or $rtype=='F' or $rtype=='P'){
 ?>
-		<td>&nbsp;Chọn liên minh <span id="show_h"></span></td>
+		<td>&nbsp;选择联盟 <span id="show_h"></span></td>
 <?
 }
 
@@ -320,7 +320,7 @@ if($rtype<>'PL'){?>
 
 <span id="bodyH" style="position:absolute; display: none">
         <select id="sel_lid" name="sel_lid" onChange="chg_league();" class="za_select">
-        <option value="">Tất cả</option>
+        <option value="">全部</option>
 		*SHOW_H*
        	</select>
 </span>
@@ -335,18 +335,18 @@ if($rtype<>'PL'){?>
 		<input type=hidden name='set_acc' value=''>
 		<table id="gdiv_table" border="0" cellspacing="1" cellpadding="0" bgcolor="#006255" class="m_tab" width="544">
 			<tr class="m_title_ft">
-				<td nowrap> Thắng một mình </ td>
-<td nowrap> Túi mật máu </ td>
-<td nowrap> Túi mật nửa sóng </ td>
-<td nowrap> Đơn và Đôi </ td>
-<td nowrap> Tổng số mục tiêu </ td>
-<td nowrap> Nửa thời gian </ td>
-<td nowrap> đi qua </ td>
-<td nowrap> Half-court lăn bóng ra ngoài </ td>
-<td nowrap> Kích thước nửa bóng </ td>
-<td nowrap> Nửa bóng </ td>
-<td nowrap> Nửa kích thước </ td>
-<td nowrap> thắng tại một nửa thời gian </ td>
+				<td nowrap>独赢</td>
+				<td nowrap>波胆</td>
+				<td nowrap>半场波胆</td>
+				<td nowrap>单双</td>
+				<td nowrap>总入球</td>
+				<td nowrap>半全场</td>
+				<td nowrap>过关</td>
+				<td nowrap>半场滚球让球</td>
+				<td nowrap>半场滚球大小</td>
+				<td nowrap>半场让球</td>
+				<td nowrap>半场大小</td>
+				<td nowrap>半场独赢</td>
 			</tr>
 		</table>
 		<input type='button' class="za_button" onClick="document.all.line_window.style.visibility='hidden';" value='关闭'>
@@ -356,7 +356,7 @@ if($rtype<>'PL'){?>
 }
 ?>
 <span id="bodyP" style="position:absolute; display: none">
-  Số lần trang:&nbsp;*SHOW_P*
+  页次:&nbsp;*SHOW_P*
 </span>
 <iframe id=showdata name=showdata src='../../../../ok.html' scrolling='no' width="0" height='0'></iframe>
 

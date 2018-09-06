@@ -298,19 +298,19 @@ function ShowNumber(){
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
   <tr>
     <td width="183"><img src="/images/800/800_top_01.gif" width="183" height="29"></td>
-    <td class="top_color">Đăng nhập1--<?=$agname?>
+    <td class="top_color">登入1--<?=$agname?>
 	<? if($d1set['d1_ag_online_show']==1){ ?>
-	<a href='system/syslog.php?uid=<?=$uid?>' target="main"><span style='color:#FFFF66'>Diễn xuất trực tuyến</span></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	<a href='system/syslog.php?uid=<?=$uid?>' target="main"><span style='color:#FFFF66'>代理在线</span></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 	<? } ?>
 	<? if($d1set['d1_mem_online_show']==1){ ?>
-	<a href='system/memlog.php?uid=<?=$uid?>' target="main"><span style='color:#FFFF66'>Thành viên trực tuyến</span></a>
+	<a href='system/memlog.php?uid=<?=$uid?>' target="main"><span style='color:#FFFF66'>会员在线</span></a>
 	<? } ?>
 	<div class="rig">
-                    <a href="/url.html" target="_blank" >Trang web mới nhất</a>
-                    | <a href="javascript:void(0);" OnClick="" class="customer"><img src="/images/control/header_customer.gif" width="16" height="15" border="0">Dịch vụ khách hàng trực tuyến</a>
-                    | <a href="javascript:void(0);" OnClick=""><font class="service">Liên lạc với chúng tôi</font></a>
-					| <a href="#" onClick="Go_Chg_pass(2);" style="cursor:hand">Thay đổi mật khẩu</a>
-                    | <a href="/quit.php?level=3&uid=<?=$uid?>" target="_top" onMouseOver="window.status='Đăng xuất'; return true;" onMouseOut="window.status='';return true;">Đăng xuất</a>
+                    <a href="/url.html" target="_blank" >最新网址</a>
+                    | <a href="javascript:void(0);" OnClick="" class="customer"><img src="/images/control/header_customer.gif" width="16" height="15" border="0">在线客服</a>
+                    | <a href="javascript:void(0);" OnClick=""><font class="service">联系我们</font></a>
+					| <a href="#" onClick="Go_Chg_pass(2);" style="cursor:hand">变更密码</a>
+                    | <a href="/quit.php?level=3&uid=<?=$uid?>" target="_top" onMouseOver="window.status='登出'; return true;" onMouseOut="window.status='';return true;">登出</a>
       </div>
 	</td>
   </tr>
@@ -319,46 +319,46 @@ function ShowNumber(){
     <td  class="coolBar">
 	<table border="0" cellspacing="0" cellpadding="0"  style="position: relative; z-index: 99; top: 0px; left: 0px;" id="toolbar1">
 	<tr>
-	<td nowrap class="coolButton" onClick="show_webs('ad');">&nbsp;<nobr>[Ghi chú tức thì]</nobr>&nbsp;</td>
+	<td nowrap class="coolButton" onClick="show_webs('ad');">&nbsp;<nobr>[即时注单]</nobr>&nbsp;</td>
 	<td id=ad_list style="color: blue;"><nobr>
-	<a onClick="go_web(0,0,'/xn/app/corprator/real_wager/index.php?uid=<?=$uid?>');" style="cursor:hand"><img src="/images/control/tri.gif">Bóng đá</a>
-	<a onClick="go_web(0,1,'/xn/app/corprator/real_wager_BK/index.php?uid=<?=$uid?>');" style="cursor:hand"><img src="/images/control/tri.gif">Bóng rổ / Họp</a>
-	<a onClick="go_web(0,0,'/xn/app/corprator/real_wager_TN/index.php?uid=<?=$uid?>');" style="cursor:hand"><img src="/images/control/tri.gif">Quần vợt</a>
-	<a onClick="go_web(0,0,'/xn/app/corprator/real_wager_VB/index.php?uid=<?=$uid?>');" style="cursor:hand"><img src="/images/control/tri.gif">Bóng chuyền</a>
-	<a onClick="go_web(0,0,'/xn/app/corprator/real_wager_BS/index.php?uid=<?=$uid?>');" style="cursor:hand"><img src="/images/control/tri.gif">Bóng chày</a>
-	<a onClick="go_web(0,1,'/xn/app/corprator/voucher.php?uid=<?=$uid?>');" style="cursor:hand"><img src="/images/control/tri.gif">Lưu ý luồng</a>
+	<a onClick="go_web(0,0,'/app/corprator/real_wager/index.php?uid=<?=$uid?>');" style="cursor:hand"><img src="/images/control/tri.gif">足球</a>
+	<a onClick="go_web(0,1,'/app/corprator/real_wager_BK/index.php?uid=<?=$uid?>');" style="cursor:hand"><img src="/images/control/tri.gif">篮球/美足</a>
+	<a onClick="go_web(0,0,'/app/corprator/real_wager_TN/index.php?uid=<?=$uid?>');" style="cursor:hand"><img src="/images/control/tri.gif">网球</a>
+	<a onClick="go_web(0,0,'/app/corprator/real_wager_VB/index.php?uid=<?=$uid?>');" style="cursor:hand"><img src="/images/control/tri.gif">排球</a>
+	<a onClick="go_web(0,0,'/app/corprator/real_wager_BS/index.php?uid=<?=$uid?>');" style="cursor:hand"><img src="/images/control/tri.gif">棒球</a>
+	<a onClick="go_web(0,1,'/app/corprator/voucher.php?uid=<?=$uid?>');" style="cursor:hand"><img src="/images/control/tri.gif">流水注单</a>
 	</nobr></td>
-	<td nowrap class="coolButton" onClick="show_webs('mad');">&nbsp;<nobr>[Ghi chú bữa sáng]</nobr>&nbsp;</td>
+	<td nowrap class="coolButton" onClick="show_webs('mad');">&nbsp;<nobr>[早餐注单]</nobr>&nbsp;</td>
 	<td id=mad_list style="color: blue;"><nobr>
-	<a onClick="go_web(0,1,'/xn/app/corprator/real_wager_FU/index.php?uid=<?=$uid?>');" style="cursor:hand"><img src="/images/control/tri.gif">Bữa sáng bóng đá</a>
-	<a onClick="go_web(0,1,'/xn/app/corprator/real_wager_BU/index.php?uid=<?=$uid?>');" style="cursor:hand"><img src="/images/control/tri.gif">Bữa sáng kiểu Mỹ / Bóng rổ</a>
-	<a onClick="go_web(0,1,'/xn/app/corprator/real_wager_BSFU/index.php?uid=<?=$uid?>');" style="cursor:hand"><img src="/images/control/tri.gif">Bữa sáng bóng chày</a>
-	<a onClick="go_web(0,0,'/xn/app/corprator/real_wager_TU/index.php?uid=<?=$uid?>');" style="cursor:hand"><img src="/images/control/tri.gif">Bữa sáng quần vợt</a>
-	<a onClick="go_web(0,0,'/xn/app/corprator/real_wager_VU/index.php?uid=<?=$uid?>');" style="cursor:hand"><img src="/images/control/tri.gif">Bữa sáng bóng chuyền</a>
+	<a onClick="go_web(0,1,'/app/corprator/real_wager_FU/index.php?uid=<?=$uid?>');" style="cursor:hand"><img src="/images/control/tri.gif">足球早餐</a>
+	<a onClick="go_web(0,1,'/app/corprator/real_wager_BU/index.php?uid=<?=$uid?>');" style="cursor:hand"><img src="/images/control/tri.gif">篮球/美足早餐</a>
+	<a onClick="go_web(0,1,'/app/corprator/real_wager_BSFU/index.php?uid=<?=$uid?>');" style="cursor:hand"><img src="/images/control/tri.gif">棒球早餐</a>
+	<a onClick="go_web(0,0,'/app/corprator/real_wager_TU/index.php?uid=<?=$uid?>');" style="cursor:hand"><img src="/images/control/tri.gif">网球早餐</a>
+	<a onClick="go_web(0,0,'/app/corprator/real_wager_VU/index.php?uid=<?=$uid?>');" style="cursor:hand"><img src="/images/control/tri.gif">排球早餐</a>
 	</nobr></td>
 	
 	
 	
-	<<?=$CFLAG_S?>td nowrap class="coolButton" onClick="show_webs('mo');">&nbsp;<nobr>[Quản lý tài khoản]</nobr>&nbsp;</td>
+	<<?=$CFLAG_S?>td nowrap class="coolButton" onClick="show_webs('mo');">&nbsp;<nobr>[帐号管理]</nobr>&nbsp;</td>
 	<td id=mo_list style="color: blue;"><nobr>
-	<a onClick="go_web(1,1,'/xn/app/corprator/cor_list.php?uid=<?=$uid?>');" style="cursor:hand"><img src="/images/control/tri.gif">Cổ đông</a>
-	<a onClick="go_web(1,1,'/xn/app/corprator/super_agent/body_super_agents.php?uid=<?=$uid?>');" style="cursor:hand"><img src="/images/control/tri.gif">Nhà phân phối</a>
-	<a onClick="go_web(1,2,'/xn/app/corprator/agents/su_agents.php?uid=<?=$uid?>');" style="cursor:hand"><img src="/images/control/tri.gif">Quyền</a>
-	<a onClick="go_web(1,3,'/xn/app/corprator/members/su_members.php?uid=<?=$uid?>');" style="cursor:hand"><img src="/images/control/tri.gif">Thành viên</a>
-	<a onClick="go_web(1,4,'/xn/app/corprator/su_subuser.php?uid=<?=$uid?>');" style="cursor:hand;"><img src="/images/control/tri.gif">Subaccount</a>
+	<a onClick="go_web(1,1,'/app/corprator/cor_list.php?uid=<?=$uid?>');" style="cursor:hand"><img src="/images/control/tri.gif">股东</a>
+	<a onClick="go_web(1,1,'/app/corprator/super_agent/body_super_agents.php?uid=<?=$uid?>');" style="cursor:hand"><img src="/images/control/tri.gif">总代理</a>
+	<a onClick="go_web(1,2,'/app/corprator/agents/su_agents.php?uid=<?=$uid?>');" style="cursor:hand"><img src="/images/control/tri.gif">代理</a>
+	<a onClick="go_web(1,3,'/app/corprator/members/su_members.php?uid=<?=$uid?>');" style="cursor:hand"><img src="/images/control/tri.gif">会员</a>
+	<a onClick="go_web(1,4,'/app/corprator/su_subuser.php?uid=<?=$uid?>');" style="cursor:hand;"><img src="/images/control/tri.gif">子帐号</a>
 	<? if($d1set['d1_wager_add']==1){ ?>
-	<a onClick="go_web(1,6,'/xn/app/corprator/wager_list/wager_add.php?uid=<?=$uid?>');" style="cursor:hand"><img src="/images/control/tri.gif">Tài khoản đơn Tim</a>
+	<a onClick="go_web(1,6,'/app/corprator/wager_list/wager_add.php?uid=<?=$uid?>');" style="cursor:hand"><img src="/images/control/tri.gif">添单帐号</a>
 	<? } ?>
 	<? if($d1set['d1_wager_hide']==1){ ?>
-	<a onClick="go_web(1,7,'/xn/app/corprator/wager_list/wager_hide.php?uid=<?=$uid?>');" style="cursor:hand"><img src="/images/control/tri.gif">Tài khoản ẩn</a>
+	<a onClick="go_web(1,7,'/app/corprator/wager_list/wager_hide.php?uid=<?=$uid?>');" style="cursor:hand"><img src="/images/control/tri.gif">隐单帐号</a>
 	<? } ?>
 	</nobr></td<?=$GFLAG_E?>>
-	<td nowrap><a href="/app/corprator/report_new/report.php?uid=<?=$uid?>" style="cursor:hand;color:#bb0000" target="main" onMouseOver="window.status='Báo cáo'; return true;" onMouseOut="window.status='';return true;">&nbsp;[Báo cáo]</a></td>
-	<<?=$GFLAG_S?>td nowrap><a href="/app/corprator/other_set/show_currency.php?uid=<?=$uid?>" style="cursor:hand;color:#bb0000" target="main" onMouseOver="window.status='币值'; return true;" onMouseOut="window.status='';return true;">&nbsp;[Giá trị tiền tệ]</a></td>
-	<td nowrap><a href="/app/corprator/other_set/show_result.php?uid=<?=$uid?>" style="cursor:hand;color:#bb0000" target="main" onMouseOver="window.status='赛果'; return true;" onMouseOut="window.status='';return true;">&nbsp;[Kết quả]</a></td<?=$GFLAG_E?>>
-	<td nowrap><A HREF="javascript://" style="cursor:hand;color:#bb0000" onClick="javascript: window.showModalDialog('scroll_history.php?uid=<?=$uid?>&langx=<?=$langx?>&scoll_set=scoll_set3','','help:no')">&nbsp;[Thông tin lịch sử]</a></td>
-	<td nowrap><A HREF="javascript://" style="cursor:hand;color:#bb0000" onClick="javascript: window.showModalDialog('scroll_history.php?uid=<?=$uid?>&langx=<?=$langx?>&scoll_set=scoll_cor_set','','help:no')">&nbsp;[Thông tin lịch sử cổ đông]</a></td>
-	<td nowrap><a href="/app/corprator/body_home.php?uid=<?=$uid?>&langx=<?=$langx?>" style="cursor:hand;color:#bb0000" target="main" onMouseOver="window.status='公告'; return true;" onMouseOut="window.status='';return true;">&nbsp;[Thông báo]</a></td>
+	<td nowrap><a href="/app/corprator/report_new/report.php?uid=<?=$uid?>" style="cursor:hand;color:#bb0000" target="main" onMouseOver="window.status='报表'; return true;" onMouseOut="window.status='';return true;">&nbsp;[报表]</a></td>
+	<<?=$GFLAG_S?>td nowrap><a href="/app/corprator/other_set/show_currency.php?uid=<?=$uid?>" style="cursor:hand;color:#bb0000" target="main" onMouseOver="window.status='币值'; return true;" onMouseOut="window.status='';return true;">&nbsp;[币值]</a></td>
+	<td nowrap><a href="/app/corprator/other_set/show_result.php?uid=<?=$uid?>" style="cursor:hand;color:#bb0000" target="main" onMouseOver="window.status='赛果'; return true;" onMouseOut="window.status='';return true;">&nbsp;[赛果]</a></td<?=$GFLAG_E?>>
+	<td nowrap><A HREF="javascript://" style="cursor:hand;color:#bb0000" onClick="javascript: window.showModalDialog('scroll_history.php?uid=<?=$uid?>&langx=<?=$langx?>&scoll_set=scoll_set3','','help:no')">&nbsp;[历史讯息]</a></td>
+	<td nowrap><A HREF="javascript://" style="cursor:hand;color:#bb0000" onClick="javascript: window.showModalDialog('scroll_history.php?uid=<?=$uid?>&langx=<?=$langx?>&scoll_set=scoll_cor_set','','help:no')">&nbsp;[股东历史讯息]</a></td>
+	<td nowrap><a href="/app/corprator/body_home.php?uid=<?=$uid?>&langx=<?=$langx?>" style="cursor:hand;color:#bb0000" target="main" onMouseOver="window.status='公告'; return true;" onMouseOut="window.status='';return true;">&nbsp;[公告]</a></td>
 	</tr>
 	</table>
     </td>

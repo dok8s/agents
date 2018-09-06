@@ -71,7 +71,7 @@ $mem_acount = 'Chỉnh sửa dữ liệu';
 $mem_setopt = 'cài đặt chi tiết';
 $mem_delete = 'Xóa';
 $mem_curent = 'Tiền tệ';
-$mem_current = 'RMB';
+$mem_current = 'USD';
 $mem_turn_rate = 'Cài đặt hoàn tiền';
 $mem_scence = 'Hạn ngạch trường đơn';
 $mem_sbet = 'Giới hạn Lưu ý Đơn';
@@ -161,9 +161,8 @@ $rep_wtype_uou = 'Kích thước một nửa';
 $rep_wtype_ut = 'thấp hơn đơn và đôi';
 $rep_readme0 = 'Vẫn còn các trường trong giải đấu chưa được nhập';
 $rep_readme1 = 'Kết quả ban đầu đã được nhập';
-$rep_readme2​​= 'Không có sự kiện';
-
-
+$rep_readme2 ​​= 'Không có sự kiện';
+// report_agent
 $rag_name = 'Đại lý';
 $rag_date = 'Ngày';
 $rag_type = 'Đặt cược đường ống: Net Bet';

@@ -191,7 +191,7 @@ $result = mysql_query( $mysql);
 	<td class="m_tline">
         <table border="0" cellspacing="0" cellpadding="0" >
           <tr>
-            <td width="70">&nbsp;&nbsp;Quản lý thành viên</td>
+            <td width="70">&nbsp;&nbsp;会员管理</td>
             <td>
 			<select class=za_select id=super_agents_id onchange=document.myFORM.submit(); name=super_agents_id>
 				<option value="" selected><?=$rep_pay_type_all?></option>
@@ -211,10 +211,10 @@ $result = mysql_query( $mysql);
 			</select>
 
             <select name="enable" onChange="self.myFORM.submit()" class="za_select" >
-                <option value = "Y"> Đã bật </ option>
-                 <option value = "N"> Đã tắt </ option>
-                 <option value = "S"> Tạm dừng </ tùy chọn>
-               </ select>
+                <option value="Y">启用</option>
+                <option value="N">停用</option>
+                <option value="S">暂停</option>
+              </select>
             </td>
             <td width="40"> -- <?=$mem_orderby?></td>
             <td>
@@ -240,7 +240,7 @@ $result = mysql_query( $mysql);
               </select>
             </td>
             <td> / <?=$page_count?> <?=$mem_page?> -- </td>
-			<td>&nbsp;&nbsp;<input type="text" name="uname" id="uname" style="width:70px;">&nbsp;<input type=BUTTON name="seledd" value="Thành viên truy vấn" onClick="document.myFORM.submit();" class="za_button"></td>
+			<td>&nbsp;&nbsp;<input type="text" name="uname" id="uname" style="width:70px;">&nbsp;<input type=BUTTON name="seledd" value="查询会员" onClick="document.myFORM.submit();" class="za_button"></td>
             <td>
               <input type=BUTTON name="append" value="<?=$mem_add?>" onClick="document.location='./su_mem_add.php?uid=<?=$uid?>'" class="za_button">
             </td>
@@ -268,17 +268,17 @@ if ($cou==0){
  ?>
   <table width="796" border="0" cellspacing="1" cellpadding="0"  bgcolor="E3D46E" class="m_tab">
     <tr class="m_title">
-<td width = "70"> Đại lý </ td>
-       <td width = "70"> Tư cách thành viên </ td>
-       <td width = "70"> Tài khoản thành viên </ td>
-       <td width = "70"> Đăng nhập vào tài khoản </ td>
+      <td width="70" >代理商</td>
+      <td width="70">会员名称</td>
+      <td width="70">会员帐号</td>
+      <td width="70">登录帐号</td>
 <? if($edit==1){ ?>
-	 <td width="80">Mật khẩu thành viên</td>
+	 <td width="80">会员密码</td>
 <? } ?>
-	  <td width = "80"> Giới hạn tín dụng </ td>
-       <td width = "70"> Thêm ngày </ td>
-       <td width = "60"> Trạng thái tài khoản </ td>
-       <td width = "180"> Chức năng </ td>
+	  <td width="80">信用额度</td>
+      <td width="70">新增日期</td>
+      <td width="60">帐号状况</td>
+      <td width="180">功能</td>
     </tr>
 <?
 	while ($row = mysql_fetch_array($result)){

@@ -98,13 +98,19 @@ if ($addNew=='Y'){
 }else{
 	$sql = "select * from web_agents where subname='$agname' and subuser=1 order by ".$sort." ".$orderby;
 	$result = mysql_query($sql);
-
+    $level=$_REQUEST['level']?$_REQUEST['level']:1;
 ?>
 <html>
 <head>
 <title>main</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <link rel="stylesheet" href="/style/control/control_main.css" type="text/css">
+<link rel="stylesheet" href="/bootstrap/css/bootstrap.css" type="text/css">
+<link rel="stylesheet" href="/bootstrap/css/bootstrap-theme.css" type="text/css">
+<link rel="stylesheet" href="/style/control/announcement/a1.css" type="text/css">
+<link rel="stylesheet" href="/style/control/announcement/a2.css" type="text/css">
+<script src="/js/jquery-1.10.2.js" type="text/javascript"></script>
+<script src="/js/ClassSelect_ag.js" type="text/javascript"></script>
 <style type="text/css">
 <!--
 .m_title { background-color: #86C0A6; text-align: center}
@@ -112,7 +118,18 @@ if ($addNew=='Y'){
 </style>
 <script language="javascript" src="/js/chk_keycode.js"></script>
 <SCRIPT language=javaScript>
-<!--
+var uid='<?=$uid?>';
+var level='<?=$level?>';
+function ch_level(i)
+{
+    if(i === 1) {
+        self.location = '/app/control/agents/members/ag_members.php?uid='+uid+'&level='+i;
+    } else {
+        self.location = '/app/control/agents/ag_subuser.php?uid='+uid+'&level='+i;
+    }
+
+}
+
 function onLoad(){
 	//var obj_enable = document.getElementById('orderby');
 	//obj_enable.value = '{NOW_ENABLE}';
@@ -123,106 +140,124 @@ function onLoad(){
 	var obj_orderby=document.getElementById('orderby');
 	obj_orderby.value='';
 }
-// -->
 </SCRIPT>
 <script language="javascript" src="/js/ag_subuser.js"></script>
 </head>
 
 <body oncontextmenu="window.event.returnValue=false" bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" vlink="#0000FF" alink="#0000FF" onLoad="onLoad()">
-<table width="780" border="0" cellspacing="0" cellpadding="0">
-	<form name="myFORM" action="su_subuser.php?uid=<?=$uid?>" method="POST">
-		<tr>
-			<td class="m_tline">
-				<table border="0" cellspacing="0" cellpadding="0">
-					<tr>
-						<td nowrap>&nbsp;&nbsp;排序&nbsp;:&nbsp;</td>
-						<td>
-							<select id="sort" name="sort" onChange="document.myFORM.submit();" class="za_select">
-								<option value="username">帐号</option>
-								<option value="adddate">新增日期</option>
-							</select>
-							<select id="orderby" name="orderby" onChange="self.myFORM.submit()" class="za_select">
-								<option value="asc">升幂(由小到大)</option>
-								<option value="desc">降幂(由大到小)</option>
-							</select>
-						</td>
-						<td nowrap>&nbsp;--&nbsp;总页数&nbsp;:&nbsp;</td>
-						<td>
-							<select id="page" name="page" onChange="self.myFORM.submit()" class="za_select">
-								<option value="0">1</option>
-							</select>
-						</td>
-						<td nowrap>&nbsp;/&nbsp;1&nbsp;页&nbsp;--&nbsp;</td>
-						<td>
-							<input type="button" name="append" value="新增" onClick="show_win();" class="za_button">
-						</td>
-					</tr>
-				</table>
-			</td>
-			<td><img src="/images/control/zh-tw/top_04.gif" width="30" height="24"></td>
-		</tr>
-		<tr>
-			<td colspan="2" height="4"></td>
-		</tr>
-	</form>
-</table>
-<table width="780" border="0" cellspacing="1" cellpadding="0" bgcolor="#4B8E6F" class="m_tab">
-	<tr class="m_title">
-		<td width="150">帐号</td>
-		<td width="150">登录帐号</td>
-		<td width="150">密码</td>
-		<td width="150">名称</td>
-		<td width="150">新增日期</td>
-		<td width="180">功能</td>
-	</tr>
-
-    <?
-		$cou=mysql_num_rows($result);
-		if ($cou==0){
-	?>
-  <FORM NAME="AG_<?=$agid?>" ACTION="" METHOD=POST target='_self'>
-    <INPUT TYPE="HIDDEN" NAME="id" value="<?=$agid?>">
-    <INPUT TYPE="HIDDEN" NAME="edituser" value="Y">
-	<input TYPE="HIDDEN" NAME="uid" VALUE="<?=$uid?>">		<input type="hidden" NAME="act" value="2">
-		<input type="hidden" NAME="e_user" VALUE="未搜寻到指定相关资料">
-		<tr class="m_cen">
-			<td>未搜寻到指定相关资料</td>
-			<td>
-				<input type="password" name="e_pass" value="" size="12" maxlength="12" class="za_text" onKeyPress="return ChkKeyCode();">
-			</td>
-			<td>
-				<input type="text" name="e_alias" value="" size="8" class="za_text">
-			</td>
-			<td></td>
-			<td align="left"></td>
-		</tr></FORM>
-	<?
-	}else{
-		while ($row = mysql_fetch_array($result)){
-	?>
-    <FORM NAME="AG_<?=$row['ID']?>" ACTION="" METHOD=POST target='_self'>
-    <INPUT TYPE="HIDDEN" NAME="id" value="<?=$row['ID']?>"> 
-	<INPUT TYPE="HIDDEN" NAME="edituser1" value="Y">
-    <INPUT TYPE="HIDDEN" NAME="edituser" value="Y">
- 	<tr class="m_cen" >
-    		<td><?=$row['Agname']?><input type="hidden" name="e_user" value="<?=$row['Agname']?>" size="8" class="za_text" ></td>
-			<td><?=$row['passwd_safe']?></td>
-			<td>
-				<input type="password" name="e_pass" value="admin111" size="12" maxlength="12" class="za_text" onKeyPress="return ChkKeyCode();">
-			</td>
-			<td>
-				<input type="text" value="<?=$row['Alias']?>" name="e_alias" size="8" class="za_text">
-			</td>
-			<td><?=$row['AddDate']?></td>
-			<td align="left"><a onClick="javascript:ChkData('<?=$row['ID']?>')" style="cursor:hand;">修改</a> / <a href="javascript:CheckDEL('./ag_subuser.php?uid=<?=$uid?>&deluser=Y&id=<?=$row['ID']?>')">删除</a></td>
-    	</tr>
-	</FORM>
-	<?
-	}
-}
-?> 	
-	<!-- END DYNAMIC BLOCK: row -->
-</table>
+<div id="top_nav_container" name="fixHead" class="top_nav_container_ann" >
+    <div id="general_btn" class="<? if ($level == 1) {echo 'nav_btn_on';} else {echo 'nav_btn';}?>" onclick="ch_level(1);">会员</div>
+    <div id="important_btn" class="<? if ($level == 2) {echo 'nav_btn_on';} else {echo 'nav_btn';}?>" onclick="ch_level(2);">子账号</div>
+</div>
+<FORM NAME="myFORM" ACTION="/app/control/agents/members/ag_members.php?uid=<?=$uid?>" METHOD=POST style="padding-top: 62px;">
+    <input type="hidden" name="agent_id" value="28752">
+    <table width="1024" border="0" cellspacing="0" cellpadding="0" style="margin-left:20px;margin-bottom: 10px;">
+        <tr>
+            <td>
+                <table border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td nowrap>&nbsp;&nbsp;排序&nbsp;:&nbsp;</td>
+                        <td>
+                            <select id="sort" name="sort" onChange="document.myFORM.submit();" class="za_select">
+                                <option value="username">帐号</option>
+                                <option value="adddate">新增日期</option>
+                            </select>
+                            <select id="orderby" name="orderby" onChange="self.myFORM.submit()" class="za_select">
+                                <option value="asc">升幂(由小到大)</option>
+                                <option value="desc">降幂(由大到小)</option>
+                            </select>
+                        </td>
+                        <td nowrap>&nbsp;--&nbsp;总页数&nbsp;:&nbsp;</td>
+                        <td>
+                            <select id="page" name="page" onChange="self.myFORM.submit()" class="za_select">
+                                <option value="0">1</option>
+                            </select>
+                        </td>
+                        <td nowrap>&nbsp;/&nbsp;1&nbsp;页&nbsp;--&nbsp;</td>
+                        <td>
+                            <button type="button" class="btn btn-success" onClick="show_win();">新增</button>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <div class="container-fluid">
+            <div class="row-fluid">
+                <table class="table" style="width: 70%;margin-left:20px;">
+                    <thead>
+                    <tr style="background: #F4F1F1;height: 30px;">
+                        <th style="border: none;border-bottom: #bfbfbf 1px solid;white-space: nowrap;color: #3B3B3B;width:8%">
+                            帐号
+                        </th>
+                        <th style="border: none;border-bottom: #bfbfbf 1px solid;white-space: nowrap;color: #3B3B3B;width:8%">
+                            登录帐号
+                        </th>
+                        <th style="border: none;border-bottom: #bfbfbf 1px solid;white-space: nowrap;color: #3B3B3B;width:8%">
+                            密码
+                        </th>
+                        <th style="border: none;border-bottom: #bfbfbf 1px solid;white-space: nowrap;color: #3B3B3B;width:8%">
+                            名称
+                        </th>
+                        <th style="border: none;border-bottom: #bfbfbf 1px solid;white-space: nowrap;color: #3B3B3B;width:8%">
+                            新增日期
+                        </th>
+                        <th style="border: none;border-bottom: #bfbfbf 1px solid;white-space: nowrap;color: #3B3B3B;width:20%">
+                            功能
+                        </th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <?
+                    $cou=mysql_num_rows($result);
+                    if ($cou==0){
+                        ?>
+                        <FORM NAME="AG_<?=$agid?>" ACTION="" METHOD=POST target='_self'>
+                            <INPUT TYPE="HIDDEN" NAME="id" value="<?=$agid?>">
+                            <INPUT TYPE="HIDDEN" NAME="edituser" value="Y">
+                            <input TYPE="HIDDEN" NAME="uid" VALUE="<?=$uid?>">		<input type="hidden" NAME="act" value="2">
+                            <input type="hidden" NAME="e_user" VALUE="未搜寻到指定相关资料">
+                            <tr class="m_cen">
+                                <td>未搜寻到指定相关资料</td>
+                                <td>
+                                    <input type="password" name="e_pass" value="" size="12" maxlength="12" class="za_text" onKeyPress="return ChkKeyCode();">
+                                </td>
+                                <td>
+                                    <input type="text" name="e_alias" value="" size="8" class="za_text">
+                                </td>
+                                <td></td>
+                                <td align="left"></td>
+                            </tr></FORM>
+                        <?
+                    }else{
+                        while ($row = mysql_fetch_array($result)){
+                            ?>
+                            <FORM NAME="AG_<?=$row['ID']?>" ACTION="" METHOD=POST target='_self'>
+                                <INPUT TYPE="HIDDEN" NAME="id" value="<?=$row['ID']?>">
+                                <INPUT TYPE="HIDDEN" NAME="edituser1" value="Y">
+                                <INPUT TYPE="HIDDEN" NAME="edituser" value="Y">
+                                <tr class="m_cen" >
+                                    <td><?=$row['Agname']?><input type="hidden" name="e_user" value="<?=$row['Agname']?>" size="8" class="za_text" ></td>
+                                    <td><?=$row['passwd_safe']?></td>
+                                    <td>
+                                        <input type="password" name="e_pass" value="admin111" size="12" maxlength="12" class="za_text" onKeyPress="return ChkKeyCode();">
+                                    </td>
+                                    <td>
+                                        <input type="text" value="<?=$row['Alias']?>" name="e_alias" size="8" class="za_text">
+                                    </td>
+                                    <td><?=$row['AddDate']?></td>
+                                    <td align="left"><a onClick="javascript:ChkData('<?=$row['ID']?>')" style="cursor:hand;">修改</a> / <a href="javascript:CheckDEL('./ag_subuser.php?uid=<?=$uid?>&deluser=Y&id=<?=$row['ID']?>')">删除</a></td>
+                                </tr>
+                            </FORM>
+                            <?
+                        }
+                    }
+                    ?>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </table>
+</form>
 
 <!----------------------修改视窗---------------------------->
 <div id=acc_window style="display: none;position:absolute">
@@ -278,6 +313,24 @@ function onLoad(){
 <!----------------------修改视窗---------------------------->
 </body>
 </html>
+<style>
+    .list-group-item.active, .list-group-item.active:hover, .list-group-item.active:focus {
+        z-index: 2;
+        color: #fff;
+        background-color: #c12e36;
+        border-color: #c12e36;
+    }
+
+    .list-group-item:first-child {
+        border-top-right-radius: 0px;
+        border-top-left-radius: 0px;
+    }
+    .za_select {
+        font-family: "Arial";
+        font-size: 15px;
+        height: 30px;
+    }
+</style>
 <?
 }
 ?>

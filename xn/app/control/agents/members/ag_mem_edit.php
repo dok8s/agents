@@ -109,11 +109,36 @@ if ($keys=='upd'){
 <title>main</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <link rel="stylesheet" href="/style/control/control_main.css" type="text/css">
+<script src="/idz_indeziner/scriptaculous/lib/prototype.js" type="text/javascript"></script>
+<script src="/idz_indeziner/scriptaculous/src/effects.js" type="text/javascript"></script>
+<script type="text/javascript" src="/idz_indeziner/validation.js"></script>
+<link title="style1" rel="stylesheet" href="/idz_indeziner/style.css" type="text/css" />
+<link title="style2" rel="alternate stylesheet" href="/idz_indeziner/style2.css" type="text/css" />
+<link title="style3" rel="alternate stylesheet" href="/idz_indeziner/style3.css" type="text/css" />
 <style type="text/css">
 <!--
 .m_mem_ed {  background-color: #bdd1de; text-align: right}
 -->
 </style>
+    <style>
+        .list-group {
+            padding-left: 0;
+            margin-bottom: 20px;
+        }
+        .list-group-item:first-child {
+            border-top-right-radius: 0px;
+            border-top-left-radius: 0px;
+        }
+        .list-group-item.active, .list-group-item.active:hover, .list-group-item.active:focus {
+            z-index: 2;
+            color: #fff;
+            background-color: #c12e36;
+            border-color: #c12e36;
+        }
+        a:link {
+            text-decoration: none;
+        }
+    </style>
 <script language="javascript" src="/js/mem_edit.js"></script>
 <script language="javascript" src="/js/set_odd_f.js"></script>
 <SCRIPT>
@@ -157,6 +182,17 @@ function CheckKey(){
 </head>
 
 <body oncontextmenu="window.event.returnValue=false" bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" vlink="#0000FF" alink="#0000FF" onLoad="onLoad();Chg_Mcy('now')">
+<ul class="list-group">
+    <li class="list-group-item active" style="
+    position: relative;
+    display: block;
+    padding: 10px 15px;
+    font-size: 14px;">
+        <a style="color:#ffffff;padding-right: 5px;" href="/app/control/agents/members/ag_members.php?uid=<?=$uid?>"
+           target="main" onMouseOver="window.status='会员'; return true;" onMouseOut="window.status='';return true;"><font>会员</font></a>
+        >><span>修改会员</span>
+    </li>
+</ul>
 <div id="Layer1" style="position:absolute; width:780px; height:48px; z-index:1; left: 0px; top: 297px; visibility: hidden; background-color: #FFFFFF; layer-background-color: #FFFFFF; border: 1px none #000000"></div>
  <FORM NAME="myFORM" ACTION="" METHOD=POST onSubmit="return SubChk()">
  <INPUT TYPE=HIDDEN NAME="keys" VALUE="upd">
@@ -172,132 +208,136 @@ function CheckKey(){
   <input type="hidden" name="ratio_now" value="<?=$row['ratio']?>">
   <input type="hidden" name="old_aid" value="<?=$agid?>">
   <input type="hidden" name="uid" value="<?=$uid?>">
-  <table width="770" border="0" cellspacing="0" cellpadding="0">
-    <tr>
-      <td class="m_tline">&nbsp;&nbsp;<?=$mem_caption?></td>
-      <td width="30"><img src="/images/control/zh-tw/top_04.gif" width="30" height="24"></td>
-    </tr>
-    <tr>
-      <td colspan="2" height="4"></td>
-    </tr>
-  </table>
-  <table width="770" border="0" cellspacing="1" cellpadding="0" class="m_tab_ed">
-  <tr class="m_title_edit">
-    <td colspan="2" ><?=$mem_accset?></td>
-  </tr>
-  <tr class="m_bc_ed">
-    <td width="120" class="m_mem_ed"> <?=$sub_user?>:</td>
-      <td><?=$row['Memname']?>
-      / 
-      <font color =red><?=$row['loginname'];?></font></td>
-  </tr>
-  <tr class="m_bc_ed">
-    <td class="m_mem_ed"><?=$sub_pass?>:</td>
-      <td>
-        <input type=PASSWORD name="password" size=12 maxlength=12 class="za_text" value="<?=$row['Passwd']?>">
-        密码必须至少6个字元长，最多12个字元长，并只能有数字(0-9)，及英文大小写字母 </td>
-  </tr>
-  <tr class="m_bc_ed">
-    <td class="m_mem_ed"><?=$acc_repasd?>:</td>
-      <td>
-        <input type=PASSWORD name="repassword" size=12 maxlength=12 class="za_text" value="<?=$row['Passwd']?>">
-      </td>
-  </tr>
-  <tr class="m_bc_ed">
-      <td class="m_mem_ed"><?=$mem_name?>:</td>
-      <td>
-        <input type=TEXT name="alias" size=10 maxlength=10 class="za_text" value="<?=$row['Alias']?>">
-      </td>
-  </tr>
-</table>
-  <table width="770" border="0" cellspacing="1" cellpadding="0" class="m_tab_ed">
-    <tr class="m_title_edit">
-      <td colspan="2" ><?=$mem_betset?></td>
-    </tr>
-    <tr class="m_bc_ed">
-      <td width="120" class="m_mem_ed"><?=$mem_otype?>:</td>
-      <td>
-        <select name="type" class="za_select" disabled>
-          <option value="1">A<?=$mem_opentype?></option>
-          <option value="2">B<?=$mem_opentype?></option>
-          <option value="3">C<?=$mem_opentype?></option>
-          <option value="4">D<?=$mem_opentype?></option>
-        </select>
-      </td>
-    </tr>
-    <tr class="m_bc_ed">
-      <td class="m_mem_ed"><?=$rep_pay_type?>:</td>
-      <td>
-	  <table border="0" cellspacing="0" cellpadding=0>
-	<tr>
-		<td><?
-		if ($row['pay_type']==0){
-			echo $mem_credit;
-		}else{
-			echo $mem_moncredit;
-		}
-		?></td>
-	</tr>
-</table>
-</td>
-    </tr>
-    <tr class="m_bc_ed">
-      <td class="m_mem_ed"><?=$mem_radioset?>:</td>
-      <td><?
-	switch(strtoupper(trim($row['CurType']))){
-	case 'HKD':
-		echo $mem_radio_HKD;
-		break;
-	case 'USD':
-		echo $mem_radio_USD;
-		break;
-	case 'MYR':
-		echo $mem_radio_MYR;
-		break;
-	case 'SGD':
-		echo $mem_radio_SGD;
-		break;
-	case 'THB':
-		echo $mem_radio_THB;
-		break;
-	case 'GBP':
-		echo $mem_radio_GBP;
-		break;
-	case 'JPY':
-		echo $mem_radio_JPY;
-		break;
-	case 'EUR':
-		echo $mem_radio_EUR;
-		break;
-	case 'RMB':
-		echo $mem_current;
-		break;
-	case '':
-		echo $mem_current;
-		break;
-	}
-	?> ; <?=$mem_curradio?>:<font color="#FF0033" id="mcy_now"><?=$row['ratio']?></font>&nbsp;<?=$mem_radiored?></td>
-    </tr>
-    <tr class="m_bc_ed">
-      <td class="m_mem_ed"><?=$mem_maxcredit?>:</td>
-      <td><?
-	if ($row[pay_type]==0){
-	$credit=$row['Credit']*$row['ratio'];
-?>
-        <input type=TEXT name="maxcredit" value="<?=$credit?>" size=12 maxlength=12 class="za_text" onKeyUp="Chg_Mcy('mx');" onKeyPress="return CheckKey();">
-<?
-}else{
-	$credit=$row['Money']*$row['ratio'];
-	echo $credit;
-}
-?>&nbsp; &nbsp; &nbsp;         <?=$mem_current?>:<font color="#FF0033" id="mcy_mx"><?=$credit;?></font> </td>
-    </tr>
-	
-    <tr class="m_bc_ed">
-      <td class="m_mem_ed">盘口玩法:</td>
-      <td><span id=show_cb></span></td>
-    </tr>
-  </table>
+     <div class="form_content">
+     <form id="test" action="#" method="get">
+         <fieldset>
+             <legend>基本资料设定</legend>
+             <div class="form-row">
+                 <div class="field-label"><label for="field1"><?=$sub_user?>:</label></div>
+                 <div class="field-widget">
+                     <font id="ag_count"><?=$row['Memname']?></font>
+                     /
+                     <font color =red><?=$row['loginname'];?></font>
+                 </div>
+             </div>
+
+             <div class="form-row">
+                 <div class="field-label"><label for="field7"><?=$sub_pass?></label>:</div>
+                 <div class="field-widget">
+                     <input value="<?=$row['Passwd']?>" type="password" name="password" id="password" class="required validate-password" title="Enter a password greater than 6 characters" />
+                 </div>
+                 <div class="field-widget" style="color:red;">密码必须至少6个字元长，最多12个字元长，并只能有数字(0-9)，及英文大小写字母</div>
+
+             </div>
+
+
+             <div class="form-row">
+                 <div class="field-label"><label for="field9"><?=$acc_repasd?></label>:</div>
+                 <div class="field-widget"><input value="<?=$row['Passwd']?>" type="password" name="repassword" id="repassword" class="required validate-password-confirm" title="Enter the same password for confirmation" /></div>
+             </div>
+
+             <div class="form-row">
+                 <div class="field-label"><label for="field2"><?=$mem_name?></label>:</div>
+                 <div class="field-widget"><input value="<?=$row['Alias']?>" name="alias" id="alias" class="required" title="请输入会员名称！" /></div>
+             </div>
+
+         </fieldset>
+         <fieldset>
+             <legend>下注资料设定</legend>
+             <div class="form-row">
+                 <div class="field-label"><label for="field4"><?=$mem_maxcredit?></label>:</div>
+                 <div class="field-widget">
+                     <?
+                     if ($row[pay_type]==0){
+                         $credit=$row['Credit']*$row['ratio'];
+                         ?>
+                         <input type=TEXT name="maxcredit" value="<?=$credit?>" size=12 maxlength=12 class="za_text" onKeyUp="Chg_Mcy('mx');" onKeyPress="return CheckKey();">
+                         <?
+                     }else{
+                         $credit=$row['Money']*$row['ratio'];
+                         echo $credit;
+                     }
+                     ?>&nbsp; &nbsp; &nbsp;         <?=$mem_current?>:<font color="#FF0033" id="mcy_mx"><?=$credit;?></font>
+                 </div>
+                 美金:<font color="#FF0033" id="mcy_mx">0</font>
+             </div>
+
+             <div class="form-row">
+                 <div class="field-label"><label for="field5">盘口玩法</label>:</div>
+                 <div class="field-widget"><span id=show_cb></span></div>
+             </div>
+             <div class="form-row">
+                 <div class="field-label"><label for="field6"><?=$mem_otype?></label>:</div>
+                 <div class="field-widget">
+                     <select id="type" name="type" class="validate-selection" title="Choose your department" onChange="show_count(0,this.value);" disabled>
+                         <option value="">请选择</option>
+                         <option value="1">A<?=$mem_opentype?></option>
+                         <option value="2">B<?=$mem_opentype?></option>
+                         <option value="3">C<?=$mem_opentype?></option>
+                         <option value="4">D<?=$mem_opentype?></option>
+                     </select>
+                 </div>
+             </div>
+             <div class="form-row">
+                 <div class="field-label"><label for="field6"><?=$mem_radioset?></label>:</div>
+                 <div class="field-widget">
+                     <?
+                     switch(strtoupper(trim($row['CurType']))){
+                         case 'HKD':
+                             echo $mem_radio_HKD;
+                             break;
+                         case 'USD':
+                             echo $mem_radio_USD;
+                             break;
+                         case 'MYR':
+                             echo $mem_radio_MYR;
+                             break;
+                         case 'SGD':
+                             echo $mem_radio_SGD;
+                             break;
+                         case 'THB':
+                             echo $mem_radio_THB;
+                             break;
+                         case 'GBP':
+                             echo $mem_radio_GBP;
+                             break;
+                         case 'JPY':
+                             echo $mem_radio_JPY;
+                             break;
+                         case 'EUR':
+                             echo $mem_radio_EUR;
+                             break;
+                         case 'RMB':
+                             echo $mem_current;
+                             break;
+                         case '':
+                             echo $mem_current;
+                             break;
+                     }
+                     ?> ; <?=$mem_curradio?>:<font color="#FF0033" id="mcy_now"><?=$row['ratio']?></font>&nbsp;<?=$mem_radiored?>
+                 </div>
+             </div>
+
+             <div class="form-row-select">
+                 <fieldset>
+                     <legend class="optional"><?=$rep_pay_type?></legend>
+                     <label class="left">
+                         <?
+                         if ($row['pay_type']==0){
+                             echo $mem_credit;
+                         }else{
+                             echo $mem_moncredit;
+                         }
+                         ?>
+                     </label>
+                 </fieldset>
+
+             </div>
+
+         </fieldset>
+         <input type="submit" class="submit" value="确认" /> <input class="reset" type="button" value="取消" onclick="valid.reset(); return false" />
+     </form>
+     </div>
 <? if($sysconf['setmin']==1) { ?>
 <? } ?>
 <table width="770" border="0" cellspacing="1" cellpadding="0" class="m_tab_ed">

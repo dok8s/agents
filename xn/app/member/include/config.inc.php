@@ -7,6 +7,7 @@ $dbuser = "bjfxzf";
 $dbpass = "123456";
 $dbname = "bjfxzf";
 
+
 $lnk = mysql_connect($dbhost,$dbuser,$dbpass) or exit("ERROR MySQL Connect");
 mysql_select_db($dbname, $lnk);
 

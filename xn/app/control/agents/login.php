@@ -55,13 +55,12 @@ top.flash_cont_cutoff = \'Y\';top.flash_cont_flag = \'300\';top.langx = \'zh-tw\
 </script>
 <html>
 <head>
-<title>祅2</title>
+<title>管理端</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 </head>
-<frameset rows="51,*,0" frameborder="NO" border="0" framespacing="0">
-<frame name="topFrame" scrolling="NO" noresize src="header.php?langx=zh-tw&uid='.$uid.'">
+<frameset rows="75px,*" frameborder="NO" border="0" framespacing="0">
+<frame name="topFrame" scrolling="NO" marginheight="150" noresize src="header.php?langx=zh-tw&uid='.$uid.'">
 <frame name="main" src="body_home.php?langx=zh-tw&uid='.$uid.'">
-<frame name="swfFrame" scrolling="NO" noresize src="../../../tpl/FlashContent.html">
 </frameset>
 <noframes>
 <body bgcolor="#FFFFFF" text="#000000" oncontextmenu="window.event.returnValue=false">

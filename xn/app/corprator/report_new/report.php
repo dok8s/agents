@@ -20,10 +20,10 @@ $row = mysql_fetch_array($result);
 $subuser=$row['subuser'];
 if ($row['subuser']==1){
 	$agname=$row['subname'];
-	$loginfo=$agname.'Subaccount:'.$row['subname'].'Báo cáo kỳ truy vấn';
+	$loginfo=$agname.'子帐号:'.$row['subname'].'查询期间报表';
 }else{
 	$agname=$row['Agname'];
-	$loginfo='Trong khi truy vấn'.$date_start.'Để'.$date_end.'Báo cáo';
+	$loginfo='查询期间'.$date_start.'至'.$date_end.'报表';
 }
 $agid=$row['ID'];
 $super=$row['super'];
@@ -125,22 +125,22 @@ function report_bg(){
 		<td class="m_tline">
 			<table border="0" cellspacing="0" cellpadding="0">
 				<tr>
-					<td width="60">&nbsp;&nbsp;Quản lý báo cáo:</td>
+					<td width="60">&nbsp;&nbsp;报表管理:</td>
 									<td><select name="gtype" class="za_select">
-<option value = ""> tất cả </ option>
-<option value = "FT"> Bóng đá </ option>
-<option value = "BK"> Bóng rổ </ option>
-<option value = "TN"> Tennis </ option>
-<option value = "VB"> Bóng chuyền </ option>
-<option value = "BS"> Bóng chày </ option>
-<option value = "OP"> Khác </ option>
-<option value = "FS"> Nhà vô địch </ option>
+								<option value="">全部</option>
+								<option value="FT">足球</option>
+								<option value="BK">篮球</option>
+								<option value="TN">网球</option>
+								<option value="VB">排球</option>
+								<option value="BS">棒球</option>
+								<option value="OP">其它 </option>
+								<option value="FS">冠军</option>
 						</select>
 					</td>
 <td width="80"></td>
 						<td nowrap>
-							&nbsp;<a href="./report.php?uid=<?=$uid?>" onMouseOver="window.status='报表'; return true;" onMouseOut="window.status='';return true;"style="background-color:#3399FF">Báo cáo</a>
-							&nbsp;<a href="./report_cancel_wager.php?uid=<?=$uid?>" onMouseOver="window.status='取消单分析'; return true;" onMouseOut="window.status='';return true;"style="background-color:">Hủy phân tích đơn lẻ</a>
+							&nbsp;<a href="./report.php?uid=<?=$uid?>" onMouseOver="window.status='报表'; return true;" onMouseOut="window.status='';return true;"style="background-color:#3399FF">报表</a>
+							&nbsp;<a href="./report_cancel_wager.php?uid=<?=$uid?>" onMouseOver="window.status='取消单分析'; return true;" onMouseOut="window.status='';return true;"style="background-color:">取消单分析</a>
 						</td>
 
 				</tr>
@@ -157,7 +157,7 @@ function report_bg(){
 
 <table width="660" border="0" cellspacing="1" cellpadding="0" class="m_tab_ed">
 	<tr class="m_bc">
-		<td width="100" class="m_title_re"> Phạm vi ngày: </td>
+		<td width="100" class="m_title_re"> 日期区间: </td>
 		<td colspan="5">
 			<table border="0" cellspacing="0" cellpadding="0">
 				<tr>
@@ -180,10 +180,10 @@ function report_bg(){
 		</td>
 	</tr>
 	<tr class="m_bc">
-<td class = "m_title_re"> Danh mục Báo cáo: </ td>
-<td colspan = "4">
-<select name = "report_kind" class = "za_select">
-<option value = "A" SELECTED> Sổ cái chung </ option>
+		<td class="m_title_re"> 报表分类: </td>
+		<td colspan="4">
+			<select name="report_kind" class="za_select">
+				<option value="A" SELECTED>总帐</option>
 				<!--option value="C">分类帐</option-->
 			</select>
 		</td>
@@ -198,38 +198,38 @@ function report_bg(){
 			<!--/select>
 		</td>
 	</tr-->
-	<tr class = "m_bc">
-<td class = "m_title_re"> Phương thức đặt cược: </ td>
-<td colspan = "4">
-<select name = "pay_type" class = "za_select">
-<option value = "" SELECTED> Tất cả </ option>
-<option value = "0"> Giới hạn tín dụng </ option>
-<option value = "1"> Tiền mặt </ option>
-</ select>
-</ td>
-</ tr>
-<tr class = "m_bc">
-<td class = "m_title_re"> Loại đặt cược: </ td>
-<td colspan = "4">
-<select name = "wtype" class = "za_select">
-<option value = "" SELECTED> Tất cả </ option>
-<option value = "R"> Nhận bóng (phút) </ option>
-<option value = "RE"> Roulette </ option>
-<option value = "P"> Giải phóng mặt bằng tiêu chuẩn </ option>
-<option value = "PR"> Để bóng chuyền (vượt qua) </ option>
-<option value = "PC"> Giải phóng mặt bằng toàn diện </ option>
-<option value = "OU"> Kích thước </ option>
-<option value = "ROU"> Kích thước bi lăn </ option>
-<option value = "PD"> mật mã </ option>
-<option value = "T"> Vào bóng </ option>
-<option value = "M"> Chỉ giành chiến thắng </ option>
-<option value = "F"> Nửa gia đình </ option>
-<option value = "HR"> Tỷ lệ chấp đầu tiên (phút) </ option>
-<option value = "HOU"> Kích thước nửa đầu </ option>
-<option value = "HM"> Chiến thắng nửa đầu </ option>
-<option value = "HRE"> Đặt bóng trong nửa đầu (phút) </ option>
-<option value = "HROU"> Kích thước nửa quả bóng cuối cùng </ option>
-                                <option value = "HPD"> nửa trên của sóng </ option>
+	<tr class="m_bc">
+		<td class="m_title_re"> 投注方式: </td>
+		<td colspan="4">
+			<select name="pay_type" class="za_select">
+				<option value="" SELECTED>全部</option>
+				<option value="0">信用额度</option>
+				<option value="1">现金</option>
+			</select>
+		</td>
+	</tr>
+	<tr class="m_bc">
+		<td class="m_title_re"> 投注种类: </td>
+		<td colspan="4">
+			<select name="wtype" class="za_select">
+				<option value="" SELECTED>全部</option>
+				<option value="R">让球(分)</option>
+				<option value="RE">滚球</option>
+				<option value="P">标准过关</option>
+				<option value="PR">让球(分)过关</option>
+				<option value="PC">综合过关</option>
+				<option value="OU">大小</option>
+				<option value="ROU">滚球大小</option>
+				<option value="PD">波胆</option>
+				<option value="T">入球</option>
+				<option value="M">独赢</option>
+				<option value="F">半全场</option>
+				<option value="HR">上半场让球(分)</option>
+				<option value="HOU">上半场大小</option>
+				<option value="HM">上半场独赢</option>
+				<option value="HRE">上半滚球让球(分)</option>
+				<option value="HROU">上半滚球大小</option>
+                                <option value="HPD">上半波胆</option>
 			</select>
 		</td>
 	</tr>
@@ -370,15 +370,15 @@ function report_bg(){
       <td colspan="2" class="m_title_ce"><?=date('Y-m-d',time()-24*60*60)?><?=$kkk3?></td>
       <td colspan="2" class="m_title_ce"><?=date('Y-m-d')?><?=$kkk1?></td>
     </tr>
-   <tr class = "m_bc">
-       <td class = "m_title_re"> Trạng thái Hiện tại </ td>
-       <td style = "color: # FF0000"> Kết quả </ td>
-       <td style = "color: # FF0000"> Không có kết quả </ td>
-       <td> Kết quả </ td>
-       <td> Không có kết quả </ td>
-     </ tr>
-     <tr class = "m_bc">
-       <td class = "m_title_re"> Bóng đá </ td>
+    <tr class="m_bc">
+      <td class="m_title_re">目前状态</td>
+      <td style="color:#FF0000">有结果</td>
+      <td style="color:#FF0000">无结果</td>
+      <td>有结果</td>
+      <td>无结果</td>
+    </tr>
+    <tr class="m_bc">
+      <td class="m_title_re">足球</td>
       <td style="color:#FF0000"><?=$ft_cou2?></td>
       <td style="color:#FF0000"><?=$ft_cou3?></td>
       <td><?=$ft_cou?></td>

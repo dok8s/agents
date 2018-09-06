@@ -358,7 +358,7 @@ function ChkMem(){
       <td class="m_mem_ed">汇率设定:</td>
       <td>
 <select name="currency" class="za_select" onChange="Chg_Mcy('now');Chg_Mcy('mx')">
-	  <option value="USD">美金 -> 美金</option>
+	  <option value="RMB">美金 -> 美金</option>
 
 
         </select>

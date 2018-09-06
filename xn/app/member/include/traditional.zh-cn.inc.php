@@ -2,128 +2,129 @@
 $charset = 'utf-8';
 
 //index
-$ind_caption = 'Tất cả các trường phân biệt chữ hoa chữ thường';
-$ind_name = 'Tài khoản:';
-$ind_pass = 'Mật khẩu:';
-$ind_submit = 'Đăng nhập';
-$bet_ffqx = 'Ghi chú bất hợp pháp';
-// menu
-$mnu_soccer = 'Bóng đá';
-$mnu_bask = 'Bóng rổ';
-$mnu_epasd = 'Thay đổi mật khẩu';
-$mnu_suger = 'tài khoản phụ';
-$mnu_member = 'Thành viên';
-$mnu_report = 'Báo cáo';
-$mnu_system = '800 hệ thống';
-$mnu_softdown = 'Tải xuống phần mềm';
-$mnu_exit = 'Đăng xuất';
-//real_wager
-$rel_straight = 'Single';
-$rel_hsthalf = 'Nửa đầu';
-$rel_running = 'Lăn bi';
-$rel_correct = 'wave gall';
-$rel_total = 'Tổng số bàn thắng';
-$rel_halffull = 'half-full';
-$rel_parlay = 'pass';
-$rel_haveopen = 'Đã mở';
-$rel_dtnow = 'Giờ Miền Đông';
-$rel_contorl = 'Nhà giao dịch trực tuyến';
-$rel_reload = 'Làm mới';
-$rel_body_time = 'time';
-$rel_body_league = 'Union';
-$rel_lhometeam = 'nhóm chủ nhà';
-$rel_shometeam = 'Đội';
-$rel_mid = 'Sự kiện';
-$rel_let = 'Lấy bóng';
-$rel_let_score = 'Tạo điểm';
-$rel_betou = 'note';
-$rel_dime = 'Kích thước';
-$rel_win = 'Chỉ thắng';
-$rel_odd = 'single';
-$rel_even = 'double';
-$rel_foot = 'Foot';
-$rel_refresh = 'Chưa cập nhật';
-$rel_percent = 'Kết thúc';
-$rel_draw = 'và văn phòng';
-$rel_turnrate = 'Tỷ lệ chấp nhận';
-$rel_voucher = 'số duy nhất';
-$rel_bkhalf = 'Hiệp hai';
+$ind_caption = '所有栏位均区分大小写';
+$ind_name = '帐号：';
+$ind_pass = '密码：';
+$ind_submit = '登入';
+$bet_ffqx='非法注单';
+//menu
+$mnu_soccer = '足球';
+$mnu_bask = '篮球';
+$mnu_epasd='更改密码';
+$mnu_suger='子帐号';
+$mnu_member='会员';
+$mnu_report='报表';
+$mnu_system='800系统';
+$mnu_softdown='软件下载';
+$mnu_exit='登出';
 
-// thành viên
-$mem_caption = 'Quản lý thành viên';
-$mem_orderby = 'sắp xếp';
-$mem_agents = 'Đại lý';
-$mem_order_asc = 'Tăng sức mạnh (từ nhỏ đến lớn';
-$mem_order_desc = 'Sức mạnh xuống (từ lớn đến nhỏ';
-$mem_pages = 'Tổng số trang';
-$mem_page = 'page';
-$mem_add = 'Thêm';
-$mem_name = 'Tên thành viên';
-$mem_uid = 'Tài khoản thành viên';
-$mem_credit = 'Giới hạn tín dụng';
-$mem_otypes = 'handle';
-$mem_adddate = 'Thêm ngày';
-$mem_status = 'Trạng thái tài khoản';
-$mem_option = 'function';
-$mem_enable = 'Đã bật';
-$mem_disable = 'Disabled';
-$mem_acount = 'Chỉnh sửa dữ liệu';
-$mem_setopt = 'cài đặt chi tiết';
-$mem_delete = 'Xóa';
-$mem_curent = 'Tiền tệ';
-$mem_current = 'USD';
-$mem_turn_rate = 'Cài đặt hoàn tiền';
-$mem_scence = 'Hạn ngạch trường đơn';
-$mem_sbet = 'Giới hạn Lưu ý Đơn';
-$mem_parlay = 'Giải phóng mặt bằng tiêu chuẩn';
-$mem_accset = 'Cài đặt dữ liệu cơ bản';
-$mem_betset = 'cài đặt dữ liệu đặt cược';
-$mem_otype = 'Mở bóng';
-$mem_opentype = 'đĩa';
-$mem_pasread = 'Mật khẩu phải có ít nhất 4 ký tự và dài tối đa 8 ký tự, và chỉ có thể có chữ số (0-9, và chữ in hoa tiếng Anh';
-$mem_radioset = 'Tỷ giá hối đoái';
-$mem_curradio = 'tỷ giá hối đoái hiện hành';
-$mem_radio_HKD = 'HKD';
-$mem_radio_USD = 'Đô la Mỹ';
-$mem_radio_MYR = 'RMC';
-$mem_radio_SGD = 'Singapore';
-$mem_radio_THB = 'THB';
-$mem_radio_GBP = 'Bảng Anh';
-$mem_radio_JPY = 'Yên Nhật';
-$mem_radio_EUR = 'Euro';
-$mem_radio_RMB = 'RMB';
-$mem_maxcredit = 'Tổng hạn mức tín dụng';
-$mem_moncredit = 'giá trị hiện tại';
-$mem_radiored = '(tỷ giá hối đoái hiện hành chỉ để tham khảo)';
-$mem_alert1 = 'Tài khoản phải được nhập !!';
-$mem_alert2 = 'Tài khoản phải được nhập !!';
-$mem_alert3 = 'Tài khoản phải được nhập !!';
-$mem_alert4 = 'Hãy chọn bóng mở !!';
-$mem_alert5 = 'Mật khẩu phải được nhập !!';
-$mem_alert6 = 'Xác nhận mật khẩu phải được nhập !!';
-$mem_alert7 = 'Mật khẩu không chính xác, vui lòng nhập lại !!';
-$mem_alert8 = 'Tên thành viên phải được nhập !!';
-$mem_alert9 = 'Tổng hạn mức tín dụng, vui lòng nhập !!';
-$mem_alert10 = 'Bạn có chắc chắn viết thông tin thành viên không?';
-$mem_alert11 = 'Bạn đã thay đổi giá trị tiền tệ của thành viên khác với giá trị tiền tệ cài đặt của trang web, \ n \ nTất cả giới hạn đặt cược một trường sẽ bị xóa, \ n \ nVui lòng nhập lại cập nhật cài đặt chi tiết. ';
-$mem_nomem = 'Hiện tại không có thành viên';
-$mem_selagent = 'Chọn tác nhân';
-// người phụ
-$sub_user = 'Tài khoản';
-$sub_pass = 'mật khẩu';
-$sub_name = 'Tên';
-$sub_adduser = 'Thêm người dùng';
-$sub_adduser = 'tài khoản';
-$sub_addpass = 'mật khẩu';
-$sub_addalias = 'bí danh';
-$sub_orderby = 'sắp xếp';
-$sub_modify = 'sửa đổi';
-$sub_message = 'Không tìm kiếm dữ liệu liên quan cụ thể';
+//real_wager
+$rel_straight = '单式';
+$rel_hsthalf = '上半场';
+$rel_running = '滚球';
+$rel_correct = '波胆';
+$rel_total = '总入球';
+$rel_halffull = '半全场';
+$rel_parlay = '过关';
+$rel_haveopen='已开赛';
+$rel_dtnow='美东时间';
+$rel_contorl='线上操盘';
+$rel_reload='重新整理';
+$rel_body_time='时间';
+$rel_body_league = '联盟';
+$rel_lhometeam = '主客队伍';
+$rel_shometeam = '队伍';
+$rel_mid='场次';
+$rel_let='让球';
+$rel_let_score='让分';
+$rel_betou='注单';
+$rel_dime='大小盘';
+$rel_win='独赢';
+$rel_odd='单';
+$rel_even='双';
+$rel_foot='足';
+$rel_refresh='不更新';
+$rel_percent='成数';
+$rel_draw='和局';
+$rel_turnrate='收中比';
+$rel_voucher='单号';
+$rel_bkhalf='下半场';
+
+//member
+$mem_caption='会员管理';
+$mem_orderby='排序';
+$mem_agents='代理商';
+$mem_order_asc='升幂(由小到大';
+$mem_order_desc='降幂(由大到小';
+$mem_pages='总页数';
+$mem_page='页';
+$mem_add='新增';
+$mem_name='会员名称';
+$mem_uid='会员帐号';
+$mem_credit='信用额度';
+$mem_otypes='盘口';
+$mem_adddate='新增日期';
+$mem_status='帐号状况';
+$mem_option='功能';
+$mem_enable='启用';
+$mem_disable='停用';
+$mem_acount='修改资料';
+$mem_setopt='详细设定';
+$mem_delete='删除';
+$mem_curent='币别';
+$mem_current='人民币';
+$mem_turn_rate='退水设定';
+$mem_scence='单场限额';
+$mem_sbet='单注限额';
+$mem_parlay='标准过关';
+$mem_accset='基本资料设定';
+$mem_betset='下注资料设定';
+$mem_otype='开放球类';
+$mem_opentype='盘';
+$mem_pasread='密码必须至少4个字元长，最多8个字元长，并只能有数字(0-9，及英文大小写字母';
+$mem_radioset='汇率设定';
+$mem_curradio='目前汇率';
+$mem_radio_HKD='港币';
+$mem_radio_USD='美金';
+$mem_radio_MYR='马币';
+$mem_radio_SGD='新币';
+$mem_radio_THB='泰铢';
+$mem_radio_GBP='英磅';
+$mem_radio_JPY='日币';
+$mem_radio_EUR='欧元';
+$mem_radio_RMB='人民币';
+$mem_maxcredit='总信用额度';
+$mem_moncredit='现金额度';
+$mem_radiored='(目前汇率仅供参考)';
+$mem_alert1='帐号请务必输入!!';
+$mem_alert2='帐号请务必输入!!';
+$mem_alert3='帐号请务必输入!!';
+$mem_alert4='请选择开放球类!!';
+$mem_alert5='密码请务必输入!!';
+$mem_alert6='确认密码请务必输入!!';
+$mem_alert7='密码确认错误,请重新输入!!';
+$mem_alert8='会员名称请务必输入!!';
+$mem_alert9='总信用额度请务必输入!!';
+$mem_alert10='是否确定写入会员资料?';
+$mem_alert11='您已经改变了会员的币值与网站设定币值不同，\n\n所有的单场单注限额将被归零，\n\n请重新进入详细设定更新。';
+$mem_nomem='目前无任何会员';
+$mem_selagent='选择代理商';
+//subuser
+$sub_user='帐号';
+$sub_pass='密码';
+$sub_name='名称';
+$sub_adduser='新增使用者';
+$sub_adduser='帐　号';
+$sub_addpass='密　码';
+$sub_addalias='别　名';
+$sub_orderby='排序';
+$sub_modify='修改';
+$sub_message='未搜寻到指定相关资料';
 
 //editpass
-$acc_caption = 'Vui lòng nhập mật khẩu';
-$acc_pasd = 'Mật khẩu';
-$acc_repasd = 'Xác nhận mật khẩu';
+$acc_caption='请输入密码';
+$acc_pasd='密码';
+$acc_repasd='确认密码';
 
 //$report
 $rep_caption='报表管理';
@@ -162,9 +163,6 @@ $rep_wtype_ut='下半单双';
 $rep_readme0='赛事尚有{}场未输入完毕';
 $rep_readme1='赛事结果已输入完毕';
 $rep_readme2='没有赛事';
-
-
-
 
 //report_agent
 $rag_name='代理商';
@@ -247,126 +245,5 @@ $wqrzd='未确认单';
 
 $jqqx='进球取消';
 $zzqrzd='正在确认中';
-
-
-
-$rep_caption = 'Quản lý báo cáo';
-$rep_gtype_all = 'Tất cả';
-$rep_gtype_ft = 'Bóng đá';
-$rep_gtype_bk = 'Bóng rổ';
-$rep_yestoday = 'ngày hôm qua';
-$rep_weekday = 'Một tuần';
-$rep_datesel = 'phạm vi ngày';
-$rep_kind = 'Danh mục báo cáo';
-$rep_kind_a = 'General Ledger';
-$rep_kind_c = 'Sổ cái';
-$rep_kind_d = 'Ghi chú cho người độc thân';
-$rep_pay_type = 'Phương pháp cược';
-$rep_pay_type_all = 'Tất cả';
-$rep_pay_type_c = 'Giới hạn tín dụng';
-$rep_pay_type_m = 'Tiền mặt';
-$rep_wtype = 'Loại cược';
-$rel_vou = 'Kích thước của nửa đầu';
-$rep_wtype_r = 'Hãy để bóng';
-$rep_wtype_re = 'Lăn bi';
-$rep_wtype_p = 'Băng qua';
-$rep_wtype_ou = 'Kích thước';
-$rep_wtype_pd = 'túi mật';
-$rep_wtype_reo = 'Lăn bóng đơn và đôi';
-$rep_wtype_t = 'Mục tiêu';
-$rep_wtype_m = 'Chỉ thắng';
-$rep_wtype_f = 'Nửa trường';
-$rep_wtype_v = 'Xử lý đầu tiên';
-$rep_wtype_vou = 'Kích thước một nửa';
-$rep_wtype_vm = 'Chiến thắng nửa đầu';
-$rep_wtype_vt = 'Nửa đầu tiên';
-$rep_wtype_u = 'Hãy để quả bóng trong hiệp hai';
-$rep_wtype_uou = 'Kích thước một nửa';
-$rep_wtype_ut = 'thấp hơn đơn và đôi';
-$rep_readme0 = 'Vẫn còn các trường trong giải đấu chưa được nhập';
-$rep_readme1 = 'Kết quả ban đầu đã được nhập';
-
-$rep_readme2='Không có sự kiện';
-// report_agent
-$rag_name = 'Đại lý';
-$rag_date = 'Ngày';
-$rag_type = 'Đặt cược đường ống: Net Bet';
-$rag_mem = 'Thành viên';
-$rag_num = 'số lượng bút';
-$rag_money = 'Số tiền';
-$rag_current = 'currency';
-$rag_pecert = 'Đóng cửa';
-$rag_turn_rate = 'Hoàn tiền';
-$rag_gtype = "Loại trò chơi";
-$rag_text = 'Nội dung';
-$rag_result = 'Kết quả';
-// lớp báo cáo
-$rcl_money = 'số tiền đặt cược';
-$rcl_agent = 'Đại lý';
-$rcl_world = 'Đại lý chung';
-$rcl_agentres = 'Kết quả của người bán lại';
-$rcl_readme = 'Ghi chú';
-$rcl_corp = 'Cổ đông';
-// khác
-$submit_ok = 'OK';
-$submit_search = 'Truy vấn';
-$submit_cancle = 'Hủy';
-$return_back = 'Quay lại trang trước';
-$return_report = 'Truy vấn bảng báo cáo';
-$system_message = '';
-$run = 'Lăn bóng';
-$mb_team = 'MB_Team';
-$tg_team = 'TG_Team';
-$m_league = 'M_League';
-$m_sleague = 'M_Sleague';
-$body_mb_dimes = 'Lớn';
-$body_tg_dimes = 'nhỏ';
-$m_dime_hr = 'M_Dime_HR';
-$m_letb_hr = 'M_LetB_HR';
-$bettype = 'BetType1';
-$middle = 'Middle2';
-$m_flat = 'M_Place';
-$showtop = 'ShowTop';
-$body_js = '';
-$mem_msg = $msg_member;
-$bet_pages = 'Giữa tổng số trang';
-$bet_wager = 'Cược Đội Tức thì';
-$search_result = 'Không kiểm tra dữ liệu';
-$search_cancle = 'Rời khỏi';
-
-
-/// login1
-$cor_name = 'Đại lý chung';
-$wld_selagent = 'Quản lý đại lý';
-$wld_memcount = 'Thành viên';
-$wld_percent3 = 'Trách nhiệm đối với các đại lý';
-$wld_percent2 = 'Tổng số lượng tác nhân';
-$cor_agents = 'Tổng quản lý đại lý';
-$cor_name1 = 'Tên đại lý chung';
-$cor_user = 'Tài khoản đại lý chung';
-$cor_count = 'Đại lý Tổng cộng';
-///////////////
-
-$wor_percent = 'Into';
-$mem_addnewuser = 'Thêm và sửa đổi';
-$mem_havecredit = 'Có sẵn';
-$mem_status = 'sử dụng';
-$wor_percent_all = 'Tất cả';
-$rep_readme3 = 'Trò chơi có {field input completed}';
-$real_wager = 'Ghi chú tức thì';
-
-$wld_percent4 = 'Chia sẻ của cổ đông';
-$cor_manage = 'Quản lý cổ đông';
-$bet_cancel = '[Hủy]';
-
-
-
-$zdqrz = 'Trước khi xác nhận';
-$zdqrz1 = 'Để xác nhận đơn đặt hàng, vui lòng kiểm tra trạng thái giao dịch của bạn';
-
-$wqrzd = 'Chưa xác nhận đơn';
-
-$jqqx = 'Mục tiêu bị hủy';
-$zzqrzd = 'Đang xác nhận';
-$Confirm = 'Xác nhận';
+$Confirm = '确认';
 ?>

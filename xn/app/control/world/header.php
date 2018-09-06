@@ -38,15 +38,15 @@ if ($row['subuser']==1 or $row['status']==2){
 
 ?>
 <script>
-top.str_FT = "Bóng đá";
-top.str_FS = "Champion";
-top.str_BK = "Bóng rổ";
-top.str_TN = "quần vợt";
-top.str_VB = "Bóng chuyền";
-top.str_BS = "bóng chày";
-top.str_OP = "Khác";
-top.str_RB = "Rolling Ball";
-top.str_SFS = "Nhà vô địch đặc biệt";
+top.str_FT = "足球";
+top.str_FS = "冠军";
+top.str_BK = "篮球";
+top.str_TN = "网球";
+top.str_VB = "排球";
+top.str_BS = "棒球";
+top.str_OP = "其他";
+top.str_RB = "滚球";
+top.str_SFS = "特殊冠军";
 
 //信用额度
 top.str_maxcre = "总信用额度仅能输入数字!!";
@@ -272,11 +272,11 @@ function openWin(obj_Name){
     <td width="183"><img src="/images/800/800_top_01.gif" width="183" height="29"></td>
 	<td class="top_color">登入2--<?=$agname?>
 	<div class="rig">
-                    <a href="/url.html" target="_blank" >999Trang web mới nhất</a>
-                    | <a href="javascript:void(0);" OnClick="" class="customer"><img src="/images/control/header_customer.gif" width="16" height="15" border="0">Dịch vụ khách hàng trực tuyến</a>
-                    | <a href="javascript:void(0);" OnClick=""><font class="service">Liên lạc với chúng tôi</font></a>
-					| <a href="#" onClick="Go_Chg_pass(2);" style="cursor:hand">Thay đổi mật khẩu</a>
-                    | <a href="/quit.php?level=3&uid=<?=$uid?>" target="_top" onMouseOver="window.status='Đăng xuất'; return true;" onMouseOut="window.status='';return true;">Đăng xuất</a>
+                    <a href="/url.html" target="_blank" >最新网址</a>
+                    | <a href="javascript:void(0);" OnClick="" class="customer"><img src="/images/control/header_customer.gif" width="16" height="15" border="0">在线客服</a>
+                    | <a href="javascript:void(0);" OnClick=""><font class="service">联系我们</font></a>
+					| <a href="#" onClick="Go_Chg_pass(2);" style="cursor:hand">变更密码</a>
+                    | <a href="/quit.php?level=3&uid=<?=$uid?>" target="_top" onMouseOver="window.status='登出'; return true;" onMouseOut="window.status='';return true;">登出</a>
       </div>
 	</td>
 	</tr>
@@ -285,37 +285,37 @@ function openWin(obj_Name){
     <td class="coolBar">
 	<table border="0" cellspacing="0" cellpadding="0"  style="position: relative; z-index: 99; top: 0px; left: 0px;" id="toolbar1">
 	<tr>
-			<td class="coolButton" onClick="show_webs('ad');" nowrap>&nbsp;<nobr>[Ghi chú tức thì]</nobr>&nbsp;</td>
+			<td class="coolButton" onClick="show_webs('ad');" nowrap>&nbsp;<nobr>[即时注单]</nobr>&nbsp;</td>
 			<td nowrap id=ad_list style="color: blue;"><nobr>
-			<a onClick="go_web(0,0,'/xn/app/control/world/real_wager/index.php?uid=<?=$uid?>');" style="cursor:hand"><img src="/images/control/tri.gif">Bóng đá</a>
-			<a onClick="go_web(0,1,'/xn/app/control/world/real_wager_BK/index.php?uid=<?=$uid?>');" style="cursor:hand"><img src="/images/control/tri.gif">Bóng rổ / Họp</a>
-			<a onClick="go_web(0,1,'/xn/app/control/world/real_wager_TN/index.php?uid=<?=$uid?>');" style="cursor:hand"><img src="/images/control/tri.gif">Quần vợt</a>
-			<a onClick="go_web(0,1,'/xn/app/control/world/real_wager_VB/index.php?uid=<?=$uid?>');" style="cursor:hand"><img src="/images/control/tri.gif">Bóng chuyền</a>
-			<a onClick="go_web(0,1,'/xn/app/control/world/real_wager_BS/index.php?uid=<?=$uid?>');" style="cursor:hand"><img src="/images/control/tri.gif">Bóng chày</a>
-			<a onClick="go_web(0,1,'/xn/app/control/world/voucher.php?uid=<?=$uid?>');" style="cursor:hand"><img src="/images/control/tri.gif">Lưu ý luồng</a>
+			<a onClick="go_web(0,0,'/app/control/world/real_wager/index.php?uid=<?=$uid?>');" style="cursor:hand"><img src="/images/control/tri.gif">足球</a>
+			<a onClick="go_web(0,1,'/app/control/world/real_wager_BK/index.php?uid=<?=$uid?>');" style="cursor:hand"><img src="/images/control/tri.gif">篮球/美足</a>
+			<a onClick="go_web(0,1,'/app/control/world/real_wager_TN/index.php?uid=<?=$uid?>');" style="cursor:hand"><img src="/images/control/tri.gif">网球</a>
+			<a onClick="go_web(0,1,'/app/control/world/real_wager_VB/index.php?uid=<?=$uid?>');" style="cursor:hand"><img src="/images/control/tri.gif">排球</a>
+			<a onClick="go_web(0,1,'/app/control/world/real_wager_BS/index.php?uid=<?=$uid?>');" style="cursor:hand"><img src="/images/control/tri.gif">棒球</a>
+			<a onClick="go_web(0,1,'/app/control/world/voucher.php?uid=<?=$uid?>');" style="cursor:hand"><img src="/images/control/tri.gif">流水注单</a>
 			</nobr></td>
-			<td class="coolButton" onClick="show_webs('mad');" nowrap>&nbsp;<nobr>[Ghi chú bữa sáng]</nobr>&nbsp;</td>
+			<td class="coolButton" onClick="show_webs('mad');" nowrap>&nbsp;<nobr>[早餐注单]</nobr>&nbsp;</td>
 			<td nowrap id=mad_list style="color: blue;"><nobr>
-			<a onClick="go_web(0,1,'/xn/app/control/world/real_wager_FU/index.php?uid=<?=$uid?>');" style="cursor:hand"><img src="/images/control/tri.gif">Bữa sáng bóng đá</a>
-			<a onClick="go_web(0,1,'/xn/app/control/world/real_wager_BU/index.php?uid=<?=$uid?>');" style="cursor:hand"><img src="/images/control/tri.gif">Bữa sáng kiểu Mỹ / Bóng rổ</a>
-			<a onClick="go_web(0,1,'/xn/app/control/world/real_wager_BSFU/index.php?uid=<?=$uid?>');" style="cursor:hand"><img src="/images/control/tri.gif">Bữa sáng bóng chày</a>
-			<a onClick="go_web(0,0,'/xn/app/control/world/real_wager_TU/index.php?uid=<?=$uid?>');" style="cursor:hand"><img src="/images/control/tri.gif">Bữa sáng quần vợt</a>
-			<a onClick="go_web(0,0,'/xn/app/control/world/real_wager_VU/index.php?uid=<?=$uid?>');" style="cursor:hand"><img src="/images/control/tri.gif">Bữa sáng bóng chuyền</a>
+			<a onClick="go_web(0,1,'/app/control/world/real_wager_FU/index.php?uid=<?=$uid?>');" style="cursor:hand"><img src="/images/control/tri.gif">足球早餐</a>
+			<a onClick="go_web(0,1,'/app/control/world/real_wager_BU/index.php?uid=<?=$uid?>');" style="cursor:hand"><img src="/images/control/tri.gif">篮球/美足早餐</a>
+			<a onClick="go_web(0,1,'/app/control/world/real_wager_BSFU/index.php?uid=<?=$uid?>');" style="cursor:hand"><img src="/images/control/tri.gif">棒球早餐</a>
+			<a onClick="go_web(0,0,'/app/control/world/real_wager_TU/index.php?uid=<?=$uid?>');" style="cursor:hand"><img src="/images/control/tri.gif">网球早餐</a>
+			<a onClick="go_web(0,0,'/app/control/world/real_wager_VU/index.php?uid=<?=$uid?>');" style="cursor:hand"><img src="/images/control/tri.gif">排球早餐</a>
 			</nobr></td>
 			
-			<<?=$GFLAG_S?>td class="coolButton" onClick="show_webs('mo');" nowrap>&nbsp;<nobr>[Quản lý tài khoản]</nobr>&nbsp;</td>
+			<<?=$GFLAG_S?>td class="coolButton" onClick="show_webs('mo');" nowrap>&nbsp;<nobr>[帐号管理]</nobr>&nbsp;</td>
 			<td nowrap id=mo_list style="color: blue;"><nobr>
-			<a onClick="go_web(1,2,'/xn/app/control/world/su_list.php?uid=<?=$uid?>');" style="cursor:hand"><img src="/images/control/tri.gif">Nhà phân phối</a>
-			<a onClick="go_web(1,2,'/xn/app/control/world/agents/su_agents.php?uid=<?=$uid?>');" style="cursor:hand"><img src="/images/control/tri.gif">Quyền</a>
-			<a onClick="go_web(1,3,'/xn/app/control/world/members/su_members.php?uid=<?=$uid?>');" style="cursor:hand"><img src="/images/control/tri.gif">Thành viên</a>
-			<a onClick="go_web(1,4,'/xn/app/control/world/su_subuser.php?uid=<?=$uid?>');" style="cursor:hand;"><img src="/images/control/tri.gif">Subaccount</a>
+			<a onClick="go_web(1,2,'/app/control/world/su_list.php?uid=<?=$uid?>');" style="cursor:hand"><img src="/images/control/tri.gif">总代理</a>
+			<a onClick="go_web(1,2,'/app/control/world/agents/su_agents.php?uid=<?=$uid?>');" style="cursor:hand"><img src="/images/control/tri.gif">代理</a>
+			<a onClick="go_web(1,3,'/app/control/world/members/su_members.php?uid=<?=$uid?>');" style="cursor:hand"><img src="/images/control/tri.gif">会员</a>
+			<a onClick="go_web(1,4,'/app/control/world/su_subuser.php?uid=<?=$uid?>');" style="cursor:hand;"><img src="/images/control/tri.gif">子帐号</a>
 			
 			</nobr></td<?=$GFLAG_E?>>
-			<td nowrap><a href="/app/control/world/report/report.php?uid=<?=$uid?>" style="cursor:hand;color:#bb0000" target="main" onMouseOver="window.status='Báo cáo'; return true;" onMouseOut="window.status='';return true;">&nbsp;[Báo cáo]</a></td>
+			<td nowrap><a href="/app/control/world/report/report.php?uid=<?=$uid?>" style="cursor:hand;color:#bb0000" target="main" onMouseOver="window.status='报表'; return true;" onMouseOut="window.status='';return true;">&nbsp;[报表]</a></td>
 			
-			<<?=$GFLAG_S?>td nowrap><a href="/app/control/world/other_set/show_result.php?uid=<?=$uid?>" style="cursor:hand;color:#bb0000" target="main" onMouseOver="window.status='Kết quả'; return true;" onMouseOut="window.status='';return true;">&nbsp;[Kết quả]</a></td<?=$GFLAG_E?>>
-			<td nowrap><A HREF="javascript://" style="cursor:hand;color:#bb0000" onClick="javascript: window.showModalDialog('scroll_history.php?uid=<?=$uid?>&langx=<?=$langx?>','','help:no')">&nbsp;[Thông tin lịch sử]</a></td>
-			<td nowrap><a href="/app/control/world/body_home.php?uid=<?=$uid?>&langx=<?=$langx?>" style="cursor:hand;color:#bb0000" target="main" onMouseOver="window.status='Thông báo'; return true;" onMouseOut="window.status='';return true;">&nbsp;[Thông báo]</a></td>
+			<<?=$GFLAG_S?>td nowrap><a href="/app/control/world/other_set/show_result.php?uid=<?=$uid?>" style="cursor:hand;color:#bb0000" target="main" onMouseOver="window.status='赛果'; return true;" onMouseOut="window.status='';return true;">&nbsp;[赛果]</a></td<?=$GFLAG_E?>>
+			<td nowrap><A HREF="javascript://" style="cursor:hand;color:#bb0000" onClick="javascript: window.showModalDialog('scroll_history.php?uid=<?=$uid?>&langx=<?=$langx?>','','help:no')">&nbsp;[历史讯息]</a></td>
+			<td nowrap><a href="/app/control/world/body_home.php?uid=<?=$uid?>&langx=<?=$langx?>" style="cursor:hand;color:#bb0000" target="main" onMouseOver="window.status='公告'; return true;" onMouseOut="window.status='';return true;">&nbsp;[公告]</a></td>
 			</tr>
 		  </table>
 	  </td>

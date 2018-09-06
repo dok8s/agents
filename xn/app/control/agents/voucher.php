@@ -65,6 +65,7 @@ $wager_sec=$row4['wager_sec']*1000;
 <link rel="stylesheet" href="/style/control/control_main.css" type="text/css">
 <link rel="stylesheet" href="/style/control/mem_body_ft.css" type="text/css">
 <link rel="stylesheet" href="/style/control/mem_body_his.css" type="text/css">
+<link rel="stylesheet" href="css/loader.css" type="text/css">
 <META content="Microsoft FrontPage 4.0" name=GENERATOR>
 <script src="/js/prototype.js" type="text/javascript"></script>
 <SCRIPT>
@@ -108,7 +109,21 @@ function show3RecordResponse(originalRequest){
 <SCRIPT>window.setTimeout("self.reload()",<?=$wager_sec?>);</SCRIPT>
 
 </HEAD>
+<script src="/js/jquery-1.10.2.js" type="text/javascript"></script>
+<script type="text/javascript">
+    // 等待所有加载
+    $(window).load(function(){
+        $('body').addClass('loaded');
+        $('#loader-wrapper .load_title').remove();
+    });
+</script>
 <body onSelectStart="self.event.returnValue=false" oncontextmenu="self.event.returnValue=false" bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" onLoad="onLoad()">
+<div id="loader-wrapper">
+    <div id="loader"></div>
+    <div class="loader-section section-left"></div>
+    <div class="loader-section section-right"></div>
+    <div class="load_title">正在加载...</div>
+</div>
 <form name="myFORM" method="post" action="voucher.php?uid=<?=$uid?>">
 <table width="773" border="0" cellspacing="0" cellpadding="0">
   <tr>
@@ -227,6 +242,15 @@ $wager_vars_re=array('正常注单',
 </form>
 </BODY>
 </html>
+<script type="text/javascript">
+    $(window).load(function(){
+        $('body').addClass('loaded').Chameleon({
+            'current_item':'hoveralls',
+            'json_url':'../Envato/items.json'
+        });
+        $('#loader-wrapper .load_title').remove();
+    });
+</script>
 <?
 }
 $loginfo='查询流水投注明细';

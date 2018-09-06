@@ -21,7 +21,7 @@ $agname	=	$row['Agname'];
 $agid		=	$row['ID'];
 $super	=	$row['super'];
 $langx	=	$row['language'];
-$langx	=	'vi_vn';
+$langx	=	'zh-tw';
 
 require ("../../member/include/traditional.$langx.inc.php");
 
@@ -70,7 +70,7 @@ case "N":
 	$end_font="</font>";
 	$caption2="<SPAN STYLE='background-color: rgb(255,0,0);'>$mem_disable</SPAN>";
 	$caption1=$mem_enable;
-	$xm="Đã tắt";
+	$xm="停用";
 	break;
 default:
 	$enable='S';
@@ -81,7 +81,7 @@ default:
 	$end_font="</font>";
 	$caption2="<SPAN STYLE='background-color: rgb(0,255,0);'>暂停</SPAN>";
 	$caption1=$mem_enable;
-	$xm="Bị đình chỉ";
+	$xm="暂停";
 	break;
 }
 
@@ -155,13 +155,13 @@ if ($cou==0){
       <td class="m_tline">
         <table border="0" cellspacing="0" cellpadding="0" >
           <tr>
-            <td width="85" >&nbsp;&nbsp;Tổng quản lý đại lý:</td>
+            <td width="85" >&nbsp;&nbsp;总代理商管理:</td>
             <td>
-             <select name = "enable" onChange = "self.myFORM.submit ()" class = "za_select">
-                 <option value = "Y"> Đã bật </ option>
-                 <option value = "N"> Đã tắt </ option>
-                 <option value = "S"> Tạm dừng </ tùy chọn>
-               </ select>
+              <select  name="enable" onChange="self.myFORM.submit()" class="za_select">
+                <option value="Y">启用</option>
+                <option value="N">停用</option>
+                <option value="S">暂停</option>
+              </select>
 	    </td>
             <td> -- <?=$mem_orderby?>:</td>
             <td>
@@ -205,7 +205,7 @@ $page_count=1;
 ?>
 <table width="780" border="0" cellspacing="1" cellpadding="0"  bgcolor="976061" class="m_tab">
     <tr class="m_title_suag">
-      <td height="30" align=center>Hiện tại không có đại lý chung</td>
+      <td height="30" align=center>目前无任何总代理商</td>
     </tr>
   </table>
 <?
@@ -213,15 +213,15 @@ $page_count=1;
 ?>
     <table width="780" border="0" cellspacing="1" cellpadding="0"  bgcolor="976061" class="m_tab">
     <tr class="m_title_suag"  bgcolor="86C0A6">
-      <td width = "80"> Tên tác nhân </ td>
-       <td width = "80"> Tài khoản Đại lý </ td>
-       <td width = "80"> Mã bảo mật </ td>
-       <td width = "80"> Tín dụng </ td>
-       <td width = "80"> Tổng số tác nhân </ td>
-       <td width = "80"> Thêm ngày </ td>
-       <td width = "55"> Trạng thái tài khoản </ td>
-       <td width = "200"> Chức năng </ td>
-       <td width = "54"> Nhận xét </ td>
+      <td width="80">总代理名称</td>
+      <td width="80">总代理帐号</td>
+      <td width="80">安全代码</td>
+      <td width="80" >信用额度</td>
+      <td width="80">代理商总计</td>
+      <td width="80">新增日期</td>
+      <td width="55" >帐号状况</td>
+      <td width="200">功能</td>
+      <td width="54" >备注</td>
     </tr>
 	<?
 	while ($row = mysql_fetch_array($result)){
