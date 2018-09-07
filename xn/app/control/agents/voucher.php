@@ -86,7 +86,7 @@ $wager_sec=$row4['wager_sec']*1000;
 	}
 	function reload()
 {
-    var url = '/app/member/include/showrecord.php';
+    var url = '/xn/app/member/include/showrecord.php';
     var pars = 'uid=<?=$uid?>';
     var myAjax = new Ajax.Request(
     url,{
@@ -122,7 +122,7 @@ function show3RecordResponse(originalRequest){
     <div id="loader"></div>
     <div class="loader-section section-left"></div>
     <div class="loader-section section-right"></div>
-    <div class="load_title">正在加载...</div>
+    <div class="load_title">Đang tải...</div>
 </div>
 <form name="myFORM" method="post" action="voucher.php?uid=<?=$uid?>">
 <table width="773" border="0" cellspacing="0" cellpadding="0">

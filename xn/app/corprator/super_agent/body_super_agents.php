@@ -244,13 +244,13 @@ $page_count=1;
 <?
 if($enable=='Y'){
 ?>
-<a href="javascript:CheckSTOP('/app/corprator/super_agent/body_super_agents.php?uid=<?=$uid?>&active=2&mid=<?=$row['ID']?>&enable=S','S')">暂停</a> /
+<a href="javascript:CheckSTOP('/xn/app/corprator/super_agent/body_super_agents.php?uid=<?=$uid?>&active=2&mid=<?=$row['ID']?>&enable=S','S')">暂停</a> /
 <?
 }
 ?>
-         <a href="javascript:CheckSTOP('/app/corprator/super_agent/body_super_agents.php?uid=<?=$uid?>&active=2&mid=<?=$row['ID']?>&enable=<?=$memstop?>','<?=$memstop?>')"><?=$caption1?></a>
-        / <a href="/app/corprator/super_agent/body_super_agents_edit.php?uid=<?=$uid?>&id=<?=$row['ID']?>&super_agents_id=<?=$agid?>"><?=$mem_acount?></a>
-        / <a href="/app/corprator/super_agent/body_super_agents_set.php?uid=<?=$uid?>&id=<?=$row['ID']?>&super_agents_id=<?=$agid?>"><?=$mem_setopt?></a></td>
+         <a href="javascript:CheckSTOP('/xn/app/corprator/super_agent/body_super_agents.php?uid=<?=$uid?>&active=2&mid=<?=$row['ID']?>&enable=<?=$memstop?>','<?=$memstop?>')"><?=$caption1?></a>
+        / <a href="/xn/app/corprator/super_agent/body_super_agents_edit.php?uid=<?=$uid?>&id=<?=$row['ID']?>&super_agents_id=<?=$agid?>"><?=$mem_acount?></a>
+        / <a href="/xn/app/corprator/super_agent/body_super_agents_set.php?uid=<?=$uid?>&id=<?=$row['ID']?>&super_agents_id=<?=$agid?>"><?=$mem_setopt?></a></td>
     <td></td>
 
       </tr>

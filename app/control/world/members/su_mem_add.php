@@ -8,38 +8,39 @@ exit;
 require ("../../../member/include/config.inc.php");
 require ("../../../member/include/define_function_list.inc.php");
 $uid=$_REQUEST["uid"];
-$sql = "select corprator,agname,id,credit,super from web_world where Oid='$uid' and Oid<>''";
-$result = mysql_db_query($dbname,$sql);
+$sql = "select id,subuser,agname,subname,status,super,setdata from web_world where Oid='$uid'";
+$result = mysql_query($sql);
 $row = mysql_fetch_array($result);
+$agname=$row['agname'];
+$super=$row['super'];
+$d1set = @unserialize($row['setdata']);
+$level=$_REQUEST['level']?$_REQUEST['level']:4;
+$sql = "select language,Agname from web_world where Oid='$uid'";
+$result = mysql_query($sql);
 $cou=mysql_num_rows($result);
 if($cou==0){
 	echo "<script>window.open('$site/index.php','_top')</script>";
 	exit;
 }
-$agname=$row['agname'];
-$agid=$row['id'];
-$super=$row['super'];
-$corprator=$row['corprator'];
-$credit=$row['credit'];
-$keys=$_REQUEST['keys'];
+$row = mysql_fetch_array($result);
+$langx=$row['language'];
+$agname=$row['Agname'];
+$agname1=$row['Agname'];
+require ("../../../member/include/traditional.$langx.inc.php");
 
+$keys=$_REQUEST['keys'];
 if ($keys=='add'){
 	$AddDate=date('Y-m-d H:i:s');
 	$memname=$_REQUEST['username'];
 	$mempasd=$_REQUEST['password'];
 	$currency=$_REQUEST['currency'];
 	$pay_type=$_REQUEST['pay_type'];
-	$agents=$_REQUEST['agents_id'];
-	$chk=chk_pwd($mempasd);
-
-	$ag=explode("--",$agents);
-
-	$agents_id=$ag[0];
-	$count=$ag[1];
-
 	$type=$_REQUEST['type'];
-
-switch ($type){
+	$alias=$_REQUEST['alias'];
+	$ratio=$_REQUEST['new_ratio'];
+	$ratio=1;
+	/*
+	switch ($type){
 		case 1:
 			$type="A";
 			break;
@@ -52,14 +53,22 @@ switch ($type){
 		case 4:
 			$type="D";
 			break;
-		}
+		}*/
+	$typearr = array(1=>'A', 2=>'B', 3=>'C', 4=>'D');
+	$type    = isset($typearr[$type]) ? $typearr[$type] : 'C';
 
-	$alias=$_REQUEST['alias'];
-	$ratio=$_REQUEST['ratio']+0;
-	$ratio=1;
+	$maxcredit=$_REQUEST['maxcredit'];
+	$agname=$_REQUEST['agents_id'];
+	$chk=chk_pwd($mempasd);
 
-	$sql = "select * from web_agents where Agname='$agents_id'";
-	$result = mysql_db_query($dbname,$sql);
+	$agents_id=$_REQUEST['agents_id'];
+	if ($agents_id==''){
+echo wterror("会员名称不能为空，请回上一面重新输入");
+		exit();
+	}
+
+	$sql = "select * from web_agents where Agname='$agname'";
+	$result = mysql_query($sql);
 	$row = mysql_fetch_array($result);
 	$credit=$row['Credit'];
 	$agents=$row['Agname'];
@@ -92,74 +101,37 @@ switch ($type){
 	}
 	$svalue="'".$svalue."'";
 
-		$maxcredit=$_REQUEST['maxcredit'];
-	if ($agents_id==''){
-		echo wterror("会员名称不能为空，请回上一面重新输入");
-		exit();
-	}
-
-	if ($pay_type==1){
-		$maxcredit=0;
-	}
-
-	$mysql="select sum(Credit) as credit,count(*) as count from web_member where Agents='$agents_id' and status=1";
-
-	$result = mysql_db_query($dbname,$mysql);
+	$mysql="select sum(Credit) as credit from web_member where Agents='$agname'";
+	$result = mysql_query($mysql);
 	$row = mysql_fetch_array($result);
-/*
-	if ($row['count']>=$count){
-		echo wterror("目前代理商 可开最大会员数为$count<br>,所属累计会员数为$row[count]<br>已超过代理商最大数，请回上一面重新输入");
-		exit;
-	}
-*/
 	if ($row['credit']+$maxcredit>$credit){
-		echo wterror("此会员的信用额度为$maxcredit<br>目前代理商 最大信用额度为$credit<br>,所属会员累计信用额度为".($row[credit]+0)."<br>已超过代理商信用额度，请回上一面重新输入");
-		exit;
+		echo wterror("此会员的信用额度为$maxcredit<br>目前代理商 最大信用额度为$credit<br>,所属会员累计信用额度为num_format($row[credit],0)<br>已超过代理商信用额度，请回上一面重新输入");
+		exit();
 	}else{
 
-		switch ($type){
-		case 1:
-			$type="A";
-			break;
-		case 2:
-			$type="B";
-			break;
-		case 3:
-			$type="C";
-			break;
-		case 4:
-			$type="D";
-			break;
-		}
+		
 		$mysql="select * from web_member where memname='$memname'";
-		$result = mysql_db_query($dbname,$mysql);
+		$result = mysql_query($mysql);
 		$count=mysql_num_rows($result);
 		if ($count>0){
 			echo wterror("您输入的帐号 $memname 已经有人使用了，请回上一页重新输入");
 			exit;
 		}else{
-			$mysql="insert into web_member(Memname,Passwd,Credit,Money,Alias,Agents,Opentype,AddDate,lastpawd,corprator,world,pay_type,super,$skey) values ('$memname','$mempasd','$maxcredit','$maxcredit','$alias','$agents_id','$type','$AddDate','$AddDate','$corprator','$agname','$pay_type','$super',$svalue)";
-			mysql_db_query($dbname,$mysql) or die ("操作失败!");
-			$mysql="insert into  agents_log (M_DateTime,M_czz,M_xm,M_user,M_jc,Status) values('".date("Y-m-d H:i:s")."','$agname','新增','$memname','会员',4)";
+			if ($pay_type==1){
+				$maxcredit=0;
+			}
+			$mysql="insert into web_member(Memname,Passwd,Credit,Money,Alias,Agents,pay_type,Opentype,AddDate,lastpawd,corprator,world,super,$skey) values ('$memname','$mempasd','$maxcredit','$maxcredit','$alias','$agents','$pay_type','$type','$AddDate','$AddDate','$corprator','$world','$super',$svalue)";
+			
 			mysql_query($mysql) or die ("操作失败!");
-			//$mysql="update web_agents set mcount=mcount+1 where agname='".$agname."'";
-			//mysql_db_query($dbname,$mysql) or die ("操作失败!");
+			$mysql="insert into  agents_log (M_DateTime,M_czz,M_xm,M_user,M_jc,Status) values('".date("Y-m-d H:i:s")."','$agname1','新增','$memname','会员',3)";
+			mysql_query($mysql) or die ("操作失败!");
+			//$mysql="update web_agents set mCount=mCount+1 where agname='".$agname."'";
+			//mysql_query($mysql) or die ("操作失败!");
 			echo "<script languag='JavaScript'>self.location='./su_members.php?uid=$uid'</script>";
 		}
 	}
 }else{
-				$mysql="select if(DATE_ADD(max(adddate),INTERVAL 60 second)>now(),0,1) as action from web_member where world='$agname' and status=1";
-	$result = mysql_db_query($dbname,$mysql);
-	$row = mysql_fetch_array($result);
 
-	if ($row['action']==0){
-echo "<meta http-equiv='Content-Type' content='text/html; charset=big5'>
-<script>
-alert('帐号处理中');
-location.href = './su_members.php?&uid=$uid';
-</script>";
-		exit;
-	}
 ?>
 <html>
 <head>
@@ -291,10 +263,67 @@ function ChkMem(){
 }
 </SCRIPT>
 </head>
+<link rel="stylesheet" href="/style/control/control_main.css" type="text/css">
+<link rel="stylesheet" href="/style/control/account_management.css" type="text/css">
+<link rel="stylesheet" href="/style/control/edit_agents2.css" type="text/css">
+<link rel="stylesheet" href="/bootstrap/css/bootstrap.css" type="text/css">
+<link rel="stylesheet" href="/bootstrap/css/bootstrap-theme.css" type="text/css">
+<link rel="stylesheet" href="/style/control/announcement/a1.css" type="text/css">
+<link rel="stylesheet" href="/style/control/announcement/a2.css" type="text/css">
+<script src="/js/jquery-1.10.2.js" type="text/javascript"></script>
+<script src="/js/ClassSelect_ag.js" type="text/javascript"></script>
+<script>
+    var uid='<?=$uid?>';
+    var level='<?=$level?>';
+    function ch_level(i)
+    {
+        if(i === 2) {
+            self.location = '/app/control/world/su_list.php?uid='+uid+'&level='+i;;
+        } else if(i === 3) {
+            self.location = '/app/control/world/agents/su_agents.php?uid='+uid+'&level='+i;
+        } else if(i === 4) {
+            self.location = '/app/control/world/members/su_members.php?uid='+uid+'&level='+i;
+        } else if(i === 6) {
+            self.location = '/app/control/world/wager_list/wager_add.php?uid='+uid+'&level='+i;
+        } else if(i === 5) {
+            self.location = '/app/control/world/su_subuser.php?uid=='+uid+'&level='+i;
+        }else {
+            self.location = '/app/control/world/wager_list/wager_hide.php?uid='+uid+'&level='+i;
+        }
 
+    }
+</script>
+
+<link rel="stylesheet" href="../css/loader.css" type="text/css">
+<script type="text/javascript">
+    // 等待所有加载
+    $(window).load(function(){
+        $('body').addClass('loaded');
+        $('#loader-wrapper .load_title').remove();
+    });
+</script>
 <body oncontextmenu="window.event.returnValue=false" bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" vlink="#0000FF" alink="#0000FF" onLoad="LoadBody();Chg_Mcy('now');Chg_Mcy('mx')">
+<div id="loader-wrapper">
+    <div id="loader"></div>
+    <div class="loader-section section-left"></div>
+    <div class="loader-section section-right"></div>
+    <div class="load_title">正在加载...</div>
+</div>
+<div id="top_nav_container" name="fixHead" class="top_nav_container_ann" style="position: relative;">
+    <div id="general_btn" class="<? if ($level == 1) {echo 'nav_btn_on';} else {echo 'nav_btn';}?>" onclick="ch_level(1);">股东</div>
+    <div id="important_btn" class="<? if ($level == 2) {echo 'nav_btn_on';} else {echo 'nav_btn';}?>" onclick="ch_level(2);">总代理</div>
+    <div id="general_btn1" class="<? if ($level == 3) {echo 'nav_btn_on';} else {echo 'nav_btn';}?>" onclick="ch_level(3);">代理</div>
+    <div id="important_btn1" class="<? if ($level == 4) {echo 'nav_btn_on';} else {echo 'nav_btn';}?>" onclick="ch_level(4);">会员</div>
+    <div id="general_btn2" class="<? if ($level == 5) {echo 'nav_btn_on';} else {echo 'nav_btn';}?>" onclick="ch_level(5);">子账号</div>
+    <? if($d1set['d1_wager_add']==1){ ?>
+        <div id="general_btn3" class="<? if ($level == 6) {echo 'nav_btn_on';} else {echo 'nav_btn';}?>" onclick="ch_level(6);">添单帐号</div>
+    <? } ?>
+    <? if($d1set['d1_wager_hide']==1){ ?>
+        <div id="general_btn4" class="<? if ($level == 7) {echo 'nav_btn_on';} else {echo 'nav_btn';}?>" onclick="ch_level(7);">隐单帐号</div>
+    <? } ?>
+</div>
 <div id="Layer1" style="position:absolute; width:780px; height:26px; z-index:1; left: 0px; top: 268px; visibility: hidden; background-color: #FFFFFF; layer-background-color: #FFFFFF; border: 1px none #000000"></div>
- <FORM NAME="myFORM" ACTION="su_mem_add.php" METHOD=POST onSubmit="return SubChk()">
+ <FORM NAME="myFORM" ACTION="su_mem_add.php" METHOD=POST onSubmit="return SubChk()" style="padding-left:20px;padding-top:10px;">
   <INPUT TYPE=HIDDEN NAME="keys" VALUE="add">
   <INPUT TYPE=HIDDEN NAME="username" VALUE="">
   <input type="hidden" name="aid" value="28752">
@@ -303,20 +332,19 @@ function ChkMem(){
 
   <table width="780" border="0" cellspacing="0" cellpadding="0">
 <tr>
-                <td width="125" >&nbsp;&nbsp;会员管理--新增及修改:</td>
+                <td width="150" >&nbsp;&nbsp;会员管理--新增及修改:</td>
             <td>
               <select name="agents_id" class="za_select" onChange="show_count(1,this.options[this.options.selectedIndex].text);">
                 <option value=""></option>
           	<?
-			$mysql="select ID,Agname,count from web_agents where status=1 and world='".$agname."' and subuser=0";
-			$ag_result = mysql_db_query($dbname, $mysql);
+			$mysql="select ID,Agname from web_agents where status=1 and corprator='".$agname."' and subuser=0";
+			$ag_result = mysql_query( $mysql);
 			while ($ag_row = mysql_fetch_array($ag_result)){
-				echo "<option value=".$ag_row['Agname']."--".$ag_row['count'].">".$ag_row['Agname']."</option>";
+				echo "<option value=".$ag_row['Agname'].">".$ag_row['Agname']."</option>";
 			}
 			?>
               </select>
 	</td>
-      <td width="30"><img src="/images/control/zh-tw/top_04.gif" width="30" height="24"></td>
 </tr>
 <tr>
 <td colspan="2" height="4"></td>
@@ -337,13 +365,13 @@ function ChkMem(){
   <tr class="m_bc_ed">
     <td class="m_mem_ed">密码:</td>
       <td>
-        <input type=PASSWORD name="password" size=12 maxlength=12 class="za_text">
+        <input type=PASSWORD name="password" size=8 maxlength=12 class="za_text">
         密码必须至少6个字元长，最多12个字元长，并只能有数字(0-9)，及英文大小写字母 </td>
   </tr>
   <tr class="m_bc_ed">
     <td class="m_mem_ed">确认密码:</td>
       <td>
-        <input type=PASSWORD name="repassword" size=12 maxlength=12 class="za_text">
+        <input type=PASSWORD name="repassword" size=8 maxlength=12 class="za_text">
       </td>
   </tr>
   <tr class="m_bc_ed">
@@ -392,16 +420,8 @@ function ChkMem(){
       <td class="m_mem_ed">汇率设定:</td>
       <td>
 <select name="currency" class="za_select" onChange="Chg_Mcy('now');Chg_Mcy('mx')">
-	  <option value="RMB">人民币 -> 人民币</option>
-<!--option value="HKD">人民币 -> 港币</option>
-<option value="USD">人民币 -> 美金</option>
-<option value="MYR">人民币 -> 马币</option>
-<option value="SGD">人民币 -> 新币</option>
-<option value="THB">人民币 -> 泰铢</option>
-<option value="GBP">人民币 -> 英磅</option>
-<option value="JPY">人民币 -> 日币</option>
-<option value="EUR">人民币 -> 欧元</option>
-<option value="IND">人民币 -> 印尼盾</option-->
+	  <option value="RMB">美金 -> 美金</option>
+
 
         </select>
         目前汇率:<font color="#FF0033" id="mcy_now">0</font>&nbsp;(目前汇率仅供参考)</td>
@@ -410,15 +430,11 @@ function ChkMem(){
       <td class="m_mem_ed">总信用额度:</td>
       <td>
         <input type=TEXT name="maxcredit" value="0" size=12 maxlength=12 class="za_text" onKeyUp="Chg_Mcy('mx');" onKeyPress="return CheckKey();">
-        人民币:<font color="#FF0033" id="mcy_mx">0</font> </td>
+        美金:<font color="#FF0033" id="mcy_mx">0</font> </td>
     </tr>
     <tr class="m_bc_ed">
       <td class="m_mem_ed">现金额度:</td>
       <td>0 </td>
-    </tr>
-    <tr class="m_bc_ed">
-      <td class="m_mem_ed">盘口玩法:</td>
-      <td><font color="#800000">香港盘,马来盘,印尼盘,欧洲盘</font></td>
     </tr>
   </table>
 	<table width="780" border="0" cellspacing="1" cellpadding="0" class="m_tab_ed">
@@ -436,5 +452,6 @@ function ChkMem(){
 </html>
 <?
 }
+mysql_close();
 ?>
 

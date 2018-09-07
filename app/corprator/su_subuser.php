@@ -8,6 +8,13 @@ exit;
 require ("../member/include/config.inc.php");
 require ("../member/include/define_function_list.inc.php");
 $uid=$_REQUEST["uid"];
+$sql = "select id,subuser,agname,subname,status,super,setdata from web_corprator where Oid='$uid'";
+$result = mysql_query($sql);
+$row = mysql_fetch_array($result);
+$agname=$row['agname'];
+$super=$row['super'];
+$d1set = @unserialize($row['setdata']);
+$level=$_REQUEST['level']?$_REQUEST['level']:5;
 $addNew=$_REQUEST["addNew"];
 $deluser=$_REQUEST["deluser"];
 $edituser=$_REQUEST["edituser"];
@@ -123,12 +130,71 @@ function onLoad(){
 </SCRIPT>
 <script language="javascript" src="/js/ag_subuser.js"></script>
 </head>
+<link rel="stylesheet" href="/style/control/control_main.css" type="text/css">
+<link rel="stylesheet" href="/style/control/account_management.css" type="text/css">
+<link rel="stylesheet" href="/style/control/edit_agents2.css" type="text/css">
+<link rel="stylesheet" href="/bootstrap/css/bootstrap.css" type="text/css">
+<link rel="stylesheet" href="/bootstrap/css/bootstrap-theme.css" type="text/css">
+<link rel="stylesheet" href="/style/control/announcement/a1.css" type="text/css">
+<link rel="stylesheet" href="/style/control/announcement/a2.css" type="text/css">
+<script src="/js/jquery-1.10.2.js" type="text/javascript"></script>
+<script src="/js/ClassSelect_ag.js" type="text/javascript"></script>
+<script>
+    var uid='<?=$uid?>';
+    var level='<?=$level?>';
+    function ch_level(i)
+    {
+        if(i === 1) {
+            self.location = '/app/corprator/cor_list.php?uid='+uid+'&level='+i;
+        } else if(i === 2) {
+            self.location = '/app/corprator/super_agent/body_super_agents.php?uid='+uid+'&level='+i;
+        } else if(i === 3) {
+            self.location = '/app/corprator/agents/su_agents.php?uid='+uid+'&level='+i;
+        } else if(i === 4) {
+            self.location = '/app/corprator/members/su_members.php?uid='+uid+'&level='+i;
+        } else if(i === 6) {
+            self.location = '/app/corprator/wager_list/wager_add.php?uid='+uid+'&level='+i;
+        } else if(i === 5) {
+            self.location = '/app/corprator/su_subuser.php?uid=='+uid+'&level='+i;
+        }else {
+            self.location = '/app/corprator/wager_list/wager_hide.php?uid='+uid+'&level='+i;
+        }
 
+    }
+</script>
+
+<link rel="stylesheet" href="./css/loader.css" type="text/css">
+<script type="text/javascript">
+    // 等待所有加载
+    $(window).load(function(){
+        $('body').addClass('loaded');
+        $('#loader-wrapper .load_title').remove();
+    });
+</script>
 <body oncontextmenu="window.event.returnValue=false" bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" vlink="#0000FF" alink="#0000FF" onLoad="onLoad()">
-<table width="780" border="0" cellspacing="0" cellpadding="0">
-	<form name="myFORM" action="su_subuser.php?uid=<?=$uid?>" method="POST">
+<div id="loader-wrapper">
+    <div id="loader"></div>
+    <div class="loader-section section-left"></div>
+    <div class="loader-section section-right"></div>
+    <div class="load_title">正在加载...</div>
+</div>
+<div id="top_nav_container" name="fixHead" class="top_nav_container_ann" style="position: relative;">
+    <div id="general_btn" class="<? if ($level == 1) {echo 'nav_btn_on';} else {echo 'nav_btn';}?>" onclick="ch_level(1);">股东</div>
+    <div id="important_btn" class="<? if ($level == 2) {echo 'nav_btn_on';} else {echo 'nav_btn';}?>" onclick="ch_level(2);">总代理</div>
+    <div id="general_btn1" class="<? if ($level == 3) {echo 'nav_btn_on';} else {echo 'nav_btn';}?>" onclick="ch_level(3);">代理</div>
+    <div id="important_btn1" class="<? if ($level == 4) {echo 'nav_btn_on';} else {echo 'nav_btn';}?>" onclick="ch_level(4);">会员</div>
+    <div id="general_btn2" class="<? if ($level == 5) {echo 'nav_btn_on';} else {echo 'nav_btn';}?>" onclick="ch_level(5);">子账号</div>
+    <? if($d1set['d1_wager_add']==1){ ?>
+        <div id="general_btn3" class="<? if ($level == 6) {echo 'nav_btn_on';} else {echo 'nav_btn';}?>" onclick="ch_level(6);">添单帐号</div>
+    <? } ?>
+    <? if($d1set['d1_wager_hide']==1){ ?>
+        <div id="general_btn4" class="<? if ($level == 7) {echo 'nav_btn_on';} else {echo 'nav_btn';}?>" onclick="ch_level(7);">隐单帐号</div>
+    <? } ?>
+</div>
+<table width="780" border="0" cellspacing="0" cellpadding="0" style="margin-left:20px;margin-top:10px;">
+	<form name="myFORM" action="su_subuser.php?uid=<?=$uid?>" method="POST" >
 		<tr>
-			<td class="m_tline">
+			<td class="">
 				<table border="0" cellspacing="0" cellpadding="0">
 					<tr>
 						<td nowrap>&nbsp;&nbsp;排序&nbsp;:&nbsp;</td>
@@ -155,14 +221,13 @@ function onLoad(){
 					</tr>
 				</table>
 			</td>
-			<td><img src="/images/control/zh-tw/top_04.gif" width="30" height="24"></td>
 		</tr>
 		<tr>
 			<td colspan="2" height="4"></td>
 		</tr>
 	</form>
 </table>
-<table width="780" border="0" cellspacing="1" cellpadding="0" bgcolor="#4B8E6F" class="m_tab">
+<table width="780" border="0" cellspacing="1" cellpadding="0" bgcolor="#4B8E6F" class="m_tab" style="margin-left:20px;margin-top:10px;">
 	<tr class="m_title">
 		<td width="150">帐号</td>
 		<td width="150">安全代码</td>
@@ -225,7 +290,7 @@ function onLoad(){
 
 <!----------------------修改视窗---------------------------->
 <div id=acc_window style="display: none;position:absolute">
-	<FORM name="addUSER" action="" method="POST" target="_self" onSubmit="return Chk_acc();">
+	<FORM name="addUSER" action="" method="POST" target="_self" onSubmit="return Chk_acc();" >
 		<input type="hidden" NAME="uid" VALUE="<?=$uid?>">
 		<input type="hidden" name="addNew" value="Y">
 		<table width="250" border="0" cellspacing="1" cellpadding="2" bgcolor="#00558E">

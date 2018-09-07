@@ -134,12 +134,12 @@ function ShowNumber(flag,check,actionstr){
 		document.getElementById('roundnumber').style.top = top.mouseY;
 		document.getElementById('roundnumber').style.left = top.mouseX;
 		document.getElementById("roundnumber").style.display = "block";
-		reloadPHP.location="/app/other_set/getroundnum.php?uid=<?=$uid?>&layer="+layer+"&userid="+userid;
+		reloadPHP.location="/xn/app/other_set/getroundnum.php?uid=<?=$uid?>&layer="+layer+"&userid="+userid;
 		return false;
 	}else{
 		
 		if(subMitStr!=''){
-			self.location="/app/control/"+level+"/report/"+subMitStr;
+			self.location="/xn/app/control/"+level+"/report/"+subMitStr;
 			return true;	
 		}else{
 self.location=document.location.href;
@@ -172,7 +172,7 @@ function init(){
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
 	<tr class="m_tline">
 		<td>&nbsp;&nbsp;代理商:<?=$aid?> -- 日期:<?=$date_start?>~<?=$date_end?>
-      -- 报表分类:总帐 -- 投注方式:<?=$rep_pay?> -- 投注总类:全部 -- 下注管道:网路下注 -- <a href="javascript:history.go( -1 );">回上一页</a></td>
+      -- 报表分类:总帐 -- 投注方式:<?=$rep_pay?> -- 投注总类:全部 -- 下注管道:网路下注 -- <a href="javascript:history.go( -1 );">回上Một页</a></td>
     <td width="30"><img src="/images/control/zh-tw/top_04.gif" width="30" height="24"></td>
   </tr>
   <tr>

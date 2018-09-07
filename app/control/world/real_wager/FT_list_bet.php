@@ -33,7 +33,7 @@ if($otype==''){
 	$search=" and linetype=$linetype and mtype='$otype' ";
 }
 
-$sql="select status,danger,cancel,date_format(BetTime,'%m%d%H%i%s')+id as ID,date_format(BetTime,'%H:%i:%s') as BetTime,$bettype as BetType,$middle as Middle,BetScore,M_Result,OpenType,TurnRate,M_Name,LineType from web_db_io where active<3 and world='$agname' ".$search." and mid=$gid order by BetTime asc";
+$sql="select status,danger,cancel,date_format(BetTime,'%m%d%H%i%s')+id as ID,date_format(BetTime,'%H:%i:%s') as BetTime,$bettype as BetType,$middle as Middle,BetScore,M_Result,OpenType,TurnRate,M_Name,LineType from web_db_io where active<3 and corprator='$agname' ".$search." and mid=$gid order by BetTime asc";
 $result = mysql_query($sql);
 $cou=mysql_num_rows($result);
 if ($cou==0){
@@ -147,7 +147,7 @@ if ($cou==0){
 
 $loginfo='足球即时注单明细';
 $ip_addr = $_SERVER['REMOTE_ADDR'];
-$mysql="insert into web_mem_log(username,logtime,context,logip,level) values('$agname',now(),'$loginfo','$ip_addr','2')";
+$mysql="insert into web_mem_log(username,logtime,context,logip,level) values('$agname',now(),'$loginfo','$ip_addr','1')";
 mysql_query($mysql);
 
 mysql_close();

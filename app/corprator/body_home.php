@@ -61,6 +61,8 @@ $money = (int)$agents["Credit"] - (int)$member_money['credit'];
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <link rel="stylesheet" href="/style/control/control_main.css" type="text/css">
     <link rel="stylesheet" href="/style/control/control_main1.css" type="text/css">
+    <link rel="stylesheet" href="/style/control/calendar.css" type="text/css">
+    <link rel="stylesheet" href="/style/control/control_main1.css" type="text/css">
     <link rel="stylesheet" href="/style/home.css" type="text/css">
     <link rel="stylesheet" href="css/loader.css" type="text/css">
     <style type="text/css">
@@ -78,8 +80,22 @@ $money = (int)$agents["Credit"] - (int)$member_money['credit'];
         -->
     </style>
 </head>
+<link rel="stylesheet" href="/style/control/announcement/a1.css" type="text/css">
+<link rel="stylesheet" href="/style/control/announcement/a2.css" type="text/css">
+<link rel="stylesheet" href="./css/loader.css" type="text/css">
+<script src="/js/jquery-1.10.2.js" type="text/javascript"></script>
+<script src="/js/ClassSelect_ag.js" type="text/javascript"></script>
+<link rel="stylesheet" href="/style/control/control_main.css" type="text/css">
+<link rel="stylesheet" href="/style/control/calendar.css">
+<link rel="stylesheet" href="/style/control/control_main1.css" type="text/css">
+<link rel="stylesheet" href="/style/home.css" type="text/css">
+<link rel=stylesheet type=text/css href="/style/nav/css/zzsc.css">
 <script src="/js/jquery-1.10.2.js" type="text/javascript"></script>
 <script type="text/javascript">
+    function go_web(sw1,sw2,sw3) {
+        if(sw1==1 && sw2==5){Go_Chg_pass(1);}
+        else{window.open('corp.php?sw1='+sw1+'&sw2='+sw2+'&sw3='+sw3,'main');}
+    }
     // 等待所有加载
     $(window).load(function(){
         $('body').addClass('loaded');
@@ -93,8 +109,43 @@ $money = (int)$agents["Credit"] - (int)$member_money['credit'];
     <div class="loader-section section-right"></div>
     <div class="load_title">正在加载...</div>
 </div>
-<div>
-    <div id="body_show" style=""><div>
+<div id="firstpane" class="menu_list" style="float:left;padding-right: 10px;width: 230px;">
+
+<p class="menu_head" style="width: 223px;">即时注单</p>
+<div style="display:block" class=menu_body >
+    <a onClick="go_web(0,0,'/app/corprator/real_wager/index.php?uid=<?=$uid?>');" style="cursor:hand"><img src="/images/control/tri.gif">足球</a>
+    <a onClick="go_web(0,1,'/app/corprator/real_wager_BK/index.php?uid=<?=$uid?>');" style="cursor:hand"><img src="/images/control/tri.gif">篮球/美足</a>
+    <a onClick="go_web(0,0,'/app/corprator/real_wager_TN/index.php?uid=<?=$uid?>');" style="cursor:hand"><img src="/images/control/tri.gif">网球</a>
+    <a onClick="go_web(0,0,'/app/corprator/real_wager_VB/index.php?uid=<?=$uid?>');" style="cursor:hand"><img src="/images/control/tri.gif">排球</a>
+    <a onClick="go_web(0,0,'/app/corprator/real_wager_BS/index.php?uid=<?=$uid?>');" style="cursor:hand"><img src="/images/control/tri.gif">棒球</a>
+    <a onClick="go_web(0,1,'/app/corprator/voucher.php?uid=<?=$uid?>');" style="cursor:hand"><img src="/images/control/tri.gif">流水注单</a>
+</div>
+
+<p class="menu_head" style="width: 223px;">早餐注单</p>
+<div style="display:none" class=menu_body >
+    <a onClick="go_web(0,1,'/app/corprator/real_wager_FU/index.php?uid=<?=$uid?>');" style="cursor:hand"><img src="/images/control/tri.gif">足球早餐</a>
+    <a onClick="go_web(0,1,'/app/corprator/real_wager_BU/index.php?uid=<?=$uid?>');" style="cursor:hand"><img src="/images/control/tri.gif">篮球/美足早餐</a>
+    <a onClick="go_web(0,1,'/app/corprator/real_wager_BSFU/index.php?uid=<?=$uid?>');" style="cursor:hand"><img src="/images/control/tri.gif">棒球早餐</a>
+    <a onClick="go_web(0,0,'/app/corprator/real_wager_TU/index.php?uid=<?=$uid?>');" style="cursor:hand"><img src="/images/control/tri.gif">网球早餐</a>
+    <a onClick="go_web(0,0,'/app/corprator/real_wager_VU/index.php?uid=<?=$uid?>');" style="cursor:hand"><img src="/images/control/tri.gif">排球早餐</a>
+</div>
+</div>
+<script type=text/javascript>
+    $(document).ready(function(){
+        $("#firstpane .menu_body:eq(0)").show();
+        $("#firstpane p.menu_head").click(function(){
+            $(this).addClass("current").next("div.menu_body").slideToggle(300).siblings("div.menu_body").slideUp("slow");
+            $(this).siblings().removeClass("current");
+        });
+        $("#secondpane .menu_body:eq(0)").show();
+        $("#secondpane p.menu_head").mouseover(function(){
+            $(this).addClass("current").next("div.menu_body").slideDown(500).siblings("div.menu_body").slideUp("slow");
+            $(this).siblings().removeClass("current");
+        });
+
+    });
+</script>
+    <div id="body_show" style="float:left;width: 800px;"><div>
             <div name="MaxTag" id="home" src="/js/home.js" linkage="home">
 
                 <div id="home_contain" class="home_contain" onresize="setDivSize(this)" style="width: 67%;min-width: 1200px;">
@@ -216,10 +267,7 @@ $money = (int)$agents["Credit"] - (int)$member_money['credit'];
         </div>
 
     </div>
-</div>
 <br>
-
-
 </body>
 </html>
 <script type="text/javascript">

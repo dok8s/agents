@@ -83,7 +83,7 @@ $wager_sec=$row4['wager_sec']*1000;
 	}
 	function reload()
 {
-    var url = '/app/member/include/showrecord.php';
+    var url = '/xn/app/member/include/showrecord.php';
     var pars = 'uid=<?=$uid?>';
     var myAjax = new Ajax.Request(
     url,{

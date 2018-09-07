@@ -13,6 +13,6 @@ if(strlen($username)>=6 && strlen($username)<=12){
 	$str = "登录帐号最少必须有2个英文大小写字母和数字(0~9)组合输入限制(6~12字元)";
 }
 
-	echo "<meta http-equiv='Content-Type' content='text/html; charset=utf-8'>
+	echo "<meta http-equiv='Content-Type' content='text/html; charset=big5'>
 <script>alert('$str');</script>";
 ?>

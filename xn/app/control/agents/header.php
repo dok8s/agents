@@ -8,7 +8,7 @@ if (!$_SESSION["bkbk"])
 require ("../../member/include/config.inc.php");
 $uid=$_REQUEST["uid"];
 $langx=$_REQUEST["langx"];
-//会员总数
+//Tổng số thành viên
 $sql = "select * from web_agents where Oid='$uid'";
 $result = mysql_query($sql);
 $agents = mysql_fetch_array($result);
@@ -59,140 +59,140 @@ if ($subuser==1 || $row['status']==2){
 }
 ?>
 <script>
-  top.str_FT = "足球";
-  top.str_FS = "冠军";
-  top.str_BK = "篮球";
-  top.str_TN = "网球";
-  top.str_VB = "排球";
-  top.str_BS = "棒球";
-  top.str_OP = "其他";
-  top.str_RB = "滚球";
-  top.str_SFS = "特殊冠军";
+  top.str_FT = "Bóng đá";
+  top.str_FS = "Quán quân";
+  top.str_BK = "Bóng rổ";
+  top.str_TN = "Quần vợt";
+  top.str_VB = "Bóng chuyền";
+  top.str_BS = "Bóng chày";
+  top.str_OP = "Khác";
+  top.str_RB = "Cán bóng";
+  top.str_SFS = "Nhà vô địch đặc biệt";
 
   //信用额度
-  top.str_maxcre = "总信用额度仅能输入数字!!";
+  top.str_maxcre = "Tổng hạn mức tín dụng chỉ có thể nhập số!!";
 
-  top.str_gopen = "开放";
-  top.str_gameclose = "关闭";
-  top.str_gopenY = "是否确定赛程开放";
-  top.str_gopenN = "是否确定赛程关闭";
-  top.str_strongH = "是否确定强弱互换";
-  top.str_strongC = "是否确定强弱互换";
-  top.str_close_ioratio = "是否确定关闭赔率";
-  top.str_checknum = "验证码错误,请重新输入";
+  top.str_gopen = "Mở";
+  top.str_gameclose = "Đóng";
+  top.str_gopenY = "Bạn có chắc chắn lịch biểu đang mở?";
+  top.str_gopenN = "Bạn có chắc chắn lịch biểu đã bị đóng không?";
+  top.str_strongH = "Bạn có chắc chắn về các giao dịch hoán đổi mạnh và yếu không?";
+  top.str_strongC = "Bạn có chắc chắn về các giao dịch hoán đổi mạnh và yếu không?";
+  top.str_close_ioratio = "Bạn có chắc chắn để đóng tỷ lệ cược?";
+  top.str_checknum = "Mã xác minh không chính xác, vui lòng nhập lại";
 
   //新冠军
-  top.str_scoreY = "负";
-  top.str_scoreN = "胜";
-  top.str_change = "确定重置结果!!";
-  top.str_eliminate = "是否淘汰";
-  top.str_format = "请填入正确格式";
-  top.str_close_time = "是否确定关闭时间??"
-  top.str_check_date = "请检查日期格式 !!";
-  top.str_champ_win = "冠军是否为:";
-  top.str_champ_wins = "请再确认冠军是否为:";
-  top.str_NOchamp = "无胜出队伍，请重新设定!!";
-  top.str_NOloser = "无淘汰队伍，请重新设定!!";
+  top.str_scoreY = "Phủ định";
+  top.str_scoreN = "Thắng";
+  top.str_change = "Xác định kết quả đặt lại!!";
+  top.str_eliminate = "Liệu có nên loại bỏ";
+  top.str_format = "Vui lòng điền đúng định dạng";
+  top.str_close_time = "Cho dù để xác định thời gian đóng cửa??"
+  top.str_check_date = "Vui lòng kiểm tra định dạng ngày !!";
+  top.str_champ_win = "Là nhà vô địch:";
+  top.str_champ_wins = "Vui lòng xác nhận xem nhà vô địch có:";
+  top.str_NOchamp = "Không có đội chiến thắng, vui lòng đặt lại!!";
+  top.str_NOloser = "Không có nhóm loại trừ, vui lòng đặt lại!!";
 
   //帐号
-  top.str_co = "股东";
-  top.str_su = "总代理";
-  top.str_ag = "代理商";
-  top.str_mem = "会员";
-  top.str_input_account = "帐号请务必输入!!";
-  top.str_input_alias = "名称请务必输入!!";
-  top.str_input_credit = "总信用额度请务必输入!!";
-  top.str_confirm_add_su = "是否确定写入总代理?";
-  top.str_confirm_add_ag = "是否确定写入代理商?";
-  top.chk_input_use_date = "是否确定写入会员资料?";
-  top.str_sub_select ="请选择类型帐号!!";
-  top.str_mem_ag="请务必选择代理商!!";
-  top.str_input_pwd_self="安全代码请勿和帐号密码相同!!";
-  top.str_input_name="会员名称请务必输入!!";
-  top.str_use_length="帐号至少4个字元长!!!";
-  top.str_use_ag_chg_Detail="你已变更此之会员代理商~~请重新设定该会员之详细设定!!";
-  top.str_Pre_inquiry_use="请输入预查询之帐号!";
-  top.str_Pre_inquiry_use1="请输入查询帐号!!";
-  top.ck_del_user="确定删除帐号??";
-  top.str_safe_paswrd="安全代码";
-  top.str_longinuser="登录帐号";
-  top.str_confirm_enableY = "是否确定\"启用\"该";
-  top.str_confirm_enableN = "是否确定\"停用\"该";
-  top.str_confirm_enableS = "是否确定\"暂停\"该";
-  top.str_input_please = "请输入";
-  top.str_water_set = "退水";
+  top.str_co = "Cổ đông";
+  top.str_su = "Trụ sở chính";
+  top.str_ag = "Đại lý";
+  top.str_mem = "Thành viên";
+  top.str_input_account = "Vui lòng nhập số tài khoản của bạn!!";
+  top.str_input_alias = "Vui lòng đảm bảo nhập tên!!";
+  top.str_input_credit = "Vui lòng nhập tổng hạn mức tín dụng!!";
+  top.str_confirm_add_su = "Bạn có chắc chắn để viết Đại lý?";
+  top.str_confirm_add_ag = "Bạn có chắc chắn để viết Đại lý?";
+  top.chk_input_use_date = "Bạn có chắc chắn để viết Thành viên Thông tin?";
+  top.str_sub_select ="Vui lòng chọn một loại tài khoản!!";
+  top.str_mem_ag="Hãy chắc chắn để lựa chọn Đại lý!!";
+  top.str_input_pwd_self="Mã bảo mật không được giống như mật khẩu tài khoản!!";
+  top.str_input_name="Thành viênVui lòng đảm bảo nhập tên!!";
+  top.str_use_length="Tài khoản dài ít nhất 4 ký tự!!!";
+  top.str_use_ag_chg_Detail="你已变更此之Thành viênĐại lý商~~请重新设定该Thành viên之详细设定!!";
+  top.str_Pre_inquiry_use="Vui lòng nhập số tài khoản được truy vấn trước!";
+  top.str_Pre_inquiry_use1="Vui lòng nhập tài khoản truy vấn!!";
+  top.ck_del_user="Xác nhận xóa tài khoản??";
+  top.str_safe_paswrd="Mã bảo mật";
+  top.str_longinuser="Đăng nhập tài khoản";
+  top.str_confirm_enableY = "Có ổn không?\"Bật\"Các";
+  top.str_confirm_enableN = "Có ổn không?\"Tắt\"Các";
+  top.str_confirm_enableS = "Có ổn không?\"Tạm ngưng\"Các";
+  top.str_input_please = "Vui lòng nhập";
+  top.str_water_set = "Retreat";
 
   //成数
-  top.str_winloss_set = "占成数";
-  top.str_err_default_winloss = "预设成数不可有 [ - ] 号";
-  top.str_confirm_default_winloss1 = "预设的成数将在 ";
-  top.str_confirm_default_winloss2 = " 后生效!!确认预设吗?";
-  top.str_default = "预设";
-  top.str_err_winloss_range = " 总代理及代理商的成数总和须在 5 - 8 成内 , 请重新设定 !! ";
+  top.str_winloss_set = "Nghề nghiệp";
+  top.str_err_default_winloss = "Không thể đặt trước số đặt trước [ - ] Số";
+  top.str_confirm_default_winloss1 = "Số mặc định sẽ là ";
+  top.str_confirm_default_winloss2 = " Hiệu quả sau!!Xác nhận mặc định??";
+  top.str_default = "Đặt trước";
+  top.str_err_winloss_range = " 总Đại lý及Đại lý商的成数总和须在 5 - 8 成内 , 请重新设定 !! ";
 
   //密码
-  top.str_input_pwd = "密码请务必输入!!";
-  top.str_input_repwd = "确认密码请务必输入!!";
+  top.str_input_pwd = "Vui lòng nhập mật khẩu của bạn;
+  top.str_input_repwd = "Vui lòng xác nhận mật khẩu và nhập mật khẩu.!!";
   top.str_input_pwd2 = top.str_input_pwd;
   top.str_input_repwd2 = top.str_input_repwd;
-  top.str_pwd_limit = "您的密码必须6至12个字元长,您只能使用数字和英文字母并至少 1 个英文字母,其他特殊符号不能使用 。";
-  top.str_pwd_limit1 = "安全代码最少必须有2个英文大小写字母和数字(0~9)组合输入限制(6~12字元)";
-  top.str_pwd_limit2 = "您的密码需使用字母加上数字!!";
-  top.str_err_pwd = "密码确认错误,请重新输入!!";
-  top.str_err_pwd_fail = "该密码您已使用过, 为了安全起见, 请使用新密码!!";
+  top.str_pwd_limit = "Mật khẩu của bạn phải dài từ 6 đến 12 ký tự, bạn chỉ có thể sử dụng số và chữ cái tiếng Anh và ít nhất 1 chữ cái tiếng Anh. 。";
+  top.str_pwd_limit1 = "Mã bảo mật phải có ít nhất 2 chữ hoa và chữ thường và chữ số (0 ~ 9) giới hạn đầu vào kết hợp (6 ~ 12 ký tự)";
+  top.str_pwd_limit2 = "Mật khẩu của bạn yêu cầu một chữ cái và một số!!";
+  top.str_err_pwd = "Lỗi xác nhận mật khẩu, vui lòng nhập lại!!";
+  top.str_err_pwd_fail = "Mật khẩu này đã được sử dụng. Để bảo mật cho bạn, vui lòng sử dụng mật khẩu mới.!!";
 
-  top.str_input_longin_id = "登录帐号请务必输入!!";
-  top.str_longin_limit1 = "登录帐号最少必须有2个英文大小写字母和数字(0~9)组合输入限制(6~12字元)";
-  top.str_longin_limit2 = "您的登录帐号需使用字母加上数字!!";
+  top.str_input_longin_id = "Vui lòng đăng nhập để đăng nhập!!";
+  top.str_longin_limit1 = "Tài khoản đăng nhập phải có ít nhất 2 chữ cái tiếng Anh và chữ thường và chữ số (0 ~ 9) giới hạn đầu vào kết hợp (6 ~ 12 ký tự)";
+  top.str_longin_limit2 = "Tài khoản đăng nhập của bạn yêu cầu một chữ cái và một số!!";
 
   //私域网址
-  top.dPrivate = "私域";
-  top.dPublic = "公有";
-  top.grep = "群组";
-  top.grepIP = "群组IP";
-  top.IP_list = "IP列表";
-  top.Group = "组别";
-  top.choice = "请选择";
-  top.webset="资讯网";
+  top.dPrivate = "Miền riêng";
+  top.dPublic = "Công khai";
+  top.grep = "Nhóm";
+  top.grepIP = "IP nhóm";
+  top.IP_list = "Danh sách IP";
+  top.Group = "Nhóm";
+  top.choice = "Vui lòng chọn";
+  top.webset="Mạng thông tin";
 
-  top.str_oddf="盘口玩法请务必输入";
+  top.str_oddf="Hãy nhớ nhập trò chơi";
 
-  top.str_PlsSel = "请选择";
-  top.str_please_select = "请选择";
+  top.str_PlsSel = "Vui lòng chọn";
+  top.str_please_select = "Vui lòng chọn";
 
   top.strRtypeSP = new Array();
-  top.strRtypeSP["PGF"]="最先进球";
-  top.strRtypeSP["OSF"]="最先越位";
-  top.strRtypeSP["STF"]="最先替补球员";
-  top.strRtypeSP["CNF"]="第一颗角球";
-  top.strRtypeSP["CDF"]="第一张卡";
-  top.strRtypeSP["RCF"]="会进球";
-  top.strRtypeSP["YCF"]="第一张黄卡";
-  top.strRtypeSP["GAF"]="有失球";
-  top.strRtypeSP["PGL"]="最后进球";
-  top.strRtypeSP["OSL"]="最后越位";
-  top.strRtypeSP["STL"]="最后替补球员";
-  top.strRtypeSP["CNL"]="最后一颗角球";
-  top.strRtypeSP["CDL"]="最后一张卡";
-  top.strRtypeSP["RCL"]="不会进球";
-  top.strRtypeSP["YCL"]="最后一张黄卡";
-  top.strRtypeSP["GAL"]="没有失球";
-  top.strRtypeSP["PG"]="最先/最后进球球队";
-  top.strRtypeSP["OS"]="最先/最后越位球队";
-  top.strRtypeSP["ST"]="最先/最后替补球员球队";
-  top.strRtypeSP["CN"]="第一颗/最后一颗角球";
-  top.strRtypeSP["CD"]="第一张/最后一张卡";
-  top.strRtypeSP["RC"]="会进球/不会进球";
-  top.strRtypeSP["YC"]="第一张/最后一张黄卡";
-  top.strRtypeSP["GA"]="有失球/没有失球";
+  top.strRtypeSP["PGF"]="Bóng tiên tiến nhất";
+  top.strRtypeSP["OSF"]="Việt vị đầu tiên";
+  top.strRtypeSP["STF"]="Người chơi thay thế đầu tiên";
+  top.strRtypeSP["CNF"]="Cú đá phạt góc đầu tiên";
+  top.strRtypeSP["CDF"]="Thẻ đầu tiên";
+  top.strRtypeSP["RCF"]="Điểm số sẽ";
+  top.strRtypeSP["YCF"]="Thẻ vàng đầu tiên";
+  top.strRtypeSP["GAF"]="Đã thừa nhận";
+  top.strRtypeSP["PGL"]="Mục tiêu cuối cùng";
+  top.strRtypeSP["OSL"]="Việt vị cuối cùng";
+  top.strRtypeSP["STL"]="Người chơi băng ghế dự bị cuối cùng";
+  top.strRtypeSP["CNL"]="Quả phạt góc cuối cùng";
+  top.strRtypeSP["CDL"]="Thẻ cuối cùng";
+  top.strRtypeSP["RCL"]="Sẽ không ghi bàn";
+  top.strRtypeSP["YCL"]="Thẻ vàng cuối cùng";
+  top.strRtypeSP["GAL"]="Không thừa nhận";
+  top.strRtypeSP["PG"]="Đầu tiên/Đội mục tiêu cuối cùng";
+  top.strRtypeSP["OS"]="Đầu tiên/Đội việt vị cuối cùng";
+  top.strRtypeSP["ST"]="Đầu tiên/ Đội chơi thay thế cuối cùng";
+  top.strRtypeSP["CN"]="Đầu tiên/Quả phạt góc cuối cùng";
+  top.strRtypeSP["CD"]="Đầu tiên/Thẻ cuối cùng";
+  top.strRtypeSP["RC"]="Điểm số sẽ/Sẽ không ghi bàn";
+  top.strRtypeSP["YC"]="Đầu tiên/Thẻ vàng cuối cùng";
+  top.strRtypeSP["GA"]="Đã thừa nhận/Không thừa nhận";
 
   //停權
-  top.str_confirm_enable_priY = "是否确定\"启用\"该";
-  top.str_confirm_enable_priN = "是否确定\"禁止登入\"该";
+  top.str_confirm_enable_priY = "Có ổn không?\"Bật\"Các";
+  top.str_confirm_enable_priN = "Có ổn không?\"Không đăng nhập\"Các";
 </script>
 <html>
 <head>
-  <title>-代理商界面</title>
+  <title>-Đại lý Giao diện kinh doanh</title>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   <link rel="stylesheet" href="/style/control/control_header.css" type="text/css">
   <link rel="stylesheet" href="/style/home.css" type="text/css">
@@ -281,7 +281,7 @@ if ($subuser==1 || $row['status']==2){
   function ShowNumber(){
     var uid="<?=$uid?>";
     var LAYER="ag";
-    window.open("/app/other_set/grp_ip_view.php?uid="+uid+"&layer="+LAYER,"GRP_IP","width=350,height=430,toolbar=yes,scrollbars=yes,resizable=no,personalbar=no");
+    window.open("/xn/app/other_set/grp_ip_view.php?uid="+uid+"&layer="+LAYER,"GRP_IP","width=350,height=430,toolbar=yes,scrollbars=yes,resizable=no,personalbar=no");
   }
   function openWin(obj_Name){
     var obj = document.getElementById(obj_Name);
@@ -305,53 +305,53 @@ if ($subuser==1 || $row['status']==2){
             <div id="header_tr" name="fixHead" class="top_option_contain">
               <div id="header_td" class="lang_contain">
                 <div id="lang_btn" class="lang_btn">
-                  <span id="sel_langx" name="sel_langx" class="lang_txt">简体</span>
+                  <span id="sel_langx" name="sel_langx" class="lang_txt">Đơn giản hóa</span>
                 </div>
               </div>
-              <div id="online_mem" class="online_btn" title="">会员总数: <span id="online_mem_count"><?=$member_count?></span></div>
+              <div id="online_mem" class="online_btn" title="">Tổng số thành viên: <span id="online_mem_count"><?=$member_count?></span></div>
 
-              <div id="uesr_code" class="uesr_code"><span style="color:#7e1414;">登入3--<?=$agname?>--<?=$passwd_safe?><span style="padding-left:7px;">|<a href="/quit.php?level=3&uid=<?=$uid?>" target="_top" onMouseOver="window.status='登出'; return true;" onMouseOut="window.status='';return true;" style="color: #1e1e1e;padding: 7px;">登出</a>|<a href="#" onClick="Go_Chg_pass(2);" style="color:#8C8B8B;padding-left:3px;padding-right:7px;">变更密码</a></div>
-                <div id="contactus" class="contact_us" onclick="notice();">联系我们</div>
-              <div id="live_chat" class="live_chat" style="width: 52px;" onclick="notice();">在线客服</div>
-              <div id="new_url" class="new_url"><a href="/url.html" style="color:#5b534f" target="main" onMouseOver="window.status='最新网址'; return true;" onMouseOut="window.status='';return true;">最新网址</a></div>
+              <div id="uesr_code" class="uesr_code"><span style="color:#7e1414;">Đăng nhập 3--<?=$agname?>--<?=$passwd_safe?><span style="padding-left:7px;">|<a href="/quit.php?level=3&uid=<?=$uid?>" target="_top" onMouseOver="window.status='Đăng xuất'; return true;" onMouseOut="window.status='';return true;" style="color: #1e1e1e;padding: 7px;">Đăng xuất</a>|<a href="#" onClick="Go_Chg_pass(2);" style="color:#8C8B8B;padding-left:3px;padding-right:7px;">Thay đổi mật khẩu</a></div>
+                <div id="contactus" class="contact_us" onclick="notice();">Liên lạc với chúng tôi</div>
+              <div id="live_chat" class="live_chat" style="width: 52px;" onclick="notice();">Dịch vụ khách hàng trực tuyến</div>
+              <div id="new_url" class="new_url"><a href="/url.html" style="color:#5b534f" target="main" onMouseOver="window.status='URL mới nhất'; return true;" onMouseOut="window.status='';return true;">URL mới nhất</a></div>
             </div>
           </div>
                 <div class="navbox">
                     <div class="nav">
 
-                        <li class="drop-menu-effect"><a href="/app/control/agents/body_home.php?uid=<?$uid?>&langx=<?=$langx?>"
-                                                        target="main" onMouseOver="window.status='首页'; return true;" onMouseOut="window.status='';return true;">
-                                <span>首页</span></a>
+                        <li class="drop-menu-effect"><a href="/xn/app/control/agents/body_home.php?uid=<?$uid?>&langx=<?=$langx?>"
+                                                        target="main" onMouseOver="window.status='Trang chủ'; return true;" onMouseOut="window.status='';return true;">
+                                <span>Trang chủ</span></a>
                         </li>
-                        <li class="drop-menu-effect"><a href="/app/control/agents/announcement/get_an.php?uid=<?$uid?>&langx=<?=$langx?>" target="main" onMouseOver="window.status='公告内容'; return true;" onMouseOut="window.status='';return true;"><span>公告内容</span></a>
+                        <li class="drop-menu-effect"><a href="/xn/app/control/agents/announcement/get_an.php?uid=<?$uid?>&langx=<?=$langx?>" target="main" onMouseOver="window.status='Nội dung thông báo'; return true;" onMouseOut="window.status='';return true;"><span>Nội dung thông báo</span></a>
                         </li>
 
-                        <li class="drop-menu-effect"> <a href="/app/control/agents/other_set/show_result.php?uid=<?=$uid?>"
-                                                         target="main" onMouseOver="window.status='赛果'; return true;" onMouseOut="window.status='';return true;"><span>赛果</span></a>
+                        <li class="drop-menu-effect"> <a href="/xn/app/control/agents/other_set/show_result.php?uid=<?=$uid?>"
+                                                         target="main" onMouseOver="window.status='Kết quả'; return true;" onMouseOut="window.status='';return true;"><span>Kết quả</span></a>
                         </li>
                         <li class="drop-menu-effect"> <a onclick="notice();"
-                                                         target="main" onMouseOver="window.status='现金系统'; return true;" onMouseOut="window.status='';return true;"><span>现金系统</span></a>
+                                                         target="main" onMouseOver="window.status='Hệ thống tiền mặt'; return true;" onMouseOut="window.status='';return true;"><span>Hệ thống tiền mặt</span></a>
                         </li>
-                        <li class="drop-menu-effect"> <a href="/app/control/agents/ag_list.php?uid=<?$uid?>" target="main" onMouseOver="window.status='帐号管理'; return true;" onMouseOut="window.status='';return true;"><span>帐号管理</span></a>
+                        <li class="drop-menu-effect"> <a href="/xn/app/control/agents/ag_list.php?uid=<?$uid?>" target="main" onMouseOver="window.status='Quản lý tài khoản'; return true;" onMouseOut="window.status='';return true;"><span>Quản lý tài khoản</span></a>
                             <div class="submenu">
                                 <div class="mj_menu_pro_bg">
                                     <div class="mj_menu_pro_main">
                                         <div class="mj_menu_pro_li">
                                             <div class="mj_menu_li_txt">
-                                                <a href="/app/control/agents/ag_list.php?uid=<?=$uid?>"
-                                                   target="main" onMouseOver="window.status='代理'; return true;" onMouseOut="window.status='';return true;">代理</font></a><br />
+                                                <a href="/xn/app/control/agents/ag_list.php?uid=<?=$uid?>"
+                                                   target="main" onMouseOver="window.status='Đại lý'; return true;" onMouseOut="window.status='';return true;">Đại lý</font></a><br />
                                             </div>
                                         </div>
                                         <div class="mj_menu_pro_li" style="padding-left:48px;">
                                             <div class="mj_menu_li_txt">
-                                                <a href="/app/control/agents/members/ag_members.php?uid=<?=$uid?>"
-                                                   target="main" onMouseOver="window.status='会员'; return true;" onMouseOut="window.status='';return true;"><font>会员</font></a><br />
+                                                <a href="/xn/app/control/agents/members/ag_members.php?uid=<?=$uid?>"
+                                                   target="main" onMouseOver="window.status='Thành viên'; return true;" onMouseOut="window.status='';return true;"><font>Thành viên</font></a><br />
                                             </div>
                                         </div>
                                         <div class="mj_menu_pro_li" style="padding-left:48px;">
                                             <div class="mj_menu_li_txt">
-                                                <a href="/app/control/agents/ag_subuser.php?uid=<?=$uid?>"
-                                                   target="main" onMouseOver="window.status='子账号'; return true;" onMouseOut="window.status='';return true;"><font>子账号</font></a><br />
+                                                <a href="/xn/app/control/agents/ag_subuser.php?uid=<?=$uid?>"
+                                                   target="main" onMouseOver="window.status='Tài khoản phụ'; return true;" onMouseOut="window.status='';return true;"><font>Tài khoản phụ</font></a><br />
                                             </div>
                                         </div>
                                     </div>
@@ -359,11 +359,11 @@ if ($subuser==1 || $row['status']==2){
                             </div>
                         </li>
 
-                        <li class="drop-menu-effect"> <a href="/app/control/agents/report/report.php?uid=<?=$uid?>"
-                                                         target="main" onMouseOver="window.status='报表'; return true;" onMouseOut="window.status='';return true;"><span>报表</span></a>
+                        <li class="drop-menu-effect"> <a href="/xn/app/control/agents/report/report.php?uid=<?=$uid?>"
+                                                         target="main" onMouseOver="window.status='Báo cáo'; return true;" onMouseOut="window.status='';return true;"><span>Báo cáo</span></a>
                         </li>
-                      <li class="drop-menu-effect"> <a href="/app/control/agents/scroll_history.php?uid=<?=$uid?>&langx=<?=$langx?>"
-                                                       target="main" onMouseOver="window.status='历史讯息'; return true;" onMouseOut="window.status='';return true;"><span>历史讯息</span></a>
+                      <li class="drop-menu-effect"> <a href="/xn/app/control/agents/scroll_history.php?uid=<?=$uid?>&langx=<?=$langx?>"
+                                                       target="main" onMouseOver="window.status='Thông tin lịch sử'; return true;" onMouseOut="window.status='';return true;"><span>Thông tin lịch sử</span></a>
                       </li>
                     </div>
                 </div>
@@ -371,12 +371,12 @@ if ($subuser==1 || $row['status']==2){
 
           <div id="lang_select" class="lang_select" style="display:none;" tabindex="9527">
             <span id="lang_en-us">ENG</span>
-            <span id="lang_zh-cn">简体</span>
+            <span id="lang_zh-cn">Đơn giản hóa</span>
             <span id="lang_zh-tw">繁體</span>
           </div>
           <div id="user_select" class="user_select" style="display:none;" tabindex="9527">
-            <span id="chg_pass"><a href="#" onClick="Go_Chg_pass(2);">变更密码</a></span>
-            <span id="logout"><a href="/quit.php?level=3&uid=<?=$uid?>" target="_top" onMouseOver="window.status='登出'; return true;" onMouseOut="window.status='';return true;" style="color: #000000;">登出</a></span>
+            <span id="chg_pass"><a href="#" onClick="Go_Chg_pass(2);">Thay đổi mật khẩu</a></span>
+            <span id="logout"><a href="/quit.php?level=3&uid=<?=$uid?>" target="_top" onMouseOver="window.status='Đăng xuất'; return true;" onMouseOut="window.status='';return true;" style="color: #000000;">Đăng xuất</a></span>
           </div>
           <div name="MaxTag" id="langxMC" src="/js/conf/zh_cn.js" linkage="zh_cn" style="display:none;"></div>
           <div name="MaxTag" id="zh-cn" src="/js/zh-cn.js?7742" style="display:none;"></div>
@@ -585,7 +585,7 @@ if ($subuser==1 || $row['status']==2){
 </style>
 <script>
     function notice() {
-        alert("该模块即将上线，敬请期待！");
+        alert("Mô-đun đang trực tuyến, vì vậy hãy chú ý theo dõi！");
     }
 </script>
 <?

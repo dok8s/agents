@@ -37,38 +37,38 @@ case 'FT':
 	$table=',mb_inball_hr,tg_inball_hr from foot_match';
 	$css='';
 	$css1='_ft';
-	$gname = '足球';
+	$gname = 'Bóng đá';
 	break;
 case 'BK':
 	$table=' from bask_match';
 	$css='';
 	$css1='_ft';
-    $gname = '篮球';
+    $gname = 'Bóng rổ';
 	break;
 case 'VB':
 	$table=' from volleyball';
 	$css='_vb';
 	$css1='_vb';
-    $gname = '排球';
+    $gname = 'Bóng chuyền';
 	break;
 case 'TN':
 	$table=' from tennis';
 	$css='_tn';
 	$css1='_tn';
-    $gname = '网球';
+    $gname = 'Quần vợt';
 	break;
 case 'BS':
 	$table=' from baseball';
 	$css='_bs';
 	$css1='_bs';
-    $gname = '棒球';
+    $gname = 'Bóng chày';
 	break;
 default:
 	$table='foot_match';
 	$css1='_ft';
 	$css='';
 	$gtype='FT';
-    $gname = '足球';
+    $gname = 'Bóng đá';
 	break;
 }
 if ($gtype=='FT'){
@@ -190,7 +190,7 @@ function show_page(){
     <div id="loader"></div>
     <div class="loader-section section-left"></div>
     <div class="loader-section section-right"></div>
-    <div class="load_title">正在加载...</div>
+    <div class="load_title">Đang tải...</div>
 </div>
 <div id="body_show" style="">
 		<div id="bet_main" class="bet_main" onresize="setDivSize(this)" style="width: 1280px;">
@@ -198,7 +198,7 @@ function show_page(){
 				<!---------main------------->
 				<!---------yallowBTN------------->
 				<div class="bet_resultBTNG noFloat">
-					<span id="yellowEvent" class="bet_resultBTNon">赛事</span>
+					<span id="yellowEvent" class="bet_resultBTNon">Sự kiện</span>
 				</div>
 				<div class="bet_inplayTitle">
         <span class="bet_TitleName">
@@ -210,24 +210,24 @@ function show_page(){
                     <? echo $gname; ?>
                 </a>
         	<ul id="sport_sel" class="bet_selectSP_options" style="display:none;">
-            	<li id="FT_sel" onclick="chg_game('FT')"><a >足球</a></li>
-                <li id="BK_sel" onclick="chg_game('BK')"><a >篮球</a></li>
-                <li id="TN_sel" onclick="chg_game('TN')"><a >网球</a></li>
-                <li id="VB_sel" onclick="chg_game('VB')"><a >排球</a></li>
-                <li id="BS_sel" onclick="chg_game('BS')"><a >棒球</a></li>
+            	<li id="FT_sel" onclick="chg_game('FT')"><a >Bóng đá</a></li>
+                <li id="BK_sel" onclick="chg_game('BK')"><a >Bóng rổ</a></li>
+                <li id="TN_sel" onclick="chg_game('TN')"><a >Quần vợt</a></li>
+                <li id="VB_sel" onclick="chg_game('VB')"><a >Bóng chuyền</a></li>
+                <li id="BS_sel" onclick="chg_game('BS')"><a >Bóng chày</a></li>
             </ul>
         </li></ul>
-        <h2>赛果</h2></span>
+        <h2>Kết quả</h2></span>
 					<div id="bets_search_setting" name="MaxTag" class="bet_DetailTitle" src="/js/bets_search_setting.js" linkage="bets_search_setting">
-						<span id="dateresult_span" class="bet_DetailName"><h1 id="dateresult">日期</h1>
+						<span id="dateresult_span" class="bet_DetailName"><h1 id="dateresult">Ngày tháng</h1>
                             <h2 id="dateresult_set">
                                 <?
                                 if ($flag==''){
-                                    ?><A HREF="./show_result.php?uid=<?=$uid?>&gtype=<?=$gtype?>&flag=Y" target="_self">昨日</A>
+                                    ?><A HREF="./show_result.php?uid=<?=$uid?>&gtype=<?=$gtype?>&flag=Y" target="_self">Hôm qua</A>
                                     <?
                                 }else{
                                     ?>
-                                    <A HREF="./show_result.php?uid=<?=$uid?>&gtype=<?=$gtype?>" target="_self">今日</A>
+                                    <A HREF="./show_result.php?uid=<?=$uid?>&gtype=<?=$gtype?>" target="_self">Hôm nay</A>
                                     <?
                                 }
                                 ?>
@@ -251,12 +251,12 @@ function show_page(){
 									<?
 									if($gtype=='FT' || $gtype=='BS'){
 									?>
-										<td width="20%" class="TDcenter">半场</td>
-										<td width="20%" class="TDcenter">全场</td>
+										<td width="20%" class="TDcenter">Giờ nghỉ giải lao</td>
+										<td width="20%" class="TDcenter">Khán giả đầy đủ</td>
 									<?
 									} else {
 									?>
-										<td width="20%" class="TDcenter">赛果</td>
+										<td width="20%" class="TDcenter">Kết quả</td>
 									<?
 									}
 									?>
@@ -273,16 +273,16 @@ function show_page(){
 									<?
                                     if($gtype=='FT' || $gtype=='BS'){
                                         if ($row['mb_inball_hr']==-1 || $row['mb_inball_hr']==-1){
-                                            $ball_hr='赛事延赛';
+                                            $ball_hr='Sự kiện Chậm trễ';
                                         }else{
                                             $ball_hr=$row['mb_inball_hr'].' - '.$row['tg_inball_hr'];
                                         }
 
                                         if ($row['mb_inball']==-1 || $row['tg_inball']==-1){
                                             if ($row['mb_inball_hr']==-1 || $row['mb_inball_hr']==-1){
-                                                $ball='赛事延赛';
+                                                $ball='Sự kiện Chậm trễ';
                                             }else{
-                                                $ball='赛事腰斩';
+                                                $ball='Sự kiện Eo';
                                             }
                                         }else{
                                             $ball=$row['mb_inball'].' - '.$row['tg_inball'];

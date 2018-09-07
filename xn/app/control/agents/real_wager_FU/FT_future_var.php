@@ -111,7 +111,7 @@ parent.g_score = '入球';
 parent.receive = '收单';
 parent.noreceive = '停押';
 parent.update = '更新';
-parent.result = '全场';
+parent.result = 'Khán giả đầy đủ';
 <?
 $K=0;
 $offset=$page_no*40;

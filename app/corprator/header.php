@@ -293,6 +293,7 @@ function ShowNumber(){
 }
 
 </script>
+<script src="/js/jquery-1.10.2.js" type="text/javascript"></script>
 <body onLoad="show_webs();" oncontextmenu="window.event.returnValue=false"  bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" >
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
     <tr>
@@ -321,11 +322,11 @@ function ShowNumber(){
                     <div class="navbox">
                         <div class="nav">
 
-                            <li class="drop-menu-effect"><a href="/app/corprator/body_home.php?uid=<?$uid?>&langx=<?=$langx?>"
+                            <li class="drop-menu-effect"><a href="/app/corprator/body_home.php?uid=<?=$uid?>&langx=<?=$langx?>"
                                                             target="main" onMouseOver="window.status='首页'; return true;" onMouseOut="window.status='';return true;">
                                     <span>首页</span></a>
                             </li>
-                            <li class="drop-menu-effect"><a href="/app/corprator/announcement/get_an.php?uid=<?$uid?>&langx=<?=$langx?>" target="main" onMouseOver="window.status='公告内容'; return true;" onMouseOut="window.status='';return true;"><span>公告内容</span></a>
+                            <li class="drop-menu-effect"><a href="/app/corprator/announcement/get_an.php?uid=<?=$uid?>&langx=<?=$langx?>" target="main" onMouseOver="window.status='公告内容'; return true;" onMouseOut="window.status='';return true;"><span>公告内容</span></a>
                             </li>
 
                             <li class="drop-menu-effect"> <a href="/app/corprator/other_set/show_result.php?uid=<?=$uid?>"
@@ -372,10 +373,47 @@ function ShowNumber(){
     </style>
     <script>
         $(function(){
+            $('.nav>li').hover(function(){
+                var $ul=$(this).find('ul');
+                var oW=$(this).width();//li
+                var otrigW=$(this).find('.trig').width();
+                var oNavListL=$('.nav-list').offset().left;
+                var oTL=$(this).offset().left-oNavListL;//距离最左边的距离
+                var oTR=$('.nav-list').width()-oTL-oW;//距离最右边的距离
+                console.log(oNavListL+":"+oTL);
+
+                if($ul.find('li').length>0){
+                    $('.second-bg').show();
+                    $(this).find('.trig').show();
+                    $ul.show();
+                    var sum=0;
+                    var oLeft=0;
+                    for(var i=0;i<$ul.find('li').length;i++){
+                        sum+=$ul.find('li').eq(i).width()+4;
+                    }
+                    $ul.width(sum);
+                    oLeft=(sum-oW)/2;
+                    if(oLeft>oTL){//到达左侧边界
+                        oLeft=oTL;
+                        $ul.css('left',-oLeft+'px');
+                        return ;
+                    }
+                    if(oLeft>oTR){
+                        $ul.css('right',-oTR+'px');
+                        return ;
+                    }
+                    $ul.css('left',-oLeft+'px');
+
+                }
+            },function(){
+                $('.second-bg').hide();
+                $(this).find('ul').hide();
+                $(this).find('.trig').hide();
+            });
             lanrenzhijia(".drop-menu-effect");
             $('.nav li').click(function(){
                 $(this).addClass('highlight').siblings().removeClass('highlight');
-            })
+            });
         });
         function lanrenzhijia(_this){
             $(_this).each(function(){

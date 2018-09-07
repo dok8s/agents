@@ -79,7 +79,7 @@ echo $rtype;
 parent.t_page=<?=$page_count?>;
 parent.totaldata='<?=$totaldata?>';
 <!--
-if(self == top) location='/app/control/agents/'
+if(self == top) location='/xn/app/control/agents/'
 parent.uid='<?=$uid?>';
 parent.stype_var = '<?=$rtype?>';
 parent.ltype = <?=$ltype?>;

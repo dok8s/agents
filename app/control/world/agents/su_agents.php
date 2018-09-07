@@ -8,7 +8,15 @@ exit;
 require ("../../../member/include/config.inc.php");
 require ("../../../member/include/define_function_list.inc.php");
 $uid=$_REQUEST["uid"];
-$sql = "select super,Agname,ID,language from web_world where Oid='$uid'";
+$langx=$_REQUEST["langx"];
+$sql = "select id,subuser,agname,subname,status,super,setdata from web_world where Oid='$uid'";
+$result = mysql_query($sql);
+$row = mysql_fetch_array($result);
+$agname=$row['agname'];
+$super=$row['super'];
+$d1set = @unserialize($row['setdata']);
+$level=$_REQUEST['level']?$_REQUEST['level']:3;
+$sql = "select Agname,ID,language,super from web_world where Oid='$uid'";
 $result = mysql_query($sql);
 $cou=mysql_num_rows($result);
 if($cou==0){
@@ -20,7 +28,10 @@ $row = mysql_fetch_array($result);
 $agname=$row['Agname'];
 $agid=$row['ID'];
 $super=$row['super'];
+
 $langx=$row['language'];
+$abcd=$row['winloss_c'];
+
 require ("../../../member/include/traditional.zh-cn.inc.php");
 
 $enable=$_REQUEST["enable"];
@@ -28,30 +39,23 @@ $enabled=$_REQUEST["enabled"];
 $sort=$_REQUEST["sort"];
 $active=$_REQUEST["active"];
 $orderby=$_REQUEST["orderby"];
-
+$super_agents_id=$_REQUEST["super_agents_id"];
 $mid=$_REQUEST["mid"];
-
-if ($enable==""){
-	$enable='Y';
-}
-
 $page=$_REQUEST["page"];
 if ($page==''){
 	$page=0;
 }
-
-if ($sort=='' and $orderby==''){
-	$order='';
-}else if ($sort<>"" and $orderby==''){
-	$order=' order by '.$sort." desc";
-	$orderby='desc';
-}else if ($sort=='' and $orderby<>''){
-	$order=' order by alias '.$orderby;
-	$sort='Alias';
-}else{
-	$order=' order by '.$sort.' '.$orderby;
+if ($enable==""){
+	$enable='Y';
 }
 
+if ($sort==""){
+	$sort='Alias';
+}
+
+if ($orderby==""){
+	$orderby='asc';
+}
 
 switch($enable){
 case "Y":
@@ -90,30 +94,36 @@ default:
 }
 
 if ($active==2){
-
-	$sql = "select Agname from web_agents where ID=$mid";
-	$result = mysql_query($sql);
-	$row = mysql_fetch_array($result);
-	$memname=$row["Agname"];
 	$mysql="update web_agents set oid='',Status=$stop where ID=$mid";
 	mysql_query( $mysql);
 
 	$mysql="select agname,world from web_agents where ID=$mid";
 	$result = mysql_query( $mysql);
 	$row = mysql_fetch_array($result);
-	$agname1=$row['agname'];
+	$agent_name=$row['agname'];
 
-	$mysql="update web_corprator set oid='',Status=$stop where subuser=1 and subname='$agname1'";
+	$mysql="update web_agents set oid='',Status=$stop where subuser=1 and subname='$agent_name'";
 	mysql_query($mysql);
 
-	$mysql="update web_member set oid='',Status=$stop where Agents='$agname1'";
+	$mysql="update web_member set oid='',Status=$stop where agents='$agent_name'";
 	mysql_query( $mysql);
-	
-	$mysql="insert into  agents_log (M_DateTime,M_czz,M_xm,M_user,M_jc,Status) values('".date("Y-m-d H:i:s")."','$agname','$xm','$memname','代理',4)";
+	$mysql="insert into  agents_log (M_DateTime,M_czz,M_xm,M_user,M_jc,Status) values('".date("Y-m-d H:i:s")."','$agname','$xm','$agent_name','代理商',3)";
 	mysql_query($mysql) or die ("操作失败!");
-}
+/*
+	if ($agstop==0){
+		$mysql="update web_world set agcount=agcount-1 where agname='$world'";
+	}else{
+		$mysql="update web_world set agcount=agcount+1 where agname='$world'";
+	}
 
-$sql = "select ID,Agname,passwd_safe,Alias,Credit,date_format(AddDate,'%m-%d / %H:%i') as AddDate,mcount from web_agents where Status=$enabled and world='$agname' and super='$super' and subuser=0".$order;
+	mysql_query( $mysql);
+	*/
+}
+if ($super_agents_id==''){
+	$sql = "select ID,Agname,passwd_safe,Alias,Credit,mCount,world,date_format(AddDate,'%m-%d / %H:%i') as AddDate,mcount from web_agents where Status=$enabled and corprator='$agname' and subuser=0 and super='$super' order by ".$sort." ".$orderby;
+}else{
+	$sql = "select ID,Agname,passwd_safe,Alias,Credit,mCount,world,date_format(AddDate,'%m-%d / %H:%i') as AddDate,mcount from web_agents where Status=$enabled and corprator='$agname' and world='$super_agents_id' and subuser=0 and super='$super' order by ".$sort." ".$orderby;
+}
 
 $result = mysql_query( $sql);
 $cou=mysql_num_rows($result);
@@ -140,7 +150,7 @@ $result = mysql_query( $mysql);
  function onLoad()
  {
   var obj_sagent_id = document.getElementById('super_agents_id');
-  obj_sagent_id.value = '';
+  obj_sagent_id.value = '<?=$super_agents_id?>';
   var obj_enable = document.getElementById('enable');
   obj_enable.value = '<?=$enable?>';
   var obj_page = document.getElementById('page');
@@ -153,16 +163,89 @@ $result = mysql_query( $mysql);
 // -->
 </SCRIPT>
 </head>
+<link rel="stylesheet" href="/style/control/control_main.css" type="text/css">
+<link rel="stylesheet" href="/style/control/account_management.css" type="text/css">
+<link rel="stylesheet" href="/style/control/edit_agents2.css" type="text/css">
+<link rel="stylesheet" href="/bootstrap/css/bootstrap.css" type="text/css">
+<link rel="stylesheet" href="/bootstrap/css/bootstrap-theme.css" type="text/css">
+<link rel="stylesheet" href="/style/control/announcement/a1.css" type="text/css">
+<link rel="stylesheet" href="/style/control/announcement/a2.css" type="text/css">
+<script src="/js/jquery-1.10.2.js" type="text/javascript"></script>
+<script src="/js/ClassSelect_ag.js" type="text/javascript"></script>
+<script>
+    var uid='<?=$uid?>';
+    var level='<?=$level?>';
+    function ch_level(i)
+    {
+        if(i === 2) {
+            self.location = '/app/control/world/su_list.php?uid='+uid+'&level='+i;;
+        } else if(i === 3) {
+            self.location = '/app/control/world/agents/su_agents.php?uid='+uid+'&level='+i;
+        } else if(i === 4) {
+            self.location = '/app/control/world/members/su_members.php?uid='+uid+'&level='+i;
+        } else if(i === 6) {
+            self.location = '/app/control/world/wager_list/wager_add.php?uid='+uid+'&level='+i;
+        } else if(i === 5) {
+            self.location = '/app/control/world/su_subuser.php?uid=='+uid+'&level='+i;
+        }else {
+            self.location = '/app/control/world/wager_list/wager_hide.php?uid='+uid+'&level='+i;
+        }
+
+    }
+</script>
+
+<link rel="stylesheet" href="../css/loader.css" type="text/css">
+<script type="text/javascript">
+    // 等待所有加载
+    $(window).load(function(){
+        $('body').addClass('loaded');
+        $('#loader-wrapper .load_title').remove();
+    });
+</script>
 <body oncontextmenu="window.event.returnValue=false" bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" vlink="#0000FF" alink="#0000FF" onLoad="onLoad()">
-<form name="myFORM" action="/app/control/world/agents/su_agents.php?uid=<?=$uid?>" method=POST>
+<div id="loader-wrapper">
+    <div id="loader"></div>
+    <div class="loader-section section-left"></div>
+    <div class="loader-section section-right"></div>
+    <div class="load_title">正在加载...</div>
+</div>
+<div id="top_nav_container" name="fixHead" class="top_nav_container_ann" style="position: relative;">
+    <div id="general_btn" class="<? if ($level == 1) {echo 'nav_btn_on';} else {echo 'nav_btn';}?>" onclick="ch_level(1);">股东</div>
+    <div id="important_btn" class="<? if ($level == 2) {echo 'nav_btn_on';} else {echo 'nav_btn';}?>" onclick="ch_level(2);">总代理</div>
+    <div id="general_btn1" class="<? if ($level == 3) {echo 'nav_btn_on';} else {echo 'nav_btn';}?>" onclick="ch_level(3);">代理</div>
+    <div id="important_btn1" class="<? if ($level == 4) {echo 'nav_btn_on';} else {echo 'nav_btn';}?>" onclick="ch_level(4);">会员</div>
+    <div id="general_btn2" class="<? if ($level == 5) {echo 'nav_btn_on';} else {echo 'nav_btn';}?>" onclick="ch_level(5);">子账号</div>
+    <? if($d1set['d1_wager_add']==1){ ?>
+        <div id="general_btn3" class="<? if ($level == 6) {echo 'nav_btn_on';} else {echo 'nav_btn';}?>" onclick="ch_level(6);">添单帐号</div>
+    <? } ?>
+    <? if($d1set['d1_wager_hide']==1){ ?>
+        <div id="general_btn4" class="<? if ($level == 7) {echo 'nav_btn_on';} else {echo 'nav_btn';}?>" onclick="ch_level(7);">隐单帐号</div>
+    <? } ?>
+</div>
+<form name="myFORM" action="/app/control/world/agents/su_agents.php?uid=<?=$uid?>" method=POST style="padding-left:20px;padding-top:10px;">
 <table width="780" border="0" cellspacing="0" cellpadding="0">
   <tr>
-	<td class="m_tline">
+	<td class="">
         <table border="0" cellspacing="0" cellpadding="0" >
           <tr>
             <td width="70">&nbsp;&nbsp;<?=$wld_selagent?></td>
-            <td>
-		 <select  name="enable" onChange="self.myFORM.submit()" class="za_select">
+            <td>	<select class=za_select id=super_agents_id onchange=document.myFORM.submit(); name=super_agents_id>
+				<option value="" selected><?=$rep_pay_type_all?></option>
+				<?
+				$mysql="select ID,Agname from web_world where Status=1 and subuser=0 and corprator='".$agname."'";
+				$ag_result = mysql_query( $mysql);
+				while ($ag_row = mysql_fetch_array($ag_result)){
+					if ($super_agents_id==$ag_row['Agname']){
+						echo "<option value=".$ag_row['Agname']." selected>".$ag_row['Agname']."</option>";
+						$sel_agents=$ag_row['Agname'];
+					}else{
+						echo "<option value=".$ag_row['Agname'].">".$ag_row['Agname']."</option>";
+
+					}
+				}
+				?>
+			</select>
+              <select  name="enable" onChange="self.myFORM.submit()" class="za_select">
                 <option value="Y">启用</option>
                 <option value="N">停用</option>
                 <option value="S">暂停</option>
@@ -198,7 +281,6 @@ $result = mysql_query( $mysql);
           </tr>
         </table>
 	</td>
-    <td width="30"><img src="/images/control/zh-tw/top_04.gif" width="30" height="24"></td>
 </tr>
 <tr>
 	<td colspan="2" height="4"></td>
@@ -228,9 +310,13 @@ if ($cou==0){
     </tr>
 	<?
 	while ($row = mysql_fetch_array($result)){
+		$mysql="select id from web_world where Agname='".trim($row['world'])."'";
+		$memresult = mysql_query( $mysql);
+		$memrow = mysql_fetch_array($memresult);
+
 		$sql = "select count(*) as cou from web_member where agents='".$row['Agname']."' order by id";
 		$cresult = mysql_query( $sql);
-		$crow = mysql_fetch_array($cresult)
+		$crow = mysql_fetch_array($cresult);
 		
 	?>
     <tr  class="m_cen">
@@ -241,8 +327,7 @@ if ($cou==0){
       <td><?=$crow['cou']?></td>
       <td><?=$row['AddDate']?></td>
       <td><?=$caption2?></td>
-      <td align="left">
-
+            <td align="left">
 <?
 if($enable=='Y'){
 ?>
@@ -251,8 +336,8 @@ if($enable=='Y'){
 }
 ?>
         <a href="javascript:CheckSTOP('/app/control/world/agents/su_agents.php?uid=<?=$uid?>&active=2&mid=<?=$row['ID']?>&enable=<?=$memstop?>','<?=$memstop?>')"><?=$caption1?></a>
-        / <a href="/app/control/world/agents/su_ag_edit.php?uid=<?=$uid?>&id=<?=$row['ID']?>&agents_id=<?=$agid?>"><?=$mem_acount?></a>
-        / <a href="/app/control/world/agents/su_ag_set.php?uid=<?=$uid?>&id=<?=$row['ID']?>&agents_id=<?=$agid?>"><?=$mem_setopt?></a></td>
+        / <a href="/app/control/world/agents/su_ag_edit.php?uid=<?=$uid?>&id=<?=$row['ID']?>&agents_id=<?=$memrow['id']?>"><?=$mem_acount?></a>
+        / <a href="/app/control/world/agents/su_ag_set.php?uid=<?=$uid?>&id=<?=$row['ID']?>&agents_id=<?=$memrow['id']?>"><?=$mem_setopt?></a></td>
     </tr>
 <?
 }
@@ -261,7 +346,6 @@ if($enable=='Y'){
 </table>
   </table>
 </form>
-<!----------------------结帐视窗---------------------------->
 <div id=acc_window style="display: none;position:absolute">
 <form name=agAcc action="../acc_proc.php?uid=<?=$uid?>&url=agents/su_agents.php?uid=<?=$uid?>" method=post onSubmit="return Chk_acc();" target="win_agAcc">
 <input type=hidden name=aid value="">
@@ -270,14 +354,14 @@ if($enable=='Y'){
     <td bgcolor="#FFFFFF">
     <table width="220" border="0" cellspacing="0" cellpadding="0" bgcolor="0163A2" class="m_tab_fix">
       <tr bgcolor="0163A2">
-        <td id=acc_title><font color="#FFFFFF">请输入结帐日期</font></td>
+        <td id=acc_title><font color="#FFFFFF">请输入查账日期</font></td>
     <td align="right" valign="top" ><a style="cursor:hand;" onClick="close_win();"><img src="/images/control/zh-tw/edit_dot.gif" width="16" height="14"></a></td>
       </tr>
        <tr bgcolor="#000000">
           <td colspan="2" height="1"></td>
         </tr>
       <tr>
-        <td colspan="2">日　期:
+        <td colspan="2">日  期:
           <input type=text name=acc_date value="2005-06-06" class="za_text" size="12" maxlength="10" >
           &nbsp;&nbsp;
           <input type=submit name=acc_ok value="确定" class="za_button">
@@ -289,8 +373,7 @@ if($enable=='Y'){
 </table>
 </form>
 </div>
-<!----------------------结帐视窗---------------------------->
-<!----------------------回复视窗---------------------------->
+
 <div id=re_window style="display: none;position:absolute">
 <form name=agre action="../recover_credit.php?uid=<?=$uid?>" method=post onSubmit="return Chk_acc();" target="win_agAcc">
 <input type=hidden name=aid value="">
@@ -307,7 +390,7 @@ if($enable=='Y'){
           <td colspan="2" height="1"></td>
         </tr>
         <tr>
-          <td colspan="2">日　期：
+          <td colspan="2">日  期：
           <input type=text name=acc_date value="2005-06-06" class="za_text" size="12" maxlength="10">
           &nbsp;&nbsp;
           <input type=submit name=acc_ok value="确定" class="za_button"></td>
@@ -318,6 +401,16 @@ if($enable=='Y'){
 </table>
 </form>
 </div>
-<!----------------------回复视窗----------------------------></body>
-</html>
 
+</body>
+</html>
+<script language='javascript'>
+function cancelMouse()
+{
+    return false;
+}
+document.oncontextmenu=cancelMouse;
+</script>
+<?
+mysql_close();
+?>

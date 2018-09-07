@@ -165,9 +165,9 @@ $level=$_REQUEST['level']?$_REQUEST['level']:1;
     function ch_level(i)
     {
         if(i === 1) {
-            self.location = '/app/control/agents/members/ag_members.php?uid='+uid+'&level='+i;
+            self.location = '/xn/app/control/agents/members/ag_members.php?uid='+uid+'&level='+i;
         } else {
-            self.location = '/app/control/agents/ag_subuser.php?uid='+uid+'&level='+i;
+            self.location = '/xn/app/control/agents/ag_subuser.php?uid='+uid+'&level='+i;
         }
 
     }
@@ -195,11 +195,11 @@ function ShowNumber(flag,check){
 		document.getElementById('roundnumber').style.top = top.mouseY;
 		document.getElementById('roundnumber').style.left = top.mouseX;
 		document.getElementById("roundnumber").style.display = "block";
-		reloadPHP.location='/app/other_set/getroundnum_mem.php?uid=<?=$uid?>&layer=ag&userid=<?=$agname?>';
+		reloadPHP.location='/xn/app/other_set/getroundnum_mem.php?uid=<?=$uid?>&layer=ag&userid=<?=$agname?>';
 		return false;
 	}else{
 		//if (SubChk()) myFORM.submit();
-		document.location='/app/control/agents/members/ag_mem_add.php?uid=<?=$uid?>';
+		document.location='/xn/app/control/agents/members/ag_mem_add.php?uid=<?=$uid?>';
 	}
 }
 function ChkSearch(){
@@ -217,7 +217,7 @@ function ChkSearch(){
     <div id="general_btn" class="<? if ($level == 1) {echo 'nav_btn_on';} else {echo 'nav_btn';}?>" onclick="ch_level(1);">会员</div>
     <div id="important_btn" class="<? if ($level == 2) {echo 'nav_btn_on';} else {echo 'nav_btn';}?>" onclick="ch_level(2);">子账号</div>
 </div>
-<FORM NAME="myFORM" ACTION="/app/control/agents/members/ag_members.php?uid=<?=$uid?>" METHOD=POST style="padding-top: 62px;">
+<FORM NAME="myFORM" ACTION="/xn/app/control/agents/members/ag_members.php?uid=<?=$uid?>" METHOD=POST style="padding-top: 62px;">
 <input type="hidden" name="agent_id" value="28752">
 <table width="1024" border="0" cellspacing="0" cellpadding="0" style="margin-left:20px;margin-bottom: 10px;">
 <tr>
@@ -335,11 +335,11 @@ function ChkSearch(){
                 <td style="width:8%"><?= $caption2 ?></td>
                 <td align="left" style="width:20%">
                   <a HREF="#"
-                     onClick="CheckENABLEPRI('/app/control/agents/members/ag_members.php?uid=<?= $uid ?>&active=2&id=<?= $row['ID'] ?>&enable=<?= $memstop ?>','<?= $memstop ?>'); return false;"><?= $caption1 ?>
+                     onClick="CheckENABLEPRI('/xn/app/control/agents/members/ag_members.php?uid=<?= $uid ?>&active=2&id=<?= $row['ID'] ?>&enable=<?= $memstop ?>','<?= $memstop ?>'); return false;"><?= $caption1 ?>
                     /</a>&nbsp;
                   <SPAN style="color:#000FF0">暂停</SPAN>
                   <a HREF="#"
-                     onClick="MouEnter('/app/control/agents/members/ag_members.php?uid=<?= $uid ?>&active=2&id=<?= $row['ID'] ?>&enable=S','S','/app/control/agents/members/ag_members.php?uid=<?= $uid ?>&active=2&id=<?= $row['ID'] ?>&enable=F&enable_pri=N','N'); return false;">▼ </a>/&nbsp;
+                     onClick="MouEnter('/xn/app/control/agents/members/ag_members.php?uid=<?= $uid ?>&active=2&id=<?= $row['ID'] ?>&enable=S','S','/xn/app/control/agents/members/ag_members.php?uid=<?= $uid ?>&active=2&id=<?= $row['ID'] ?>&enable=F&enable_pri=N','N'); return false;">▼ </a>/&nbsp;
                   <a href="./ag_mem_edit.php?uid=<?= $uid ?>&mid=<?= $row['ID'] ?>&aid=<?= $agname ?>">修改资料</a>&nbsp;/&nbsp;
                   <a href="ag_mem_set.php?uid=<?= $uid ?>&pay_type=0&id=<?= $row['ID'] ?>&agents_id=<?= $agname ?>">详细设定</a>
 

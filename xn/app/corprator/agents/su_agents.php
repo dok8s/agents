@@ -156,7 +156,7 @@ $result = mysql_query( $mysql);
 </SCRIPT>
 </head>
 <body oncontextmenu="window.event.returnValue=false" bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" vlink="#0000FF" alink="#0000FF" onLoad="onLoad()">
-<form name="myFORM" action="/app/corprator/agents/su_agents.php?uid=<?=$uid?>" method=POST>
+<form name="myFORM" action="/xn/app/corprator/agents/su_agents.php?uid=<?=$uid?>" method=POST>
 <table width="780" border="0" cellspacing="0" cellpadding="0">
   <tr>
 	<td class="m_tline">
@@ -266,13 +266,13 @@ if ($cou==0){
 <?
 if($enable=='Y'){
 ?>
-<a href="javascript:CheckSTOP('/app/corprator/agents/su_agents.php?uid=<?=$uid?>&active=2&mid=<?=$row['ID']?>&enable=S','S')">暂停</a> /
+<a href="javascript:CheckSTOP('/xn/app/corprator/agents/su_agents.php?uid=<?=$uid?>&active=2&mid=<?=$row['ID']?>&enable=S','S')">暂停</a> /
 <?
 }
 ?>
-        <a href="javascript:CheckSTOP('/app/corprator/agents/su_agents.php?uid=<?=$uid?>&active=2&mid=<?=$row['ID']?>&enable=<?=$memstop?>','<?=$memstop?>')"><?=$caption1?></a>
-        / <a href="/app/corprator/agents/su_ag_edit.php?uid=<?=$uid?>&id=<?=$row['ID']?>&agents_id=<?=$memrow['id']?>"><?=$mem_acount?></a>
-        / <a href="/app/corprator/agents/su_ag_set.php?uid=<?=$uid?>&id=<?=$row['ID']?>&agents_id=<?=$memrow['id']?>"><?=$mem_setopt?></a></td>
+        <a href="javascript:CheckSTOP('/xn/app/corprator/agents/su_agents.php?uid=<?=$uid?>&active=2&mid=<?=$row['ID']?>&enable=<?=$memstop?>','<?=$memstop?>')"><?=$caption1?></a>
+        / <a href="/xn/app/corprator/agents/su_ag_edit.php?uid=<?=$uid?>&id=<?=$row['ID']?>&agents_id=<?=$memrow['id']?>"><?=$mem_acount?></a>
+        / <a href="/xn/app/corprator/agents/su_ag_set.php?uid=<?=$uid?>&id=<?=$row['ID']?>&agents_id=<?=$memrow['id']?>"><?=$mem_setopt?></a></td>
     </tr>
 <?
 }

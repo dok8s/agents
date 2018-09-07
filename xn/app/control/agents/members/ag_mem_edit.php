@@ -188,7 +188,7 @@ function CheckKey(){
     display: block;
     padding: 10px 15px;
     font-size: 14px;">
-        <a style="color:#ffffff;padding-right: 5px;" href="/app/control/agents/members/ag_members.php?uid=<?=$uid?>"
+        <a style="color:#ffffff;padding-right: 5px;" href="/xn/app/control/agents/members/ag_members.php?uid=<?=$uid?>"
            target="main" onMouseOver="window.status='会员'; return true;" onMouseOut="window.status='';return true;"><font>会员</font></a>
         >><span>修改会员</span>
     </li>

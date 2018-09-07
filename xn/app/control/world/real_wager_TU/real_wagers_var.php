@@ -88,7 +88,7 @@ parent.show_page();
 }
 ?>
 <!--
-if(self == top) location='/app/control/agents/'
+if(self == top) location='/xn/app/control/agents/'
 parent.uid='<?=$uid?>';
 parent.stype_var = '<?=$rtype?>';
 parent.ltype = <?=$ltype?>;

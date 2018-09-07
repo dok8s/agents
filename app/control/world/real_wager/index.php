@@ -17,7 +17,7 @@ if($cou==0){
 $row = mysql_fetch_array($result);
 $agname=$row['Agname'];
 $agid=$row['ID'];
-$langx=$row['language'];
+$langx='zh-cn';
 require ("../../../member/include/traditional.$langx.inc.php");
 ?>
 <html>

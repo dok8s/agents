@@ -71,7 +71,7 @@ function ShowLeague(lid){
   	show_h.innerHTML=txt_bodyH;
 }
 
-//§PÂ_¥Ø«eÀ³Åã¥Ü­¶­±¨ÃÅã¥Ü
+//ï¿½Pï¿½_ï¿½Ø«eï¿½ï¿½ï¿½ï¿½Ü­ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 function ShowGameList(){
 	if(loading == 'Y') return;
 	var game_type = top.game_type;
@@ -82,24 +82,24 @@ function ShowGameList(){
 	dt_obj.innerText = ' -- '+gmt_str+':'+dt_now;
 	show_table = body_browse.document.getElementById("glist_table");
 	switch(ShowType){
-		case 'FS':	//¯S®í
+		case 'FS':	//ï¿½Sï¿½ï¿½
 			ShowData_FS(show_table,GameFT,gamount,game_type);
 			break;
-		//   case 'PL':	//¤w¶}ÁÉ
+		//   case 'PL':	//ï¿½wï¿½}ï¿½ï¿½
 		//    ShowData_PL(show_table,GameFT,gamount);
 		//    break;
 	}
 }
 
-//Åã¥Ü¯S®íÁÉµ{µe­±¸ê®Æ
+//ï¿½ï¿½Ü¯Sï¿½ï¿½ï¿½Éµ{ï¿½eï¿½ï¿½ï¿½ï¿½ï¿½
 function ShowData_FS(obj_table,GameData,data_amount,gtype){
 	with(obj_table){
-		//²M°£table¸ê®Æ
+		//ï¿½Mï¿½ï¿½tableï¿½ï¿½ï¿½
 		while(rows.length > 1) deleteRow(rows.length-1);
-		//¶}©lÅã¥Ü¶}©ñ¤¤ÁÉµ{¸ê®Æ
+		//ï¿½}ï¿½lï¿½ï¿½Ü¶}ï¿½ï¿½ï¿½Éµ{ï¿½ï¿½ï¿½
 		flag = 0;
 		for(i=0; i<data_amount; i++){
-			//§PÂ_¬O§_¦³¿ï«h²yÃþ
+			//ï¿½Pï¿½_ï¿½Oï¿½_ï¿½ï¿½ï¿½ï¿½hï¿½yï¿½ï¿½
 			if ((gtype != null && gtype != "")&& GameData[i][(GameData[i].length-1)] != gtype) {continue;}
 
 			if(GameData[i][4] == 'Y'){
@@ -112,12 +112,12 @@ function ShowData_FS(obj_table,GameData,data_amount,gtype){
 			nowTR = insertRow();
 			nowTR.className = tr_class;
 
-			//¥D¶¤¥b¥þ³õ¸ê®ÆÅã¥Ü
+			//ï¿½Dï¿½ï¿½ï¿½bï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			with(nowTR){
-				//¤é´Á®É¶¡
+				//ï¿½ï¿½ï¿½ï¿½É¶ï¿½
 				nowTD = insertCell();
 				nowTD.innerHTML = GameData[i][1];
-				//Áp·ù
+				//ï¿½pï¿½ï¿½
 				nowTD = insertCell();
 				nowTD.innerHTML = GameData[i][2];
 				tx=0;
@@ -146,21 +146,21 @@ function ShowData_FS(obj_table,GameData,data_amount,gtype){
 }</script>
 <SCRIPT LANGUAGE="JAVASCRIPT">
 <!--
- if(self == top) location='/app/control/agents/';
+ if(self == top) location='/xn/app/control/agents/';
  var uid=''; //user's session ID
- var loading = 'Y'; //¬O§_¥¿¦bÅª¨úÂsÄý­¶­±
- var stype_var = ''; //¥Ø«eÅª¨úÅÜ¼Æ­È­¶­±
- var ShowType = ''; //¥Ø«eÅã¥Ü­¶­±
- var ltype = 1; //¥Ø«eÅã¥Üline
- var spage = ''; //¥Ø«eÅã¥Ü­¶­±
- var dt_now = ''; //¥Ø«e¤é´Á®É¶¡
+ var loading = 'Y'; //ï¿½Oï¿½_ï¿½ï¿½ï¿½bÅªï¿½ï¿½ï¿½sï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+ var stype_var = ''; //ï¿½Ø«eÅªï¿½ï¿½ï¿½Ü¼Æ­È­ï¿½ï¿½ï¿½
+ var ShowType = ''; //ï¿½Ø«eï¿½ï¿½Ü­ï¿½ï¿½ï¿½
+ var ltype = 1; //ï¿½Ø«eï¿½ï¿½ï¿½line
+ var spage = ''; //ï¿½Ø«eï¿½ï¿½Ü­ï¿½ï¿½ï¿½
+ var dt_now = ''; //ï¿½Ø«eï¿½ï¿½ï¿½ï¿½É¶ï¿½
  var aid='';
  var sel_league='';
 
- var gamount = 0; //¥Ø«eÅã¥ÜÁÉµ{¼Æ
- var GameFT = new Array(1024); //³Ì¦h³]©wÅã¥Ü1024µ§ÁÉµ{
+ var gamount = 0; //ï¿½Ø«eï¿½ï¿½ï¿½ï¿½Éµ{ï¿½ï¿½
+ var GameFT = new Array(1024); //ï¿½Ì¦hï¿½]ï¿½wï¿½ï¿½ï¿½1024ï¿½ï¿½ï¿½Éµ{
  for(var i=0; i<1024; i++){
- 	GameFT[i] = new Array(37); //¬°¦UÁÉµ{«Å§i 37 ­ÓÄæ¦ì
+ 	GameFT[i] = new Array(37); //ï¿½ï¿½ï¿½Uï¿½Éµ{ï¿½Å§i 37 ï¿½ï¿½ï¿½ï¿½ï¿½
  }
 // -->
 </SCRIPT>

@@ -1016,7 +1016,7 @@ function ShowData_FS(obj_table,GameData,data_amount){
 <!--SCRIPT language=javaScript src="/js/FT_agents_showgame.js" type=text/javascript></SCRIPT-->
 <SCRIPT LANGUAGE="JAVASCRIPT">
 <!--
- if(self == top) location='https://61.14.145.170/app/control/agents/';
+ if(self == top) location='https://61.14.145.170/xn/app/control/agents/';
  var uid='<?=$uid?>'; //user's session ID
  var loading = 'Y'; //是否正在读取浏览页面
  var stype_var = ''; //目前读取变数值页面

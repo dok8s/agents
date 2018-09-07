@@ -55,17 +55,17 @@ if($cou==0 ){
 $user = $row = mysql_fetch_array($result);
 
 if ($result_type=='Y'){
-	$QQ526738='<font color=green>有结果</font>';
+	$QQ526738='<font color=green>Có kết quả</font>';
 }else{
-	$QQ526738='<font color=green>无结果</font>';
+	$QQ526738='<font color=green>Không có kết quả</font>';
 }
 
 if ($row['subuser']==1){
 	$agname=$row['subname'];
-	$loginfo=$agname.'子帐号:'.$row['subuser'].'查询期间'.$date_start.'至'.$date_end.$QQ526738.'报表';
+	$loginfo=$agname.'Tài khoản phụ:'.$row['subuser'].'Thời gian truy vấn'.$date_start.'Để'.$date_end.$QQ526738.'Báo cáo';
 }else{
 	$agname=$row['Agname'];
-	$loginfo='代理商:'.$row['Agname'].'查询期间'.$date_start.'至'.$date_end.$QQ526738.'报表';
+	$loginfo='Đại lý:'.$row['Agname'].'Thời gian truy vấn'.$date_start.'Để'.$date_end.$QQ526738.'Báo cáo';
 }
 
 $agid=$row['ID'];
@@ -111,12 +111,12 @@ function init(){
 				<div id="fastTemplate_ag" name="MaxTag" src="/js/lib/fastTemplate_ag.js" linkage="fastTemplate_ag"></div>
 				<div id="report_data_div" class="reportHead">
 					<ul>
-						<li id="result_name" class="reportTitle">有结果</li>
-						<li id="settle_btn" class="modeBtn">交收</li>
-						<li id="valid_btn" class="modeBtn now">有效金额</li>
+						<li id="result_name" class="reportTitle">Có kết quả</li>
+						<li id="settle_btn" class="modeBtn">Giải quyết</li>
+						<li id="valid_btn" class="modeBtn now">Số tiền hiệu quả</li>
 						<li class="rightBtn">
 							<span id="mainBtn" class="mainBtn" style="">
-								<a id="back_main" href="report.php?uid=<?=$uid ?>">主页</a>
+								<a id="back_main" href="report.php?uid=<?=$uid ?>">Trang chủ</a>
 								<i style="display:none" =""=""></i><a id="layer0" style="display:none" =""="" data-history="&amp;php_name=report_suagent.php"></a>
 								<i style="display:none" =""=""></i><a id="layer1" style="display:none" =""="" data-history="&amp;php_name=report_agent.php"></a>
 							</span>
@@ -125,7 +125,7 @@ function init(){
 								<div>
 									<i class="iconTop"></i>
 									<ul>
-										<li id="download_excel_btn" class="LIexcel"><tt>导出Excel</tt><i class="iconExcel"></i></li>
+										<li id="download_excel_btn" class="LIexcel"><tt>Xuất Excel</tt><i class="iconExcel"></i></li>
 									</ul>
 								</div>
 							</div>
@@ -139,31 +139,28 @@ function init(){
 					<ul>
 						<!--<li id="filters_closs_btn" class="btnxClose"></li>-->
 						<li class="liSelect">
-							<span class="itemSelect">球类</span>
+							<span class="itemSelect">quả bóng</span>
 							<div class="nowSelect">
 								<div id="sub_gtype" name="MaxTag" src="/js/ClassSelect_ag.js" linkage="ClassSelect_ag" class="">
-					                <span id="nowText" class="nowChoose">所有球类</span>
+					                <span id="nowText" class="nowChoose">Tất cả các quả bóng</span>
 					                <i class="searchArrow" style="display: none;"></i>
 					                <div id="showDiv" class="DIVSelect" style="display: none;">
 					                    <ul id="divUl" class="">
-					                      <li id="value_" class="_selected">所有球类</li>
-					                      <li id="value_FT" class="">足球</li>
-					                      <li id="value_BK" class="">篮球 / 美式足球</li>
-					                      <li id="value_TN" class="">网球</li>
-					                      <li id="value_VB" class="">排球</li>
-					                      <li id="value_BS" class="">棒球</li>
-					                      <li id="value_OP" class="">其他</li>
-					                      <li id="value_FS" class="">冠军</li>
-					                      <li id="value_BM" class="">羽毛球</li>
-					                      <li id="value_TT" class="">乒乓球</li>
-					                      <li id="value_SK" class="">斯诺克/台球</li>
+					                      <li id="value_" class="_selected">Tất cả các quả bóng</li>
+					                      <li id="value_FT" class="">Bóng đá</li>
+					                      <li id="value_BK" class="">Bóng rổ</li>
+					                      <li id="value_TN" class="">Quần vợt</li>
+					                      <li id="value_VB" class="">Bóng chuyền</li>
+					                      <li id="value_BS" class="">Bóng chày</li>
+					                      <li id="value_OP" class="">Khác</li>
+					                      <li id="value_FS" class="">Quán quân</li>
 					                    </ul>
 					                </div>
 		            			</div>
 							</div>
 						</li>
 						<li class="liSelect">
-							<span class="itemSelect">从<?=$date_start?> </span>
+							<span class="itemSelect">Từ<?=$date_start?> </span>
 							<div class="dateSelect">
 							  <div id="sub_date_start" name="MaxTag" src="/js/calendar_ag.js" linkage="calendar_ag">
 									<input id="date_input" type="text" value="" disabled="">
@@ -172,7 +169,7 @@ function init(){
 							</div>
 						</li>
 						<li class="liSelect">
-							<span class="itemSelect">至<?=$date_end?></span>
+							<span class="itemSelect">Để<?=$date_end?></span>
 							<div class="dateSelect">
 							  <div id="sub_date_end" name="MaxTag" src="/js/calendar_ag.js" linkage="calendar_ag">
 									<input id="date_input" type="text" value="" disabled="">
@@ -181,23 +178,23 @@ function init(){
 							</div>
 						</li>
 						<li class="liSelect">
-							<span class="itemSelect">玩法</span>
+							<span class="itemSelect">Chơi</span>
 							<label class="nowSelect nowSelectType">
 								<div id="sub_wtype" name="MaxTag" src="/js/ClassSelect_ag_click.js" linkage="ClassSelect_ag_click" class="">
-								<span id="nowText" class="nowChoose">所有玩法</span>
+								<span id="nowText" class="nowChoose">Tất cả Chơi</span>
 								<i class="searchArrow" style="display: none;"></i>
 									<div id="showDiv" class="DIVSelect" style="display: none;">
 										<ul id="divUl" class="">
-											<li id="value_" class="_selected">所有玩法</li>
-											<li id="value_R" class="">让球(分)</li>
-											<li id="value_RE" class="">滚球</li>
-											<li id="value_P" class="">综合过关</li>
-											<li id="value_OU" class="">大小</li>
-											<li id="value_ROU" class="">滚球大小</li>
-											<li id="value_PD" class="">波胆(最后一位数)</li>
-											<li id="value_RPD" class="">滚球波胆(最后一位数)</li>
-											<li id="value_PD3" class="">波胆(3 set)</li>
-											<li id="value_RPD3" class="">滚球波胆(3 set)</li>
+											<li id="value_" class="_selected">Tất cả Chơi</li>
+											<li id="value_R" class="">Hãy để bóng(Phút)</li>
+											<li id="value_RE" class="">Cán bóng</li>
+											<li id="value_P" class="">Tiêu chuẩn giải phóng mặt bằng</li>
+											<li id="value_OU" class="">Kích thước</li>
+											<li id="value_ROU" class="">Kích thước bóng lăn</li>
+											<li id="value_PD" class="">Làn sóng</li>
+											<li id="value_RPD" class="">Cán bóng</li>
+											<li id="value_PD3" class="">Cán(3 set)</li>
+											<li id="value_RPD3" class="">Cán bóng(3 set)</li>
 											
 										</ul>
 									</div>
@@ -206,14 +203,14 @@ function init(){
 						</li>
 	
 						<li class="liSelect liSubmit">
-							<span id="show_filters_btn" class="btnSubmit">更改</span>
+							<span id="show_filters_btn" class="btnSubmit">Thay đổi</span>
 
-							<span id="filters_closs_btn" class="btnCancle" style="display:none">取消</span>
-							<span id="sub_submit" class="btnSubmit" style="display:none">提交</span>
+							<span id="filters_closs_btn" class="btnCancle" style="display:none">Hủy bỏ</span>
+							<span id="sub_submit" class="btnSubmit" style="display:none">Gửi</span>
 						</li>
 					</ul>
 				</div>
-				<div id="sub_message" style="display:none" class="subMessage"><i></i><tt>您的子帐号已被选择观看部分的帐号，帐目只显示 <span id="sub_num">10</span> / <span id="total_num">500</span> 个帐号</tt></div>
+				<div id="sub_message" style="display:none" class="subMessage"><i></i><tt>Tài khoản phụ của bạn đã được chọn để xem một phần của tài khoản, tài khoản chỉ hiển thị <span id="sub_num">10</span> / <span id="total_num">500</span> Tài khoản</tt></div>
 				<div id="report_data_show" class="reportCont">
 					<?php
     					$mysql = $sql." and pay_type=0 group by agents order by name asc";
@@ -226,13 +223,13 @@ function init(){
 					<table id="report_data_table" class="reportTable vAG">
 						<tbody id="report_data_tbody">
 							<tr>
-								<th class="TDCode TDpaddingLeft"><span data-sort="NAME0"><tt>代理帐号</tt><i class="iconUp"></i></span></th>
-								<th class="TDName"><span data-sort="ALIAS0"><tt>名称</tt><i class="iconDown"></i></span></th>
-								<th class="TDWagers"><span data-sort="WCOUNT0"><tt>笔数</tt><i class="iconDown"></i></span></th>
-								<th class="TDStake"><span data-sort="GOLD0"><tt>下注金额</tt><i class="iconDown"></i></span></th>
-								<th class="TDValid"><span data-sort="VGOLD0"><tt>有效金额</tt><i class="iconDown"></i></span></th>
-								<th class="TDMem"><span data-sort="WINGOLD0"><tt>会员</tt><i class="iconDown"></i></span></th>
-								<th class="TDMemCur"><span data-sort="RESULT_D0"><tt>代理商币值</tt><i class="iconDown"></i></span></th>
+								<th class="TDCode TDpaddingLeft"><span data-sort="NAME0"><tt>Tài khoản proxy</tt><i class="iconUp"></i></span></th>
+								<th class="TDName"><span data-sort="ALIAS0"><tt>Tên</tt><i class="iconDown"></i></span></th>
+								<th class="TDWagers"><span data-sort="WCOUNT0"><tt>Số lượng bút</tt><i class="iconDown"></i></span></th>
+								<th class="TDStake"><span data-sort="GOLD0"><tt>Số tiền đặt cược</tt><i class="iconDown"></i></span></th>
+								<th class="TDValid"><span data-sort="VGOLD0"><tt>Số tiền hiệu quả</tt><i class="iconDown"></i></span></th>
+								<th class="TDMem"><span data-sort="WINGOLD0"><tt>Thành viên</tt><i class="iconDown"></i></span></th>
+								<th class="TDMemCur"><span data-sort="RESULT_D0"><tt>Đại lý Tiền tệ</tt><i class="iconDown"></i></span></th>
 								<th class="TDicon TDpaddingRight"></th>
 							</tr>
 							<?php if($cou):?>
@@ -263,7 +260,7 @@ function init(){
     							?>
 							
 							<tr class="TRtotal" style="display:none" =""="">
-								<td class="TDCode TDpaddingLeft">总计</td>
+								<td class="TDCode TDpaddingLeft">Tổng số</td>
 								<td class="TDName"></td>
 								<td class="TDWagers"><?=$c_num?></td>
 								<td class="TDStake"><?=mynumberformat($c_vscore, 1)?></td>
@@ -274,11 +271,11 @@ function init(){
 							</tr>
 						<?php else:?>
 						  <tr class="TRnodata" =""="">
-						  	<td colspan="8">查无任何资料</td>
+						  	<td colspan="8">Không kiểm tra thông tin</td>
 						  </tr>
 						<?php endif;?>
 						  <tr class="TRnodata" style="display:none" =""="">
-						  	<td colspan="8">此功能暂停服务,请稍候..</td>
+						  	<td colspan="8">Tính năng này tạm thời bị tạm ngưng, vui lòng đợi..</td>
 						  </tr>
 						</tbody>
 					</table>
@@ -289,19 +286,19 @@ function init(){
 						<tbody id="report_data_tbody">
 							<!-- START DYNAMIC BLOCK: title -->
 							<tr>
-								<th class="TDCode TDpaddingLeft"><span data-sort="NAME0"><tt>代理帐号</tt><i class="iconUp"></i></span></th>
-								<th class="TDName"><span data-sort="ALIAS0"><tt>名称</tt><i class="iconDown"></i></span></th>
-								<th class="TDWagers"><span data-sort="WCOUNT0"><tt>笔数</tt><i class="iconDown"></i></span></th>
-								<th class="TDStake"><span data-sort="GOLD0"><tt>下注金额</tt><i class="iconDown"></i></span></th>
-								<th class="TDValid"><span data-sort="VGOLD0"><tt>有效金额</tt><i class="iconDown"></i></span></th>
-								<th class="TDMem"><span data-sort="WINGOLD0"><tt>会员</tt><i class="iconDown"></i></span></th>
-								<th class="TDMemCur"><span data-sort="RESULT_D0"><tt>代理商币值</tt><i class="iconDown"></i></span></th>
+								<th class="TDCode TDpaddingLeft"><span data-sort="NAME0"><tt>Tài khoản proxy</tt><i class="iconUp"></i></span></th>
+								<th class="TDName"><span data-sort="ALIAS0"><tt>Tên</tt><i class="iconDown"></i></span></th>
+								<th class="TDWagers"><span data-sort="WCOUNT0"><tt>Số lượng bút</tt><i class="iconDown"></i></span></th>
+								<th class="TDStake"><span data-sort="GOLD0"><tt>Số tiền đặt cược</tt><i class="iconDown"></i></span></th>
+								<th class="TDValid"><span data-sort="VGOLD0"><tt>Số tiền hiệu quả</tt><i class="iconDown"></i></span></th>
+								<th class="TDMem"><span data-sort="WINGOLD0"><tt>Thành viên</tt><i class="iconDown"></i></span></th>
+								<th class="TDMemCur"><span data-sort="RESULT_D0"><tt>Đại lý Tiền tệ</tt><i class="iconDown"></i></span></th>
 								<th class="TDicon TDpaddingRight"></th>
 							</tr>
 							<!-- END DYNAMIC BLOCK: title -->
 							<!-- START DYNAMIC BLOCK: total -->
 							<tr class="TRtotal" *list_credit*="">
-								<td class="TDCode TDpaddingLeft">总计</td>
+								<td class="TDCode TDpaddingLeft">Tổng số</td>
 								<td class="TDName"></td>
 								<td class="TDWagers">*WCOUNT0*</td>
 								<td class="TDStake">*GOLD0*</td>
@@ -324,10 +321,10 @@ function init(){
 							</tr>
 							<!-- END DYNAMIC BLOCK: row0 -->
 						  <tr class="TRnodata" *list_nodata*="">
-						  	<td colspan="8">查无任何资料</td>
+						  	<td colspan="8">Không kiểm tra thông tin</td>
 						  </tr>
 						  <tr class="TRnodata" *list_closedata*="">
-						  	<td colspan="8">此功能暂停服务,请稍候..</td>
+						  	<td colspan="8">Tính năng này tạm thời bị tạm ngưng, vui lòng đợi..</td>
 						  </tr>
 						</tbody>
 					</table>
@@ -338,14 +335,14 @@ function init(){
 						<tbody id="report_data_tbody">
 							<!-- START DYNAMIC BLOCK: title -->
 							<tr>
-								<th class="TDCode TDpaddingLeft"><span data-sort="NAME0"><tt>代理帐号</tt><i class="iconUp"></i></span></th>
-								<th class="TDName"><span data-sort="ALIAS0"><tt>名称</tt><i class="iconDown"></i></span></th>
-								<th class="TDAGent"><span data-sort="AWINGOLD0"><tt>代理商</tt><i class="iconDown"></i></span></th>
-								<th class="TDAGposs"><span data-sort="AWINLOSS0"><tt>代理商成数</tt><i class="iconDown"></i></span></th>
-								<th class="TDAGrusult"><span data-sort="ARESULT0"><tt>代理商结果</tt><i class="iconDown"></i></span></th>
-								<th class="TDAGstock"><span data-sort="SGOLD0"><tt>代理商实货量</tt><i class="iconDown"></i></span></th>
-								<th class="TDMAposs" *cosu_enable*=""><span data-sort="SWINLOSS0"><tt>总代理成数</tt><i class="iconDown"></i></span></th>
-								<th class="TDMArusult TDpaddingRight" *cosu_enable*=""><span data-sort="SRESULT0"><tt>总代理结果</tt><i class="iconDown"></i></span></th>
+								<th class="TDCode TDpaddingLeft"><span data-sort="NAME0"><tt>Tài khoản proxy</tt><i class="iconUp"></i></span></th>
+								<th class="TDName"><span data-sort="ALIAS0"><tt>Tên</tt><i class="iconDown"></i></span></th>
+								<th class="TDAGent"><span data-sort="AWINGOLD0"><tt>Đại lý</tt><i class="iconDown"></i></span></th>
+								<th class="TDAGposs"><span data-sort="AWINLOSS0"><tt>Đại lý Số</tt><i class="iconDown"></i></span></th>
+								<th class="TDAGrusult"><span data-sort="ARESULT0"><tt>Đại lý Kết quả</tt><i class="iconDown"></i></span></th>
+								<th class="TDAGstock"><span data-sort="SGOLD0"><tt>Đại lýSố lượng vật lý</tt><i class="iconDown"></i></span></th>
+								<th class="TDMAposs" *cosu_enable*=""><span data-sort="SWINLOSS0"><tt>Đại lý tổng hợp   Số</tt><i class="iconDown"></i></span></th>
+								<th class="TDMArusult TDpaddingRight" *cosu_enable*=""><span data-sort="SRESULT0"><tt>Đại lý tổng hợp   Kết quả</tt><i class="iconDown"></i></span></th>
 							</tr>
 							<BR>
                             <?php
@@ -388,7 +385,7 @@ function init(){
                         							<!-- END DYNAMIC BLOCK: title -->
 							<!-- START DYNAMIC BLOCK: total -->
 							<tr class="TRtotal" *list_credit*="">
-								<td class="TDCode TDpaddingLeft">总计</td>
+								<td class="TDCode TDpaddingLeft">Tổng số</td>
 								<td class="TDName"></td>
 								<td class="TDAGent"><?=$c_a_result1 ?></td>
 								<td class="TDAGposs"></td>
@@ -400,11 +397,11 @@ function init(){
 							<!-- END DYNAMIC BLOCK: total -->
 						  <?php else:?>	
 						  <tr class="TRnodata" *list_nodata*="">
-						  	<td colspan="8">查无任何资料</td>
+						  	<td colspan="8">Không kiểm tra thông tin</td>
 						  </tr>
 						  <?php endif;?>
 						  <tr class="TRnodata"  *list_closedata*="" style="display:none">
-						  	<td colspan="8">此功能暂停服务,请稍候..</td>
+						  	<td colspan="8">Tính năng này tạm thời bị tạm ngưng, vui lòng đợi..</td>
 						  </tr>
 						</tbody>
 					</table>
@@ -419,8 +416,8 @@ function init(){
 								<i id="btnxClose" class="btnxClose"></i>
 								<!-- START DYNAMIC BLOCK: INFO -->
 								<li>
-									<span>新占成 *WINLOSS*</span>
-									<tt>更新时间</tt><tt>*DATE* *TIME*</tt>
+									<span>Tài khoản mới  *WINLOSS*</span>
+									<tt>Cập nhật thời gian</tt><tt>*DATE* *TIME*</tt>
 								</li>
 								<!-- END DYNAMIC BLOCK: INFO -->
 							</ul>
@@ -432,15 +429,15 @@ function init(){
 					<div class="blackMask"></div>
 					<div class="reportHead">
 						<ul>
-							<li class="modeBtn now">交收</li>
-							<li class="modeBtn">有效金额</li>
+							<li class="modeBtn now">Giải quyết</li>
+							<li class="modeBtn">Số tiền hiệu quả</li>
 						</ul>
 					</div>
 					<div class="DIVtips">
 						<div>
 							<i class="iconTop"></i>
 							<ul>
-								<li class="tipsText">切换项目查看更多资料</li>
+								<li class="tipsText">Chuyển đổi các mục để xem thêm thông tin</li>
 								<li id="tipsMask_close_btn" class="btnxClose"></li>
 							</ul>
 						</div>
@@ -448,7 +445,7 @@ function init(){
 				</div>
 			<div name="fank_calander_element" class="cal_div" style="position: absolute; display: none;">
 			<div name="fank_calander_element" class="cal_YearContain"><span name="fank_calander_element" class="cal_previous"></span>
-				<label name="fank_calander_element" class="cal_month_label"><select name="fank_calander_element" class="cal_month"><option value="0">一月</option><option value="1">二月</option><option value="2">三月</option><option value="3">四月</option><option value="4">五月</option><option value="5">六月</option><option value="6">七月</option><option value="7">八月</option><option value="8">九月</option><option value="9">十月</option><option value="10">十一月</option><option value="11">十二月</option></select></label><label name="fank_calander_element" class="cal_year_label"><select name="fank_calander_element" class="cal_year"><option value="1970">1970</option><option value="1971">1971</option><option value="1972">1972</option><option value="1973">1973</option><option value="1974">1974</option><option value="1975">1975</option><option value="1976">1976</option><option value="1977">1977</option><option value="1978">1978</option><option value="1979">1979</option><option value="1980">1980</option><option value="1981">1981</option><option value="1982">1982</option><option value="1983">1983</option><option value="1984">1984</option><option value="1985">1985</option><option value="1986">1986</option><option value="1987">1987</option><option value="1988">1988</option><option value="1989">1989</option><option value="1990">1990</option><option value="1991">1991</option><option value="1992">1992</option><option value="1993">1993</option><option value="1994">1994</option><option value="1995">1995</option><option value="1996">1996</option><option value="1997">1997</option><option value="1998">1998</option><option value="1999">1999</option><option value="2000">2000</option><option value="2001">2001</option><option value="2002">2002</option><option value="2003">2003</option><option value="2004">2004</option><option value="2005">2005</option><option value="2006">2006</option><option value="2007">2007</option><option value="2008">2008</option><option value="2009">2009</option><option value="2010">2010</option><option value="2011">2011</option><option value="2012">2012</option><option value="2013">2013</option><option value="2014">2014</option><option value="2015">2015</option><option value="2016">2016</option><option value="2017">2017</option><option value="2018">2018</option><option value="2019">2019</option><option value="2020">2020</option><option value="2021">2021</option><option value="2022">2022</option><option value="2023">2023</option><option value="2024">2024</option><option value="2025">2025</option><option value="2026">2026</option><option value="2027">2027</option><option value="2028">2028</option><option value="2029">2029</option><option value="2030">2030</option><option value="2031">2031</option><option value="2032">2032</option><option value="2033">2033</option><option value="2034">2034</option><option value="2035">2035</option><option value="2036">2036</option><option value="2037">2037</option><option value="2038">2038</option></select></label><span name="fank_calander_element" class="cal_next"></span></div><div name="fank_calander_element"><span name="fank_calander_element" class="cal_week_left">日</span><span name="fank_calander_element" class="cal_week">一</span><span name="fank_calander_element" class="cal_week">二</span><span name="fank_calander_element" class="cal_week">三</span><span name="fank_calander_element" class="cal_week">四</span><span name="fank_calander_element" class="cal_week">五</span><span name="fank_calander_element" class="cal_week">六</span><br name="fank_calander_element"><span name="fank_calander_element" class="cal_date_left cal_space">&nbsp;&nbsp;</span><span name="fank_calander_element" class="cal_date cal_space">&nbsp;&nbsp;</span><span name="fank_calander_element" class="cal_date cal_space">&nbsp;&nbsp;</span><span name="fank_calander_element" class="cal_date ">1</span><span name="fank_calander_element" class="cal_date ">2</span><span name="fank_calander_element" class="cal_date ">3</span><span name="fank_calander_element" class="cal_date ">4</span><br name="fank_calander_element"><span name="fank_calander_element" class="cal_date_left ">5</span><span name="fank_calander_element" class="cal_date ">6</span><span name="fank_calander_element" class="cal_date ">7</span><span name="fank_calander_element" class="cal_date cal_goal">8</span><span name="fank_calander_element" class="cal_date ">9</span><span name="fank_calander_element" class="cal_date ">10</span><span name="fank_calander_element" class="cal_date ">11</span><br name="fank_calander_element"><span name="fank_calander_element" class="cal_date_left ">12</span><span name="fank_calander_element" class="cal_date ">13</span><span name="fank_calander_element" class="cal_date ">14</span><span name="fank_calander_element" class="cal_date ">15</span><span name="fank_calander_element" class="cal_date ">16</span><span name="fank_calander_element" class="cal_date ">17</span><span name="fank_calander_element" class="cal_date ">18</span><br name="fank_calander_element"><span name="fank_calander_element" class="cal_date_left ">19</span><span name="fank_calander_element" class="cal_date ">20</span><span name="fank_calander_element" class="cal_date ">21</span><span name="fank_calander_element" class="cal_date ">22</span><span name="fank_calander_element" class="cal_date ">23</span><span name="fank_calander_element" class="cal_date ">24</span><span name="fank_calander_element" class="cal_date ">25</span><br name="fank_calander_element"><span name="fank_calander_element" class="cal_date_left ">26</span><span name="fank_calander_element" class="cal_date ">27</span><span name="fank_calander_element" class="cal_date ">28</span><span name="fank_calander_element" class="cal_date ">29</span><span name="fank_calander_element" class="cal_date ">30</span><span name="fank_calander_element" class="cal_date ">31</span><span name="fank_calander_element" class="cal_date cal_space">&nbsp;&nbsp;</span></div></div><div name="fank_calander_element" class="cal_div" style="position: absolute; display: none;"><div name="fank_calander_element" class="cal_YearContain"><span name="fank_calander_element" class="cal_previous"></span><label name="fank_calander_element" class="cal_month_label"><select name="fank_calander_element" class="cal_month"><option value="0">一月</option><option value="1">二月</option><option value="2">三月</option><option value="3">四月</option><option value="4">五月</option><option value="5">六月</option><option value="6">七月</option><option value="7">八月</option><option value="8">九月</option><option value="9">十月</option><option value="10">十一月</option><option value="11">十二月</option></select></label><label name="fank_calander_element" class="cal_year_label"><select name="fank_calander_element" class="cal_year"><option value="1970">1970</option><option value="1971">1971</option><option value="1972">1972</option><option value="1973">1973</option><option value="1974">1974</option><option value="1975">1975</option><option value="1976">1976</option><option value="1977">1977</option><option value="1978">1978</option><option value="1979">1979</option><option value="1980">1980</option><option value="1981">1981</option><option value="1982">1982</option><option value="1983">1983</option><option value="1984">1984</option><option value="1985">1985</option><option value="1986">1986</option><option value="1987">1987</option><option value="1988">1988</option><option value="1989">1989</option><option value="1990">1990</option><option value="1991">1991</option><option value="1992">1992</option><option value="1993">1993</option><option value="1994">1994</option><option value="1995">1995</option><option value="1996">1996</option><option value="1997">1997</option><option value="1998">1998</option><option value="1999">1999</option><option value="2000">2000</option><option value="2001">2001</option><option value="2002">2002</option><option value="2003">2003</option><option value="2004">2004</option><option value="2005">2005</option><option value="2006">2006</option><option value="2007">2007</option><option value="2008">2008</option><option value="2009">2009</option><option value="2010">2010</option><option value="2011">2011</option><option value="2012">2012</option><option value="2013">2013</option><option value="2014">2014</option><option value="2015">2015</option><option value="2016">2016</option><option value="2017">2017</option><option value="2018">2018</option><option value="2019">2019</option><option value="2020">2020</option><option value="2021">2021</option><option value="2022">2022</option><option value="2023">2023</option><option value="2024">2024</option><option value="2025">2025</option><option value="2026">2026</option><option value="2027">2027</option><option value="2028">2028</option><option value="2029">2029</option><option value="2030">2030</option><option value="2031">2031</option><option value="2032">2032</option><option value="2033">2033</option><option value="2034">2034</option><option value="2035">2035</option><option value="2036">2036</option><option value="2037">2037</option><option value="2038">2038</option></select></label><span name="fank_calander_element" class="cal_next"></span></div><div name="fank_calander_element"><span name="fank_calander_element" class="cal_week_left">日</span><span name="fank_calander_element" class="cal_week">一</span><span name="fank_calander_element" class="cal_week">二</span><span name="fank_calander_element" class="cal_week">三</span><span name="fank_calander_element" class="cal_week">四</span><span name="fank_calander_element" class="cal_week">五</span><span name="fank_calander_element" class="cal_week">六</span><br name="fank_calander_element"><span name="fank_calander_element" class="cal_date_left cal_space">&nbsp;&nbsp;</span><span name="fank_calander_element" class="cal_date cal_space">&nbsp;&nbsp;</span><span name="fank_calander_element" class="cal_date cal_space">&nbsp;&nbsp;</span><span name="fank_calander_element" class="cal_date ">1</span><span name="fank_calander_element" class="cal_date ">2</span><span name="fank_calander_element" class="cal_date ">3</span><span name="fank_calander_element" class="cal_date ">4</span><br name="fank_calander_element"><span name="fank_calander_element" class="cal_date_left ">5</span><span name="fank_calander_element" class="cal_date ">6</span><span name="fank_calander_element" class="cal_date ">7</span><span name="fank_calander_element" class="cal_date cal_goal">8</span><span name="fank_calander_element" class="cal_date ">9</span><span name="fank_calander_element" class="cal_date ">10</span><span name="fank_calander_element" class="cal_date ">11</span><br name="fank_calander_element"><span name="fank_calander_element" class="cal_date_left ">12</span><span name="fank_calander_element" class="cal_date ">13</span><span name="fank_calander_element" class="cal_date ">14</span><span name="fank_calander_element" class="cal_date ">15</span><span name="fank_calander_element" class="cal_date ">16</span><span name="fank_calander_element" class="cal_date ">17</span><span name="fank_calander_element" class="cal_date ">18</span><br name="fank_calander_element"><span name="fank_calander_element" class="cal_date_left ">19</span><span name="fank_calander_element" class="cal_date ">20</span><span name="fank_calander_element" class="cal_date ">21</span><span name="fank_calander_element" class="cal_date ">22</span><span name="fank_calander_element" class="cal_date ">23</span><span name="fank_calander_element" class="cal_date ">24</span><span name="fank_calander_element" class="cal_date ">25</span><br name="fank_calander_element"><span name="fank_calander_element" class="cal_date_left ">26</span><span name="fank_calander_element" class="cal_date ">27</span><span name="fank_calander_element" class="cal_date ">28</span><span name="fank_calander_element" class="cal_date ">29</span><span name="fank_calander_element" class="cal_date ">30</span><span name="fank_calander_element" class="cal_date ">31</span><span name="fank_calander_element" class="cal_date cal_space">&nbsp;&nbsp;</span></div></div></div>
+				<label name="fank_calander_element" class="cal_month_label"><select name="fank_calander_element" class="cal_month"><option value="0">Tháng Một</option><option value="1">Tháng Hai</option><option value="2">Tháng ba</option><option value="3">Tháng bốn</option><option value="4">Tháng Năm</option><option value="5">Tháng Sáu</option><option value="6">Tháng Bảy</option><option value="7">Tháng Tám</option><option value="8">Tháng Chín</option><option value="9">Tháng Mười</option><option value="10">Tháng Mười một</option><option value="11">Tháng Mười hai</option></select></label><label name="fank_calander_element" class="cal_year_label"><select name="fank_calander_element" class="cal_year"><option value="1970">1970</option><option value="1971">1971</option><option value="1972">1972</option><option value="1973">1973</option><option value="1974">1974</option><option value="1975">1975</option><option value="1976">1976</option><option value="1977">1977</option><option value="1978">1978</option><option value="1979">1979</option><option value="1980">1980</option><option value="1981">1981</option><option value="1982">1982</option><option value="1983">1983</option><option value="1984">1984</option><option value="1985">1985</option><option value="1986">1986</option><option value="1987">1987</option><option value="1988">1988</option><option value="1989">1989</option><option value="1990">1990</option><option value="1991">1991</option><option value="1992">1992</option><option value="1993">1993</option><option value="1994">1994</option><option value="1995">1995</option><option value="1996">1996</option><option value="1997">1997</option><option value="1998">1998</option><option value="1999">1999</option><option value="2000">2000</option><option value="2001">2001</option><option value="2002">2002</option><option value="2003">2003</option><option value="2004">2004</option><option value="2005">2005</option><option value="2006">2006</option><option value="2007">2007</option><option value="2008">2008</option><option value="2009">2009</option><option value="2010">2010</option><option value="2011">2011</option><option value="2012">2012</option><option value="2013">2013</option><option value="2014">2014</option><option value="2015">2015</option><option value="2016">2016</option><option value="2017">2017</option><option value="2018">2018</option><option value="2019">2019</option><option value="2020">2020</option><option value="2021">2021</option><option value="2022">2022</option><option value="2023">2023</option><option value="2024">2024</option><option value="2025">2025</option><option value="2026">2026</option><option value="2027">2027</option><option value="2028">2028</option><option value="2029">2029</option><option value="2030">2030</option><option value="2031">2031</option><option value="2032">2032</option><option value="2033">2033</option><option value="2034">2034</option><option value="2035">2035</option><option value="2036">2036</option><option value="2037">2037</option><option value="2038">2038</option></select></label><span name="fank_calander_element" class="cal_next"></span></div><div name="fank_calander_element"><span name="fank_calander_element" class="cal_week_left">Ngày</span><span name="fank_calander_element" class="cal_week">Một</span><span name="fank_calander_element" class="cal_week">Hai</span><span name="fank_calander_element" class="cal_week">ba</span><span name="fank_calander_element" class="cal_week">bốn</span><span name="fank_calander_element" class="cal_week">năm</span><span name="fank_calander_element" class="cal_week">sáu</span><br name="fank_calander_element"><span name="fank_calander_element" class="cal_date_left cal_space">&nbsp;&nbsp;</span><span name="fank_calander_element" class="cal_date cal_space">&nbsp;&nbsp;</span><span name="fank_calander_element" class="cal_date cal_space">&nbsp;&nbsp;</span><span name="fank_calander_element" class="cal_date ">1</span><span name="fank_calander_element" class="cal_date ">2</span><span name="fank_calander_element" class="cal_date ">3</span><span name="fank_calander_element" class="cal_date ">4</span><br name="fank_calander_element"><span name="fank_calander_element" class="cal_date_left ">5</span><span name="fank_calander_element" class="cal_date ">6</span><span name="fank_calander_element" class="cal_date ">7</span><span name="fank_calander_element" class="cal_date cal_goal">8</span><span name="fank_calander_element" class="cal_date ">9</span><span name="fank_calander_element" class="cal_date ">10</span><span name="fank_calander_element" class="cal_date ">11</span><br name="fank_calander_element"><span name="fank_calander_element" class="cal_date_left ">12</span><span name="fank_calander_element" class="cal_date ">13</span><span name="fank_calander_element" class="cal_date ">14</span><span name="fank_calander_element" class="cal_date ">15</span><span name="fank_calander_element" class="cal_date ">16</span><span name="fank_calander_element" class="cal_date ">17</span><span name="fank_calander_element" class="cal_date ">18</span><br name="fank_calander_element"><span name="fank_calander_element" class="cal_date_left ">19</span><span name="fank_calander_element" class="cal_date ">20</span><span name="fank_calander_element" class="cal_date ">21</span><span name="fank_calander_element" class="cal_date ">22</span><span name="fank_calander_element" class="cal_date ">23</span><span name="fank_calander_element" class="cal_date ">24</span><span name="fank_calander_element" class="cal_date ">25</span><br name="fank_calander_element"><span name="fank_calander_element" class="cal_date_left ">26</span><span name="fank_calander_element" class="cal_date ">27</span><span name="fank_calander_element" class="cal_date ">28</span><span name="fank_calander_element" class="cal_date ">29</span><span name="fank_calander_element" class="cal_date ">30</span><span name="fank_calander_element" class="cal_date ">31</span><span name="fank_calander_element" class="cal_date cal_space">&nbsp;&nbsp;</span></div></div><div name="fank_calander_element" class="cal_div" style="position: absolute; display: none;"><div name="fank_calander_element" class="cal_YearContain"><span name="fank_calander_element" class="cal_previous"></span><label name="fank_calander_element" class="cal_month_label"><select name="fank_calander_element" class="cal_month"><option value="0">Tháng Một</option><option value="1">Tháng Hai</option><option value="2">Tháng ba</option><option value="3">Tháng bốn</option><option value="4">Tháng Năm</option><option value="5">Tháng Sáu</option><option value="6">Tháng Bảy</option><option value="7">Tháng Tám</option><option value="8">Tháng Chín</option><option value="9">Tháng Mười</option><option value="10">Tháng Mười một</option><option value="11">Tháng Mười hai</option></select></label><label name="fank_calander_element" class="cal_year_label"><select name="fank_calander_element" class="cal_year"><option value="1970">1970</option><option value="1971">1971</option><option value="1972">1972</option><option value="1973">1973</option><option value="1974">1974</option><option value="1975">1975</option><option value="1976">1976</option><option value="1977">1977</option><option value="1978">1978</option><option value="1979">1979</option><option value="1980">1980</option><option value="1981">1981</option><option value="1982">1982</option><option value="1983">1983</option><option value="1984">1984</option><option value="1985">1985</option><option value="1986">1986</option><option value="1987">1987</option><option value="1988">1988</option><option value="1989">1989</option><option value="1990">1990</option><option value="1991">1991</option><option value="1992">1992</option><option value="1993">1993</option><option value="1994">1994</option><option value="1995">1995</option><option value="1996">1996</option><option value="1997">1997</option><option value="1998">1998</option><option value="1999">1999</option><option value="2000">2000</option><option value="2001">2001</option><option value="2002">2002</option><option value="2003">2003</option><option value="2004">2004</option><option value="2005">2005</option><option value="2006">2006</option><option value="2007">2007</option><option value="2008">2008</option><option value="2009">2009</option><option value="2010">2010</option><option value="2011">2011</option><option value="2012">2012</option><option value="2013">2013</option><option value="2014">2014</option><option value="2015">2015</option><option value="2016">2016</option><option value="2017">2017</option><option value="2018">2018</option><option value="2019">2019</option><option value="2020">2020</option><option value="2021">2021</option><option value="2022">2022</option><option value="2023">2023</option><option value="2024">2024</option><option value="2025">2025</option><option value="2026">2026</option><option value="2027">2027</option><option value="2028">2028</option><option value="2029">2029</option><option value="2030">2030</option><option value="2031">2031</option><option value="2032">2032</option><option value="2033">2033</option><option value="2034">2034</option><option value="2035">2035</option><option value="2036">2036</option><option value="2037">2037</option><option value="2038">2038</option></select></label><span name="fank_calander_element" class="cal_next"></span></div><div name="fank_calander_element"><span name="fank_calander_element" class="cal_week_left">Ngày</span><span name="fank_calander_element" class="cal_week">Một</span><span name="fank_calander_element" class="cal_week">Hai</span><span name="fank_calander_element" class="cal_week">ba</span><span name="fank_calander_element" class="cal_week">bốn</span><span name="fank_calander_element" class="cal_week">năm</span><span name="fank_calander_element" class="cal_week">sáu</span><br name="fank_calander_element"><span name="fank_calander_element" class="cal_date_left cal_space">&nbsp;&nbsp;</span><span name="fank_calander_element" class="cal_date cal_space">&nbsp;&nbsp;</span><span name="fank_calander_element" class="cal_date cal_space">&nbsp;&nbsp;</span><span name="fank_calander_element" class="cal_date ">1</span><span name="fank_calander_element" class="cal_date ">2</span><span name="fank_calander_element" class="cal_date ">3</span><span name="fank_calander_element" class="cal_date ">4</span><br name="fank_calander_element"><span name="fank_calander_element" class="cal_date_left ">5</span><span name="fank_calander_element" class="cal_date ">6</span><span name="fank_calander_element" class="cal_date ">7</span><span name="fank_calander_element" class="cal_date cal_goal">8</span><span name="fank_calander_element" class="cal_date ">9</span><span name="fank_calander_element" class="cal_date ">10</span><span name="fank_calander_element" class="cal_date ">11</span><br name="fank_calander_element"><span name="fank_calander_element" class="cal_date_left ">12</span><span name="fank_calander_element" class="cal_date ">13</span><span name="fank_calander_element" class="cal_date ">14</span><span name="fank_calander_element" class="cal_date ">15</span><span name="fank_calander_element" class="cal_date ">16</span><span name="fank_calander_element" class="cal_date ">17</span><span name="fank_calander_element" class="cal_date ">18</span><br name="fank_calander_element"><span name="fank_calander_element" class="cal_date_left ">19</span><span name="fank_calander_element" class="cal_date ">20</span><span name="fank_calander_element" class="cal_date ">21</span><span name="fank_calander_element" class="cal_date ">22</span><span name="fank_calander_element" class="cal_date ">23</span><span name="fank_calander_element" class="cal_date ">24</span><span name="fank_calander_element" class="cal_date ">25</span><br name="fank_calander_element"><span name="fank_calander_element" class="cal_date_left ">26</span><span name="fank_calander_element" class="cal_date ">27</span><span name="fank_calander_element" class="cal_date ">28</span><span name="fank_calander_element" class="cal_date ">29</span><span name="fank_calander_element" class="cal_date ">30</span><span name="fank_calander_element" class="cal_date ">31</span><span name="fank_calander_element" class="cal_date cal_space">&nbsp;&nbsp;</span></div></div></div>
 
 <?php else:?>
 
@@ -457,7 +454,7 @@ function init(){
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
   <tr>
     <td class="m_tline" width="750">&nbsp;&nbsp;<?=$rag_date?>:<?=$date_start?>~<?=$date_end?>
-      -- <?=$rep_kind?>:<?=$rep_kind_a?> -- <?=$rep_pay_type?>:<?=$rep_pay?> -- <?=$rep_wtype?>:<?=$type_caption?> -- <?=$rag_type?> -- <a href="javascript:history.go( -1 );">回上一页</a></td>
+      -- <?=$rep_kind?>:<?=$rep_kind_a?> -- <?=$rep_pay_type?>:<?=$rep_pay?> -- <?=$rep_wtype?>:<?=$type_caption?> -- <?=$rag_type?> -- <a href="javascript:history.go( -1 );">Sao lưu Một Trang</a></td>
     <td width="30"><img src="/images/control/zh-tw/top_04.gif" width="30" height="24"></td>
   </tr>
   <tr>
@@ -476,22 +473,22 @@ if ($credit=='block'){
 	$credit='none';
 }
 ?>
-<!-----------------↓ 信用额度资料区段 ↓------------------------->
+<!-----------------↓ Hạn mức tín dụng资料区段 ↓------------------------->
 <table border="0" cellpadding="0" cellspacing="1" bgcolor="#000000" class="m_tab"  style="display: <?=$credit?>" width="880">
   <tr class="m_title_reall" >
-    <td colspan="10">信用额度</td>
+    <td colspan="10">Hạn mức tín dụng</td>
   </tr>
   <tr class="m_title_reall" >
-    <td width="50"  >名称</td>
-    <td width="80"  >笔数</td>
-    <td width="110"  >下注金额</td>
-    <td width="110"  >有效金额</td>
-    <td width="90"  >会员</td>
-    <td width="90"  >代理商</td>
-    <td width="90"  >代理商成数</td>
-    <td width="90"  >代理商结果</td>
-    <td width="90"  >原币值</td>
-    <td width="80"  >实货量</td>
+    <td width="50"  >Tên</td>
+    <td width="80"  >Số lượng bút</td>
+    <td width="110"  >Số tiền đặt cược</td>
+    <td width="110"  >Số tiền hiệu quả</td>
+    <td width="90"  >Thành viên</td>
+    <td width="90"  >Đại lý</td>
+    <td width="90"  >Đại lý Số</td>
+    <td width="90"  >Đại lý Kết quả</td>
+    <td width="90"  >Giá trị tiền tệ gốc</td>
+    <td width="80"  >Số lượng vật lý</td>
   </tr>
    	<?
 	while ($row = mysql_fetch_array($result)){
@@ -519,7 +516,7 @@ if ($credit=='block'){
 	}
 	?>
   <tr class="m_rig_to">
-    <td>总计</td>
+    <td>Tổng số</td>
     <td><?=$c_num?></td>
     <td><?=mynumberformat($c_score,1)?></td>
     <td><?=mynumberformat($c_vscore,1)?></td>
@@ -531,7 +528,7 @@ if ($credit=='block'){
     <td><?=mynumberformat($c_vgold,1)?></td>
     </tr>
 </table>
-<!-----------------↑ 信用额度资料区段 ↑------------------------->
+<!-----------------↑ Hạn mức tín dụng资料区段 ↑------------------------->
 <BR>
 <?
 if ($sgold=='block'){
@@ -545,22 +542,22 @@ if ($sgold=='block'){
 	$sgold='block';
 }
 ?>
-<!-----------------↓ 现金资料区段 ↓------------------------->
+<!-----------------↓ Tiền mặt资料区段 ↓------------------------->
 <table border="0" cellpadding="0" cellspacing="1" bgcolor="#000000" class="m_tab"  style="display: <?=$sgold?>" width="940">
   <tr class="m_title_reall" >
-    <td colspan="10">现金</td>
+    <td colspan="10">Tiền mặt</td>
   </tr>
   <tr class="m_title_reall" >
-   <td width="50"  >名称</td>
-    <td width="80"  >笔数</td>
-    <td width="110"  >下注金额</td>
-    <td width="110"  >有效金额</td>
-    <td width="90"  >会员</td>
-    <td width="90"  >代理商</td>
-    <td width="90"  >代理商成数</td>
-    <td width="90"  >代理商结果</td>
-    <td width="90"  >原币值</td>
-    <td width="80"  >实货量</td>
+   <td width="50"  >Tên</td>
+    <td width="80"  >Số lượng bút</td>
+    <td width="110"  >Số tiền đặt cược</td>
+    <td width="110"  >Số tiền hiệu quả</td>
+    <td width="90"  >Thành viên</td>
+    <td width="90"  >Đại lý</td>
+    <td width="90"  >Đại lý Số</td>
+    <td width="90"  >Đại lý Kết quả</td>
+    <td width="90"  >Giá trị tiền tệ gốc</td>
+    <td width="80"  >Số lượng vật lý</td>
   </tr>
 	<?
 	while ($row = mysql_fetch_array($result)){
@@ -593,7 +590,7 @@ if ($sgold=='block'){
   </tr>
   <!-- END DYNAMIC BLOCK: group0 -->
   <tr class="m_rig_to">
-    <td>总计</td>
+    <td>Tổng số</td>
     <td><?=$c_num1?></td>
     <td><?=mynumberformat($c_score1,1)?></td>
     <td><?=mynumberformat($c_vscore1,1)?></td>
@@ -615,10 +612,10 @@ if ($credit=='none' and $sgold=='none'){
 ?>
 <table width="100%" border="0" cellspacing="1" cellpadding="0" style="display: <?=$nosearch?>">
   <tr >
-    <td align=center height="30" bgcolor="#CC0000"><marquee align="middle" behavior="alternate" width="200"><font color="#FFFFFF">查无任何资料</font></marquee></td>
+    <td align=center height="30" bgcolor="#CC0000"><marquee align="middle" behavior="alternate" width="200"><font color="#FFFFFF">Không kiểm tra thông tin</font></marquee></td>
 
   <tr>
-    <td align=center height="20" bgcolor="#CCCCCC"><a href="javascript:history.go(-1);">离开</a></td>
+    <td align=center height="20" bgcolor="#CCCCCC"><a href="javascript:history.go(-1);">Rời khỏi</a></td>
 
 </table>
 <?php endif;?>

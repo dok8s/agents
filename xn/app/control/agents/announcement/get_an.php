@@ -48,7 +48,7 @@ $result = mysql_query($sql);
 <script src="/js/jquery-1.10.2.js" type="text/javascript"></script>
 <script src="/js/ClassSelect_ag.js" type="text/javascript"></script>
 <script type="text/javascript">
-    // 等待所有加载
+    // 等待Tất cả加载
     $(window).load(function(){
         $('body').addClass('loaded');
         $('#loader-wrapper .load_title').remove();
@@ -110,7 +110,7 @@ b { color:#C30;}
     <div id="loader"></div>
     <div class="loader-section section-left"></div>
     <div class="loader-section section-right"></div>
-    <div class="load_title">正在加载...</div>
+    <div class="load_title">Đang tải...</div>
 </div>
 <div id="body_show" style=""><div>
         <div name="MaxTag" id="announcement">
@@ -118,26 +118,26 @@ b { color:#C30;}
             <div id="announcement_contain" class="announcement_contain" onresize="setDivSize(this)" style="width: 1280px;">
 
                 <div id="top_nav_container" name="fixHead" class="top_nav_container_ann" >
-                    <div id="general_btn" class="<? if ($level == 1) {echo 'nav_btn_on';} else {echo 'nav_btn';}?>" onclick="ch_level(1);">一般公告</div>
-                    <div id="important_btn" class="<? if ($level == 2) {echo 'nav_btn_on';} else {echo 'nav_btn';}?>" onclick="ch_level(2);">重要公告</div>
-                    <div id="personal_btn" class="<? if ($level == 3) {echo 'nav_btn_on';} else {echo 'nav_btn';}?>" onclick="ch_level(3);">个人公告</div>
+                    <div id="general_btn" class="<? if ($level == 1) {echo 'nav_btn_on';} else {echo 'nav_btn';}?>" onclick="ch_level(1);">Thông báo chung</div>
+                    <div id="important_btn" class="<? if ($level == 2) {echo 'nav_btn_on';} else {echo 'nav_btn';}?>" onclick="ch_level(2);">Thông báo quan trọng</div>
+                    <div id="personal_btn" class="<? if ($level == 3) {echo 'nav_btn_on';} else {echo 'nav_btn';}?>" onclick="ch_level(3);">Thông báo cá nhân</div>
                 </div>
 
                 <div id="top_title" class="top_title_ann">
                     <span id="title_span">
                         <?
                             if ($level == 1) {
-                                echo '一般公告';
+                                echo 'hông báo chung';
                             } elseif ($level == 2) {
-                                echo '重要公告';
+                                echo 'Thông báo quan trọng';
                             } else {
-                                echo '个人公告';
+                                echo 'Thông báo cá nhân';
                             }
                         ?>
                     </span>
-                    <!--选择日期＆Search-->
+                    <!--选择Ngày tháng＆Search-->
                     <div id="date_select_box" class="date_select_box">
-                        <span class="acc_specilSelect_first">日期</span>
+                        <span class="acc_specilSelect_first">Ngày tháng</span>
                         <label id="sel_label">
                             <!--select id="sel_date" name="sel_date">
                             </select-->
@@ -145,33 +145,33 @@ b { color:#C30;}
                                 <span id="nowText" class="divSelect">
                                     <?
                                         if ($dateType == 1) {
-                                            echo '所有';
+                                            echo 'Tất cả';
                                         } elseif ($dateType == 2) {
-                                            echo '今日';
+                                            echo 'Hôm nay';
                                         } elseif ($dateType == 3) {
-                                            echo '昨日';
+                                            echo 'Hôm qua';
                                         } else {
-                                            echo '昨日之前';
+                                            echo 'Hôm qua Trước';
                                         }
                                     ?>
                                 </span>
                                 <div id="showDiv" class="acc_specilSelect" style="display: none;">
                                     <ul id="divUl" class="acc_specilSelect_options" style="padding: 0px;">
-                                        <li id="value_All" class="<? if ($dateType == 1) {echo 'divLi_selected';} else {echo 'divLi';}?>" onclick="ch_date(1)">所有</li>
-                                        <li id="value_Today" class="<? if ($dateType == 2) {echo 'divLi_selected';} else {echo 'divLi';}?>" onclick="ch_date(2)">今日</li>
-                                        <li id="value_Yesterday" class="<? if ($dateType == 3) {echo 'divLi_selected';} else {echo 'divLi';}?>" onclick="ch_date(3)">昨日</li>
-                                        <li id="value_Before" class="<? if ($dateType == 4) {echo 'divLi_selected';} else {echo 'divLi';}?>" onclick="ch_date(4)">昨日之前</li>
+                                        <li id="value_All" class="<? if ($dateType == 1) {echo 'divLi_selected';} else {echo 'divLi';}?>" onclick="ch_date(1)">Tất cả</li>
+                                        <li id="value_Today" class="<? if ($dateType == 2) {echo 'divLi_selected';} else {echo 'divLi';}?>" onclick="ch_date(2)">Hôm nay</li>
+                                        <li id="value_Yesterday" class="<? if ($dateType == 3) {echo 'divLi_selected';} else {echo 'divLi';}?>" onclick="ch_date(3)">Hôm qua</li>
+                                        <li id="value_Before" class="<? if ($dateType == 4) {echo 'divLi_selected';} else {echo 'divLi';}?>" onclick="ch_date(4)">Hôm qua Trước</li>
                                     </ul>
                                 </div>
                             </div>
                         </label>
                         <div id="search_box" class="search_box">
-                            <input id="search_input" type="text" class="search_input" placeholder="搜寻" value="<?echo $search;?>">
+                            <input id="search_input" type="text" class="search_input" placeholder="Tìm kiếm" value="<?echo $search;?>">
                             <div id="search_btn" class="search_btn" onclick="search_an()"></div>
                             <div id="delete_txt" class="delete_txt" onclick="del_search_an()"></div>
                         </div>
                     </div>
-                    <!--选择日期＆Search end--></div>
+                    <!--选择Ngày tháng＆Search end--></div>
 
                 <div id="date_container" class="date_container">
 
@@ -181,9 +181,9 @@ b { color:#C30;}
                         <div id="anno_table_title" class="anno_table_title">
                 <span id="date_title_ann" class="date_title_ann">
                     <!--红色箭头往下  class="title_btn1", 红色箭头往上  class="title_btn2", 灰色箭头往下  class="title_btn3"-->
-                    <span id="title_btn" class="<? $class = $order == 'asc'?'title_btn2':'title_btn1';echo $class; ?>" onclick="ch_order()">日期</span>
+                    <span id="title_btn" class="<? $class = $order == 'asc'?'title_btn2':'title_btn1';echo $class; ?>" onclick="ch_order()">Ngày tháng</span>
                 </span>
-                            <span class="anno_title">公告</span>
+                            <span class="anno_title">Thông báo</span>
                         </div>
                         <!--公告title end-->
                         <div id="announceDiv" name="announceDiv" class="annoTable">
@@ -202,7 +202,7 @@ b { color:#C30;}
                                     ?>
                                     <tr id="announceTr" name="announceTr" class="anno_tr" >
                                         <td id="datetime" name="datetime" width="10%" class="table_line" style="border-bottom: #E5E5E5 1px solid;">
-                                            <div id="mdate" class="date_box"><?echo date('n',strtotime($row["ndate"]))?>月<br><?echo date('j',strtotime($row["ndate"]))?>日</div>
+                                            <div id="mdate" class="date_box"><?echo date('n',strtotime($row["ndate"]))?>Tháng<br><?echo date('j',strtotime($row["ndate"]))?>Ngày</div>
                                         </td>
                                         <td id="text" name="text" width="90%" height="34" valign="top" style="border-bottom: #E5E5E5 1px solid;">
                                             <!--span class="table_time">14:01:28</span-->
@@ -215,10 +215,10 @@ b { color:#C30;}
                                 </tbody></table>
                         </div>
                         <div id="viewmore_contain" class="viewmore_contain" style="display:none;">
-                            <input id="btn" type="button" class="btn_more" value="查看更多">
+                            <input id="btn" type="button" class="btn_more" value="Xem thêm">
                             <!-- <div id="load" class="load"></div> -->
                         </div>
-                        <div id="no_data" style="display:none;" class="no_found_div">无资料</div>
+                        <div id="no_data" style="display:none;" class="no_found_div">Không có dữ liệu</div>
                     </div>
                     <!--公告 end-->
                 </div>

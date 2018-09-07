@@ -154,7 +154,8 @@ $result = mysql_query( $mysql);
 </SCRIPT>
 </head>
 <body oncontextmenu="window.event.returnValue=false" bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" vlink="#0000FF" alink="#0000FF" onLoad="onLoad()";>
-<FORM NAME="myFORM" ACTION="/app/control/world/members/su_members.php?uid=<?=$uid?>" METHOD=POST>
+<FORM NAME="myFORM" ACTION="/xn/app/control/world/members/su_members.php?uid=<?=$uid?>" METHOD=POST>
+<FORM NAME="myFORM" ACTION="/xn/app/control/world/members/su_members.php?uid=<?=$uid?>" METHOD=POST>
 <input type="hidden" name="agent_id" value="<?=$agid?>">
 <table width="780" border="0" cellspacing="0" cellpadding="0">
   <tr>
@@ -263,11 +264,11 @@ if ($cou==0){
 <td align="left"><?
 if($enable=='Y'){
 ?>
-<a href="javascript:CheckSTOP('/app/control/world/members/su_members.php?uid=<?=$uid?>&active=2&id=<?=$row['ID']?>&enable=S','S')">暂停</a> /
+<a href="javascript:CheckSTOP('/xn/app/control/world/members/su_members.php?uid=<?=$uid?>&active=2&id=<?=$row['ID']?>&enable=S','S')">暂停</a> /
 <?
 }
 ?>
-       <a href="javascript:CheckSTOP('/app/control/world/members/su_members.php?uid=<?=$uid?>&active=2&id=<?=$row['ID']?>&enable=<?=$memstop?>','<?=$memstop?>')"><?=$caption1?></a> / <a href="./su_mem_edit.php?uid=<?=$uid?>&mid=<?=$row['ID']?>">修改资料</a> / <a href="su_mem_set.php?uid=<?=$uid?>&id=<?=$row['ID']?>&pay_type=<?=$row['pay_type']?>&agents_id=<?=$row['Agents']?>">详细设定</a></td>
+       <a href="javascript:CheckSTOP('/xn/app/control/world/members/su_members.php?uid=<?=$uid?>&active=2&id=<?=$row['ID']?>&enable=<?=$memstop?>','<?=$memstop?>')"><?=$caption1?></a> / <a href="./su_mem_edit.php?uid=<?=$uid?>&mid=<?=$row['ID']?>">修改资料</a> / <a href="su_mem_set.php?uid=<?=$uid?>&id=<?=$row['ID']?>&pay_type=<?=$row['pay_type']?>&agents_id=<?=$row['Agents']?>">详细设定</a></td>
     </tr>
 <?
 }

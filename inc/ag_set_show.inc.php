@@ -18,7 +18,7 @@ function get_set_table_show_ex($name,$class,$row,$wd_row,$qarr,$carr,$width='780
 		$class_abcd=array();
 	}
 
-	$rt[]="<table width='$width' border='0' cellspacing='1' cellpadding='0' class='m_tab_ed'><tr class='m_title_edit'>";
+	$rt[]="<table width='$width' border='0' cellspacing='1' cellpadding='0' class='m_tab_ed' style=\"margin-left:16px;margin-top:10px;\"><tr class='m_title_edit'>";
 	$rt[]="<td>$name </td>";
 	foreach($class as $v){
 		$rt[]="<td width='68'>$v</td>";
@@ -111,7 +111,7 @@ function get_set_table_show($row,$wd_row){
 	$class=array('冠军');
 	$fs=get_set_table_show_ex($name,$class,$row,$wd_row,$qarr,$carr,'150');
 
-	$return[]="<table width='780' border='0' cellspacing='0' cellpadding='0'><tr><td align='left'>$bk </td><td align='right'>$fs </td></tr></table>";
+	$return[]="<table width='780' border='0' cellspacing='0' cellpadding='0' style=\"margin-left:1px;margin-top:10px;\"><tr><td align='left'>$bk </td><td align='right'>$fs </td></tr></table>";
 
 	$name='网球';
 	$class=array('让球','大小','滚球','滚球大小','单双','独赢','标准过关','让球过关','综合过关','波胆','入球','半全场');

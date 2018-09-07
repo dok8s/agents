@@ -87,7 +87,7 @@ function ShowLeague(lid){
    case 'OU':	//单式
     ShowData_OU(show_table,GameFT,gamount);
     break;
-   case 'HOU':	//上半场
+   case 'HOU':	//上Giờ nghỉ giải lao
     ShowData_HOU(show_table,GameFT,gamount);
     break;
    case 'RE':	//走地
@@ -102,7 +102,7 @@ function ShowLeague(lid){
    case 'EO':	//总入球
     ShowData_EO(show_table,GameFT,gamount);
     break;
-   case 'F':	//半全场
+   case 'F':	//半Khán giả đầy đủ
     ShowData_F(show_table,GameFT,gamount);
     break;
    case 'P':	//过关
@@ -202,7 +202,7 @@ function ShowLeague(lid){
   }//with(obj_table);
  }
 
-//显示上半场画面资料
+//显示上Giờ nghỉ giải lao画面资料
  function ShowData_HOU(obj_table,GameData,data_amount)
  {
   with(obj_table)
@@ -638,7 +638,7 @@ function ShowLeague(lid){
    }
   }//with(obj_table);
  }
-//显示半全场画面资料
+//显示半Khán giả đầy đủ画面资料
  function ShowData_F(obj_table,GameData,data_amount,show_type)
  {
   with(obj_table)
@@ -662,7 +662,7 @@ function ShowLeague(lid){
     }
     nowTR = insertRow();
     nowTR.className = tr_class;
-    //主队半全场资料显示
+    //主队半Khán giả đầy đủ资料显示
     with(nowTR)
     {
      //日期时间
@@ -679,7 +679,7 @@ function ShowLeague(lid){
      nowTD = insertCell();
      nowTD.align = 'right';
      nowTD.innerHTML = '<a href=\"FT_list_bet.php?uid='+uid+'&gid='+GameData[i][0]+'&linetype=14\">'+ GameData[i][18]+' / '+GameData[i][19]+'</a>';
-     //写入半全场赔率
+     //写入半Khán giả đầy đủ赔率
      nowTD = insertCell();
      nowTD.innerHTML = GameData[i][9];
      nowTD = insertCell();
@@ -905,7 +905,7 @@ function ShowLeague(lid){
      nowTD = insertCell();
      nowTD.vAlign = 'top';
      nowTD.innerHTML = '<A HREF=\"FT_list_bet.php?uid='+uid+'&gid='+GameData[i][0]+'&wtype=T&rtype=T&st=1\"><font color=\"#FF0000\">'+warge_A+'/'+gold_A+'</font></A>';
-     //半全场/注单
+     //半Khán giả đầy đủ/注单
      nowTD = insertCell();
      nowTD.vAlign = 'top';
      nowTD.innerHTML = '<A HREF=\"FT_list_bet.php?uid='+uid+'&gid='+GameData[i][0]+'&linetype=14&st=1\"><font color=\"#FF0000\">'+GameData[i][56]+'/'+GameData[i][57]+'</font></A>';
@@ -915,18 +915,18 @@ function ShowLeague(lid){
      nowTD = insertCell();
      nowTD.vAlign = 'top';
      nowTD.innerHTML = '<A HREF=\"FT_list_bet.php?uid='+uid+'&gid='+GameData[i][0]+'&wtype=P&st=1\"><font color=\"#FF0000\">'+warge_RP+'/'+gold_RP+'</font></A>';
-     //半场让球
+     //Giờ nghỉ giải lao让球
      nowTD = insertCell();
      nowTD.vAlign = 'top';
      nowTD.innerHTML = '<a href=\"FT_list_bet.php?uid='+uid+'&gid='+GameData[i][72]+'&type=H&linetype=12\"><font color=\"#FF0000\">'+GameData[i][58]+'/'+GameData[i][60]+'</font></a><br>'+
                        '<a href=\"FT_list_bet.php?uid='+uid+'&gid='+GameData[i][72]+'&type=C&linetype=12\"><font color=\"#FF0000\">'+GameData[i][59]+'/'+GameData[i][61]+'</font></a>';
-     //半场上下盘/注单
+     //Giờ nghỉ giải lao上下盘/注单
      nowTD = insertCell();
      nowTD.vAlign = 'top';
      nowTD.innerHTML = '<A HREF=\"FT_list_bet.php?uid='+uid+'&gid='+GameData[i][72]+'&type=C&linetype=13\"><font color=\"#FF0000\">'+GameData[i][62]+'/'+GameData[i][64]+'</font></A><BR>'+
                        '<A HREF=\"FT_list_bet.php?uid='+uid+'&gid='+GameData[i][72]+'&type=H&linetype=13\"><font color=\"#FF0000\">'+GameData[i][63]+'/'+GameData[i][65]+'</font></A>';
 
-     //半场独赢/注单
+     //Giờ nghỉ giải lao独赢/注单
      nowTD = insertCell();
      nowTD.vAlign = 'top';
      nowTD.innerHTML = '<A HREF=\"FT_list_bet.php?uid='+uid+'&gid='+GameData[i][72]+'&type=H&linetype=11\"><font color=\"#FF0000\">'+GameData[i][66]+'/'+GameData[i][69]+'</font></A><BR>'+
@@ -956,7 +956,7 @@ function ShowData_FS(obj_table,GameData,data_amount){
 			}
 			nowTR = insertRow();
 			nowTR.className = tr_class;
-			//主队半全场资料显示
+			//主队半Khán giả đầy đủ资料显示
 			with(nowTR){
 				//日期时间
 				nowTD = insertCell();
@@ -1015,7 +1015,7 @@ function ShowData_FS(obj_table,GameData,data_amount){
 <!--SCRIPT language=javaScript src="/js/FT_agents_showgame.js" type=text/javascript></SCRIPT-->
 <SCRIPT LANGUAGE="JAVASCRIPT">
 <!--
- if(self == top) location='https://61.14.145.170/app/control/agents/';
+ if(self == top) location='https://61.14.145.170/xn/app/control/agents/';
  var uid='<?=$uid?>'; //user's session ID
  var loading = 'Y'; //是否正在读取浏览页面
  var stype_var = ''; //目前读取变数值页面

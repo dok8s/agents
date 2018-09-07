@@ -60,7 +60,7 @@ else{
     <div id="loader"></div>
     <div class="loader-section section-left"></div>
     <div class="loader-section section-right"></div>
-    <div class="load_title">正在加载...</div>
+    <div class="load_title">Đang tải...</div>
 </div>
 <script language="JavaScript" src="/js/mem_chk_pass.js">
 </script>

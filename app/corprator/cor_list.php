@@ -60,8 +60,8 @@ $level=$_REQUEST['level']?$_REQUEST['level']:1;
                 self.location = '/app/corprator/members/su_members.php?uid='+uid+'&level='+i;
             } else if(i === 6) {
                 self.location = '/app/corprator/wager_list/wager_add.php?uid='+uid+'&level='+i;
-            } else if(i === 7) {
-                self.location = '/app/corprator/members/su_members.php?uid='+uid+'&level='+i;
+            } else if(i === 5) {
+                self.location = '/app/corprator/su_subuser.php?uid=='+uid+'&level='+i;;
             }else {
                 self.location = '/app/corprator/wager_list/wager_hide.php?uid='+uid+'&level='+i;
             }
@@ -70,8 +70,22 @@ $level=$_REQUEST['level']?$_REQUEST['level']:1;
     </script>
 <script language="javascript1.2" src="/js/ag_set.js"></script>
 </head>
+<link rel="stylesheet" href="./css/loader.css" type="text/css">
+<script type="text/javascript">
+    // 等待所有加载
+    $(window).load(function(){
+        $('body').addClass('loaded');
+        $('#loader-wrapper .load_title').remove();
+    });
+</script>
 <body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" vlink="#0000FF" alink="#0000FF">
-<div id="top_nav_container" name="fixHead" class="top_nav_container_ann">
+<div id="loader-wrapper">
+    <div id="loader"></div>
+    <div class="loader-section section-left"></div>
+    <div class="loader-section section-right"></div>
+    <div class="load_title">正在加载...</div>
+</div>
+<div id="top_nav_container" name="fixHead" class="top_nav_container_ann" style="position: relative;">
     <div id="general_btn" class="<? if ($level == 1) {echo 'nav_btn_on';} else {echo 'nav_btn';}?>" onclick="ch_level(1);">股东</div>
     <div id="important_btn" class="<? if ($level == 2) {echo 'nav_btn_on';} else {echo 'nav_btn';}?>" onclick="ch_level(2);">总代理</div>
     <div id="general_btn1" class="<? if ($level == 3) {echo 'nav_btn_on';} else {echo 'nav_btn';}?>" onclick="ch_level(3);">代理</div>
@@ -86,15 +100,14 @@ $level=$_REQUEST['level']?$_REQUEST['level']:1;
 </div>
  <INPUT TYPE=HIDDEN NAME="id" VALUE="<?=$mid?>">
   <INPUT TYPE=HIDDEN NAME="sid" VALUE="<?=$agents_id?>">
-<table width="780" border="0" cellspacing="0" cellpadding="0">
-  <tr> 
-    <td class="m_tline">&nbsp;&nbsp;代理商详细设定&nbsp;&nbsp;&nbsp;帐号:<?=$agents_name?> -- 
-      名称:<?=$alias?> -- <a href="javascript:history.go( -1 );">回上一页</a></td>
-    <td width="30"><img src="/images/control/zh-tw/top_04.gif" width="30" height="24"></td>
-  </tr>
-  <tr> 
-    <td colspan="2" height="4"></td>
-  </tr>
+<table width="780" border="0" cellspacing="0" cellpadding="0" style="margin-left:10px;margin-top:10px;">
+    <tr>
+        <td class="">&nbsp;&nbsp;代理商详细设定&nbsp;&nbsp;&nbsp;帐号:<?=$agents_name?> --
+            名称:<?=$alias?> -- <a href="javascript:history.go( -1 );">回上一页</a></td>
+    </tr>
+    <tr>
+        <td colspan="2" height="4"></td>
+    </tr>
 </table>
 <?
 require ("../../inc/ag_set_show.inc.php");

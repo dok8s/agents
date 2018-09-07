@@ -136,12 +136,12 @@ function ShowNumber(flag,check,actionstr){
 		document.getElementById('roundnumber').style.top = top.mouseY;
 		document.getElementById('roundnumber').style.left = top.mouseX;
 		document.getElementById("roundnumber").style.display = "block";
-		reloadPHP.location="/app/other_set/getroundnum.php?uid=<?=$uid?>&layer="+layer+"&userid="+userid;
+		reloadPHP.location="/xn/app/other_set/getroundnum.php?uid=<?=$uid?>&layer="+layer+"&userid="+userid;
 		return false;
 	}else{
 		
 		if(subMitStr!=''){
-			self.location="/app/control/"+level+"/report/"+subMitStr;
+			self.location="/xn/app/control/"+level+"/report/"+subMitStr;
 			return true;	
 		}else{
 self.location=document.location.href;

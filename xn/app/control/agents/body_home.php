@@ -79,7 +79,7 @@ b { color:#C30;}
     <div id="loader"></div>
     <div class="loader-section section-left"></div>
     <div class="loader-section section-right"></div>
-    <div class="load_title">正在加载...</div>
+    <div class="load_title">Đang tải...</div>
 </div>
 <div>
   <div id="body_show" style=""><div>
@@ -87,38 +87,38 @@ b { color:#C30;}
 
         <div id="home_contain" class="home_contain" onresize="setDivSize(this)" style="width: 67%;min-width: 1200px;">
           <div id="home_box" class="home_box">
-            <div id="top_title" class="top_title"><span>首页</span></div>
+            <div id="top_title" class="top_title"><span>Trang chủ</span></div>
             <div id="account_contain" class="account_contain">
-              <div id="ac_title" class="ac_title"><span class="left_panding">帐户摘要</span></div>
+              <div id="ac_title" class="ac_title"><span class="left_panding">Tóm tắt tài khoản</span></div>
               <div id="credits" class="acc_box">
-                <span class="left_panding">信用额度</span>
+                <span class="left_panding">Hạn mức tín dụng</span>
                 <span id="credits_info" class="acc_info"><?=$agents["Credit"]?></span>
               </div>
               <div id="balance" class="acc_box">
-                <span class="left_panding">剩余额度</span>
+                <span class="left_panding">Số tiền còn lại</span>
                 <span id="balance_info" class="acc_info"><?=$money?></span>
               </div>
               <div id="new" class="acc_box">
-                <span class="left_panding">本期新会员数</span>
+                <span class="left_panding">Thành viên mới trong số này</span>
                 <span id="new_info" class="acc_info"><?= $member_count?></span>
               </div>
               <div id="last_login" class="acc_box">
-                <span class="left_panding">最后登入日期</span>
+                <span class="left_panding">Ngày đăng nhập cuối cùng</span>
                 <span id="last_login_info" class="acc_info"><?=$agents["LoginTime"]?></span>
               </div>
               <div id="password" class="acc_box bottom_line">
-                <span class="left_panding">账号开通日期</span>
+                <span class="left_panding">Ngày mở tài khoản</span>
                 <span id="password_info" class="acc_info"><?=$agents["AddDate"]?></span>
               </div>
             </div>
 
             <div id="status_contain" class="status_contain">
               <div id="status_title" class="status_title">
-                <span class="title_box" style="min-width: 150px;">时间</span>
-                <span class="title_box2 margin_right" style="min-width: 60px;">操作者</span>
-                <span class="title_box2" style="min-width: 60px;">项目</span>
-                <span class="title_box2" style="min-width: 60px;">帐号</span>
-                <span class="title_box3" style="min-width: 60px;">阶层</span>
+                <span class="title_box" style="min-width: 150px;">Thời gian</span>
+                <span class="title_box2 margin_right" style="min-width: 60px;">Nhà điều hành</span>
+                <span class="title_box2" style="min-width: 60px;">Dự án</span>
+                <span class="title_box2" style="min-width: 60px;">Số tài khoản</span>
+                <span class="title_box3" style="min-width: 60px;">Lớp</span>
               </div>
               <div id="member" class="acc_box">
                 <div style="height:205px;overflow-y:auto">
@@ -144,7 +144,7 @@ b { color:#C30;}
                 </div>
             </div>
           </div>
-              <div id="important_title" class="important_title"><span>重要公告</span></div>
+              <div id="important_title" class="important_title"><span>Layer</span></div>
               <div id="important_contain" class="important_contain">
                   <table id="important_table" border="0" cellpadding="0" cellspacing="0">
                       <tbody>
@@ -165,13 +165,13 @@ b { color:#C30;}
                       </tbody></table>
               </div>
               <div id="viewmore_contain" class="viewmore_contain">
-                  <a href="/app/control/agents/announcement/get_an.php?uid=<?$uid?>&langx=<?=$langx?>">
-                      <input id="btn" type="button" class="btn_more" value="查看更多">
+                  <a href="/xn/app/control/agents/announcement/get_an.php?uid=<?$uid?>&langx=<?=$langx?>">
+                      <input id="btn" type="button" class="btn_more" value="Lớp">
                   </a>
                   <div id="load" class="load"></div>
               </div>
 
-              <div id="important_title" class="important_title"><span>最新公告</span></div>
+              <div id="important_title" class="important_title"><span>Thông báo mới nhất</span></div>
               <div id="important_contain" class="important_contain">
                   <table id="important_table" border="0" cellpadding="0" cellspacing="0">
                       <tbody>
@@ -192,8 +192,8 @@ b { color:#C30;}
                       </tbody></table>
               </div>
               <div id="viewmore_contain" class="viewmore_contain">
-                  <a href="/app/control/agents/announcement/get_an.php?uid=<?$uid?>&langx=<?=$langx?>">
-                      <input id="btn" type="button" class="btn_more" value="查看更多">
+                  <a href="/xn/app/control/agents/announcement/get_an.php?uid=<?$uid?>&langx=<?=$langx?>">
+                      <input id="btn" type="button" class="btn_more" value="Thông báo mới nhất">
                   </a>
                   <div id="load" class="load"></div>
               </div>

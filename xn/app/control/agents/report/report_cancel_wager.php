@@ -165,8 +165,8 @@ function report_bg(){
 					<td><a href="javascript: void(0);" onMouseOver="if (timeoutId) clearTimeout(timeoutId);window.status='Show Calendar';return true;" onMouseOut="if (timeoutDelay) calendarTimeout();window.status='';" onClick="g_Calendar.show(event,'FrmData.date_end',true,'yyyy-mm-dd'); return false;">&nbsp;&nbsp;<img src="/images/control/calendar.gif" name="imgCalendar" width="34" height="21" border="0"></a></td>
 					<td>&nbsp;</td>
 					<td>
-						<input name="Submit" type="Button" class="za_button" onClick="chg_date('t',0,0)" value="今日">
-						<input name="Submit" type="Button" class="za_button" onClick="chg_date('l',-1,-1)" value="昨日">
+						<input name="Submit" type="Button" class="za_button" onClick="chg_date('t',0,0)" value="Hôm nay">
+						<input name="Submit" type="Button" class="za_button" onClick="chg_date('l',-1,-1)" value="Hôm qua">
 						<input name="Submit" type="Button" class="za_button" onClick="chg_date('n',1,1)" value="明日">
 						<input name="Submit" type="Button" class="za_button" onClick="chg_date('w',-<?=$week1?>,6-<?=$week1?>)" value="本星期">
 						<input name="Submit" type="Button" class="za_button" onClick="chg_date('lw',-<?=$week1?>-7,6-<?=$week1?>-7)" value="上星期">
@@ -221,10 +221,10 @@ function report_bg(){
 				<option value="PD">波胆</option>
 				<option value="T">入球</option>
 				<option value="M">独赢</option>
-				<option value="F">半全场</option>
-				<option value="HR">上半场让球(分)</option>
-				<option value="HOU">上半场大小</option>
-				<option value="HM">上半场独赢</option>
+				<option value="F">半Khán giả đầy đủ</option>
+				<option value="HR">上Giờ nghỉ giải lao让球(分)</option>
+				<option value="HOU">上Giờ nghỉ giải lao大小</option>
+				<option value="HM">上Giờ nghỉ giải lao独赢</option>
 				<option value="HRE">上半滚球让球(分)</option>
 				<option value="HROU">上半滚球大小</option>
                                 <option value="HPD">上半波胆</option>
