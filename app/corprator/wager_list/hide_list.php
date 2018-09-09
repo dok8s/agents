@@ -935,7 +935,7 @@ function Del(str)
 <form name="myFORM" method="post" action="">
 <table width="769" border="0" cellspacing="0" cellpadding="0">
   <tr>
-     <td class="m_tline" width="744">注单管理&nbsp;&nbsp;<input name=button type=button class="za_button" onClick="reload()" value="更新"> &nbsp;&nbsp;投注日期：<font color="#cc0000">
+     <td class="" width="744">注单管理&nbsp;&nbsp;<input name=button type=button class="za_button" onClick="reload()" value="更新"> &nbsp;&nbsp;投注日期：<font color="#cc0000">
       <select class=za_select onchange=document.myFORM.submit(); name=gdate>
 				<option value=""></option>
 				<?
@@ -958,7 +958,6 @@ function Del(str)
             </font>&nbsp;&nbsp;&nbsp;&nbsp;帐号:<font color="cc0000">
             <?=$username?>
             </font>&nbsp;&nbsp;&nbsp;&nbsp;<a href="javascript:history.go( -1 );"> 回上一页</a>&nbsp;&nbsp;</font></font></td>
-    <td width="32"><img src="/images/control/top_04.gif" width="30" height="24"></td>
   </tr>
   <tr>
     <td colspan="2" height="4" width="778">

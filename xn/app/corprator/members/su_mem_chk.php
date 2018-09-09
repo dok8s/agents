@@ -17,10 +17,10 @@ $row = mysql_fetch_array($result);
 $count=mysql_num_rows($result);
 
 if ($count<=0){
-	echo "<SCRIPT language='javascript'>alert('此帐号无人使用!!');</script>";
+	echo "<SCRIPT language='javascript'>alert('Tài khoản này không được sử dụng!!');</script>";
 	exit;
 }else{
-	echo "<SCRIPT language='javascript'>alert('此帐号有人使用!!');</script>";
+	echo "<SCRIPT language='javascript'>alert('Tài khoản này được sử dụng bởi ai đó!!');</script>";
 	exit;
 }
 mysql_close();

@@ -460,7 +460,7 @@ function ShowLeague(lid){
 <!--SCRIPT language=javaScript src="/js/FT_agents_showgame.js" type=text/javascript></SCRIPT-->
 <SCRIPT LANGUAGE="JAVASCRIPT">
 <!--
- if(self == top) location='https://61.14.145.168/xn/app/control/agents/';
+ if(self == top) location='https://61.14.145.168/app/control/agents/';
  var uid=''; //user's session ID
  var loading = 'Y'; //是否正在读取浏览页面
  var stype_var = ''; //目前读取变数值页面

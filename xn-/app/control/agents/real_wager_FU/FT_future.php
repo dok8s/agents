@@ -265,7 +265,7 @@ function chg_league(){
 <FORM NAME="REFORM" ACTION="" METHOD=POST>
   <table width="780" border="0" cellspacing="0" cellpadding="0">
     <tr>
-      <td class="m_tline">
+      <td class="">
         <table border="0" cellspacing="0" cellpadding="0" >
           <tr>
             <td width="60" nowrap>&nbsp;&nbsp;trực tuyến

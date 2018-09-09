@@ -50,7 +50,7 @@ if ($active=='Y'){
 ?>
 <html>
 <head>
-<title>800系統</title>
+<title>800嚙緣嚙踝蕭</title>
 <meta http-equiv="Content-Type" content="text/html; charset=big5">
 <script language="JavaScript">
 <!--
@@ -100,31 +100,31 @@ function MM_showHideLayers() { //v3.0
 <div id="Layer1" style="position:absolute; left:183px; top:47px; width:65px; height:40px; z-index:1; visibility: hidden" onMouseOver="MM_showHideLayers('Layer1','','show')" onMouseOut="MM_showHideLayers('Layer1','','hide')"> 
   <table width="100%" border="0" cellspacing="1" cellpadding="0" >
     <tr> 
-      <td  class="mou"><a href="user_list.php?uid=<?=$uid?>" target="_top">帳戶查詢</a></td>
+      <td  class="mou"><a href="user_list.php?uid=<?=$uid?>" target="_top">嚙箭嚙踝蕭d嚙踝蕭</a></td>
     </tr>
     <tr> 
-      <td class="mou"  ><a href="user_edit.php?uid=<?=$uid?>" target="_top">存入帳戶</a></td>
+      <td class="mou"  ><a href="user_edit.php?uid=<?=$uid?>" target="_top">嚙編嚙皚嚙箭嚙踝蕭</a></td>
     </tr>
   </table>
 </div>
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
   <tr> 
     <td width="183"><img src="/images/800/800_top_01.gif" width="183" height="29"></td>
-    <td bgcolor="475854" class=m_title_he><font color="#FFFFFF">800線上客服系統</font></td>
+    <td bgcolor="475854" class=m_title_he><font color="#FFFFFF">800嚙線嚙磕嚙褓服嚙緣嚙踝蕭</font></td>
   </tr>
   <tr height="18"> 
     <td><img src="/images/800/800_top_02.gif" width="183" height="19"></td>
-    <td bgcolor="#2F4540" class="m_title_he"> <a href="#" target="_top" onMouseOver="MM_showHideLayers('Layer1','','show')" onMouseOut="MM_showHideLayers('Layer1','','hide')">帳戶作業</a> 
-      <font color="#FFFFFF"> - 800作業 - </font><a href="/login.php?uid=<?=$uid?>" target='_top'>登出</a></td>
+    <td bgcolor="#2F4540" class="m_title_he"> <a href="#" target="_top" onMouseOver="MM_showHideLayers('Layer1','','show')" onMouseOut="MM_showHideLayers('Layer1','','hide')">嚙箭嚙踝蕭@嚙羯</a> 
+      <font color="#FFFFFF"> - 800嚙瑾嚙羯 - </font><a href="/login.php?uid=<?=$uid?>" target='_top'>嚙緯嚙碼</a></td>
   </tr>
 </table>
 <table width="780" border="0" cellspacing="0" cellpadding="0">
   <FORM id="myFORM" ACTION="" METHOD=POST  name="FrmData">
   <tr> 
-    <td class="m_tline">
+    <td class="">
         <table border="0" cellspacing="0" cellpadding="0" >
           <tr> 
-            <td width="50" >&nbsp;&nbsp;帳戶別:</td>
+            <td width="50" >&nbsp;&nbsp;嚙箭嚙踝蕭O:</td>
             <td width="49"> 
 		<select name="mid" class="za_select">
 <?
@@ -135,7 +135,7 @@ while ($row = mysql_fetch_array($result)){
 }
 ?>              </select>
             </td>
-            <td width="68">&nbsp;--&nbsp;日期區間:</td>
+            <td width="68">&nbsp;--&nbsp;嚙踝蕭嚙踝蕭炩嚙�:</td>
             <td>
               <input type=TEXT name="date_start" size=10 maxlength=11 class="za_text" value="<?=$date_start?>">
               &nbsp;</td>
@@ -145,24 +145,24 @@ while ($row = mysql_fetch_array($result)){
               <input type=TEXT name="date_end" size=10 maxlength=10 class="za_text" value="<?=$date_end?>">
               &nbsp;</td>
             <td><a href="javascript:void(0);" onMouseOver="if (timeoutId) clearTimeout(timeoutId);window.status='Show Calendar';return true;" onMouseOut="if (timeoutDelay) calendarTimeout();window.status='';" onClick="g_Calendar.show(event,'FrmData.date_end',true,'yyyy-mm-dd'); return false;"><img src="/images/control/calendar.gif" name="imgCalendar" width="34" height="21" border="0"></a>&nbsp;</td>
-            <td width="45">&nbsp;--&nbsp;方式:</td>
+            <td width="45">&nbsp;--&nbsp;嚙質式:</td>
             <td>
               <select name="type" class="za_select">
 			  <option value=>  </option>
-<option value="S">存入</option>
-<option value="T">提出</option>
-<option value="O">下注</option>
+<option value="S">嚙編嚙皚</option>
+<option value="T">嚙踝蕭嚙碼</option>
+<option value="O">嚙磊嚙窯</option>
 <option value="W">贏</option>
-<option value="L">輸</option>
-<option value="N">和局</option>
-<option value="M">修正</option>
+<option value="L">嚙踝蕭</option>
+<option value="N">嚙瞎嚙踝蕭</option>
+<option value="M">嚙論伐蕭</option>
 
               </select>
             </td>
             <td > &nbsp; 
-              <input type=SUBMIT name="SUBMIT" value="查詢" class="za_button">
+              <input type=SUBMIT name="SUBMIT" value="嚙範嚙踝蕭" class="za_button">
             </td>
-            <td width="58">&nbsp;--&nbsp;總頁數:</td>
+            <td width="58">&nbsp;--&nbsp;嚙窯嚙踝蕭嚙踝蕭:</td>
             <td> 
               <select id="page" name="page"  class="za_select" onChange="self.myFORM.submit()">
                 <!-- BEGIN DYNAMIC BLOCK: page --> 
@@ -170,11 +170,10 @@ while ($row = mysql_fetch_array($result)){
                 <!-- END DYNAMIC BLOCK: page --> 
               </select>
             </td>
-            <td> / 0 頁</td>
+            <td> / 0 嚙踝蕭</td>
           </tr>
         </table>
       </td>
-    <td width="30"><img src="/images/control/zh-tw/top_04.gif" width="30" height="24"></td>
   </tr>
   <tr> 
     <td colspan="2" height="4"></td>
@@ -188,7 +187,7 @@ while ($row = mysql_fetch_array($result)){
         <tr> 
           <td >&nbsp;<img src="/images/control/zh-tw/main_dot.gif" width="13" height="15">&nbsp; 
           </td>
-          <td ><font color="#000099">帳戶查詢</font></td>
+          <td ><font color="#000099">嚙箭嚙踝蕭d嚙踝蕭</font></td>
         </tr>
       </table>
     </td>
@@ -200,14 +199,14 @@ while ($row = mysql_fetch_array($result)){
     <td>
       <table width="620" border="1" cellspacing="2" cellpadding="0" class="m_tab_main" bordercolor="#CCCCCC">
         <tr class="m_title"> 
-          <td width="80">會員帳號</td>
-          <td width="80">存入帳號</td>
-          <td width="60">存入幣別</td>
-          <td width="80">存入金額</td>
-          <td width="80">存入日期</td>
-          <td width="80">審核帳號</td>
-          <td width="80">審核日期</td>
-          <td width="80">備註</td>
+          <td width="80">嚙罵嚙踝蕭嚙箭嚙踝蕭</td>
+          <td width="80">嚙編嚙皚嚙箭嚙踝蕭</td>
+          <td width="60">嚙編嚙皚嚙踝蕭嚙瞌</td>
+          <td width="80">嚙編嚙皚嚙踝蕭嚙畿</td>
+          <td width="80">嚙編嚙皚嚙踝蕭嚙�</td>
+          <td width="80">嚙篆嚙誰帳嚙踝蕭</td>
+          <td width="80">嚙篆嚙誰歹蕭嚙�</td>
+          <td width="80">嚙複蛛蕭</td>
         </tr>
         <!-- BEGIN DYNAMIC BLOCK: row -->
 <?
@@ -223,7 +222,7 @@ $cou=mysql_num_rows($result);
 if ($cou==0){
 ?>
 <tr class="m_cen"> 
-          <td>目前沒有記錄</td>
+          <td>嚙諍前嚙磅嚙踝蕭嚙瞌嚙踝蕭</td>
           <td>&nbsp;</td>
           <td>&nbsp;</td>
           <td align="right">&nbsp;</td>
@@ -249,7 +248,7 @@ if ($row['checked']==0){
 <td>&nbsp;</td>
       <td>&nbsp;</td>
          <td>
-<input type=submit name=send value='審核' onclick="return confirm('確定審核此筆單')" class="za_button">
+<input type=submit name=send value='嚙篆嚙踝蕭' onclick="return confirm('嚙確嚙緩嚙篆嚙誰佗蕭嚙踝蕭嚙踝蕭')" class="za_button">
 <input type=hidden name=id value=<?=$row['id']?>>
 <input type=hidden name=mid value=<?=$row[memname]?>>
 <input type=hidden name=gold value=<?=$row['gold']?>>
@@ -265,10 +264,10 @@ if ($row['checked']==0){
 <?
 switch($row['type']){
 case 'S':
-echo '<td>存入</td>';
+echo '<td>嚙編嚙皚</td>';
 break;
 case 'T':
-echo '<td>提出</td>';
+echo '<td>嚙踝蕭嚙碼</td>';
 break;
 }
 ?>
@@ -282,9 +281,9 @@ break;
  
         <!-- END DYNAMIC BLOCK: row -->
         <tr class="m_rig2"> 
-          <td colspan="3" >可用餘額</td>
+          <td colspan="3" >嚙箠嚙諄餘嚙畿</td>
           <td colspan="2" bgcolor="#000066"><font color="#FFFFFF">90.0</font></td>
-          <td >總計</td>
+          <td >嚙窯嚙緘</td>
           <td colspan="2" bgcolor="#660000"><font color="#FFFFFF">0.0</font></td>
         </tr>
       </table>

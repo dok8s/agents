@@ -121,20 +121,20 @@ function reload()
 <form name=FTR action="" method=post>
 <table width="880" border="0" cellspacing="0" cellpadding="0">
     <tr>
-      <td class="m_tline" width="850">&nbsp;ÏßÉÏ²ÙÅÌ£­
-      	<input name=button type=button class="za_button" onClick="reload()" value="¸üÐÂ"><font color="#cc0000">ÇëÊäÈë²éÑ¯Ìõ¼þ:</font>
+      <td class="" width="850">&nbsp;ï¿½ï¿½ï¿½Ï²ï¿½ï¿½Ì£ï¿½
+      	<input name=button type=button class="za_button" onClick="reload()" value="ï¿½ï¿½ï¿½ï¿½"><font color="#cc0000">ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñ¯ï¿½ï¿½ï¿½ï¿½:</font>
       	<select name="search" class="za_select">
-            <option value="">²»Ö¸¶¨</option>
-            <option value="2">¹É¶«</option>
-            <option value="3">×Ü´úÀí</option>
-            <option value="4">´úÀíÉÌ</option>
-            <option value="5">»áÔ±</option>
-            <option value="6">×¢µ¥ºÅ</option>
-            <option value="7">ÒÑ½áËã</option>
-            <option value="8">Í¶×¢Ê±¼ä</option>
+            <option value="">ï¿½ï¿½Ö¸ï¿½ï¿½</option>
+            <option value="2">ï¿½É¶ï¿½</option>
+            <option value="3">ï¿½Ü´ï¿½ï¿½ï¿½</option>
+            <option value="4">ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½</option>
+            <option value="5">ï¿½ï¿½Ô±</option>
+            <option value="6">×¢ï¿½ï¿½ï¿½ï¿½</option>
+            <option value="7">ï¿½Ñ½ï¿½ï¿½ï¿½</option>
+            <option value="8">Í¶×¢Ê±ï¿½ï¿½</option>
           </select>
           <input type="text" size=16 name="search_data" value="<?=$search_value?>">
-					Í¶×¢ÈÕÆÚ
+					Í¶×¢ï¿½ï¿½ï¿½ï¿½
 					<select name="gdate" class="za_select">
 					<?
 					$dd = 24*60*60;
@@ -152,23 +152,22 @@ function reload()
 					?>
           </select>
 
-					<INPUT class=za_button type=submit value=²éÑ¯ name=SUBMIT>
+					<INPUT class=za_button type=submit value=ï¿½ï¿½Ñ¯ name=SUBMIT>
         	</td>
-					<td width="30"><img src="/images/control/zh-tw/top_04.gif" width="30" height="24"></td>
     </tr>
   </table>
 </form><BR>
 <table width="910" border="0" cellspacing="1" cellpadding="0" class="m_tab" bgcolor="#000000">
  <tr class="m_title_ft">
-  <td width="70"align="center">Í¶×¢Ê±¼ä</td>
-  <td width="100" align="center">Á÷Ë®µ¥ºÅ</td>
-  <td width="100" align="center">ÓÃ»§Ãû³Æ</td>
-  <td width="100" align="center">ÇòÈüÖÖÀà</td>
-  <td width="230" align="center">ƒÈÈÝ</td>
+  <td width="70"align="center">Í¶×¢Ê±ï¿½ï¿½</td>
+  <td width="100" align="center">ï¿½ï¿½Ë®ï¿½ï¿½ï¿½ï¿½</td>
+  <td width="100" align="center">ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ï¿½</td>
+  <td width="100" align="center">ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½</td>
+  <td width="230" align="center">ï¿½ï¿½ï¿½ï¿½</td>
   <td width="70" align="center">Í¶×¢</td>
-  <td width="70" align="center">¿ÉÓ®½ð¶î</td>
-  <td width="70" align="center">½á¹û</td>
-  <td width="100" align="center">²Ù×÷</td>
+  <td width="70" align="center">ï¿½ï¿½Ó®ï¿½ï¿½ï¿½</td>
+  <td width="70" align="center">ï¿½ï¿½ï¿½</td>
+  <td width="100" align="center">ï¿½ï¿½ï¿½ï¿½</td>
 </tr>
         <?
 					while ($row = mysql_fetch_array($result)){
@@ -182,13 +181,13 @@ function reload()
           	<?
 						switch($row['danger']){
 						case 1:
-							echo '<br><font color=#ffffff style=background-color:#ff0000><b>&nbsp;È·ÈÏÖÐ&nbsp;</b></font></font>';
+							echo '<br><font color=#ffffff style=background-color:#ff0000><b>&nbsp;È·ï¿½ï¿½ï¿½ï¿½&nbsp;</b></font></font>';
 							break;
 						case 2:
-							echo '<br><font color=#ffffff style=background-color:#ff0000><b>Î´È·ÈÏ</b></font></font>';
+							echo '<br><font color=#ffffff style=background-color:#ff0000><b>Î´È·ï¿½ï¿½</b></font></font>';
 							break;
 						case 3:
-							echo '<br><font color=#ffffff style=background-color:#ff0000><b>&nbsp;È·ÈÏ&nbsp;</b></font></font>';
+							echo '<br><font color=#ffffff style=background-color:#ff0000><b>&nbsp;È·ï¿½ï¿½&nbsp;</b></font></font>';
 							break;
 						default:
 							break;

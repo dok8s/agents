@@ -18,7 +18,7 @@ $row = mysql_fetch_array($result);
 $agname=$row['Agname'];
 $agid=$row['ID'];
 $langx=$row['language'];
-require ("../../member/include/traditional.$langx.inc.php");
+require ("../../member/include/traditional.zh-vn.inc.php");
 ?>
 <html>
 <head>

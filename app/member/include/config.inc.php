@@ -2,10 +2,11 @@
 require_once('global.php');
 isset($_SERVER['HTTP_X_FORWARDED_FOR']) && $_SERVER['REMOTE_ADDR']=$_SERVER['HTTP_X_FORWARDED_FOR'];
 
-$dbhost = "localhost";
-$dbuser = "root";
+$dbhost = "114.215.154.112";
+$dbuser = "bjfxzf";
 $dbpass = "123456";
-$dbname = "hg";
+$dbname = "bjfxzf";
+
 
 $lnk = mysql_connect($dbhost,$dbuser,$dbpass) or exit("ERROR MySQL Connect");
 mysql_select_db($dbname, $lnk);

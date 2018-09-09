@@ -19,7 +19,7 @@ if($cou==0){
 $row = mysql_fetch_array($result);
 $id=$row['ID'];
 $agname=$row['Agname'];
-$langx=$row['language'];
+$langx='zh-vn';
 require ("../../member/include/traditional.$langx.inc.php");
 
 if ($rtype==''){

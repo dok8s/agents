@@ -70,7 +70,7 @@ if(document.forms[0].sid.options[1].selected==true){
 </script>
 <html>
 <head>
-<title>800系統</title>
+<title>800嚙緣嚙踝蕭</title>
 <meta http-equiv="Content-Type" content="text/html; charset=big5">
 <link rel="stylesheet" href="/style/800/control_800main.css" type="text/css">
 </head>
@@ -111,7 +111,7 @@ function MM_showHideLayers() { //v3.0
       <script language="JavaScript">
 function CheckKey(){
 	if(event.keyCode == 13) return false;
-	if((event.keyCode < 48 || event.keyCode > 57) && (event.keyCode > 95 || event.keyCode < 106)){alert("存入金額僅能輸入數字!!"); return false;}
+	if((event.keyCode < 48 || event.keyCode > 57) && (event.keyCode > 95 || event.keyCode < 106)){alert("嚙編嚙皚嚙踝蕭嚙畿嚙褓荔蕭嚙皚嚙複字!!"); return false;}
 }
 
 function Chg_Mcy(){
@@ -139,35 +139,35 @@ curr['IND']=0.0009;
 function SubChk()
 {
  if (document.all.type[0].checked==true){
- if (document.all.payway[0].checked==true) //選擇信用卡
+ if (document.all.payway[0].checked==true) //嚙踝蕭靮H嚙諄卡
  {
    if (document.all.cc1.value.length < 4)
    {
-     alert('請輸入信用卡號第1組數字，補滿四位');
+     alert('嚙請選蕭J嚙瘡嚙諄卡嚙踝蕭嚙踝蕭1嚙調數字嚙璀嚙褕綽蕭嚙罵嚙踝蕭');
      document.all.cc1.focus();
      return false;
    }
    if (document.all.cc2.value.length < 4)
    {
-     alert('請輸入信用卡號第2組數字，補滿四位');
+     alert('嚙請選蕭J嚙瘡嚙諄卡嚙踝蕭嚙踝蕭2嚙調數字嚙璀嚙褕綽蕭嚙罵嚙踝蕭');
      document.all.cc2.focus();
      return false;
    }
    if (document.all.cc3.value.length < 4)
    {
-     alert('請輸入信用卡號第3組數字，補滿四位');
+     alert('嚙請選蕭J嚙瘡嚙諄卡嚙踝蕭嚙踝蕭3嚙調數字嚙璀嚙褕綽蕭嚙罵嚙踝蕭');
      document.all.cc3.focus();
      return false;
    }
    if (document.all.cc4.value.length < 4)
    {
-     alert('請輸入信用卡號第4組數字，補滿四位');
+     alert('嚙請選蕭J嚙瘡嚙諄卡嚙踝蕭嚙踝蕭4嚙調數字嚙璀嚙褕綽蕭嚙罵嚙踝蕭');
      document.all.cc4.focus();
      return false;
    }
    if (document.all.authorize.value.length==0)
    {
-     alert('請輸入授權碼');
+     alert('嚙請選蕭J嚙踝蕭嚙緞嚙碼');
      document.all.authorize.focus();
      return false;
    }
@@ -177,29 +177,29 @@ function SubChk()
  {
    if (document.all.atm_no.value.length ==0)
    {
-     alert('請輸入atm號碼');
+     alert('嚙請選蕭Jatm嚙踝蕭嚙碼');
      document.all.atm_no.focus();
      return false;
    }
  }
 
- if (document.all.payway[2].checked==true)//水單
+ if (document.all.payway[2].checked==true)//嚙踝蕭嚙踝蕭
  {
    if (document.all.water_no.value.length ==0)
    {
-     alert('請輸入水單號碼');
+     alert('嚙請選蕭J嚙踝蕭嚙賣號嚙碼');
      document.all.water_no.focus();
      return false;
    }
  }
 }
  if (document.all.gold.value.length==0 || document.all.gold.value==0){
-     alert('請輸入金額');
+     alert('嚙請選蕭J嚙踝蕭嚙畿');
      document.all.gold.focus();
      return false;
  }
 
- if (confirm('確定 存入/提出 該帳號??'))
+ if (confirm('嚙確嚙緩 嚙編嚙皚/嚙踝蕭嚙碼 嚙諉帳嚙踝蕭??'))
  {
 	 return true;
  }else{
@@ -214,27 +214,26 @@ function SubChk()
 <div id="Layer1" style="position:absolute; left:183px; top:47px; width:65px; height:40px; z-index:1; visibility: hidden" onMouseOver="MM_showHideLayers('Layer1','','show')" onMouseOut="MM_showHideLayers('Layer1','','hide')"> 
   <table width="100%" border="0" cellspacing="1" cellpadding="0" >
     <tr> 
-      <td  class="mou"><a href="user_list.php?uid=<?=$uid?>" target="_top">帳戶查詢</a></td>
+      <td  class="mou"><a href="user_list.php?uid=<?=$uid?>" target="_top">嚙箭嚙踝蕭d嚙踝蕭</a></td>
     </tr>
     <tr> 
-      <td class="mou"  ><a href="user_edit.php?uid=<?=$uid?>" target="_top">存入帳戶</a></td>
+      <td class="mou"  ><a href="user_edit.php?uid=<?=$uid?>" target="_top">嚙編嚙皚嚙箭嚙踝蕭</a></td>
     </tr>
   </table>
 </div>
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
   <tr> 
     <td width="183"><img src="/images/800/800_top_01.gif" width="183" height="29"></td>
-    <td bgcolor="475854" class=m_title_he><font color="#FFFFFF">800線上客服系統</font></td>
+    <td bgcolor="475854" class=m_title_he><font color="#FFFFFF">800嚙線嚙磕嚙褓服嚙緣嚙踝蕭</font></td>
   </tr>
   <tr height="18"> 
     <td><img src="/images/800/800_top_02.gif" width="183" height="19"></td>
-    <td bgcolor="#2F4540" class="m_title_he"> <a href="#" target="_top" onMouseOver="MM_showHideLayers('Layer1','','show')" onMouseOut="MM_showHideLayers('Layer1','','hide')">帳戶作業</a><font color="#FFFFFF"> - 800作業  - </font><a href="/login.php?langx=zh-tw&uid=<?=$uid?>" target='_top'>登出</a></td>
+    <td bgcolor="#2F4540" class="m_title_he"> <a href="#" target="_top" onMouseOver="MM_showHideLayers('Layer1','','show')" onMouseOut="MM_showHideLayers('Layer1','','hide')">嚙箭嚙踝蕭@嚙羯</a><font color="#FFFFFF"> - 800嚙瑾嚙羯  - </font><a href="/login.php?langx=zh-tw&uid=<?=$uid?>" target='_top'>嚙緯嚙碼</a></td>
   </tr>
 </table>
 <table width="780" border="0" cellspacing="0" cellpadding="0">
   <tr> 
-    <td class="m_tline"></td>
-    <td width="30"><img src="/images/control/zh-tw/top_04.gif" width="30" height="24"></td>
+    <td class=""></td>
   </tr>
   <tr> 
     <td colspan="2" height="4"></td>
@@ -247,7 +246,7 @@ function SubChk()
         <tr> 
           <td >&nbsp;<img src="/images/control/zh-tw/main_dot.gif" width="13" height="15">&nbsp; 
           </td>
-          <td ><font color="#000099">存入帳戶</font></td>
+          <td ><font color="#000099">嚙編嚙皚嚙箭嚙踝蕭</font></td>
         </tr>
       </table>
     </td>
@@ -260,16 +259,16 @@ function SubChk()
       <form method="post" action="" target="_top" onsubmit="return SubChk()">
         <table width="600" border="0" cellspacing="1" cellpadding="0" class="m_tab_main">
           <tr bgcolor="E1E1D2"> 
-            <td width="110" class="m_title">存入帳號</td>
-            <td> &nbsp;總代理 
+            <td width="110" class="m_title">嚙編嚙皚嚙箭嚙踝蕭</td>
+            <td> &nbsp;嚙窯嚙瞇嚙緲 
               <select name="sid"  class="za_select" onChange="showChild();showMem();Chg_Mcy();">
                 <option value=''>---------------- </option>
               </select>
-              &nbsp;&nbsp;代理商 
+              &nbsp;&nbsp;嚙瞇嚙緲嚙踝蕭 
               <select name="aid"  class="za_select" onChange="showMem();Chg_Mcy();">
                 <option value=''>---------------- </option>
               </select>
-              &nbsp;&nbsp;會員 
+              &nbsp;&nbsp;嚙罵嚙踝蕭 
 		<select name="mid" class="za_select" onChange="Chg_Mcy();">
 <?
 $sql = "select id,memname,curtype from web_member where agents='$row[Agname]' and pay_type=1";
@@ -282,14 +281,14 @@ while ($row = mysql_fetch_array($result)){
             </td>
           </tr>
           <tr bgcolor="E1E1D2"> 
-            <td class="m_title">付款類別</td>
+            <td class="m_title">嚙瘢嚙踝蕭嚙踝蕭嚙瞌</td>
             <td > 
               <table width="450" border="0" cellspacing="0" cellpadding="0" class="m_tab_main">
                 <tr> 
                   <td width="12"> 
                     <input type="radio" name="payway" value="C" class="za_dot" checked>
                   </td>
-                  <td width="40">信用卡</td>
+                  <td width="40">嚙瘡嚙諄卡</td>
                   <td> 
                     <input type="text" name="cc1" size="4" maxlength="4" class="za_text_card">
                     - 
@@ -302,7 +301,7 @@ while ($row = mysql_fetch_array($result)){
                 </tr>
                 <tr> 
                   <td>&nbsp;</td>
-                  <td>授權碼</td>
+                  <td>嚙踝蕭嚙緞嚙碼</td>
                   <td> 
                     <input type="text" name="authorize" size="4" maxlength="4" class="za_text_card">
                   </td>
@@ -320,7 +319,7 @@ while ($row = mysql_fetch_array($result)){
                   <td> 
                     <input type="radio" name="payway" value="W" class="za_dot">
                   </td>
-                  <td>水單</td>
+                  <td>嚙踝蕭嚙踝蕭</td>
                   <td> 
                     <input type="text" name="water_no" size="16" maxlength="16" class="za_text">
                   </td>
@@ -329,25 +328,25 @@ while ($row = mysql_fetch_array($result)){
             </td>
           </tr>
           <tr bgcolor="E1E1D2"> 
-            <td class="m_title">方式</td>
+            <td class="m_title">嚙質式</td>
             <td>
               <input type="radio" name="type" value="S" checked>
-              存入 
+              嚙編嚙皚 
               <input type="radio" name="type" value="T">
-              提出 </td>
+              嚙踝蕭嚙碼 </td>
           </tr>
           <tr bgcolor="E1E1D2"> 
-            <td class="m_title">金額</td>
+            <td class="m_title">嚙踝蕭嚙畿</td>
             <td>&nbsp; 
               <input type="text" name="gold" size="10" maxlength="10" class="za_text" onKeyUp="Chg_Mcy();" onKeyPress="return CheckKey()" value="0">
-              人民幣 :<font color=red id=mcy_gold>0</font></td>
+              嚙瘡嚙踝蕭嚙踝蕭 :<font color=red id=mcy_gold>0</font></td>
           </tr>
           <tr bgcolor="E1E1D2"> 
             <td class="m_title">&nbsp;</td>
             <td align="center" height="30" > 
-              <input type="submit" name="Submit" value="確定" class="za_button">
+              <input type="submit" name="Submit" value="嚙確嚙緩" class="za_button">
               &nbsp;&nbsp;&nbsp; 
-              <input type="reset" name="Submit2" value="重設" class="za_button">
+              <input type="reset" name="Submit2" value="嚙踝蕭嚙稽" class="za_button">
               <input type="hidden" name="send_form" value="OK">
               <input type="hidden" name="uid" value="<?=$uid?>">
             </td>

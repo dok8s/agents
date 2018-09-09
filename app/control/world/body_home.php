@@ -148,10 +148,9 @@ $money = (int)$row["Credit"] - (int)$member_money['credit'];
 <div id="body_show" style="float:left;width: 800px;"><div>
         <div name="MaxTag" id="home" src="/js/home.js" linkage="home">
 
-            <div id="home_contain" class="home_contain" onresize="setDivSize(this)" style="width: 67%;min-width: 1200px;">
-                <div id="home_box" class="home_box">
-                    <div id="top_title" class="top_title"><span>首页</span></div>
-                    <div id="account_contain" class="account_contain">
+            <div id="home_contain" class="home_contain" onresize="setDivSize(this)" style="width: 70%;min-width: 1090px;">
+                <div id="home_box" class="home_box" style="    margin: 12px 20px;">
+                    <div id="account_contain" class="account_contain" style="width:350px;padding-right: 10px;">
                         <div id="ac_title" class="ac_title"><span class="left_panding">帐户摘要</span></div>
                         <div id="credits" class="acc_box">
                             <span class="left_panding">信用额度</span>
@@ -175,7 +174,7 @@ $money = (int)$row["Credit"] - (int)$member_money['credit'];
                         </div>
                     </div>
 
-                    <div id="status_contain" class="status_contain">
+                    <div id="status_contain" class="status_contain" style="float:left;width:700px;">
                         <div id="status_title" class="status_title">
                             <span class="title_box" style="min-width: 150px;">时间</span>
                             <span class="title_box2" style="min-width: 60px;">操作者</span>

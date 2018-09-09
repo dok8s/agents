@@ -95,21 +95,21 @@ if($wager==1){
   <tr>
   <td width="3">&nbsp;
           </td>
-    <td class="m_tline">ÏÂ×¢Á÷Ë® --
-	  <input name=button type=button class="za_button" onClick="reload()" value="¸üÐÂ"></td>
-    <td class="m_tline"> ÅÅÐò£º            <select name="sort" onChange="document.myFORM.submit();" class="za_select">
-            <option value="bettime">Í¶×¢Ê±¼ä</option>
-            <option value="betscore">Í¶×¢½ð¶î</option>
-            <option value="m_name">»áÔ±Ãû³Æ</option>
-            <option value="bettype">Í¶×¢ÖÖÀà</option>
+    <td class="">ï¿½ï¿½×¢ï¿½ï¿½Ë® --
+	  <input name=button type=button class="za_button" onClick="reload()" value="ï¿½ï¿½ï¿½ï¿½"></td>
+    <td class=""> ï¿½ï¿½ï¿½ï¿½            <select name="sort" onChange="document.myFORM.submit();" class="za_select">
+            <option value="bettime">Í¶×¢Ê±ï¿½ï¿½</option>
+            <option value="betscore">Í¶×¢ï¿½ï¿½ï¿½</option>
+            <option value="m_name">ï¿½ï¿½Ô±ï¿½ï¿½ï¿½ï¿½</option>
+            <option value="bettype">Í¶×¢ï¿½ï¿½ï¿½ï¿½</option>
 
           </select>
               <select name="orderby" onChange="self.myFORM.submit()" class="za_select">
-            <option value="asc">ÉýÐò(ÓÉÐ¡µ½´ó)</option>
-            <option value="desc">½µÐò(ÓÉ´óµ½Ð¡)</option>
+            <option value="asc">ï¿½ï¿½ï¿½ï¿½(ï¿½ï¿½Ð¡ï¿½ï¿½ï¿½ï¿½)</option>
+            <option value="desc">ï¿½ï¿½ï¿½ï¿½(ï¿½É´ï¿½Ð¡)</option>
           </select>
 </td>
-        <td class="m_tline" align="right">ÏÔÊ¾µÚ1-25Ìõ¼ÇÂ¼£¬¹² <?=$cou?> Ìõ¼ÇÂ¼¡¡µ½µÚ <select name='page' onChange="self.myFORM.submit()">
+        <td class="" align="right">ï¿½ï¿½Ê¾ï¿½ï¿½1-25ï¿½ï¿½ï¿½ï¿½Â¼ï¿½ï¿½ï¿½ï¿½ <?=$cou?> ï¿½ï¿½ï¿½ï¿½Â¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ <select name='page' onChange="self.myFORM.submit()">
 <?
 		if ($page_count==0){$page_count=1;}
 		for($i=0;$i<$page_count;$i++){
@@ -120,8 +120,7 @@ if($wager==1){
 			}
 		}
 		?></select>
-Ò³£¬¹² <?=$page_count?> Ò³ </td>
-    <td width="33"><img src="/images/control/zh-tw/top_04.gif" width="30" height="24"></td>
+Ò³ï¿½ï¿½ï¿½ï¿½ <?=$page_count?> Ò³ </td>
   </tr>
   <tr>
     <td colspan="3" height="4"></td>
@@ -130,13 +129,13 @@ if($wager==1){
 <table width="850" border="0" cellspacing="1" cellpadding="0" class="m_tab" bgcolor="#000000">
 
         <tr class="m_title_ft">
-          <td width="61"align="center">Í¶×¢Ê±¼ä</td>
-          <td width="99" align="center">Á÷Ë®ºÅ</td>
-          <td width="99" align="center">ÓÃ»§Ãû³Æ</td>
-          <td width="72" align="center">ÇòÈüÖÖÀà</td>
-          <td width="189" align="center">ƒÈÈÝ</td>
-          <td width="80" align="center">Í¶×¢½ð¶î</td>
-          <td width="80" align="center">¿ÉÓ®½ð¶î</td>
+          <td width="61"align="center">Í¶×¢Ê±ï¿½ï¿½</td>
+          <td width="99" align="center">ï¿½ï¿½Ë®ï¿½ï¿½</td>
+          <td width="99" align="center">ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ï¿½</td>
+          <td width="72" align="center">ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½</td>
+          <td width="189" align="center">ï¿½ï¿½ï¿½ï¿½</td>
+          <td width="80" align="center">Í¶×¢ï¿½ï¿½ï¿½</td>
+          <td width="80" align="center">ï¿½ï¿½Ó®ï¿½ï¿½ï¿½</td>
         </tr>
 <?
 while ($row = mysql_fetch_array($result))
@@ -150,13 +149,13 @@ while ($row = mysql_fetch_array($result))
 <?
 switch($row['danger']){
 case 1:
-	echo '<br><font color=#ffffff style=background-color:#ff0000><b>&nbsp;È·ÈÏÖÐ&nbsp;</b></font></font>';
+	echo '<br><font color=#ffffff style=background-color:#ff0000><b>&nbsp;È·ï¿½ï¿½ï¿½ï¿½&nbsp;</b></font></font>';
 	break;
 case 2:
-	echo '<br><font color=#ffffff style=background-color:#ff0000><b>Î´È·ÈÏ</b></font></font>';
+	echo '<br><font color=#ffffff style=background-color:#ff0000><b>Î´È·ï¿½ï¿½</b></font></font>';
 	break;
 case 3:
-	echo '<br><font color=#ffffff style=background-color:#ff0000><b>&nbsp;È·ÈÏ&nbsp;</b></font></font>';
+	echo '<br><font color=#ffffff style=background-color:#ff0000><b>&nbsp;È·ï¿½ï¿½&nbsp;</b></font></font>';
 	break;
 default:
 	break;
@@ -189,7 +188,7 @@ default:
 </html>
 <?
 }
-$loginfo='Á÷Ë®×¢µ¥';
+$loginfo='ï¿½ï¿½Ë®×¢ï¿½ï¿½';
 $ip_addr = $_SERVER['REMOTE_ADDR'];
 $mysql="insert into web_mem_log(username,logtime,context,logip,level) values('$agname',now(),'$loginfo','$ip_addr','0')";
 mysql_query($mysql);

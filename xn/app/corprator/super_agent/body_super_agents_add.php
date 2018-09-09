@@ -8,6 +8,14 @@ exit;
 require ("../../member/include/config.inc.php");
 require ("../../member/include/define_function_list.inc.php");
 $uid=$_REQUEST["uid"];
+$langx=$_REQUEST["langx"];
+$sql = "select id,subuser,agname,subname,status,super,setdata from web_corprator where Oid='$uid'";
+$result = mysql_query($sql);
+$row = mysql_fetch_array($result);
+$agname=$row['agname'];
+$super=$row['super'];
+$d1set = @unserialize($row['setdata']);
+$level=$_REQUEST['level']?$_REQUEST['level']:2;
 $sql = "select * from web_corprator where Oid='$uid'";
 
 $result = mysql_query($sql);
@@ -31,7 +39,7 @@ $super=$row['super'];
 $corprator=$row['Agname'];
 $name_left = substr($corprator,0,2);
 
-require ("../../member/include/traditional.$langx.inc.php");
+require ("../../member/include/traditional.zh-vn.inc.php");
 $keys=$_REQUEST['keys'];
 if ($keys=='add'){
 
@@ -62,7 +70,7 @@ if ($keys=='add'){
 	$result = mysql_query($mysql);
 	$count=mysql_num_rows($result);
 	if ($count>0){
-		echo wterror("您输入的帐号 $memname 已经有人使用了，请回上一页重新输入");
+		echo wterror("Tài khoản bạn đã nhập $memname Đã được sử dụng, vui lòng quay lại trang trước và nhập lại");
 		exit;
 	}
 /*
@@ -81,21 +89,21 @@ if ($keys=='add'){
 	$wdrow = mysql_fetch_array($wdresult);
 /*
 	if ($wdrow['mcount']+$memcount>$mcount){
-		echo wterror("目前总代理商 可用人数 已超过股东可用人数，请回上一面重新输入");
+		echo wterror("Hiện tại, tổng số đại lý có sẵn đã vượt quá số lượng cổ đông có sẵn. Vui lòng quay lại bên và nhập lại");
 		exit();
 	}
 */
 	if ($wdrow['credit']+$maxcredit>$credit){
-		echo wterror("此总代理商的信用额度为$maxcredit<br>目前股东 最大信用额度为$credit<br>,所属总代理累计信用额度为$row[credit]<br>已超过股东信用额度，请回上一面重新输入");
+		echo wterror("Tổng hạn mức tín dụng của đại lý là$maxcredit<br>Giới hạn tín dụng tối đa của cổ đông hiện tại là$credit<br>,Tổng số tiền tín dụng của tổng đại lý là$row[credit]<br>Đã vượt quá giới hạn tín dụng của cổ đông, vui lòng quay lại và nhập lại");
 		exit;
 	}
 
 	$mysql="insert into web_world(Agname,Passwd,Credit,Alias,corprator,AddDate,super,mcount,winloss,winloss_parents,$skey) values ('$memname','$mempasd','$maxcredit','$alias','$agname','$AddDate','$super','$memcount','$winloss_a','$winloss_s',$svalue)";
-	mysql_query($mysql) or die ("操作失败!");
+	mysql_query($mysql) or die ("Thao tác thất bại!");
 	$mysql="update web_corprator set agCount=agCount+1 where agname='$agname'";
-	mysql_query($mysql) or die ("操作失败!");
-	$mysql="insert into  agents_log (M_DateTime,M_czz,M_xm,M_user,M_jc,Status) values('".date("Y-m-d H:i:s")."','$agname','新增','$memname','总代理',3)";
-	mysql_query($mysql) or die ("操作失败!");
+	mysql_query($mysql) or die ("Thao tác thất bại!");
+	$mysql="insert into  agents_log (M_DateTime,M_czz,M_xm,M_user,M_jc,Status) values('".date("Y-m-d H:i:s")."','$agname','Thêm','$memname','Đại lý tổng hợp',3)";
+	mysql_query($mysql) or die ("Thao tác thất bại!");
 	echo "<script languag='JavaScript'>self.location='body_super_agents.php?uid=$uid'</script>";
 }else{
 ?>
@@ -128,18 +136,18 @@ function show_count(w,s) {
 function SubChk()
 {
  if(document.all.username.value=='')
- { document.all.username.focus(); alert("帐号请务必输入!!"); return false; }
+ { document.all.username.focus(); alert("Vui lòng nhập số tài khoản của bạn!!"); return false; }
  if(document.all.password.value=='' )
- { document.all.password.focus(); alert("密码请务必输入!!"); return false; }
+ { document.all.password.focus(); alert("Vui lòng nhập mật khẩu của bạn !"); return false; }
   if(document.all.repassword.value=='')
- { document.all.repassword.focus(); alert("确认密码请务必输入!!"); return false; }
+ { document.all.repassword.focus(); alert("Vui lòng xác nhận mật khẩu của bạn và nhập mật khẩu !"); return false; }
  if(document.all.password.value != document.all.repassword.value)
- { document.all.password.focus(); alert("密码确认错误,请重新输入!!"); return false; }
+ { document.all.password.focus(); alert("Lỗi xác nhận mật khẩu, vui lòng nhập lại !"); return false; }
  if(document.all.alias.value=='')
- { document.all.alias.focus(); alert("总代理名称请务必输入!!"); return false; }
+ { document.all.alias.focus(); alert("Vui lòng nhập tên của đại lý!"); return false; }
   if(document.all.maxcredit.value=='' || document.all.maxcredit.value=='0')
- { document.all.maxcredit.focus(); alert("总代理信用额度请务必输入!!"); return false; }
- if(!confirm("是否确定写入总代理?"))
+ { document.all.maxcredit.focus(); alert("Vui lòng nhập tổng hạn mức tín dụng !"); return false; }
+ if(!confirm("Bạn có chắc chắn để viết các đại lý?"))
  {
   return false;
  }
@@ -154,9 +162,68 @@ function SubChk()
 // -->
 </SCRIPT>
 </head>
+<link rel="stylesheet" href="/style/control/control_main.css" type="text/css">
+<link rel="stylesheet" href="/style/control/account_management.css" type="text/css">
+<link rel="stylesheet" href="/style/control/edit_agents2.css" type="text/css">
+<link rel="stylesheet" href="/bootstrap/css/bootstrap.css" type="text/css">
+<link rel="stylesheet" href="/bootstrap/css/bootstrap-theme.css" type="text/css">
+<link rel="stylesheet" href="/style/control/announcement/a1.css" type="text/css">
+<link rel="stylesheet" href="/style/control/announcement/a2.css" type="text/css">
+<script src="/js/jquery-1.10.2.js" type="text/javascript"></script>
+<script src="/js/ClassSelect_ag.js" type="text/javascript"></script>
+<script>
+    var uid='<?=$uid?>';
+    var level='<?=$level?>';
+    function ch_level(i)
+    {
+        if(i === 1) {
+            self.location = '/app/corprator/cor_list.php?uid='+uid+'&level='+i;
+        } else if(i === 2) {
+            self.location = '/app/corprator/super_agent/body_super_agents.php?uid='+uid+'&level='+i;
+        } else if(i === 3) {
+            self.location = '/app/corprator/agents/su_agents.php?uid='+uid+'&level='+i;
+        } else if(i === 4) {
+            self.location = '/app/corprator/members/su_members.php?uid='+uid+'&level='+i;
+        } else if(i === 6) {
+            self.location = '/app/corprator/wager_list/wager_add.php?uid='+uid+'&level='+i;
+        } else if(i === 5) {
+            self.location = '/app/corprator/su_subuser.php?uid=='+uid+'&level='+i;
+        }else {
+            self.location = '/app/corprator/wager_list/wager_hide.php?uid='+uid+'&level='+i;
+        }
 
+    }
+</script>
+
+<link rel="stylesheet" href="../css/loader.css" type="text/css">
+<script type="text/javascript">
+    // 等待所有加载
+    $(window).load(function(){
+        $('body').addClass('loaded');
+        $('#loader-wrapper .load_title').remove();
+    });
+</script>
 <body oncontextmenu="window.event.returnValue=false" bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" vlink="#0000FF" alink="#0000FF" onLoad="onLoad()">
-<FORM NAME="myFORM" ACTION="body_super_agents_add.php" METHOD=POST onSubmit="return SubChk()">
+<div id="loader-wrapper">
+    <div id="loader"></div>
+    <div class="loader-section section-left"></div>
+    <div class="loader-section section-right"></div>
+    <div class="load_title">Đang tải...</div>
+</div>
+<div id="top_nav_container" name="fixHead" class="top_nav_container_ann" style="position: relative;">
+    <div id="general_btn" class="<? if ($level == 1) {echo 'nav_btn_on';} else {echo 'nav_btn';}?>" onclick="ch_level(1);">Cổ đông</div>
+    <div id="important_btn" class="<? if ($level == 2) {echo 'nav_btn_on';} else {echo 'nav_btn';}?>" onclick="ch_level(2);">Đại lý tổng hợp</div>
+    <div id="general_btn1" class="<? if ($level == 3) {echo 'nav_btn_on';} else {echo 'nav_btn';}?>" onclick="ch_level(3);">Đại lý</div>
+    <div id="important_btn1" class="<? if ($level == 4) {echo 'nav_btn_on';} else {echo 'nav_btn';}?>" onclick="ch_level(4);">Thành viên</div>
+    <div id="general_btn2" class="<? if ($level == 5) {echo 'nav_btn_on';} else {echo 'nav_btn';}?>" onclick="ch_level(5);">Tài khoản phụ</div>
+    <? if($d1set['d1_wager_add']==1){ ?>
+        <div id="general_btn3" class="<? if ($level == 6) {echo 'nav_btn_on';} else {echo 'nav_btn';}?>" onclick="ch_level(6);">Thêm tài khoản</div>
+    <? } ?>
+    <? if($d1set['d1_wager_hide']==1){ ?>
+        <div id="general_btn4" class="<? if ($level == 7) {echo 'nav_btn_on';} else {echo 'nav_btn';}?>" onclick="ch_level(7);">Tài khoản ẩn</div>
+    <? } ?>
+</div>
+<FORM NAME="myFORM" ACTION="body_super_agents_add.php" METHOD=POST onSubmit="return SubChk()" style="padding-left:20px;padding-top:10px;">
  <INPUT TYPE=HIDDEN NAME="id" VALUE="{ID}">
  <INPUT TYPE=HIDDEN NAME="adddate" VALUE="{ADDDATE}">
   <INPUT TYPE=HIDDEN NAME="keys" VALUE="add">
@@ -165,9 +232,7 @@ function SubChk()
   <input TYPE=HIDDEN NAME="uid" VALUE="<?=$uid?>">
   <table width="780" border="0" cellspacing="0" cellpadding="0">
 <tr>
-    <td class="m_tline">&nbsp;&nbsp;总代理商管理--新增及修改</td>
-
-      <td width="30"><img src="/images/control/zh-tw/top_04.gif" width="30" height="24"></td>
+    <td class="">&nbsp;&nbsp;Quản lý đại lý chung - Thêm và sửa đổi</td>
 </tr>
 <tr>
 <td colspan="2" height="4"></td>
@@ -175,13 +240,13 @@ function SubChk()
 </table>
 <table width="780" border="0" cellspacing="1" cellpadding="0" class="m_tab_ed">
   <tr class="m_title_edit">
-    <td colspan="2" >基本资料设定</td>
+    <td colspan="2" >Cài đặt dữ liệu cơ bản</td>
   </tr>
 
 
 <input type="HIDDEN" value="" name="type">
   <tr class="m_bc_ed">
-      <td width="120" class="m_suag_ed"><!--input type=button name="chk" value="确认" class="za_button" onclick='ChkMem();'--><?=$sub_user?></td>
+      <td width="120" class="m_suag_ed"><!--input type=button name="chk" value="Xác nhận" class="za_button" onclick='ChkMem();'--><?=$sub_user?></td>
       
               <td>
 				<?=$name_left?><input type="text" name="username" value="" size="10" maxlength="5" class="za_text" onKeyPress="return ChkKeyCode();"> 
@@ -189,19 +254,19 @@ function SubChk()
       </td>
   </tr>
   <tr class="m_bc_ed">
-    <td class="m_suag_ed">密码:</td>
+    <td class="m_suag_ed">Mật khẩu:</td>
     <td>
       <input type=PASSWORD name="password" value="" size=12 maxlength=12 class="za_text">
-   密码必须至少6个字元长，最多12个字元长，并只能有数字(0-9)，及英文大小写字母 </td>
+          Mật khẩu phải dài ít nhất 6 ký tự, dài tối đa 12 ký tự và chỉ có thể có số (0-9) và chữ hoa và chữ thường tiếng Anh. </td>
   </tr>
   <tr class="m_bc_ed">
-    <td class="m_suag_ed">确认密码:</td>
+    <td class="m_suag_ed">Xác nhận mật khẩu:</td>
     <td>
       <input type=PASSWORD name="repassword" value="" size=12 maxlength=12 class="za_text">
     </td>
   </tr>
   <tr class="m_bc_ed">
-    <td class="m_suag_ed">总代理商名称:</td>
+    <td class="m_suag_ed">Tên tác nhân tổng:</td>
     <td>
       <input type=TEXT name="alias" value="" size=10 maxlength=10 class="za_text">
     </td>
@@ -210,20 +275,20 @@ function SubChk()
 
   <table width="780" border="0" cellspacing="1" cellpadding="0" class="m_tab_ed">
     <tr class="m_title_edit">
-      <td colspan="2" >下注资料设定</td>
+      <td colspan="2" >Cài đặt dữ liệu đặt cược</td>
     </tr>
     <!--tr class="m_bc_ed">
-      <td class="m_suag_ed" width="120">会员数:</td>
+      <td class="m_suag_ed" width="120">Số lượng thành viên:</td>
       <td>
         <input type=TEXT name="maxmember" value="" size=10 maxlength=10 class="za_text">
          </td>
     </tr--><tr class="m_bc_ed">
-      <td class="m_suag_ed" width="120">总信用额度:</td>
+      <td class="m_suag_ed" width="120">Tổng hạn mức tín dụng:</td>
       <td>
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
 	<tr>
 		<td><input type=TEXT name="maxcredit" value="0" size=10 maxlength=10 class="za_text"></td>
-		<td>使用状况／启用:0　停用:0　暂停:0　可用:0
+		<td>Sử dụng / Kích hoạt: 0 Tắt: 0 Tạm dừng: 0 Sẵn có: 0
 		<?
 	
 	$sql = "select credit_balance from web_super where Agname='$super'";
@@ -235,7 +300,7 @@ function SubChk()
 		$rt = mysql_fetch_array($result);
 		$credit_used = intval($rt['credit_used']);
 		$credit_canuse = $credit-$credit_used;
-		echo "<BR><font color=#FF0000> $corprator </font>的信用馀额提示／总额:$credit 已用:$credit_used  可用:$credit_canuse"; 
+			echo "<BR><font color=#FF0000> $corprator </font>Giới hạn / lời nhắc giới hạn tín dụng:$credit Đã sử dụng:$credit_used  Có sẵn:$credit_canuse";
 	}
 		?>
 		</td>
@@ -244,7 +309,7 @@ function SubChk()
          </td>
     </tr>
 	<tr class=m_bc_ed>
-    <td class=m_suag_ed>总代理商佔成上限:</td>
+    <td class=m_suag_ed>Tổng nắp đại lý:</td>
     <td><select class=za_select name=winloss_s>
 	<?
 	for($i=$winloss;$i>=0;$i=$i-5){
@@ -255,7 +320,7 @@ function SubChk()
 		</select>
     </TD></TR>
 	<tr class=m_bc_ed>
-    <td class=m_suag_ed>总代理商佔成下限:</td>
+    <td class=m_suag_ed>Tổng đại lý:</td>
     <td><select class=za_select name=winloss_a>
 	<?
 	for($i=$winloss;$i>=0;$i=$i-5){
@@ -283,9 +348,9 @@ function SubChk()
       <td  colspan="2">
 
         <input type=hidden name="winloss" value="100">
-        <input type=SUBMIT name="OK" value="确定" class="za_button">
+        <input type=SUBMIT name="OK" value="Xác định" class="za_button">
         &nbsp; &nbsp; &nbsp;
-        <input type=BUTTON name="FormsButton2" value="取消" id="FormsButton2" onClick="javascript:history.go(-1)" class="za_button">
+        <input type=BUTTON name="FormsButton2" value="Hủy bỏ" id="FormsButton2" onClick="javascript:history.go(-1)" class="za_button">
       </td>
     </tr>
   </table>

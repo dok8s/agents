@@ -74,7 +74,7 @@ function ShowLeague(lid){
   	}
   	show_h.innerHTML=txt_bodyH;
 }
-//ï¿½Pï¿½_ï¿½Ø«eï¿½ï¿½ï¿½ï¿½Ü­ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+//§PÂ_¥Ø«eÀ³Åã¥Ü­¶­±¨ÃÅã¥Ü
  function ShowGameList()
  {
   if(loading == 'Y') return;
@@ -85,33 +85,33 @@ function ShowLeague(lid){
   show_table = body_browse.document.getElementById("glist_table");
   switch(ShowType)
   {
-   case 'OU':	//ï¿½æ¦¡
+   case 'OU':	//³æ¦¡
     ShowData_OU(show_table,GameTN,gamount);
     break;
-   case 'RE':	//ï¿½ï¿½ï¿½a
+   case 'RE':	//¨«¦a
     ShowData_RE(show_table,GameTN,gamount);
     break;
-   case 'PD':	//ï¿½iï¿½x
+   case 'PD':	//ªiÁx
     ShowData_PD(show_table,GameTN,gamount);
     break;
-   case 'P':	//ï¿½Lï¿½ï¿½
+   case 'P':	//¹LÃö
     ShowData_P(show_table,GameTN,gamount);
     break;
-   case 'PL':	//ï¿½wï¿½}ï¿½ï¿½
+   case 'PL':	//¤w¶}ÁÉ
     ShowData_PL(show_table,GameTN,gamount);
     break;
   }
  }
 
-//ï¿½ï¿½Ü³æ¦¡ï¿½eï¿½ï¿½ï¿½ï¿½ï¿½
+//Åã¥Ü³æ¦¡µe­±¸ê®Æ
  function ShowData_OU(obj_table,GameData,data_amount)
  {
   with(obj_table)
   {
-   //ï¿½Mï¿½ï¿½tableï¿½ï¿½ï¿½
+   //²M°£table¸ê®Æ
    while(rows.length > 1)
     deleteRow(rows.length-1);
-   //ï¿½}ï¿½lï¿½ï¿½Ü¶}ï¿½ï¿½ï¿½Éµ{ï¿½ï¿½ï¿½
+   //¶}©lÅã¥Ü¶}©ñ¤¤ÁÉµ{¸ê®Æ
    for(i=0; i<data_amount; i++)
    {
     nowTR = insertRow();
@@ -121,25 +121,25 @@ function ShowLeague(lid){
      nowTR.className = 'm_cen_top_close';
     with(nowTR)
     {
-     //ï¿½ï¿½ï¿½ï¿½É¶ï¿½
+     //¤é´Á®É¶¡
      nowTD = insertCell();
      nowTD.innerHTML = GameData[i][1];
-     //ï¿½pï¿½ï¿½
+     //Áp·ù
      nowTD = insertCell();
      nowTD.innerHTML = '<BR>'+GameData[i][2];
-     //ï¿½ï¿½ï¿½ï¿½
+     //³õ¦¸
      nowTD = insertCell();
      nowTD.innerHTML = GameData[i][3]+'<BR>'+GameData[i][4];
-     //ï¿½ï¿½ï¿½ï¿½
+     //¶¤¥î
      nowTD = nowTR.insertCell();
      nowTD.align = 'left';
      nowTD.innerHTML = GameData[i][5]+'<BR>'+GameData[i][6];
-     //ï¿½ï¿½ï¿½y/ï¿½`ï¿½ï¿½
+     //Åý²y/ª`³æ
      nowTD = insertCell();
      tmpStr = '<table width=\"100%\" border=\"0\" cellspacing=\"0\" cellpadding=\"0\">'+
 	      '<tr align=\"right\">';
-     //ï¿½}ï¿½lï¿½gï¿½Jï¿½ß²v
-     if(GameData[i][7] == 'H') //ï¿½jï¿½ï¿½ï¿½Oï¿½Dï¿½ï¿½
+     //¶}©l¼g¤J½ß²v
+     if(GameData[i][7] == 'H') //±j¶¤¬O¥D¶¤
      {
 //      $ratio_h = '<A href=\"#\" onClick=\"window.open(\'FT_chg_ratio.php?call=ou&rtype=R&ltype=1&game_id='+GameData[i][0]+'\');\">'+GameData[i][9]+'</A>';
       $ratio_h = GameData[i][9];
@@ -147,7 +147,7 @@ function ShowLeague(lid){
       $ioratio_h = GameData[i][11];
       $ioratio_c = GameData[i][12];
      }
-     else  //ï¿½jï¿½ï¿½ï¿½Oï¿½È¶ï¿½
+     else  //±j¶¤¬O«È¶¤
      {
       $ratio_h = '&nbsp';
 //      $ratio_c = '<A  href=\"#\" onClick=\"window.open(\'FT_chg_ratio.php?call=ou&rtype=R&ltype=1&game_id='+GameData[i][0]+'\');\">'+GameData[i][10]+'</A>';
@@ -162,7 +162,7 @@ function ShowLeague(lid){
 	       '<td><a href=\"TN_list_bet.php?uid='+uid+'&aid='+aid+'&aid='+aid+'&gid='+GameData[i][0]+'&type=C&wtype=R&rtype=R\" target=\"_blank\"><font color=\"#CC0000\">'+GameData[i][14]+'/'+GameData[i][16]+'</font></a></td></tr>';
      tmpStr += '<tr><td colspan="2">&nbsp;</td></tr></table>';
      nowTD.innerHTML = tmpStr;
-     //ï¿½Wï¿½Uï¿½L/ï¿½`ï¿½ï¿½
+     //¤W¤U½L/ª`³æ
      nowTD = insertCell();
      nowTD.innerHTML = '<table width=\"100%\" border=\"0\" cellspacing=\"0\" cellpadding=\"0\">'+
                        '<tr align=\"right\">'+
@@ -171,7 +171,7 @@ function ShowLeague(lid){
 		       '<tr align=\"right\"><td>'+GameData[i][18]+'<br>'+
 		       '<td><a href=\"TN_list_bet.php?uid='+uid+'&aid='+aid+'&aid='+aid+'&gid='+GameData[i][0]+'&type=H&wtype=R&rtype=OU\" target=\"_blank\"><font color=\"#CC0000\">'+GameData[i][20]+'/'+GameData[i][22]+'</font></A></td></tr>'+
 	 	       '<tr><td colspan=\"3\">&nbsp;</td></tr></table>';
-     //ï¿½WÄ¹/ï¿½`ï¿½ï¿½
+     //¿WÄ¹/ª`³æ
      nowTD = insertCell();
      nowTD.innerHTML = '<table width=\"100%\" border=\"0\" cellspacing=\"0\" cellpadding=\"0\">'+
                        '<tr align=\"right\">'+
@@ -180,7 +180,7 @@ function ShowLeague(lid){
                        '<tr align=\"right\">'+
 		       '<td align=\"left\">'+GameData[i][25]+'<BR></td>'+
 		       '<td><A HREF=\"TN_list_bet.php?uid='+uid+'&aid='+aid+'&aid='+aid+'&gid='+GameData[i][0]+'&type=C&wtype=R&rtype=M\" target=\"_blank\"><font color=\"#CC0000\">'+GameData[i][28]+'/'+GameData[i][31]+'</font></A></td></tr></table>';
-     //ï¿½ï¿½ï¿½ï¿½/ï¿½`ï¿½ï¿½
+     //³æÂù/ª`³æ
      nowTD = insertCell();
      nowTD.innerHTML = '<table width=\"100%\" border=\"0\" cellspacing=\"0\" cellpadding=\"0\">'+
                        '<tr align=\"right\">'+
@@ -195,16 +195,16 @@ function ShowLeague(lid){
   }//with(obj_table);
  }
 
-//ï¿½ï¿½Ü¨ï¿½ï¿½aï¿½eï¿½ï¿½ï¿½ï¿½ï¿½
+//Åã¥Ü¨«¦aµe­±¸ê®Æ
  function ShowData_RE(obj_table,GameData,data_amount)
  {
   winset = '';
   with(obj_table)
   {
-   //ï¿½Mï¿½ï¿½tableï¿½ï¿½ï¿½
+   //²M°£table¸ê®Æ
    while(rows.length > 1)
     deleteRow(rows.length-1);
-   //ï¿½}ï¿½lï¿½ï¿½Ü¶}ï¿½ï¿½ï¿½Éµ{ï¿½ï¿½ï¿½
+   //¶}©lÅã¥Ü¶}©ñ¤¤ÁÉµ{¸ê®Æ
    for(i=0; i<data_amount; i++)
    {
     nowTR = insertRow();
@@ -214,25 +214,25 @@ function ShowLeague(lid){
      nowTR.className = 'm_cen_top_close';
     with(nowTR)
     {
-     //ï¿½ï¿½ï¿½ï¿½É¶ï¿½
+     //¤é´Á®É¶¡
      nowTD = insertCell();
      nowTD.innerHTML = GameData[i][1];
-     //ï¿½pï¿½ï¿½
+     //Áp·ù
      nowTD = insertCell();
      nowTD.innerHTML = GameData[i][2];
-     //ï¿½ï¿½ï¿½ï¿½
+     //³õ¦¸
      nowTD = insertCell();
      nowTD.innerHTML = GameData[i][3]+'<BR>'+GameData[i][4];
-     //ï¿½ï¿½ï¿½ï¿½
+     //¶¤¥î
      nowTD = nowTR.insertCell();
      nowTD.align = 'left';
      nowTD.innerHTML = '<font style=\"background-color:#FFFF00\">'+GameData[i][5]+'&nbsp;&nbsp;'+GameData[i][24]+'<BR>'+GameData[i][6]+'&nbsp;&nbsp;'+GameData[i][25]+'</font>';
-     //ï¿½ï¿½ï¿½y/ï¿½`ï¿½ï¿½
+     //Åý²y/ª`³æ
      nowTD = insertCell();
      tmpStr = '<table width=\"100%\" border=\"0\" cellspacing=\"0\" cellpadding=\"0\">'+
 	      '<tr align=\"right\">';
-     //ï¿½}ï¿½lï¿½gï¿½Jï¿½ß²v
-     if(GameData[i][7] == 'H') //ï¿½jï¿½ï¿½ï¿½Oï¿½Dï¿½ï¿½
+     //¶}©l¼g¤J½ß²v
+     if(GameData[i][7] == 'H') //±j¶¤¬O¥D¶¤
      {
       $ratio_h = GameData[i][9];
       $ratio_c = '&nbsp';
@@ -240,7 +240,7 @@ function ShowLeague(lid){
 //      $ioratio_h = '<A href=\"#\" onClick=\"window.open(\'FT_chg_ioratio.php?call=ou&type=H&rtype=RE&ltype=1&game_id='+GameData[i][0]+'\');\">'+GameData[i][11]+'</A>';
       $ioratio_c = GameData[i][12];
      }
-     else  //ï¿½jï¿½ï¿½ï¿½Oï¿½È¶ï¿½
+     else  //±j¶¤¬O«È¶¤
      {
       $ratio_h = '&nbsp';
       $ratio_c = GameData[i][10];
@@ -255,7 +255,7 @@ function ShowLeague(lid){
 	       '<td><a href=\"TN_list_bet.php?uid='+uid+'&aid='+aid+'&aid='+aid+'&gid='+GameData[i][0]+'&type=C&wtype=R&rtype=RE\" target=\"_blank\"><font color=\"#CC0000\">'+GameData[i][14]+'/'+GameData[i][16]+'</font></a></td></tr>';
      tmpStr += '<tr><td colspan="2">&nbsp;</td></tr></table>';
      nowTD.innerHTML = tmpStr;
-     //ï¿½Wï¿½Uï¿½L/ï¿½`ï¿½ï¿½
+     //¤W¤U½L/ª`³æ
      nowTD = insertCell();
      nowTD.innerHTML = '<table width=\"100%\" border=\"0\" cellspacing=\"0\" cellpadding=\"0\">'+
                        '<tr align=\"right\">'+
@@ -270,15 +270,15 @@ function ShowLeague(lid){
  }
 
 
-//ï¿½ï¿½Üªiï¿½xï¿½eï¿½ï¿½ï¿½ï¿½ï¿½
+//Åã¥ÜªiÁxµe­±¸ê®Æ
  function ShowData_PD(obj_table,GameData,data_amount,show_type)
  {
   with(obj_table)
   {
-   //ï¿½Mï¿½ï¿½tableï¿½ï¿½ï¿½
+   //²M°£table¸ê®Æ
    while(rows.length > 1)
     deleteRow(rows.length-1);
-   //ï¿½}ï¿½lï¿½ï¿½Ü¶}ï¿½ï¿½ï¿½Éµ{ï¿½ï¿½ï¿½
+   //¶}©lÅã¥Ü¶}©ñ¤¤ÁÉµ{¸ê®Æ
    flag = 0;
    for(i=0; i<data_amount; i++)
    {
@@ -294,18 +294,18 @@ function ShowLeague(lid){
     }
     nowTR = insertRow();
     nowTR.className = tr_class;
-    //ï¿½Dï¿½ï¿½ï¿½iï¿½xï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+    //¥D¶¤ªiÁx¸ê®ÆÅã¥Ü
     with(nowTR)
     {
-     //ï¿½ï¿½ï¿½ï¿½É¶ï¿½
+     //¤é´Á®É¶¡
      nowTD = insertCell();
 //     nowTD.rowSpan = 2;
      nowTD.innerHTML = GameData[i][1];
-     //ï¿½pï¿½ï¿½
+     //Áp·ù
      nowTD = insertCell();
 //     nowTD.rowSpan = 2;
      nowTD.innerHTML = '<br>'+GameData[i][2];
-     //ï¿½ï¿½ï¿½ï¿½
+     //¶¤¥î
      nowTD = insertCell();
      nowTD.align = 'left';
      //nowTD.innerHTML = '<a href=\"TN_list_bet.php?uid='+uid+'&cid='+sid+'&gid='+GameData[i][0]+'&wtype=PD\" onmouseover=\"javascript:show_bet(\''+GameData[i][6]+' vs '+GameData[i][5]+': '+GameData[i][36]+' / '+GameData[i][37]+'\');\";>'+GameData[i][5]+'</a>';
@@ -316,20 +316,20 @@ function ShowLeague(lid){
      nowTD.align = 'right';
      nowTD.innerHTML = '<a href=\"TN_list_bet.php?uid='+uid+'&aid='+aid+'&gid='+GameData[i][0]+'&wtype=PD\"><font color=\"#CC0000\">'+GameData[i][9]+'/'+GameData[i][10]+'</font></a>';
      //-----------------------------
-    }//with(TR)ï¿½Dï¿½ï¿½
+    }//with(TR)¥D¶¤
    }
   }//with(obj_table);
  }
 
-//ï¿½ï¿½Ü¹Lï¿½ï¿½ï¿½eï¿½ï¿½ï¿½ï¿½ï¿½
+//Åã¥Ü¹LÃöµe­±¸ê®Æ
  function ShowData_P(obj_table,GameData,data_amount,show_type)
  {
   with(obj_table)
   {
-   //ï¿½Mï¿½ï¿½tableï¿½ï¿½ï¿½
+   //²M°£table¸ê®Æ
    while(rows.length > 1)
     deleteRow(rows.length-1);
-   //ï¿½}ï¿½lï¿½ï¿½Ü¶}ï¿½ï¿½ï¿½Éµ{ï¿½ï¿½ï¿½
+   //¶}©lÅã¥Ü¶}©ñ¤¤ÁÉµ{¸ê®Æ
    for(i=0; i<data_amount; i++)
    {
     nowTR = insertRow();
@@ -339,20 +339,20 @@ function ShowLeague(lid){
      nowTR.className = 'm_cen_close';
     with(nowTR)
     {
-     //ï¿½ï¿½ï¿½ï¿½É¶ï¿½
+     //¤é´Á®É¶¡
      nowTD = insertCell();
      nowTD.innerHTML = GameData[i][1];
-     //ï¿½pï¿½ï¿½
+     //Áp·ù
      nowTD = insertCell();
      nowTD.innerHTML = '<BR>'+GameData[i][2];
-     //ï¿½ï¿½ï¿½ï¿½
+     //³õ¦¸
      nowTD = insertCell();
      nowTD.innerHTML = GameData[i][3]+'<BR>'+GameData[i][4];
-     //ï¿½ï¿½ï¿½ï¿½
+     //¶¤¥î
      nowTD = nowTR.insertCell();
      nowTD.align = 'left';
      nowTD.innerHTML = GameData[i][5]+'<BR>'+GameData[i][6];
-     //ï¿½Lï¿½ï¿½ï¿½`ï¿½ï¿½Æ¶q/ï¿½ï¿½ï¿½B
+     //¹LÃöª`³æ¼Æ¶q/ª÷ÃB
      nowTD = insertCell();
      nowTD.align = 'right';
      nowTD.innerHTML = '<a href=\"TN_list_bet.php?uid='+uid+'&aid='+aid+'&gid='+GameData[i][0]+'&type=H&wtype=P\"><font color=\"#CC0000\">'+GameData[i][9]+'/'+GameData[i][12]+'</font></a><br>'+
@@ -362,15 +362,15 @@ function ShowLeague(lid){
   }//with(obj_table);
  }
 
-//ï¿½ï¿½Ü¤wï¿½}ï¿½Éµeï¿½ï¿½ï¿½ï¿½ï¿½
+//Åã¥Ü¤w¶}ÁÉµe­±¸ê®Æ
  function ShowData_PL(obj_table,GameData,data_amount)
  {
   with(obj_table)
   {
-   //ï¿½Mï¿½ï¿½tableï¿½ï¿½ï¿½
+   //²M°£table¸ê®Æ
    while(rows.length > 1)
     deleteRow(rows.length-1);
-   //ï¿½}ï¿½lï¿½ï¿½Ü¶}ï¿½ï¿½ï¿½Éµ{ï¿½ï¿½ï¿½
+   //¶}©lÅã¥Ü¶}©ñ¤¤ÁÉµ{¸ê®Æ
    for(i=0; i<data_amount; i++)
    {
     nowTR = insertRow();
@@ -378,34 +378,34 @@ function ShowLeague(lid){
     nowTR.bgColor = '#FFFFFF';
     with(nowTR)
     {
-     //ï¿½ï¿½ï¿½ï¿½É¶ï¿½
+     //¤é´Á®É¶¡
      nowTD = insertCell();
      nowTD.align = 'center';
      nowTD.innerHTML = GameData[i][1];
-     //ï¿½pï¿½ï¿½
+     //Áp·ù
      nowTD = insertCell();
      nowTD.align = 'center';
      nowTD.innerHTML = '<BR>'+GameData[i][2];
-     //ï¿½ï¿½ï¿½ï¿½
+     //³õ¦¸
      nowTD = insertCell();
      nowTD.align = 'center';
      nowTD.innerHTML = GameData[i][3]+'<BR>'+GameData[i][4];
-     //ï¿½ï¿½ï¿½ï¿½
+     //¶¤¥î
      nowTD = nowTR.insertCell();
      nowTD.align = 'left';
      nowTD.innerHTML = GameData[i][5]+'<BR>'+GameData[i][6];
 
-     //ï¿½ï¿½ï¿½y/ï¿½`ï¿½ï¿½
+     //Åý²y/ª`³æ
      nowTD = insertCell();
      nowTD.vAlign = 'top';
      tmpStr = '<table width=\"100%\" border=\"0\" cellspacing=\"0\" cellpadding=\"0\"><tr align=right>';
-     //ï¿½}ï¿½lï¿½gï¿½Jï¿½ß²v
-     if(GameData[i][7] == 'H') //ï¿½jï¿½ï¿½ï¿½Oï¿½Dï¿½ï¿½
+     //¶}©l¼g¤J½ß²v
+     if(GameData[i][7] == 'H') //±j¶¤¬O¥D¶¤
      {
       ratio_RH = GameData[i][9];
       ratio_RC = '&nbsp';
      }
-     else  //ï¿½jï¿½ï¿½ï¿½Oï¿½È¶ï¿½
+     else  //±j¶¤¬O«È¶¤
      {
       ratio_RH = '&nbsp';
       ratio_RC = GameData[i][10];
@@ -417,38 +417,38 @@ function ShowLeague(lid){
                 '<td width=\"30\">'+GameData[i][12]+'&nbsp;</td>'+
                 '<td ><a href=\"TN_list_bet.php?uid='+uid+'&aid='+aid+'&gid='+GameData[i][0]+'&type=C&wtype=R&rtype=R\" target=\"_blank\"><font color=\"#FF0000\">'+GameData[i][14]+'/'+GameData[i][16]+'</font></a></td>'+
                 '</tr></table></td>';
-     //ï¿½ï¿½ï¿½a
+     //¨«¦a
      nowTD = insertCell();
      nowTD.vAlign = 'top';
      nowTD.innerHTML = '<a href=\"TN_list_bet.php?uid='+uid+'&aid='+aid+'&gid='+GameData[i][0]+'&type=H&wtype=R&rtype=RE\" target=\"_blank\"><font color=\"#FF0000\">'+GameData[i][17]+'/'+GameData[i][19]+'</font></a><br>'+
                        '<a href=\"TN_list_bet.php?uid='+uid+'&aid='+aid+'&gid='+GameData[i][0]+'&type=C&wtype=R&rtype=RE\" target=\"_blank\"><font color=\"#FF0000\">'+GameData[i][18]+'/'+GameData[i][20]+'</font></a>';
-     //ï¿½Wï¿½Uï¿½L/ï¿½`ï¿½ï¿½
+     //¤W¤U½L/ª`³æ
      nowTD = insertCell();
      nowTD.vAlign = 'top';
      nowTD.innerHTML = '<A HREF=\"TN_list_bet.php?uid='+uid+'&aid='+aid+'&gid='+GameData[i][0]+'&type=C&wtype=R&rtype=OU\" target=\"_blank\"><font color=\"#FF0000\">'+GameData[i][21]+'/'+GameData[i][23]+'</font></A><BR>'+
                        '<A HREF=\"TN_list_bet.php?uid='+uid+'&aid='+aid+'&gid='+GameData[i][0]+'&type=H&wtype=R&rtype=OU\" target=\"_blank\"><font color=\"#FF0000\">'+GameData[i][22]+'/'+GameData[i][24]+'</font></A>';
-     //ï¿½ï¿½ï¿½aï¿½jï¿½p/ï¿½`ï¿½ï¿½
+     //¨«¦a¤j¤p/ª`³æ
      nowTD = insertCell();
      nowTD.vAlign = 'top';
      nowTD.innerHTML = '<A HREF=\"TN_list_bet.php?uid='+uid+'&aid='+aid+'&gid='+GameData[i][0]+'&type=C&wtype=R&rtype=ROU\" target=\"_blank\"><font color=\"#FF0000\">'+GameData[i][51]+'/'+GameData[i][53]+'</font></A><BR>'+
                        '<A HREF=\"TN_list_bet.php?uid='+uid+'&aid='+aid+'&gid='+GameData[i][0]+'&type=H&wtype=R&rtype=ROU\" target=\"_blank\"><font color=\"#FF0000\">'+GameData[i][52]+'/'+GameData[i][54]+'</font></A>';
-     //ï¿½WÄ¹/ï¿½`ï¿½ï¿½
+     //¿WÄ¹/ª`³æ
      nowTD = insertCell();
      nowTD.vAlign = 'top';
      nowTD.innerHTML = '<A HREF=\"TN_list_bet.php?uid='+uid+'&aid='+aid+'&gid='+GameData[i][0]+'&type=H&wtype=R&rtype=M\" target=\"_blank\"><font color=\"#FF0000\">'+GameData[i][25]+'/'+GameData[i][28]+'</font></A><BR>'+
                        '<A HREF=\"TN_list_bet.php?uid='+uid+'&aid='+aid+'&gid='+GameData[i][0]+'&type=C&wtype=R&rtype=M\" target=\"_blank\"><font color=\"#FF0000\">'+GameData[i][26]+'/'+GameData[i][29]+'</font></A>';
-     //ï¿½iï¿½x/ï¿½`ï¿½ï¿½
+     //ªiÁx/ª`³æ
      nowTD = insertCell();
      nowTD.vAlign = 'top';
      nowTD.innerHTML = '<A HREF=\"TN_list_bet.php?uid='+uid+'&aid='+aid+'&gid='+GameData[i][0]+'&wtype=PD&st=1\" target=\"_blank\"><font color=\"#FF0000\">'+GameData[i][31]+'/'+GameData[i][32]+'</font></A>';
-     //ï¿½ï¿½ï¿½ï¿½/ï¿½`ï¿½ï¿½
-     wargeEO = eval(GameData[i][33] + '+' + GameData[i][35]); //ï¿½ï¿½ï¿½ï¿½ï¿½`ï¿½ï¿½[ï¿½`
+     //³æÂù/ª`³æ
+     wargeEO = eval(GameData[i][33] + '+' + GameData[i][35]); //³æÂùª`³æ¥[Á`
      goldEO = eval(GameData[i][34] + '+' + GameData[i][36]);
      nowTD = insertCell();
      nowTD.vAlign = 'top';
      nowTD.innerHTML = '<A HREF=\"TN_list_bet.php?uid='+uid+'&aid='+aid+'&gid='+GameData[i][0]+'&wtype=T&rtype=EO&st=1\" target=\"_blank\"><font color=\"#FF0000\">'+wargeEO+'/'+goldEO+'</font></A>';
-     //ï¿½Lï¿½ï¿½/ï¿½`ï¿½ï¿½
-     warge_RP = eval(GameData[i][45] + '+' + GameData[i][46] + '+' + GameData[i][47]); //ï¿½Dï¿½È¶ï¿½ï¿½`ï¿½ï¿½[ï¿½`
+     //¹LÃö/ª`³æ
+     warge_RP = eval(GameData[i][45] + '+' + GameData[i][46] + '+' + GameData[i][47]); //¥D«È¶¤ª`³æ¥[Á`
      gold_RP = eval(GameData[i][48] + '+' + GameData[i][49] + '+' + GameData[i][50]);
      nowTD = insertCell();
      nowTD.vAlign = 'top';
@@ -462,21 +462,21 @@ function ShowLeague(lid){
 <!--SCRIPT language=javaScript src="/js/FT_agents_showgame.js" type=text/javascript></SCRIPT-->
 <SCRIPT LANGUAGE="JAVASCRIPT">
 <!--
- if(self == top) location='https://61.14.145.168/xn/app/control/agents/';
+ if(self == top) location='https://61.14.145.168/app/control/agents/';
  var uid=''; //user's session ID
- var loading = 'Y'; //ï¿½Oï¿½_ï¿½ï¿½ï¿½bÅªï¿½ï¿½ï¿½sï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
- var stype_var = ''; //ï¿½Ø«eÅªï¿½ï¿½ï¿½Ü¼Æ­È­ï¿½ï¿½ï¿½
- var ShowType = ''; //ï¿½Ø«eï¿½ï¿½Ü­ï¿½ï¿½ï¿½
- var ltype = 1; //ï¿½Ø«eï¿½ï¿½ï¿½line
- var spage = ''; //ï¿½Ø«eï¿½ï¿½Ü­ï¿½ï¿½ï¿½
- var dt_now = ''; //ï¿½Ø«eï¿½ï¿½ï¿½ï¿½É¶ï¿½
+ var loading = 'Y'; //¬O§_¥¿¦bÅª¨úÂsÄý­¶­±
+ var stype_var = ''; //¥Ø«eÅª¨úÅÜ¼Æ­È­¶­±
+ var ShowType = ''; //¥Ø«eÅã¥Ü­¶­±
+ var ltype = 1; //¥Ø«eÅã¥Üline
+ var spage = ''; //¥Ø«eÅã¥Ü­¶­±
+ var dt_now = ''; //¥Ø«e¤é´Á®É¶¡
  var aid='';
  var sel_league='';
 
- var gamount = 0; //ï¿½Ø«eï¿½ï¿½ï¿½ï¿½Éµ{ï¿½ï¿½
- var GameTN = new Array(1024); //ï¿½Ì¦hï¿½]ï¿½wï¿½ï¿½ï¿½1024ï¿½ï¿½ï¿½Éµ{
+ var gamount = 0; //¥Ø«eÅã¥ÜÁÉµ{¼Æ
+ var GameTN = new Array(1024); //³Ì¦h³]©wÅã¥Ü1024µ§ÁÉµ{
  for(var i=0; i<1024; i++){
- 	GameTN[i] = new Array(37); //ï¿½ï¿½ï¿½Uï¿½Éµ{ï¿½Å§i 37 ï¿½ï¿½ï¿½ï¿½ï¿½
+ 	GameTN[i] = new Array(37); //¬°¦UÁÉµ{«Å§i 37 ­ÓÄæ¦ì
  }
 // -->
 </SCRIPT>

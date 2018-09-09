@@ -17,7 +17,7 @@ if($action==1){
 		show_error("密码错误,请重新输入");
 		exit;
 	}
-		$sql="update web_world set passwd_safe='$password_safe' where Agname='$username' and passwd = '$password'";
+		$sql="update web_corprator set passwd_safe='$password_safe' where Agname='$username' and passwd = '$password'";
 		mysql_query($sql);
 		
 		echo '<meta http-equiv="Content-Type" content="text/html; charset=utf-8">';
@@ -30,7 +30,7 @@ function show_error($errstring){
 <html>
 <head>
 <title>error</title>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=big5">
 <style>
 <!--
 body { text-align:center; background-color:#535E63;}

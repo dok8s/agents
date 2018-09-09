@@ -132,7 +132,7 @@ function onLoad(){
 <table width="780" border="0" cellspacing="0" cellpadding="0">
 	<form name="myFORM" action="su_subuser.php?uid=<?=$uid?>" method="POST">
 		<tr>
-			<td class="m_tline">
+			<td class="">
 				<table border="0" cellspacing="0" cellpadding="0">
 					<tr>
 						<td nowrap>&nbsp;&nbsp;排序&nbsp;:&nbsp;</td>
@@ -159,7 +159,6 @@ function onLoad(){
 					</tr>
 				</table>
 			</td>
-			<td><img src="/images/control/zh-tw/top_04.gif" width="30" height="24"></td>
 		</tr>
 		<tr>
 			<td colspan="2" height="4"></td>

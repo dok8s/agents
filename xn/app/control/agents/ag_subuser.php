@@ -149,7 +149,7 @@ function onLoad(){
     <div id="general_btn" class="<? if ($level == 1) {echo 'nav_btn_on';} else {echo 'nav_btn';}?>" onclick="ch_level(1);">会员</div>
     <div id="important_btn" class="<? if ($level == 2) {echo 'nav_btn_on';} else {echo 'nav_btn';}?>" onclick="ch_level(2);">子账号</div>
 </div>
-<FORM NAME="myFORM" ACTION="/app/control/agents/members/ag_members.php?uid=<?=$uid?>" METHOD=POST style="padding-top: 62px;">
+<FORM NAME="myFORM" ACTION="/xn/app/control/agents/members/ag_members.php?uid=<?=$uid?>" METHOD=POST style="padding-top: 62px;">
     <input type="hidden" name="agent_id" value="28752">
     <table width="1024" border="0" cellspacing="0" cellpadding="0" style="margin-left:20px;margin-bottom: 10px;">
         <tr>

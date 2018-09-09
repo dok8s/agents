@@ -23,7 +23,7 @@ require ("../../../member/include/traditional.$langx.inc.php");
 
 <html>
 <head>
-<title>¹Ú¾ü</title>
+<title>ï¿½Ú¾ï¿½</title>
 <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
 <meta http-equiv='Page-Exit' content='revealTrans(Duration=0,Transition=5)'>
 <!--link href="/style/control/control_body_fs.css" rel="stylesheet" type="text/css"-->
@@ -64,9 +64,9 @@ start_time=get_timer();
 	play_sound();
 }
 function layer_screen(gid,layers){
-	//¼ì²éÅâÂÊÊÇ·ñÓÐ±ä¶¯
+	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç·ï¿½ï¿½Ð±ä¶¯
 	changeRatio=check_ratio(gid).split(",");
-	//changeRatio[] [1=±ä¶¯] 0:R_con  1:RH_Ratio 2:RH_Ratio 3:OU_con  4:OUH_Ratio 2:OUC_Ratio
+	//changeRatio[] [1=ï¿½ä¶¯] 0:R_con  1:RH_Ratio 2:RH_Ratio 3:OU_con  4:OUH_Ratio 2:OUC_Ratio
 
 		gno=gidx[gid];
 		//GameFT[gno][4]=GameFT[gno][4].replace("[H]",top.str_home).replace("[M]",top.str_mid);
@@ -74,27 +74,27 @@ function layer_screen(gid,layers){
 		layers=layers.replace("*GID*",GameFT[gno][0]);/*gid*/
 		layers=layers.replace("*TIME*",change_time(GameFT[gno][1]));/*Khi*/
 
-		layers=layers.replace("*LEG*",GameFT[gno][2]);/*ÁªÃË*/
-		layers=layers.replace("*ITEM*",GameFT[gno][3]); /*³¡´Î*/
-		//layers=layers.replace("*TEAM_H*",GameFT[gno][4]);/*Ö÷¶Ó*/
-		//layers=layers.replace("*TEAM_C*",GameFT[gno][5]);/*¿Í¶Ó*/
+		layers=layers.replace("*LEG*",GameFT[gno][2]);/*ï¿½ï¿½ï¿½ï¿½*/
+		layers=layers.replace("*ITEM*",GameFT[gno][3]); /*ï¿½ï¿½ï¿½ï¿½*/
+		//layers=layers.replace("*TEAM_H*",GameFT[gno][4]);/*ï¿½ï¿½ï¿½ï¿½*/
+		//layers=layers.replace("*TEAM_C*",GameFT[gno][5]);/*ï¿½Í¶ï¿½*/
 		//layers=layers.replace("*R_TODAY*",GameFT[gno][0]);
 
 
 		if (GameFT[gno][4]=="N"){
 			layers=layers.replace("*CLASS*",'bgcolor=#cccccc');
 			TBG='bgcolor="#cccccc"';
-			layers=layers.replace("*GOPEN*","<font color='blue' style='cursor:hand;' onclick=\"if (check_fl("+gid+",'6')) return;change_game('gopen','Y',"+gid+",'"+se+"');\">"+top.str_gopen+"</font>");/*¿ª·Å*/
+			layers=layers.replace("*GOPEN*","<font color='blue' style='cursor:hand;' onclick=\"if (check_fl("+gid+",'6')) return;change_game('gopen','Y',"+gid+",'"+se+"');\">"+top.str_gopen+"</font>");/*ï¿½ï¿½ï¿½ï¿½*/
 		}else{
 			layers=layers.replace("*CLASS*",'bgcolor=#ffffff');
 			TBG='bgcolor="#ffffff"';
-			layers=layers.replace("*GOPEN*","<font color='blue' style='cursor:hand;' onclick=\"if (check_fl("+gid+",'6')) return;change_game('gopen','N',"+gid+",'"+se+"');\">"+top.str_gameclose+"</font>");/*¹Ø±Õ*/
+			layers=layers.replace("*GOPEN*","<font color='blue' style='cursor:hand;' onclick=\"if (check_fl("+gid+",'6')) return;change_game('gopen','N',"+gid+",'"+se+"');\">"+top.str_gameclose+"</font>");/*ï¿½Ø±ï¿½*/
 		}
 		if (GameFT[gno][5]*1 > 0){
 			if (GameFT[gno][6]=="0"){
-				layers=layers.replace("*FL_SET*"," | <font style='cursor:hand;' color='red' onclick=change_game('FL_enable','1',"+gid+",'"+se+"')>"+top.str_FL+"</font>");/*¸úÅÌ*/
+				layers=layers.replace("*FL_SET*"," | <font style='cursor:hand;' color='red' onclick=change_game('FL_enable','1',"+gid+",'"+se+"')>"+top.str_FL+"</font>");/*ï¿½ï¿½ï¿½ï¿½*/
 			}else{
-				layers=layers.replace("*FL_SET*"," | <font style='cursor:hand;' onclick=change_game('FL_enable','0',"+gid+",'"+se+"')>"+top.str_cancel+"</font>");/*È¡Ïû*/
+				layers=layers.replace("*FL_SET*"," | <font style='cursor:hand;' onclick=change_game('FL_enable','0',"+gid+",'"+se+"')>"+top.str_cancel+"</font>");/*È¡ï¿½ï¿½*/
 			}
 		}else{
 			layers=layers.replace("*FL_SET*","");
@@ -121,7 +121,7 @@ function layer_screen(gid,layers){
 
 		if (GameFT[gno][7]*1>0){
 			for (k=0;k<GameFT[gno][7];k++){
-				//Èç¹û±»ÌÔÌ­,Åâ³ö½ð¶îÒª³ËÒÔ-1
+				//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì­,ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Òªï¿½ï¿½ï¿½ï¿½-1
 				sellgold=1;
 
 				if (GameFT[gno][8+k*5]=="N"){
@@ -172,7 +172,7 @@ function layer_screen(gid,layers){
 		layers=layers.replace("*ORDERS*",orders);
 		layers=layers.replace("*OUT_ORDER*",outorders);
 
-		//layers=layers.replace("*RESULT*","<font color='blue' style='cursor:hand;' onclick=\"chk_result('"+gno+"');\">"+top.str_result+"</font>");/*¿ª·Å*/
+		//layers=layers.replace("*RESULT*","<font color='blue' style='cursor:hand;' onclick=\"chk_result('"+gno+"');\">"+top.str_result+"</font>");/*ï¿½ï¿½ï¿½ï¿½*/
 
 
 	return layers;
@@ -185,7 +185,7 @@ function getcolor(changeRatio,Rpos){
 	}
 	return backgrounds;
 	}
-//¼ì²éÅâÂÊ
+//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 function check_ratio(gid){
 
 	gnos=gidx[gid];
@@ -277,7 +277,7 @@ function key_result(resultFrom){
 
 
 function gtype_close(){
-str_close=top.str_close_ioratio;/*ÊÇ·ñÈ·¶¨¹Ø±ÕÅâÂÊ*/
+str_close=top.str_close_ioratio;/*ï¿½Ç·ï¿½È·ï¿½ï¿½ï¿½Ø±ï¿½ï¿½ï¿½ï¿½ï¿½*/
 a=confirm(str_close);
 	if (a==true){
 		grtypes="";
@@ -307,7 +307,7 @@ function check_sel(gid){
 	return true;
 	//return check_fl(gid,13);
 	}
-//×Ô¶¯¹Ø±Õ
+//ï¿½Ô¶ï¿½ï¿½Ø±ï¿½
 function openWin(obj_Name,gid){
 	var obj = document.getElementById(obj_Name);
 	obj.style.display = "block";
@@ -344,13 +344,13 @@ function check(forms){
 	}
 
 	if(!OK){
-		alert("ÇëÌîÈëÕýÈ·¸ñÊ½");
+		alert("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È·ï¿½ï¿½Ê½");
 		return OK;
 	}
 	forms.uid.value = top.uid;
 	forms.gsdate1.value = document.getElementById('gsdate').value;
 	forms.gedate1.value = document.getElementById('gedate').value;
-	if(!confirm("ÊÇ·ñÈ·¶¨¹Ø±ÕKhi??")){
+	if(!confirm("ï¿½Ç·ï¿½È·ï¿½ï¿½ï¿½Ø±ï¿½Khi??")){
 		return false;
 	}
 	var obj = document.getElementById('AutoClose');
@@ -369,7 +369,7 @@ function chgDate() {
 
 	if(!chkCurrentDate(gsdate) || !chkCurrentDate(gedate)) tmpFlag = false;
 
-	// ÅÐ¶ÏÆðÊ¼ÈÕÆÚÊÇ·ñÐ¡ÓÚÖÕÖ¹ÈÕÆÚ
+	// ï¿½Ð¶ï¿½ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½ï¿½Ç·ï¿½Ð¡ï¿½ï¿½ï¿½ï¿½Ö¹ï¿½ï¿½ï¿½ï¿½
 	if(tmpGS[0]*1 > tmpGE[0] *1) tmpFlag = false;
 	else if(tmpGS[0]*1 == tmpGE[0]*1 && tmpGS[1]*1 > tmpGE[1]*1) tmpFlag = false;
 	else if(tmpGS[1]*1 == tmpGE[1]*1 && tmpGS[2]*1 > tmpGE[2]*1) tmpFlag = false;
@@ -381,12 +381,12 @@ function chgDate() {
 	reloadPHP.location.href=homepage;
 
 }
-// ÅÐ¶ÏÊÇ·ñÎªÕýÈ·µÄÈÕÆÚ¸ñÊ½
+// ï¿½Ð¶ï¿½ï¿½Ç·ï¿½Îªï¿½ï¿½È·ï¿½ï¿½ï¿½ï¿½ï¿½Ú¸ï¿½Ê½
 function chkCurrentDate(val){
 	var mydate = val.split("-");
-	var year = mydate[0] % 4;	// È¡µÃÊÇ·ñÈóÄê
-	var month = mydate[1];		// È¡µÃÔÂ
-	var day = mydate[2];		// È¡µÃÈÕ
+	var year = mydate[0] % 4;	// È¡ï¿½ï¿½ï¿½Ç·ï¿½ï¿½ï¿½ï¿½ï¿½
+	var month = mydate[1];		// È¡ï¿½ï¿½ï¿½ï¿½
+	var day = mydate[2];		// È¡ï¿½ï¿½ï¿½ï¿½
 
 	if(mydate[0].length != 4) return false;
 	if(month > 12 || month == 0 || day == 0) {return false;}
@@ -394,7 +394,7 @@ function chkCurrentDate(val){
 		if(day>30) return false;
 		else return true;
 	} else if(month==2) {
-		if(year == 0 && day > 29) return  false;  // ÈóÄê
+		if(year == 0 && day > 29) return  false;  // ï¿½ï¿½ï¿½ï¿½
 		else if(year !=0 && day > 28) return false;
 		else return true;
 	} else {
@@ -447,7 +447,7 @@ function ShowLeague(lid){
 	sel_leg.innerHTML=txt_bodyH;
 }
 
-//===Ñ¡ÔñÇøÓò===
+//===Ñ¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½===
 function chg_area(){
 	var obj_area = document.getElementById('sel_aid');
 	sel_area=obj_area.value;
@@ -484,7 +484,7 @@ function ShowArea(aid){
 	sel_areas.innerHTML=txt_bodyA;
 }
 
-//===Ñ¡ÔñÀà±ð===
+//===Ñ¡ï¿½ï¿½ï¿½ï¿½ï¿½===
 function chg_item(){
 	var obj_item = document.getElementById('sel_itemid');
 	sel_item=obj_item.value;
@@ -532,41 +532,41 @@ function chg_account(set_account){
 }
 </script>
 <script>
-top.str_input_pwd = "ÃÜÂëÇëÎñ±ØÊäÈë!!";
-top.str_input_repwd = "È·ÈÏÃÜÂëÇëÎñ±ØÊäÈë!!";
-top.str_err_pwd = "ÃÜÂëÈ·ÈÏ´íÎó,ÇëÖØÐÂÊäÈë!!";
-top.str_err_pwd_fail = "¸ÃÃÜÂëÄúÒÑÊ¹ÓÃ¹ý, ÎªÁË°²È«Æð¼û, ÇëÊ¹ÓÃÐÂÃÜÂë!!";
-top.str_pwd_limit = "ÄúµÄÃÜÂë±ØÐë6ÖÁ12¸ö×ÖÔª³¤,ÄúÖ»ÄÜÊ¹ÓÃÊý×ÖºÍÓ¢ÎÄ×ÖÄ¸²¢ÖÁÉÙ 1 ¸öÓ¢ÎÄ×ÖÄ¸,ÆäËü ÌØÊâ·ûºÅ²»ÄÜÊ¹ÓÃ ¡£";
-top.str_pwd_limit2 = "ÄúµÄÃÜÂëÐèÊ¹ÓÃ×ÖÄ¸¼ÓÉÏÊý×Ö!!";
-//ÐÅÓÃ¶î¶È
-top.str_maxcre = "×ÜÐÅÓÃ¶î¶È½öÄÜÊäÈëÊý×Ö!!";
+top.str_input_pwd = "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½!!";
+top.str_input_repwd = "È·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½!!";
+top.str_err_pwd = "ï¿½ï¿½ï¿½ï¿½È·ï¿½Ï´ï¿½ï¿½ï¿½,ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½!!";
+top.str_err_pwd_fail = "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¹ï¿½Ã¹ï¿½, Îªï¿½Ë°ï¿½È«ï¿½ï¿½ï¿½, ï¿½ï¿½Ê¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½!!";
+top.str_pwd_limit = "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½6ï¿½ï¿½12ï¿½ï¿½ï¿½ï¿½Ôªï¿½ï¿½,ï¿½ï¿½Ö»ï¿½ï¿½Ê¹ï¿½ï¿½ï¿½ï¿½ï¿½Öºï¿½Ó¢ï¿½ï¿½ï¿½ï¿½Ä¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 1 ï¿½ï¿½Ó¢ï¿½ï¿½ï¿½ï¿½Ä¸,ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Å²ï¿½ï¿½ï¿½Ê¹ï¿½ï¿½ ï¿½ï¿½";
+top.str_pwd_limit2 = "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¹ï¿½ï¿½ï¿½ï¿½Ä¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½!!";
+//ï¿½ï¿½ï¿½Ã¶ï¿½ï¿½
+top.str_maxcre = "ï¿½ï¿½ï¿½ï¿½ï¿½Ã¶ï¿½È½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½!!";
 
-top.str_gopen="¿ª·Å";
-top.str_gameclose="¹Ø±Õ";
-top.str_gopenY="ÊÇ·ñÈ·¶¨Èü³Ì¿ª·Å";
-top.str_gopenN="ÊÇ·ñÈ·¶¨Èü³Ì¹Ø±Õ";
-top.str_strongH="ÊÇ·ñÈ·¶¨Ç¿Èõ»¥»»";
-top.str_strongC="ÊÇ·ñÈ·¶¨Ç¿Èõ»¥»»";
-top.str_close_ioratio="ÊÇ·ñÈ·¶¨¹Ø±ÕÅâÂÊ";
+top.str_gopen="ï¿½ï¿½ï¿½ï¿½";
+top.str_gameclose="ï¿½Ø±ï¿½";
+top.str_gopenY="ï¿½Ç·ï¿½È·ï¿½ï¿½ï¿½ï¿½ï¿½Ì¿ï¿½ï¿½ï¿½";
+top.str_gopenN="ï¿½Ç·ï¿½È·ï¿½ï¿½ï¿½ï¿½ï¿½Ì¹Ø±ï¿½";
+top.str_strongH="ï¿½Ç·ï¿½È·ï¿½ï¿½Ç¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½";
+top.str_strongC="ï¿½Ç·ï¿½È·ï¿½ï¿½Ç¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½";
+top.str_close_ioratio="ï¿½Ç·ï¿½È·ï¿½ï¿½ï¿½Ø±ï¿½ï¿½ï¿½ï¿½ï¿½";
 
-//ÐÂ¹Ú¾ü
-top.str_scoreY="¸º";
+//ï¿½Â¹Ú¾ï¿½
+top.str_scoreY="ï¿½ï¿½";
 top.str_scoreN="Ê¤";
-top.str_change="È·¶¨ÖØÖÃ½á¹û!!";
-top.str_eliminate="ÊÇ·ñÌÔÌ­";
-top.str_format="ÇëÌîÈëÕýÈ·¸ñÊ½";
-top.str_close_time="ÊÇ·ñÈ·¶¨¹Ø±ÕKhi??"
-top.str_check_date="Çë¼ì²éÈÕÆÚ¸ñÊ½ !!";
-top.str_champ_win="¹Ú¾üÊÇ·ñÎª:";
-top.str_champ_wins="ÇëÔÙÈ·ÈÏ¹Ú¾üÊÇ·ñÎª:";
-top.str_NOchamp="ÎÞÊ¤³ö¶ÓÎé£¬ÇëÖØÐÂÉè¶¨!!";
-top.str_NOloser="ÎÞÌÔÌ­¶ÓÎé£¬ÇëÖØÐÂÉè¶¨!!";
-top.str_FT="×ãÇò";
-top.str_FS="¹Ú¾ü";
-top.str_BK="ÀºÇò";
-top.str_TN="ÍøÇò";
-top.str_VB="ÅÅÇò";
-top.str_BS="°ôÇò";</script>
+top.str_change="È·ï¿½ï¿½ï¿½ï¿½ï¿½Ã½ï¿½ï¿½!!";
+top.str_eliminate="ï¿½Ç·ï¿½ï¿½ï¿½Ì­";
+top.str_format="ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È·ï¿½ï¿½Ê½";
+top.str_close_time="ï¿½Ç·ï¿½È·ï¿½ï¿½ï¿½Ø±ï¿½Khi??"
+top.str_check_date="ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú¸ï¿½Ê½ !!";
+top.str_champ_win="ï¿½Ú¾ï¿½ï¿½Ç·ï¿½Îª:";
+top.str_champ_wins="ï¿½ï¿½ï¿½ï¿½È·ï¿½Ï¹Ú¾ï¿½ï¿½Ç·ï¿½Îª:";
+top.str_NOchamp="ï¿½ï¿½Ê¤ï¿½ï¿½ï¿½ï¿½ï¿½é£¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½è¶¨!!";
+top.str_NOloser="ï¿½ï¿½ï¿½ï¿½Ì­ï¿½ï¿½ï¿½é£¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½è¶¨!!";
+top.str_FT="ï¿½ï¿½ï¿½ï¿½";
+top.str_FS="ï¿½Ú¾ï¿½";
+top.str_BK="ï¿½ï¿½ï¿½ï¿½";
+top.str_TN="ï¿½ï¿½ï¿½ï¿½";
+top.str_VB="ï¿½ï¿½ï¿½ï¿½";
+top.str_BS="ï¿½ï¿½ï¿½ï¿½";</script>
 <script>
 //if(top.uid=="" || self==top || top.document.domain!=document.domain){ top.location="http://"+document.domain;}
 var rangMax=0;
@@ -641,7 +641,7 @@ function reload_var(){
 
 }
 /*
-----------------¹¦ÄÜmenu--------------
+----------------ï¿½ï¿½ï¿½ï¿½menu--------------
 */
 function change_game(gtype,vals,gid,se){
 //alert(gtype);
@@ -652,8 +652,8 @@ str_gopenY=top.str_gopenY;
 str_gopenN=top.str_gopenN;
 str_strongH=top.str_strongH;
 str_strongC=top.str_strongC;
-str_FL_enable1="È·¶¨¸Ä±ä¸úÅÌ×´Ì¬";
-str_FL_enable0="È·¶¨¸Ä±ä¸úÅÌ×´Ì¬";
+str_FL_enable1="È·ï¿½ï¿½ï¿½Ä±ï¿½ï¿½ï¿½ï¿½×´Ì¬";
+str_FL_enable0="È·ï¿½ï¿½ï¿½Ä±ï¿½ï¿½ï¿½ï¿½×´Ì¬";
 
 a=true;
 if ((gtype=="gopen" || gtype=="strong" || gtype=="FL_enable") && (gid!="all"))
@@ -672,8 +672,8 @@ if (a==true){
 	}
 }
 /*
-¹«ÓÃ FUNC
-Ð¡ÊýµãÎ»Êý
+ï¿½ï¿½ï¿½ï¿½ FUNC
+Ð¡ï¿½ï¿½ï¿½ï¿½Î»ï¿½ï¿½
 */
 function printf(vals,points){
 	vals=""+vals;
@@ -688,11 +688,11 @@ function printf(vals,points){
 	return vals;
 }
 /*
-¼ÆÊýÆ÷
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 */
 function get_timer(){return (new Date()).getTime();}
 /*
-¼üÅÌ
+ï¿½ï¿½ï¿½ï¿½
 */
 document.onkeypress=checkfunc;
 function checkfunc(e) {
@@ -712,7 +712,7 @@ function CheckKey(){
 	}
 }
 /*
-parser ÇòÍ·
+parser ï¿½ï¿½Í·
 */
 function get_cr_str(cr){
 	var crs=new Array();
@@ -806,7 +806,7 @@ function  change_time(get_time){
 	return dates[0].substring(5,10) + "<br>" +gtime[0]+":"+gtime[1]+"a";
 }
 /*
-Éè¶¨·ÖÒ³
+ï¿½è¶¨ï¿½ï¿½Ò³
 */
 function setpage(){
 
@@ -1044,41 +1044,40 @@ function chk_Key(obj,value){
 <bgsound id=bsound_nt loop=1>
 
 <table width="810" border="0" cellpadding="0" cellspacing="0">
-  <tr><td width="780" class="m_tline">
+  <tr><td width="780" class="">
  <table border="0" cellspacing="0" cellpadding="0">
           <tr>
-            <td width="60">&nbsp;&nbsp;¹Ú¾üÈ«³¡ :</td>
+            <td width="60">&nbsp;&nbsp;ï¿½Ú¾ï¿½È«ï¿½ï¿½ :</td>
 <td>
 <select id="game_type" name="game_type" onChange="chg_gtype(this.value);" class="za_select">
-	<option value="">È«²¿</option>
-	<option value="FT">×ãÇò</option>
-	<option value="BK" >ÀºÇò</option>
-	<option value="BS">°ôÇò</option>
-	<option value="TN">ÍøÇò</option>
-	<option value="VB">ÅÅÇò</option>
+	<option value="">È«ï¿½ï¿½</option>
+	<option value="FT">ï¿½ï¿½ï¿½ï¿½</option>
+	<option value="BK" >ï¿½ï¿½ï¿½ï¿½</option>
+	<option value="BS">ï¿½ï¿½ï¿½ï¿½</option>
+	<option value="TN">ï¿½ï¿½ï¿½ï¿½</option>
+	<option value="VB">ï¿½ï¿½ï¿½ï¿½</option>
 </select>
 </td>
-<td width="65">&nbsp;--&nbsp;ÖØÐÂÕûÀí:</td>
+<td width="65">&nbsp;--&nbsp;ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½:</td>
 <td>
 <select name="retime" class="za_select" id="retime" onChange="reloadtime()">
-	<option value="-1">²»¸üÐÂ</option>
+	<option value="-1">ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½</option>
 	<option value="10">10 sec</option>
 	<option value="20">20 sec</option>
 	<option value="60">60 sec</option>
 </select>
 </td>
-<td>ÃÀ¶«Khi:<span id=times></span></td>
+<td>ï¿½ï¿½ï¿½ï¿½Khi:<span id=times></span></td>
 
 
-<td>--ÈÕÆÚÇø¼ä: </td>
+<td>--ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: </td>
 <td><input type="text" id="gsdate" name="gsdate" value="" size="9" maxlength="10"></td>
 <td>~</td>
 <td><input type="text" id="gedate" name="gedate" value="" size="9" maxlength="10"></td>
-<td><input type="button" value="È·¶¨" onClick="chgDate();"></td>
+<td><input type="button" value="È·ï¿½ï¿½" onClick="chgDate();"></td>
           </tr>
       </table>
  </td>
-      <td width="30"><img src="/images/control/zh-tw/top_04.gif" width="30" height="24"></td>
   </tr>
 
 </table>
@@ -1086,14 +1085,14 @@ function chk_Key(obj,value){
 
 <table height="0" cellpadding="1" cellspacing="1">
   <tr>
-<td><font color="#000099">&nbsp;ÇøÓò:</font></td><td><span id="sel_areas"></span></td>
+<td><font color="#000099">&nbsp;ï¿½ï¿½ï¿½ï¿½:</font></td><td><span id="sel_areas"></span></td>
 
-<td>&nbsp;&nbsp;Ñ¡ÔñÁªÃË :</td><td><span id="sel_leg"></span></td>
+<td>&nbsp;&nbsp;Ñ¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ :</td><td><span id="sel_leg"></span></td>
 
-<td>&nbsp;&nbsp;Ñ¡ÔñÀà±ð :</td><td><span id="sel_items"></span></td>
-<td>¹Û¿´·½Ê½ :&nbsp;<select id="set_account" name="set_account" onChange="chg_account(this.value);" class="za_select">
-        		<option value="0">È«²¿</option>
-			<option value="1">×Ô¼º</option>
+<td>&nbsp;&nbsp;Ñ¡ï¿½ï¿½ï¿½ï¿½ï¿½ :</td><td><span id="sel_items"></span></td>
+<td>ï¿½Û¿ï¿½ï¿½ï¿½Ê½ :&nbsp;<select id="set_account" name="set_account" onChange="chg_account(this.value);" class="za_select">
+        		<option value="0">È«ï¿½ï¿½</option>
+			<option value="1">ï¿½Ô¼ï¿½</option>
 		</select></td>
 </tr></table>
 </div>
@@ -1102,11 +1101,11 @@ function chk_Key(obj,value){
 <table id="glist_table"  border="0" cellspacing="1" cellpadding="0" bgcolor="#CC9900" class="m_tab">
    <tr class="m_title_nfs">
    <td>Khi</td>
-      <td>ÁªÃË / ÏîÄ¿</td>
-      <td>¶ÓÎé (ÇòÔ±)</td>
-      <td>ÌÔÌ­</td>
-      <td>ÅâÂÊ</td>
-      <td>×¢µ¥</td>
+      <td>ï¿½ï¿½ï¿½ï¿½ / ï¿½ï¿½Ä¿</td>
+      <td>ï¿½ï¿½ï¿½ï¿½ (ï¿½ï¿½Ô±)</td>
+      <td>ï¿½ï¿½Ì­</td>
+      <td>ï¿½ï¿½ï¿½ï¿½</td>
+      <td>×¢ï¿½ï¿½</td>
 
 
     </tr>
@@ -1132,9 +1131,9 @@ function chk_Key(obj,value){
 
 
 <div class="bord"><b></b><a href="#">TO TOP</a></div>
-<!----------------------¸ü¸ÄÅâÂÊÊÓ´°---------------------------->
+<!----------------------ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó´ï¿½---------------------------->
 
-<!----------------×Ô¶¯¹Ø±ÕÉè¶¨ÊÓ´°---------------->
+<!----------------ï¿½Ô¶ï¿½ï¿½Ø±ï¿½ï¿½è¶¨ï¿½Ó´ï¿½---------------->
 <div id=AutoClose style="display: none;position: absolute;">
 <FORM NAME="FS_RatioForm" ACTION="FS_ctl_fs_ratio.php" METHOD="POST" target="reloadPHP" onSubmit="return check(this);">
 	<INPUT TYPE="HIDDEN" NAME="uid" value="">
@@ -1147,24 +1146,24 @@ function chk_Key(obj,value){
 	    <td bgcolor="#FFFFFF">
 	      <table width="220" border="0" cellspacing="0" cellpadding="0" class="m_tab_fix">
 	          <tr bgcolor="#0163A2">
-	          <td width="200" id=bet_title><font color="#FFFFFF">ÇëÉè¶¨¹Ø±ÕKhi</font></td>
+	          <td width="200" id=bet_title><font color="#FFFFFF">ï¿½ï¿½ï¿½è¶¨ï¿½Ø±ï¿½Khi</font></td>
 	          <td align="right" valign="top"><a style="cursor:hand;" onClick="close_win('AutoClose');"><img src="/images/control/zh-tw/edit_dot.gif" width="16" height="14"></a></td>
 	          </tr>
 	          <tr bgcolor="#CC0000">
 	          	<td width="200" colspan="2" >
-	          		<font color="#FFFFFF" >ÈÕÆÚ£º</font>
+	          		<font color="#FFFFFF" >ï¿½ï¿½ï¿½Ú£ï¿½</font>
 	          		<input type="text" name="setDate" id="setDate"  size="10" maxlength="10"><font color="#FFFFFF"  size="1">(YYYY-MM-DD)</font>
 	          	</td>
 	          </tr>
 	          <tr bgcolor="#CC0000">
 	          	<td width="200" colspan="2">
-	          		<font color="#FFFFFF">Khi£º</font>
+	          		<font color="#FFFFFF">Khiï¿½ï¿½</font>
 	          		<input type="text" name="setTime" id="setTime" size="5" maxlength="5"><font color="#FFFFFF" size="1">(HH:MM)</font>
 	          	</td>
 	          </tr>
 	          <tr bgcolor="#CC0000">
 	          	<td width="200" colspan="2" id="setTime">
-	          		<input type="submit" name="confirm" value="È·¶¨">
+	          		<input type="submit" name="confirm" value="È·ï¿½ï¿½">
 	          	</td>
 	          </tr>
 	      </table>
@@ -1174,42 +1173,42 @@ function chk_Key(obj,value){
 
 </FORM>
 </div>
-<!----------------------¸ü¸ÄÏÂÀ­ÊÓ´°---------------------------->
-<!--Ñ¡ÔñÁªÃË START-->
+<!----------------------ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó´ï¿½---------------------------->
+<!--Ñ¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ START-->
 <span id="bowling" style="position:absolute; display: none">
 	<option value="*LEAGUE_ID*" *SELECT*>*LEAGUE_NAME*</option>
 </span>
 <span id="bodyH" style="position:absolute; display: none">
 	<select id="sel_lid" name="sel_lid" onChange="chg_league();" class="za_select">
-	<option value="">È«²¿</option>
+	<option value="">È«ï¿½ï¿½</option>
 		*SHOW_H*
 	</select>
 </span>
-<!--Ñ¡ÔñÁªÃË END-->
+<!--Ñ¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ END-->
 
-<!--ÇøÓò START-->
+<!--ï¿½ï¿½ï¿½ï¿½ START-->
 <span id="area" style="position:absolute; display: none">
 	<option value="*AREA_ID*" *SELECT_AREA*>*AREA_NAME*</option>
 </span>
 <span id="bodyA" style="position:absolute; display: none">
 	<select id="sel_aid" name="sel_aid" onChange="chg_area();" class="za_select">
-	<option value="">È«²¿</option>
+	<option value="">È«ï¿½ï¿½</option>
 		*SHOW_A*
 	</select>
 </span>
-<!--ÇøÓò END-->
+<!--ï¿½ï¿½ï¿½ï¿½ END-->
 
-<!--Àà±ð START-->
+<!--ï¿½ï¿½ï¿½ START-->
 <span id="item" style="position:absolute; display: none">
 	<option value="*ITEM_ID*" *SELECT_ITEM*>*ITEM_NAME*</option>
 </span>
 <span id="bodyI" style="position:absolute; display: none">
 	<select id="sel_itemid" name="sel_itemid" onChange="chg_item();" class="za_select">
-	<option value="">È«²¿</option>
+	<option value="">È«ï¿½ï¿½</option>
 		*SHOW_I*
 	</select>
 </span>
-<!--Àà±ð END-->
+<!--ï¿½ï¿½ï¿½ END-->
 
 
 <iframe id=reloadPHP name=reloadPHP width=0 height=0></iframe>

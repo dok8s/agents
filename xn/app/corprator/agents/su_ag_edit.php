@@ -10,6 +10,14 @@ require ("../../member/include/define_function_list.inc.php");
 
 $uid=$_REQUEST["uid"];
 $langx=$_REQUEST["langx"];
+$sql = "select id,subuser,agname,subname,status,super,setdata from web_corprator where Oid='$uid'";
+$result = mysql_query($sql);
+$row = mysql_fetch_array($result);
+$agname=$row['agname'];
+$super=$row['super'];
+$d1set = @unserialize($row['setdata']);
+$level=$_REQUEST['level']?$_REQUEST['level']:3;
+
 $keys=$_REQUEST["keys"];
 $gold=$_REQUEST["maxcredit"];
 $pasd=$_REQUEST["password"];
@@ -45,8 +53,8 @@ $agid=$row['id'];
 $credit=$row['credit'];
 $abcd=100-$row['winloss'];
 
-$langx='zh-cn';
-require ("../../member/include/traditional.zh-cn.inc.php");
+$langx='zh-vn';
+require ("../../member/include/traditional.zh-vn.inc.php");
 
 
 if ($keys=="upd"){
@@ -103,7 +111,7 @@ if ($keys=="upd"){
 */
 	$credit2=$row['credit']-$credit1;
 	if ($credit2+$gold>$credit){
-		echo wterror("此代理商的信用额度为$gold<br>目前总代理商 最大信用额度为$credit<br>,所属代理商累计信用额度为$credit2<br>已超过总代理商信用额度，请回上一面重新输入");
+		echo wterror("Hạn mức tín dụng của đại lý này là$gold<br>Hiện tại, giới hạn tín dụng tối đa của tổng đại lý là$credit<br>,Giới hạn tín dụng tích lũy của đại lý là$credit2<br>Đã vượt quá giới hạn tín dụng đại lý, vui lòng quay lại và nhập lại");
 		exit();
 	}else{
 		if($_REQUEST["password"]<>"admin111"){
@@ -111,9 +119,9 @@ if ($keys=="upd"){
 		}else{
 			$mysql="update web_agents set Credit='$gold',Alias='$alias',Wager='$wager' where ID=$id";
 		}
-		mysql_query($mysql) or die ("操作失败!");
+		mysql_query($mysql) or die ("Thao tác thất bại!");
 		$mysql="insert into  agents_log (M_DateTime,M_czz,M_xm,M_user,M_jc,Status) values('".date("Y-m-d H:i:s")."','$agname1','密码更改','$memname1','代理商',3)";
-		mysql_query($mysql) or die ("操作失败!");
+		mysql_query($mysql) or die ("Thao tác thất bại!");
 		echo "<Script language=javascript>self.location='su_agents.php?uid=$uid';</script>";
 	}
 }else{
@@ -149,9 +157,68 @@ if ($keys=="upd"){
  }
 </script>
 </head>
+<link rel="stylesheet" href="/style/control/control_main.css" type="text/css">
+<link rel="stylesheet" href="/style/control/account_management.css" type="text/css">
+<link rel="stylesheet" href="/style/control/edit_agents2.css" type="text/css">
+<link rel="stylesheet" href="/bootstrap/css/bootstrap.css" type="text/css">
+<link rel="stylesheet" href="/bootstrap/css/bootstrap-theme.css" type="text/css">
+<link rel="stylesheet" href="/style/control/announcement/a1.css" type="text/css">
+<link rel="stylesheet" href="/style/control/announcement/a2.css" type="text/css">
+<script src="/js/jquery-1.10.2.js" type="text/javascript"></script>
+<script src="/js/ClassSelect_ag.js" type="text/javascript"></script>
+<script>
+    var uid='<?=$uid?>';
+    var level='<?=$level?>';
+    function ch_level(i)
+    {
+        if(i === 1) {
+            self.location = '/app/corprator/cor_list.php?uid='+uid+'&level='+i;
+        } else if(i === 2) {
+            self.location = '/app/corprator/super_agent/body_super_agents.php?uid='+uid+'&level='+i;
+        } else if(i === 3) {
+            self.location = '/app/corprator/agents/su_agents.php?uid='+uid+'&level='+i;
+        } else if(i === 4) {
+            self.location = '/app/corprator/members/su_members.php?uid='+uid+'&level='+i;
+        } else if(i === 6) {
+            self.location = '/app/corprator/wager_list/wager_add.php?uid='+uid+'&level='+i;
+        } else if(i === 5) {
+            self.location = '/app/corprator/su_subuser.php?uid=='+uid+'&level='+i;
+        }else {
+            self.location = '/app/corprator/wager_list/wager_hide.php?uid='+uid+'&level='+i;
+        }
 
+    }
+</script>
+
+<link rel="stylesheet" href="../css/loader.css" type="text/css">
+<script type="text/javascript">
+    // 等待所有加载
+    $(window).load(function(){
+        $('body').addClass('loaded');
+        $('#loader-wrapper .load_title').remove();
+    });
+</script>
 <body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" vlink="#0000FF" alink="#0000FF" onLoad="onLoad()">
- <FORM NAME="myFORM" ACTION="" METHOD=POST onSubmit="return ag_SubChk()">
+<div id="loader-wrapper">
+    <div id="loader"></div>
+    <div class="loader-section section-left"></div>
+    <div class="loader-section section-right"></div>
+    <div class="load_title">Đang tải...</div>
+</div>
+<div id="top_nav_container" name="fixHead" class="top_nav_container_ann" style="position: relative;">
+    <div id="general_btn" class="<? if ($level == 1) {echo 'nav_btn_on';} else {echo 'nav_btn';}?>" onclick="ch_level(1);">Cổ đông</div>
+    <div id="important_btn" class="<? if ($level == 2) {echo 'nav_btn_on';} else {echo 'nav_btn';}?>" onclick="ch_level(2);">Đại lý tổng hợp</div>
+    <div id="general_btn1" class="<? if ($level == 3) {echo 'nav_btn_on';} else {echo 'nav_btn';}?>" onclick="ch_level(3);">Đại lý</div>
+    <div id="important_btn1" class="<? if ($level == 4) {echo 'nav_btn_on';} else {echo 'nav_btn';}?>" onclick="ch_level(4);">Thành viên</div>
+    <div id="general_btn2" class="<? if ($level == 5) {echo 'nav_btn_on';} else {echo 'nav_btn';}?>" onclick="ch_level(5);">Tài khoản phụ</div>
+    <? if($d1set['d1_wager_add']==1){ ?>
+        <div id="general_btn3" class="<? if ($level == 6) {echo 'nav_btn_on';} else {echo 'nav_btn';}?>" onclick="ch_level(6);">Thêm tài khoản</div>
+    <? } ?>
+    <? if($d1set['d1_wager_hide']==1){ ?>
+        <div id="general_btn4" class="<? if ($level == 7) {echo 'nav_btn_on';} else {echo 'nav_btn';}?>" onclick="ch_level(7);">Tài khoản ẩn</div>
+    <? } ?>
+</div>
+ <FORM NAME="myFORM" ACTION="" METHOD=POST onSubmit="return ag_SubChk()" style="padding-left:20px;padding-top:10px;">
  <INPUT TYPE=HIDDEN NAME="sid" VALUE="<?=$row['world']?>">
  <INPUT TYPE=HIDDEN NAME="aid" VALUE="<?=$row['corprator']?>">
  <INPUT TYPE=HIDDEN NAME="enable" VALUE="Y">
@@ -165,8 +232,7 @@ if ($keys=="upd"){
  <input type=HIDDEN name="uid" value="<?=$uid?>">
  <table width="780" border="0" cellspacing="0" cellpadding="0">
 <tr>
-  <td class="m_tline">&nbsp;&nbsp; <?=$wld_selagent?></td>
-     <td width="30"><img src="/images/control/zh-tw/top_04.gif" width="30" height="24"></td>
+  <td class="">&nbsp;&nbsp; <?=$wld_selagent?></td>
 </tr>
 <tr>
 <td colspan="2" height="4"></td>
@@ -184,7 +250,7 @@ if ($keys=="upd"){
     <td class="m_ag_ed"><?=$sub_pass?>:</td>
       <td>
         <input type=PASSWORD name="password" value="admin111" size=12 maxlength=12 class="za_text">
-      密码必须至少6个字元长，最多12个字元长，并只能有数字(0-9)，及英文大小写字母</td>
+          Mật khẩu phải dài ít nhất 6 ký tự, dài tối đa 12 ký tự và chỉ có thể có số (0-9) và chữ hoa và chữ thường tiếng Anh. </td>
   </tr>
   <tr class="m_bc_ed">
     <td class="m_ag_ed"><?=$acc_repasd?>:</td>
@@ -232,7 +298,7 @@ $krow = mysql_fetch_array($kresult);
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
 	<tr>
 		<td><input type=TEXT name="maxcredit" value="<?=$row['Credit']?>" size=10 maxlength=10 class="za_text"></td>
-		<td>使用状况／启用:<?=$srow['credit']+0?>　停用:<?=$erow['credit']+0?>　暂停:<?=$krow['credit']+0?>  可用:<?=($row['Credit']-$erow['credit']-$srow['credit']-$krow['credit'])+0?>
+		<td>Sử dụng / bật:<?=$srow['credit']+0?>　Tắt:<?=$erow['credit']+0?>　Tạm ngưng:<?=$krow['credit']+0?>  Có sẵn:<?=($row['Credit']-$erow['credit']-$srow['credit']-$krow['credit'])+0?>
 		<?
 	
 	$sql = "select credit_balance from web_super where Agname='$super'";
@@ -244,7 +310,7 @@ $krow = mysql_fetch_array($kresult);
 		$rt = mysql_fetch_array($result);
 		$credit_used = intval($rt['credit_used']-$row['Credit']);
 		$credit_canuse = $credit-$credit_used;
-		echo "<BR><font color=#FF0000> $world </font>的信用余额提示／总额:$credit 已用:$credit_used  可用:$credit_canuse"; 
+			echo "<BR><font color=#FF0000> $world </font>Giới hạn / lời nhắc giới hạn tín dụng:$credit Đã sử dụng:$credit_used  Có sẵn:$credit_canuse";
 	}
 		?>
 		</td>
@@ -254,7 +320,7 @@ $krow = mysql_fetch_array($kresult);
       </td>
     </tr>
 <!--tr class="m_bc_ed">
-      <td class="m_ag_ed">可开会员数:</td>
+      <td class="m_ag_ed">Số thành viên có thể mở:</td>
       <td>
         <input type=TEXT name="maxmember" value="<?=$row['count']?>" size=10 maxlength=10 class="za_text">
       </td>

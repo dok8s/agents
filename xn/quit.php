@@ -1,6 +1,6 @@
 <?php
 
-require ("./app/member/include/config.inc.php");
+require ("./xn/app/member/include/config.inc.php");
 $level=$_GET['level'];
 $uid=$_GET['uid'];
 

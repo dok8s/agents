@@ -20,7 +20,7 @@ $row = mysql_fetch_array($result);
 $id=$row['ID'];
 $agname=$row['Agname'];
 $langx=$row['language'];
-require ("../../../member/include/traditional.$langx.inc.php");
+require ("../../../member/include/traditional.zh-vn.inc.php");
 
 if ($rtype==''){
 	$rtype='OU';
@@ -31,84 +31,84 @@ if ($retime==''){
 
 switch ($rtype){
 case "ALL":
-	$caption='单式全部';
+	$caption='Độc thân';
 	$width="848";
 	$back_all="#3399ff";
-	$table='			<td width="38">时间</td>
-			<td width="52" nowrap>联盟</td>
-			<td width="28">场次</td>
-			<td width="200">队伍</td>
-			<td width="200">让分 / 注单</td>
-			<td width="200">大小盘 / 注单</td>
+	$table='<td width = "38">Thời gian</td>
+<td width = "52" nowrap>Liên minh</td>
+<td width = "28"> Sự kiện</td>
+<td width = "200"> Nhóm</td>
+<td width = "200"> Bàn tay/Ghi chú</td>
+<td width = "200"> Kích thước/ ghi chú</td>
 			<!--td width="130">独赢</td-->
-			<td width="130">单双</td>';
+			<td width="130">Đơn và</td>';
 	$rtype2='OU';
 	break;
 case "OU":
 	$caption=$rel_straight;
 	$width="848";
 	$back_ou="#3399ff";
-	$table='			<td width="38">时间</td>
-			<td width="52" nowrap>联盟</td>
-			<td width="28">场次</td>
-			<td width="200">队伍</td>
-			<td width="200">让分 / 注单</td>
-			<td width="200">大小盘 / 注单</td>
+	$table='<td width = "38"> Thời gian </td>
+<td width = "52" nowrap> Liên minh </td>
+<td width = "28"> Sự kiện</td>
+<td width = "200"> Nhóm</td>
+<td width = "200"> Bàn tay/Ghi chú</td>
+<td width = "200"> Kích thước/ghi chú</td>
 			<!--td width="130">独赢</td-->
-			<td width="130">单双</td>';
+			<td width="130">Đơn và</td>';
 	$rtype2='OU';
 	break;
 case "R4":
-	$caption='单节';
+	$caption='Một phần';
 	$width="848";
 	$back_rq4="#3399ff";
-	$table='<td width="38">时间</td>
-			<td width="52" nowrap>联盟</td>
-			<td width="28">场次</td>
-			<td width="200">队伍</td>
-			<td width="200">让分 / 注单</td>
-			<td width="200">大小盘 / 注单</td>
+    $table ='<td width = "38"> Thời gian</td>
+<td width = "52" nowrap> Liên minh</td>
+<td width = "28"> Sự kiện</td>
+<td width = "200"> Nhóm</td>
+<td width = "200"> Bàn tay/Ghi chú</td>
+<td width = "200"> Kích thước/ghi chú</td>
 			<!--td width="130">独赢</td-->
-			<td width="130">单双</td>';
+			<td width="130">Đơn và</td>';
 	$rtype2='OU';
 	break;
 case "RE":
-	$caption='单节';
+	$caption='Một phần';
 	$width="708";
 	$back_re="#3399ff";
-	$table='<td width="38">时间</td>
-    <td width="52" nowrap>联盟</td>
-    <td width="28">场次</td>
-    <td width="200">队伍</td>
-    <td width="195">让分 / 注单</td>
-    <td width="195">大小盘 / 注单</td>';
+    $table = '<td width = "38">Thời gian</td>
+     <td width = "52" nowrap>Liên minh</td>
+     <td width = "28">Sự kiện</td>
+     <td width = "200">Nhóm</td>
+     <td width = "195">Cung cấp/Ghi chú</td>
+     <td width = "195">Kích thước/ghi chú</td> ';
 	$rtype2='RE';
 	break;
 case "PAR":
 	$caption=$rel_parlay;
 	$width="438";
 	$back_par="#3399ff";
-	$table='			<td width="38">时间</td>
-			<td width="52" nowrap>联盟</td>
-			<td width="28">场次</td>
-			<td width="200">队伍</td>
-			<td width="120">过关</td>';
+	$table='<td width = "38"> Thời gian </td>
+<td width = "52" nowrap> Liên minh </td>
+<td width = "28"> Sự kiện </td>
+<td width = "200"> Nhóm </td>
+<td width = "120"> vượt qua </td>';
 	$rtype2='P';
 	break;
 case "P":
 	$caption=$rel_haveopen;
 	$back_p="#3399ff";
 	$width="1000";
-	$table='			<td width="38">时间</td>
-			<td width="40" nowrap>联盟</td>
-			<td width="28">场次</td>
-			<td width="200">队伍</td>
-			<td width="200">让分</td>
-			<td nowrap>大小盘</td>
-			<td nowrap>走地</td>
-			<td nowrap>走地大小</td>
-			<td nowrap>单双</td>
-			<td nowrap>过关</td>';
+    $table = '<td width = "38">Thời gian</td>
+<td width = "40" nowrap>Liên minh</td>
+<td width = "28"> Sự kiện</td>
+<td width = "200"> Nhóm</td>
+<td width = "200"> Tặng điểm</td>
+<td nowrap> đĩa kích thước</td>
+<td nowrap> Đi tới mặt đất</td>
+<td nowrap> Kích thước go</td>
+<td nowrap> Đơn và đôi</td>
+<td nowrap> giải phóng mặt </td> ';
 	$rtype2='PL';
 	break;
 }
@@ -188,10 +188,10 @@ function onUnload()
             <td width="60" >&nbsp;&nbsp;<?=$rel_contorl?>:</td>
             <td>
               <select id="ltype" name="ltype" onChange="chg_ltype()" class="za_select">
-                <option value="1">篮A</option>
-                <option value="2">篮B</option>
-                <option value="3">篮C</option>
-                <option value="4">篮D</option>
+                <option value="1">Giỏ A</option>
+                <option value="2">Giỏ B</option>
+                <option value="3">Giỏ C</option>
+                <option value="4">Giỏ D</option>
               </select>
             </td>
             <td width="65"> -- <?=$rel_reload?></td>
@@ -202,12 +202,12 @@ function onUnload()
               </select>
             </td>
             <td id="dt_now"> -- <?=$rel_dtnow?>:</td>
-						<td>&nbsp;--&nbsp;<a href="#" onClick="chg_page('all');" onMouseOver="window.status='单式全部'; return true;" onMouseOut="window.status='';return true;" style="background-color:<?=$back_all?>">单式全部</a>
-							&nbsp;<a href="#" onClick="chg_page('ou');" onMouseOver="window.status='单式'; return true;" onMouseOut="window.status='';return true;" style="background-color:<?=$back_ou?>">单式</a>
-							&nbsp;<a href="#" onClick="chg_page('r4');" onMouseOver="window.status='单节'; return true;" onMouseOut="window.status='';return true;" style="background-color:<?=$back_rq4?>">单节</a>
-							&nbsp;<a href="#" onClick="chg_page('re');" onMouseOver="window.status='滚球'; return true;" onMouseOut="window.status='';return true;" style="background-color:<?=$back_re?>">滚球</a>
-							&nbsp;<a href="#" onClick="chg_page('par');" onMouseOver="window.status='过关'; return true;" onMouseOut="window.status='';return true;"style="background-color:<?=$back_par?>">过关</a>
-							&nbsp;<a href="#" onClick="chg_page('p');" onMouseOver="window.status='已开赛'; return true;" onMouseOut="window.status='';return true;"style="background-color:<?=$back_p?>">已开赛</a>
+						<td>&nbsp;--&nbsp;<a href="#" onClick="chg_page('all');" onMouseOver="window.status='Độc thân'; return true;" onMouseOut="window.status='';return true;" style="background-color:<?=$back_all?>">Độc thân</a>
+							&nbsp;<a href="#" onClick="chg_page('ou');" onMouseOver="window.status='Độc thân'; return true;" onMouseOut="window.status='';return true;" style="background-color:<?=$back_ou?>">Độc thân</a>
+							&nbsp;<a href="#" onClick="chg_page('r4');" onMouseOver="window.status='Một phần'; return true;" onMouseOut="window.status='';return true;" style="background-color:<?=$back_rq4?>">Một phần</a>
+							&nbsp;<a href="#" onClick="chg_page('re');" onMouseOver="window.status='Cán bóng'; return true;" onMouseOut="window.status='';return true;" style="background-color:<?=$back_re?>">Cán bóng</a>
+							&nbsp;<a href="#" onClick="chg_page('par');" onMouseOver="window.status='Vượt qua'; return true;" onMouseOut="window.status='';return true;"style="background-color:<?=$back_par?>">Vượt qua</a>
+							&nbsp;<a href="#" onClick="chg_page('p');" onMouseOver="window.status='Đã bắt đầu'; return true;" onMouseOut="window.status='';return true;"style="background-color:<?=$back_p?>">Đã bắt đầu</a>
 						</td>
           </tr>
         </table>
@@ -221,9 +221,9 @@ function onUnload()
   <table height="0" cellpadding="0" cellspacing="0">
 	<tr>
 		<td width='70'><font color="#000099">&nbsp;&nbsp;<?=$caption?></font></td>
-		<td>观看方式&nbsp;<select id="set_account" name="set_account" onChange="chg_account(this.value);" class="za_select">
-        		<option value="0">全部</option>
-			<option value="1">自己</option>
+		<td>Cách xem&nbsp;<select id="set_account" name="set_account" onChange="chg_account(this.value);" class="za_select">
+        		<option value="0">Tất cả</option>
+			<option value="1">Sở hữu</option>
 			<!--option value="2">公司</option-->
 		</select></td>
 	</tr>

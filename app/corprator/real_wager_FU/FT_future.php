@@ -265,7 +265,7 @@ function chg_league(){
 <FORM NAME="REFORM" ACTION="" METHOD=POST>
   <table width="780" border="0" cellspacing="0" cellpadding="0">
     <tr>
-      <td class="m_tline">
+      <td class="">
         <table border="0" cellspacing="0" cellpadding="0" >
           <tr>
             <td width="60" nowrap>&nbsp;&nbsp;线上操盘:</td>
@@ -308,7 +308,6 @@ for ($i=1;$i<12;$i++){
           </tr>
         </table>
       </td>
-      <td width="30"><img src="/images/control/zh-tw/top_04.gif" width="30" height="24"></td>
     </tr>
     <tr>
       <td colspan="2" height="4"></td>

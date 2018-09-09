@@ -38,32 +38,32 @@ case "":
 	break;
 }
 
-$sql = "select super,Agname,ID,language,subname,subuser from web_world where Oid='$uid'";
+$sql = "select Agname,ID,language,subname,subuser,super from web_world where Oid='$uid'";
 $result = mysql_query($sql);
 $cou=mysql_num_rows($result);
 if($cou==0){
 	echo "<script>window.open('$site/index.php','_top')</script>";
 	exit;
 }
+
+$row = mysql_fetch_array($result);
 if ($result_type=='Y'){
 	$QQ526738='<font color=green>有结果</font>';
 }else{
 	$QQ526738='<font color=green>无结果</font>';
 }
-
-$row = mysql_fetch_array($result);
 if ($row['subuser']==1){
 	$agname=$row['subname'];
-	$loginfo=$agname.'子帐号:'.$row['Agname'].'查询总代理'.$sid.':'.$date_start.'至'.$date_end.$QQ526738.'报表投注明细';
+	$loginfo='子帐号:'.$row['subname'].'查询总代理<font color=red>'.$sid.'</font>:'.$date_start.'至'.$date_end.$QQ526738.'报表投注明细';
 }else{
 	$agname=$row['Agname'];
-	$loginfo='查询总代理'.$sid.':'.$date_start.'至'.$date_end.$QQ526738.'报表投注明细';
+	$loginfo='查询总代理<font color=red>'.$sid.'</font>:'.$date_start.'至'.$date_end.$QQ526738.'报表投注明细';
 }
 $agid=$row['ID'];
 $super=$row['super'];
 $where=get_report($gtype,$wtype,$result_type,$report_kind,$date_start,$date_end,$row['subuser']);
 
-$sql="select sum(vgold) as vgold,agent_point,world_point,count(*) as coun,sum(BetScore) as score,sum(M_Result) as result,sum(a_result) as a_result,sum(result_a) as result_a,sum(result_s) as result_s,agents as name from web_db_io where ".$where." and world='$agname'";
+$sql="select sum(vgold) as vgold,agent_point,world_point,count(*) as coun,sum(BetScore) as score,sum(M_Result) as result,sum(a_result) as a_result,sum(result_a) as result_a,sum(result_s) as result_s,agents as name from web_db_io where ".$where." and corprator='$agname' and world='$sid'";
 
 ?>
 <html>
@@ -144,8 +144,8 @@ function init(){
 <body oncontextmenu="window.event.returnValue=false" bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" onLoad="init();">
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
 	<tr class="m_tline">
-		<td>&nbsp;&nbsp;日期:<?=$date_start?>~<?=$date_end?>
-		-- 报表分类:总帐 -- 投注方式:全部 -- 投注总类:全部 -- 下注管道:网路下注 -- <a href="javascript:history.go( -1 );">回上一页</a></td>
+		<td>&nbsp;&nbsp;总代理商:<?=$sid?> -- 日期:<?=$date_start?>~<?=$date_end?>
+		-- 报表分类:总帐 -- 投注方式:<?=$rep_pay?> -- 投注总类:全部 -- 下注管道:网路下注 -- <a href="javascript:history.go( -1 );">回上一页</a></td>
 		<td width="30"><img src="/images/control/zh-tw/top_04.gif" width="30" height="24"></td>
 	</tr>
 	<tr>
@@ -154,7 +154,6 @@ function init(){
 </table>
 <?
 $mysql=$sql." and pay_type=".$pay_type."  group by agents order by name asc";
-
 $result = mysql_query($mysql);
 $cou=mysql_num_rows($result);
 if ($cou==0){
@@ -194,6 +193,7 @@ if ($cou==0){
 		$c_result_a+=$row['result_a'];
 		$c_result_s+=$row['result_s'];
 		$abc+=$row['vgold']*(100-$row['agent_point'])*0.01;
+
   	?>
 	<tr class="m_rig" align="left" onMouseOver="setPointer(this, 0, 'over', '#FFFFFF', '#FFCC66', '#FFCC99');" onMouseOut="setPointer(this, 0, 'out', '#FFFFFF', '#FFCC66', '#FFCC99');">
 		<td align="left"><?=$row['name']?></td>
@@ -226,20 +226,15 @@ if ($cou==0){
 		<td><?=$c_num?></td>
 		<td><?=$c_score?></td>
 		<td><?=mynumberformat($c_vgold,1)?></td>
-		<td><?=mynumberformat($c_m_result,1)?></td>
+		<td bgcolor="#000033"><font color="#FFFFFF"><?=mynumberformat($c_m_result,1)?></font></td>
 		<td><?=mynumberformat($c_a_result,1, '.', '')?></td>
 		<td></td>
-		<td><?=mynumberformat($c_result_a,1, '.', '')?></td>
+		<td bgcolor="#000033"><font color="#FFFFFF"><?=mynumberformat($c_result_a,1, '.', '')?></font></td>
 		<td></td>
-		<td><?=mynumberformat($c_result_s,1, '.', '')?></td>
+		<td bgcolor="#000033"><font color="#FFFFFF"><?=mynumberformat($c_result_s,1, '.', '')?></font></td>
 		<td><?=mynumberformat($c_result_a,1)?></td>
 		<td><?=mynumberformat($abc,1)?></td>
 		<td></td>
-	</tr>
-</table>
-<table width="780" border="0" cellspacing="0" cellpadding="0">
-	<tr>
-		<td height="15"></td>
 	</tr>
 </table>
 <table width="780" border="0" cellspacing="0" cellpadding="0">
@@ -319,9 +314,10 @@ if ($credit=='none' and $sgold=='none'){
 <iframe id=showdata name=showdata src='/ok.html' scrolling='no' width="0"></iframe>
 </body>
 </html>
+
 <?
 $ip_addr = $_SERVER['REMOTE_ADDR'];
-$mysql="insert into web_mem_log(username,logtime,context,logip,level) values('$agname',now(),'$loginfo','$ip_addr','2')";
+$mysql="insert into web_mem_log(username,logtime,context,logip,level) values('$agname',now(),'$loginfo','$ip_addr','1')";
 mysql_query($mysql);
 mysql_close();
 ?>

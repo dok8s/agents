@@ -20,7 +20,7 @@ $row = mysql_fetch_array($result);
 $id=$row['ID'];
 $agname=$row['Agname'];
 $langx=$row['language'];
-require ("../../../member/include/traditional.$langx.inc.php");
+require ("../../../member/include/traditional.zh-vn.inc.php");
 
 if ($rtype==''){
 	$rtype='OU';
@@ -34,14 +34,14 @@ case "OU":
 	$caption=$rel_straight;
 	$width="973";
 	$back_ou="#3399ff";
-	$table='    <td width="38">时间</td>
-    <td width="52" nowrap>联盟</td>
-    <td width="28">场次</td>
-    <td width="200">队伍</td>
-    <td width="200">让局 / 注单</td>
-    <td width="195">大小盘 / 注单</td>
-    <td width="130">独赢</td>
-    <td width="130">单双</td>';
+    $table = '<td width = "38"> Thời gian </td>
+     <td width = "52" nowrap> Liên minh </td>
+     <td width = "28"> Sự kiện </td>
+     <td width = "200"> Nhóm </td>
+     <td width = "200"> Tham vấn / Lưu ý </td>
+     <td width = "195"> Kích thước / ghi chú nhỏ </td>
+     <td width = "130"> giành chiến thắng một mình </td>
+     <td width = "130"> Đơn và đôi </td> ';
 	break;
 case "PD":
 	$caption=$rel_correct;
@@ -53,28 +53,28 @@ case "P":
 	$caption=$rel_parlay;
 	$width="360";
 	$back_par="#3399ff";
-	$table='    <td width=38>时间</td>
-    <td width=28>联盟</td>
-    <td width=28>场次</td>
-    <td width=120>队伍</td>
-    <td width=120>过关</td>';
+    $table = '<td width = 38> thời gian </td>
+     <td width = 28> Liên minh </td>
+     <td width = 28> lần </td>
+     <td width = 120> Nhóm </td>
+     <td width = 120> giải phóng mặt bằng </td> ';
 	break;
 case "PL":
 	$caption=$rel_haveopen;
 	$back_p="#3399ff";
 	$width="940";
-	$table='    <td width="38">时间</td>
-    <td width="52" nowrap>联盟</td>
-    <td width="28">场次</td>
-    <td width="200">队伍</td>
-    <td width="165">让局</td>
-    <td nowrap>大小盘</td>
-    <td nowrap>滚球</td>
-    <td nowrap>滚球大小</td>
-    <td nowrap>独赢</td>
-    <td nowrap>波胆</td>
-    <td nowrap>单双</td>
-    <td nowrap>过关</td>';
+    $table = '<td width = "38"> Thời gian </td>
+     <td width = "52" nowrap> Liên minh </td>
+     <td width = "28"> Sự kiện </td>
+     <td width = "200"> Nhóm </td>
+     <td width = "165"> Hãy để văn phòng </td>
+     <td nowrap> đĩa kích thước </td>
+     <td nowrap> lăn bóng </td>
+     <td nowrap> Kích thước bóng đẩy </td>
+     <td nowrap> chiến thắng </td>
+     <td nowrap> 波胆 </td>
+     <td nowrap> Đơn và đôi </td>
+     <td nowrap> giải phóng mặt bằng </td> ';
 	break;
 }
 ?>
@@ -170,10 +170,10 @@ function chg_league(){
             <td width="60" >&nbsp;&nbsp;<?=$rel_contorl?>:</td>
             <td>
               <select id="ltype" name="ltype" onChange="chg_ltype()" class="za_select">
-                <option value="1">排A</option>
-                <option value="2">排B</option>
-                <option value="3">排C</option>
-                <option value="4">排D</option>
+                <option value="1">Hàng A</option>
+                <option value="2">Hàng B</option>
+                <option value="3">Hàng C</option>
+                <option value="4">Hàng D</option>
               </select>
             </td>
             <td width="65"> -- <?=$rel_reload?></td>
@@ -201,16 +201,16 @@ function chg_league(){
   <table height="0" cellpadding="0" cellspacing="0">
 	<tr>
 		<td width='70'><font color="#000099">&nbsp;&nbsp;<?=$caption?></font></td>
-		<td>观看方式&nbsp;<select id="set_account" name="set_account" onChange="chg_account(this.value);" class="za_select">
-        		<option value="0">全部</option>
-			<option value="1">自己</option>
+		<td>Cách xem&nbsp;<select id="set_account" name="set_account" onChange="chg_account(this.value);" class="za_select">
+        		<option value="0">Tất cả</option>
+			<option value="1">Sở hữu</option>
 			<!--option value="2">公司</option-->
 		</select></td>
 
 <?
 if ($rtype=='OU' or $rtype=='V' or $rtype=='PD' or $rtype=='F' or $rtype=='P'){
 ?>
-		<td>&nbsp;选择联盟 <span id="show_h"></span></td>
+		<td>&nbsp;Chọn liên minh <span id="show_h"></span></td>
 <?
 }
 
@@ -241,12 +241,12 @@ if ($rtype!='RE'){
 
 <span id="bodyH" style="position:absolute; display: none">
         <select id="sel_lid" name="sel_lid" onChange="chg_league();" class="za_select">
-        <option value="">全部</option>
+        <option value="">Tất cả</option>
 		*SHOW_H*
        	</select>
 </span>
 <span id="bodyP" style="position:absolute; display: none">
-  页次:&nbsp;*SHOW_P*
+  Trang:&nbsp;*SHOW_P*
 </span>
 </body>
 </html>

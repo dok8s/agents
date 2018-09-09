@@ -21,7 +21,7 @@ parent.ShowNumber(2,'yes','');
 	}else{
 		echo "<html><head><meta http-equiv='Content-Type' content=\"text/html; charset=gb2312\">
 <script>
-alert('ÑéÖ¤Âë´íÎó,ÇëÖØĞÂÊäÈë')
+alert('ï¿½ï¿½Ö¤ï¿½ï¿½ï¿½ï¿½ï¿½,ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½')
 parent.ShowNumber(2,'no','');
 </script>";
 	}	
@@ -35,7 +35,7 @@ parent.ShowNumber(2,'no','');
 <link href="/style/control/control_main.css" rel="stylesheet" type="text/css">
 </head>
 <body onSelectStart="self.event.returnValue=false" oncontextmenu="self.event.returnValue=false;window.event.returnValue=false;" style="background:transparent">
-<form action="/app/other_set/getroundnum.php"  method="post" name="LoginForm" >
+<form action="/xn/app/other_set/getroundnum.php"  method="post" name="LoginForm" >
                  <input type=HIDDEN name="uid" value="<?=$uid?>">
 				<input type=HIDDEN name="userid" value="<?=$userid?>">
 				<input type=HIDDEN name="roundum" value="<?=$crypt?>">
@@ -43,10 +43,10 @@ parent.ShowNumber(2,'no','');
 				<input type=HIDDEN name="layer" value="<?=$layer?>">
 				<input type=HIDDEN name="active" value="2">
 <div id="divbox">
-<span>ÇëÊäÈëÑéÖ¤Âë!!</span> 
+<span>ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö¤ï¿½ï¿½!!</span> 
 <div class="info">
-ÑéÖ¤Âë&nbsp;<input name="number" type="text" id="number" size="14" maxlength="4" class="pic"><br>
-<div class="showpic2"><img src='/app/other_set/ratio_encode.php?tmp_data=<?=$crypt?>'> &nbsp;<input type="submit" value="È·¶¨" class="confirm" ></div>
+ï¿½ï¿½Ö¤ï¿½ï¿½&nbsp;<input name="number" type="text" id="number" size="14" maxlength="4" class="pic"><br>
+<div class="showpic2"><img src='/xn/app/other_set/ratio_encode.php?tmp_data=<?=$crypt?>'> &nbsp;<input type="submit" value="È·ï¿½ï¿½" class="confirm" ></div>
     </div>
 </div>
 </form>     
@@ -57,39 +57,39 @@ parent.ShowNumber(2,'no','');
 </script>
 
 <script>
-top.str_input_pwd = "ÃÜÂëÇëÎñ±ØÊäÈë!!";
-top.str_input_repwd = "È·ÈÏÃÜÂëÇëÎñ±ØÊäÈë!!";
-top.str_err_pwd = "ÃÜÂëÈ·ÈÏ´íÎó,ÇëÖØĞÂÊäÈë!!";
-top.str_err_pwd_fail = "¸ÃÃÜÂëÄúÒÑÊ¹ÓÃ¹ı, ÎªÁË°²È«Æğ¼û, ÇëÊ¹ÓÃĞÂÃÜÂë!!";
-top.str_pwd_limit = "ÄúµÄÃÜÂë±ØĞë6ÖÁ12¸ö×ÖÔª³¤,ÄúÖ»ÄÜÊ¹ÓÃÊı×ÖºÍÓ¢ÎÄ×ÖÄ¸²¢ÖÁÉÙ 1 ¸öÓ¢ÎÄ×ÖÄ¸,ÆäËü ÌØÊâ·ûºÅ²»ÄÜÊ¹ÓÃ ¡£";
-top.str_pwd_limit2 = "ÄúµÄÃÜÂëĞèÊ¹ÓÃ×ÖÄ¸¼ÓÉÏÊı×Ö!!";
-//ĞÅÓÃ¶î¶È
-top.str_maxcre = "×ÜĞÅÓÃ¶î¶È½öÄÜÊäÈëÊı×Ö!!";
+top.str_input_pwd = "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½!!";
+top.str_input_repwd = "È·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½!!";
+top.str_err_pwd = "ï¿½ï¿½ï¿½ï¿½È·ï¿½Ï´ï¿½ï¿½ï¿½,ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½!!";
+top.str_err_pwd_fail = "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¹ï¿½Ã¹ï¿½, Îªï¿½Ë°ï¿½È«ï¿½ï¿½ï¿½, ï¿½ï¿½Ê¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½!!";
+top.str_pwd_limit = "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½6ï¿½ï¿½12ï¿½ï¿½ï¿½ï¿½Ôªï¿½ï¿½,ï¿½ï¿½Ö»ï¿½ï¿½Ê¹ï¿½ï¿½ï¿½ï¿½ï¿½Öºï¿½Ó¢ï¿½ï¿½ï¿½ï¿½Ä¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 1 ï¿½ï¿½Ó¢ï¿½ï¿½ï¿½ï¿½Ä¸,ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Å²ï¿½ï¿½ï¿½Ê¹ï¿½ï¿½ ï¿½ï¿½";
+top.str_pwd_limit2 = "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¹ï¿½ï¿½ï¿½ï¿½Ä¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½!!";
+//ï¿½ï¿½ï¿½Ã¶ï¿½ï¿½
+top.str_maxcre = "ï¿½ï¿½ï¿½ï¿½ï¿½Ã¶ï¿½È½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½!!";
 
-top.str_gopen="¿ª·Å";
-top.str_gameclose="¹Ø±Õ";
-top.str_gopenY="ÊÇ·ñÈ·¶¨Èü³Ì¿ª·Å";
-top.str_gopenN="ÊÇ·ñÈ·¶¨Èü³Ì¹Ø±Õ";
-top.str_strongH="ÊÇ·ñÈ·¶¨Ç¿Èõ»¥»»";
-top.str_strongC="ÊÇ·ñÈ·¶¨Ç¿Èõ»¥»»";
-top.str_close_ioratio="ÊÇ·ñÈ·¶¨¹Ø±ÕÅâÂÊ";
-top.str_checknum="ÑéÖ¤Âë´íÎó,ÇëÖØĞÂÊäÈë";
-//ĞÂ¹Ú¾ü
-top.str_scoreY="¸º";
+top.str_gopen="ï¿½ï¿½ï¿½ï¿½";
+top.str_gameclose="ï¿½Ø±ï¿½";
+top.str_gopenY="ï¿½Ç·ï¿½È·ï¿½ï¿½ï¿½ï¿½ï¿½Ì¿ï¿½ï¿½ï¿½";
+top.str_gopenN="ï¿½Ç·ï¿½È·ï¿½ï¿½ï¿½ï¿½ï¿½Ì¹Ø±ï¿½";
+top.str_strongH="ï¿½Ç·ï¿½È·ï¿½ï¿½Ç¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½";
+top.str_strongC="ï¿½Ç·ï¿½È·ï¿½ï¿½Ç¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½";
+top.str_close_ioratio="ï¿½Ç·ï¿½È·ï¿½ï¿½ï¿½Ø±ï¿½ï¿½ï¿½ï¿½ï¿½";
+top.str_checknum="ï¿½ï¿½Ö¤ï¿½ï¿½ï¿½ï¿½ï¿½,ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½";
+//ï¿½Â¹Ú¾ï¿½
+top.str_scoreY="ï¿½ï¿½";
 top.str_scoreN="Ê¤";
-top.str_change="È·¶¨ÖØÖÃ½á¹û!!";
-top.str_eliminate="ÊÇ·ñÌÔÌ­";
-top.str_format="ÇëÌîÈëÕıÈ·¸ñÊ½";
-top.str_close_time="ÊÇ·ñÈ·¶¨¹Ø±ÕÊ±¼ä??"
-top.str_check_date="Çë¼ì²éÈÕÆÚ¸ñÊ½ !!";
-top.str_champ_win="¹Ú¾üÊÇ·ñÎª:";
-top.str_champ_wins="ÇëÔÙÈ·ÈÏ¹Ú¾üÊÇ·ñÎª:";
-top.str_NOchamp="ÎŞÊ¤³ö¶ÓÎé£¬ÇëÖØĞÂÉè¶¨!!";
-top.str_NOloser="ÎŞÌÔÌ­¶ÓÎé£¬ÇëÖØĞÂÉè¶¨!!";
-top.str_FT="×ãÇò";
-top.str_FS="¹Ú¾ü";
-top.str_BK="ÀºÇò";
-top.str_TN="ÍøÇò";
-top.str_VB="ÅÅÇò";
-top.str_BS="°ôÇò";
-top.str_OP="ÆäËü ";</script>
+top.str_change="È·ï¿½ï¿½ï¿½ï¿½ï¿½Ã½ï¿½ï¿½!!";
+top.str_eliminate="ï¿½Ç·ï¿½ï¿½ï¿½Ì­";
+top.str_format="ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È·ï¿½ï¿½Ê½";
+top.str_close_time="ï¿½Ç·ï¿½È·ï¿½ï¿½ï¿½Ø±ï¿½Ê±ï¿½ï¿½??"
+top.str_check_date="ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú¸ï¿½Ê½ !!";
+top.str_champ_win="ï¿½Ú¾ï¿½ï¿½Ç·ï¿½Îª:";
+top.str_champ_wins="ï¿½ï¿½ï¿½ï¿½È·ï¿½Ï¹Ú¾ï¿½ï¿½Ç·ï¿½Îª:";
+top.str_NOchamp="ï¿½ï¿½Ê¤ï¿½ï¿½ï¿½ï¿½ï¿½é£¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½è¶¨!!";
+top.str_NOloser="ï¿½ï¿½ï¿½ï¿½Ì­ï¿½ï¿½ï¿½é£¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½è¶¨!!";
+top.str_FT="ï¿½ï¿½ï¿½ï¿½";
+top.str_FS="ï¿½Ú¾ï¿½";
+top.str_BK="ï¿½ï¿½ï¿½ï¿½";
+top.str_TN="ï¿½ï¿½ï¿½ï¿½";
+top.str_VB="ï¿½ï¿½ï¿½ï¿½";
+top.str_BS="ï¿½ï¿½ï¿½ï¿½";
+top.str_OP="ï¿½ï¿½ï¿½ï¿½ ";</script>

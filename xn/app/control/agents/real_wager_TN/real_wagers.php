@@ -164,7 +164,7 @@ function chg_league(){
 <FORM NAME="REFORM" ACTION="" METHOD=POST>
   <table width="800" border="0" cellspacing="0" cellpadding="0">
     <tr>
-      <td class="m_tline">
+      <td class="">
         <table border="0" cellspacing="0" cellpadding="0" >
           <tr>
             <td width="60" >&nbsp;&nbsp;<?=$rel_contorl?>:</td>
@@ -192,7 +192,6 @@ function chg_league(){
           </tr>
         </table>
       </td>
-      <td width="30"><img src="/images/control/zh-tw/top_04.gif" width="30" height="24"></td>
     </tr>
     <tr>
       <td colspan="2" height="4"></td>

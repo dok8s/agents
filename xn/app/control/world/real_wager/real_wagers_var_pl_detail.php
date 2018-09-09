@@ -50,7 +50,7 @@ $sql="select
 	sum(if((linetype=7 or linetype=8),betscore,0)) as ps,
 	sum(if((linetype=7 or linetype=8),1,0)) as pc
 
-	 from web_db_io where world='$agname' and hidden=0 and mid=$gid";
+	 from web_db_io where corprator='$agname' and hidden=0 and mid=$gid";
 
 		$result = mysql_query( $sql);
 		$row=mysql_fetch_array($result);
@@ -105,7 +105,7 @@ $sql="select
 	sum(if(linetype=34,betscore,0)) as pds,
 	sum(if(linetype=34,1,0)) as pdc
 
-	 from web_db_io where world='$agname' and hidden=0 and mid=$gid2";
+	 from web_db_io where corprator='$agname' and hidden=0 and mid=$gid2";
 
 		$result = mysql_query( $sql);
 		$row=mysql_fetch_array($result);

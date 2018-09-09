@@ -8,7 +8,13 @@ exit;
 require ("../../member/include/config.inc.php");
 require ("../../member/include/define_function_list.inc.php");
 $uid=$_REQUEST["uid"];
-
+$sql = "select id,subuser,agname,subname,status,super,setdata from web_corprator where Oid='$uid'";
+$result = mysql_query($sql);
+$row = mysql_fetch_array($result);
+$agname=$row['agname'];
+$super=$row['super'];
+$d1set = @unserialize($row['setdata']);
+$level=$_REQUEST['level']?$_REQUEST['level']:4;
 $sql = "select language,Agname from web_corprator where Oid='$uid'";
 $result = mysql_query($sql);
 $cou=mysql_num_rows($result);
@@ -20,7 +26,7 @@ $row = mysql_fetch_array($result);
 $langx=$row['language'];
 $agname=$row['Agname'];
 $agname1=$row['Agname'];
-require ("../../member/include/traditional.$langx.inc.php");
+require ("../../member/include/traditional.zh-vn.inc.php");
 
 $keys=$_REQUEST['keys'];
 if ($keys=='add'){
@@ -57,7 +63,7 @@ if ($keys=='add'){
 
 	$agents_id=$_REQUEST['agents_id'];
 	if ($agents_id==''){
-echo wterror("会员名称不能为空，请回上一面重新输入");
+		echo wterror("Tên thành viên không được để trống. Vui lòng quay lại và nhập lại");
 		exit();
 	}
 
@@ -99,7 +105,7 @@ echo wterror("会员名称不能为空，请回上一面重新输入");
 	$result = mysql_query($mysql);
 	$row = mysql_fetch_array($result);
 	if ($row['credit']+$maxcredit>$credit){
-		echo wterror("此会员的信用额度为$maxcredit<br>目前代理商 最大信用额度为$credit<br>,所属会员累计信用额度为num_format($row[credit],0)<br>已超过代理商信用额度，请回上一面重新输入");
+		echo wterror("Giới hạn tín dụng của thành viên này là$maxcredit<br>Hạn mức tín dụng tối đa của đại lý hiện tại là$credit<br>,Giới hạn tín dụng tích lũy của thành viên lànum_format($row[credit],0)<br>Đã vượt quá giới hạn tín dụng đại lý, vui lòng quay lại và nhập lại");
 		exit();
 	}else{
 
@@ -108,7 +114,7 @@ echo wterror("会员名称不能为空，请回上一面重新输入");
 		$result = mysql_query($mysql);
 		$count=mysql_num_rows($result);
 		if ($count>0){
-			echo wterror("您输入的帐号 $memname 已经有人使用了，请回上一页重新输入");
+			echo wterror("Tài khoản bạn đã nhập $memname Đã được sử dụng, vui lòng quay lại trang trước và nhập lại");
 			exit;
 		}else{
 			if ($pay_type==1){
@@ -116,9 +122,9 @@ echo wterror("会员名称不能为空，请回上一面重新输入");
 			}
 			$mysql="insert into web_member(Memname,Passwd,Credit,Money,Alias,Agents,pay_type,Opentype,AddDate,lastpawd,corprator,world,super,$skey) values ('$memname','$mempasd','$maxcredit','$maxcredit','$alias','$agents','$pay_type','$type','$AddDate','$AddDate','$corprator','$world','$super',$svalue)";
 			
-			mysql_query($mysql) or die ("操作失败!");
+		mysql_query($mysql) or die ("Thao tác thất bại!");
 			$mysql="insert into  agents_log (M_DateTime,M_czz,M_xm,M_user,M_jc,Status) values('".date("Y-m-d H:i:s")."','$agname1','新增','$memname','会员',3)";
-			mysql_query($mysql) or die ("操作失败!");
+		mysql_query($mysql) or die ("Thao tác thất bại!");
 			//$mysql="update web_agents set mCount=mCount+1 where agname='".$agname."'";
 			//mysql_query($mysql) or die ("操作失败!");
 			echo "<script languag='JavaScript'>self.location='./su_members.php?uid=$uid'</script>";
@@ -143,20 +149,20 @@ document.all.type.selectedIndex=document.all.type[0];
 }
 function SubChk(){
  	if(document.all.sname.value=='')
- 		{ document.all.sname.focus(); alert("请输入帐号!!"); return false; }
+ 		{ document.all.sname.focus(); alert("Vui lòng nhập số tài khoản!!"); return false; }
 	if(document.all.type.value=='')
-		{ document.all.type.focus(); alert("请选择开放球类!!"); return false; }
+		{ document.all.type.focus(); alert("Vui lòng chọn bóng mở!!"); return false; }
 	if(document.all.password.value=='')
-		{ document.all.password.focus(); alert("密码请务必输入!!"); return false; }
+		{ document.all.password.focus(); alert("Vui lòng nhập mật khẩu của bạn!!"); return false; }
 	if(document.all.repassword.value=='')
-	{ document.all.repassword.focus(); alert("确认密码请务必输入!!"); return false; }
+	{ document.all.repassword.focus(); alert("Vui lòng xác nhận mật khẩu và nhập mật khẩu.!!"); return false; }
 	if(document.all.password.value != document.all.repassword.value)
-		{ document.all.password.focus(); alert("密码确认错误,请重新输入!!"); return false; }
+		{ document.all.password.focus(); alert("Lỗi xác nhận mật khẩu, vui lòng nhập lại!!"); return false; }
 	if(document.all.alias.value=='')
-		{ document.all.alias.focus(); alert("会员名称请务必输入!!"); return false; }
+		{ document.all.alias.focus(); alert("Vui lòng nhập tên thành viên.!!"); return false; }
 	if(document.all.pay_type[0].checked && (document.all.maxcredit.value=='0' || document.all.maxcredit.value==''))
- { document.all.maxcredit.focus(); alert("总信用额度请务必输入!!"); return false; }
-	if(!confirm("是否确定写入会员资料?")){return false;}
+ { document.all.maxcredit.focus(); alert("Vui lòng nhập tổng hạn mức tín dụng!!"); return false; }
+	if(!confirm("Bạn có chắc chắn để viết thông tin thành viên??")){return false;}
 	document.all.username.value = document.all.ag_count.innerHTML+document.all.sname.value;
 
 }
@@ -245,7 +251,7 @@ curr_now['IND']=0.0008;
 
 function CheckKey(){
 	if(event.keyCode == 13) return false;
-	if((event.keyCode < 48 || event.keyCode > 57) && (event.keyCode > 95 || event.keyCode < 106)){alert("总信用额度仅能输入数字!!"); return false;}
+	if((event.keyCode < 48 || event.keyCode > 57) && (event.keyCode > 95 || event.keyCode < 106)){alert("Tổng hạn mức tín dụng chỉ có thể nhập số!!"); return false;}
 }
 function checkaccKey(keycode){
 	if ((keycode>=65 && keycode<=90)  || (keycode>=97 && keycode<=122)||(keycode>=48 && keycode<=57)) return true;
@@ -257,10 +263,69 @@ function ChkMem(){
 }
 </SCRIPT>
 </head>
+<link rel="stylesheet" href="/style/control/control_main.css" type="text/css">
+<link rel="stylesheet" href="/style/control/account_management.css" type="text/css">
+<link rel="stylesheet" href="/style/control/edit_agents2.css" type="text/css">
+<link rel="stylesheet" href="/bootstrap/css/bootstrap.css" type="text/css">
+<link rel="stylesheet" href="/bootstrap/css/bootstrap-theme.css" type="text/css">
+<link rel="stylesheet" href="/style/control/announcement/a1.css" type="text/css">
+<link rel="stylesheet" href="/style/control/announcement/a2.css" type="text/css">
+<script src="/js/jquery-1.10.2.js" type="text/javascript"></script>
+<script src="/js/ClassSelect_ag.js" type="text/javascript"></script>
+<script>
+    var uid='<?=$uid?>';
+    var level='<?=$level?>';
+    function ch_level(i)
+    {
+        if(i === 1) {
+            self.location = '/xn/app/corprator/cor_list.php?uid='+uid+'&level='+i;
+        } else if(i === 2) {
+            self.location = '/xn/app/corprator/super_agent/body_super_agents.php?uid='+uid+'&level='+i;
+        } else if(i === 3) {
+            self.location = '/xn/app/corprator/agents/su_agents.php?uid='+uid+'&level='+i;
+        } else if(i === 4) {
+            self.location = '/xn/app/corprator/members/su_members.php?uid='+uid+'&level='+i;
+        } else if(i === 6) {
+            self.location = '/xn/app/corprator/wager_list/wager_add.php?uid='+uid+'&level='+i;
+        } else if(i === 5) {
+            self.location = '/xn/app/corprator/su_subuser.php?uid=='+uid+'&level='+i;
+        }else {
+            self.location = '/xn/app/corprator/wager_list/wager_hide.php?uid='+uid+'&level='+i;
+        }
 
+    }
+</script>
+
+<link rel="stylesheet" href="../css/loader.css" type="text/css">
+<script type="text/javascript">
+    // 等待所有加载
+    $(window).load(function(){
+        $('body').addClass('loaded');
+        $('#loader-wrapper .load_title').remove();
+    });
+</script>
 <body oncontextmenu="window.event.returnValue=false" bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" vlink="#0000FF" alink="#0000FF" onLoad="LoadBody();Chg_Mcy('now');Chg_Mcy('mx')">
+<div id="loader-wrapper">
+    <div id="loader"></div>
+    <div class="loader-section section-left"></div>
+    <div class="loader-section section-right"></div>
+    <div class="load_title">Đang tải...</div>
+</div>
+<div id="top_nav_container" name="fixHead" class="top_nav_container_ann" style="position: relative;">
+    <div id="general_btn" class="<? if ($level == 1) {echo 'nav_btn_on';} else {echo 'nav_btn';}?>" onclick="ch_level(1);">Cổ đông</div>
+    <div id="important_btn" class="<? if ($level == 2) {echo 'nav_btn_on';} else {echo 'nav_btn';}?>" onclick="ch_level(2);">Đại lý tổng hợp</div>
+    <div id="general_btn1" class="<? if ($level == 3) {echo 'nav_btn_on';} else {echo 'nav_btn';}?>" onclick="ch_level(3);">Đại lý</div>
+    <div id="important_btn1" class="<? if ($level == 4) {echo 'nav_btn_on';} else {echo 'nav_btn';}?>" onclick="ch_level(4);">Thành viên</div>
+    <div id="general_btn2" class="<? if ($level == 5) {echo 'nav_btn_on';} else {echo 'nav_btn';}?>" onclick="ch_level(5);">Tài khoản phụ</div>
+    <? if($d1set['d1_wager_add']==1){ ?>
+        <div id="general_btn3" class="<? if ($level == 6) {echo 'nav_btn_on';} else {echo 'nav_btn';}?>" onclick="ch_level(6);">Thêm tài khoản</div>
+    <? } ?>
+    <? if($d1set['d1_wager_hide']==1){ ?>
+        <div id="general_btn4" class="<? if ($level == 7) {echo 'nav_btn_on';} else {echo 'nav_btn';}?>" onclick="ch_level(7);">Tài khoản ẩn</div>
+    <? } ?>
+</div>
 <div id="Layer1" style="position:absolute; width:780px; height:26px; z-index:1; left: 0px; top: 268px; visibility: hidden; background-color: #FFFFFF; layer-background-color: #FFFFFF; border: 1px none #000000"></div>
- <FORM NAME="myFORM" ACTION="su_mem_add.php" METHOD=POST onSubmit="return SubChk()">
+ <FORM NAME="myFORM" ACTION="su_mem_add.php" METHOD=POST onSubmit="return SubChk()" style="padding-left:20px;padding-top:10px;">
   <INPUT TYPE=HIDDEN NAME="keys" VALUE="add">
   <INPUT TYPE=HIDDEN NAME="username" VALUE="">
   <input type="hidden" name="aid" value="28752">
@@ -269,7 +334,7 @@ function ChkMem(){
 
   <table width="780" border="0" cellspacing="0" cellpadding="0">
 <tr>
-                <td width="125" >&nbsp;&nbsp;会员管理--新增及修改:</td>
+                <td width="150" >&nbsp;&nbsp;Quản lý thành viên--Thêm và sửa đổi:</td>
             <td>
               <select name="agents_id" class="za_select" onChange="show_count(1,this.options[this.options.selectedIndex].text);">
                 <option value=""></option>
@@ -282,7 +347,6 @@ function ChkMem(){
 			?>
               </select>
 	</td>
-      <td width="30"><img src="/images/control/zh-tw/top_04.gif" width="30" height="24"></td>
 </tr>
 <tr>
 <td colspan="2" height="4"></td>
@@ -290,30 +354,30 @@ function ChkMem(){
 </table>
 <table width="780" border="0" cellspacing="1" cellpadding="0" class="m_tab_ed">
   <tr class="m_title_edit">
-    <td colspan="2" >基本资料设定</td>
+    <td colspan="2" >Cài đặt dữ liệu cơ bản</td>
   </tr>
   <tr class="m_bc_ed">
-    <td width="120" class="m_mem_ed"><input type=button name="chk" value="确认" class="za_button" onclick='ChkMem();'>  帐号:</td>
+    <td width="120" class="m_mem_ed"><input type=button name="chk" value="Xác nhận" class="za_button" onclick='ChkMem();'>  Số tài khoản:</td>
       <td>
       <font id="ag_count">___</font>
  <input type=TEXT name="sname" size=4 maxlength=4 class="za_text" onKeyPress="return checkaccKey(event.keyCode);">
- 帐号必须至少1个字元长，最多4个字元长，并只能有数字(0-9)，及英文大小写字母
+Tài khoản phải có ít nhất 1 ký tự, dài tối đa 4 ký tự và chỉ có thể có số (0-9) và chữ hoa và chữ thường tiếng Anh
 </td>
   </tr>
   <tr class="m_bc_ed">
-    <td class="m_mem_ed">密码:</td>
+    <td class="m_mem_ed">Mật khẩu:</td>
       <td>
-        <input type=PASSWORD name="password" size=8 maxlength=12 class="za_text">
-        密码必须至少6个字元长，最多12个字元长，并只能有数字(0-9)，及英文大小写字母 </td>
+        <input type=PASSWORD name="password" size=12 maxlength=12 class="za_text">
+          Mật khẩu phải dài ít nhất 6 ký tự, dài tối đa 12 ký tự và chỉ có thể có số (0-9) và chữ hoa và chữ thường tiếng Anh.</td>
   </tr>
   <tr class="m_bc_ed">
-    <td class="m_mem_ed">确认密码:</td>
+    <td class="m_mem_ed">Xác nhận mật khẩu:</td>
       <td>
         <input type=PASSWORD name="repassword" size=8 maxlength=12 class="za_text">
       </td>
   </tr>
   <tr class="m_bc_ed">
-      <td class="m_mem_ed">会员名称:</td>
+      <td class="m_mem_ed">Tên thành viên:</td>
       <td>
         <input type=TEXT name="alias" size=10 maxlength=10 class="za_text">
       </td>
@@ -321,66 +385,66 @@ function ChkMem(){
 </table>
   <table width="780" border="0" cellspacing="1" cellpadding="0" class="m_tab_ed">
     <tr class="m_title_edit">
-      <td colspan="2" >下注资料设定</td>
+      <td colspan="2" >Cài đặt dữ liệu đặt cược</td>
     </tr>
     <tr class="m_bc_ed">
-      <td width="120" class="m_mem_ed">开放球类:</td>
+      <td width="120" class="m_mem_ed">Mở bóng:</td>
       <td>
         <select name="type" class="za_select" onChange="show_count(0,this.value);">
 		<option value=""></option>
-          <option value="1">A盘</option>
-          <option value="2">B盘</option>
-          <option value="3">C盘</option>
-          <option value="4">D盘</option>
+          <option value="1">A Đĩa</option>
+          <option value="2">B Đĩa</option>
+          <option value="3">C Đĩa</option>
+          <option value="4">D Đĩa</option>
         </select>
       </td>
     </tr>
     <tr class="m_bc_ed">
-      <td class="m_mem_ed">投注方式:</td>
+      <td class="m_mem_ed">Phương thức đặt cược:</td>
       <td><table border="0" cellspacing="0" cellpadding=0>
 	<tr>
 		<td>
 			<input name="pay_type" class="za_select_02" type="radio" value="0" onClick="MM_showHideLayers('Layer1','','hide')" checked>
 		</td>
 		<td>
-			信用额度
+            Hạn mức tín dụng
 		</td>
 		<td>
 			<input name="pay_type" class="za_select_02" type="radio" value="1" onClick="MM_showHideLayers('Layer1','','show')">
 		</td>
 		<td>
-			现金
+            Tiền mặt
 		</td>
 	</tr>
 </table></td>
     </tr>
     <tr class="m_bc_ed">
-      <td class="m_mem_ed">汇率设定:</td>
+      <td class="m_mem_ed">Cài đặt tỷ giá hối đoái:</td>
       <td>
 <select name="currency" class="za_select" onChange="Chg_Mcy('now');Chg_Mcy('mx')">
-	  <option value="RMB">美金 -> 美金</option>
+	  <option value="RMB">Renminbi -> Renminbi</option>
 
 
         </select>
-        目前汇率:<font color="#FF0033" id="mcy_now">0</font>&nbsp;(目前汇率仅供参考)</td>
+          Tỷ giá hối đoái hiện tại:<font color="#FF0033" id="mcy_now">0</font>&nbsp;(Tỷ giá hối đoái hiện tại chỉ để tham khảo)</td>
     </tr>
     <tr class="m_bc_ed">
-      <td class="m_mem_ed">总信用额度:</td>
+      <td class="m_mem_ed">Tổng hạn mức tín dụng:</td>
       <td>
         <input type=TEXT name="maxcredit" value="0" size=12 maxlength=12 class="za_text" onKeyUp="Chg_Mcy('mx');" onKeyPress="return CheckKey();">
-        美金:<font color="#FF0033" id="mcy_mx">0</font> </td>
+          Đô la Mỹ:<font color="#FF0033" id="mcy_mx">0</font> </td>
     </tr>
     <tr class="m_bc_ed">
-      <td class="m_mem_ed">现金额度:</td>
+      <td class="m_mem_ed">Số tiền hiện tại:</td>
       <td>0 </td>
     </tr>
   </table>
 	<table width="780" border="0" cellspacing="1" cellpadding="0" class="m_tab_ed">
     <tr align="center" bgcolor="#FFFFFF">
       <td>
-        <input type=SUBMIT name="OK2" value="确定" class="za_button">
+        <input type=SUBMIT name="OK2" value="Xác định" class="za_button">
         &nbsp; &nbsp; &nbsp;
-        <input type=BUTTON name="CANCEL2" value="取消" id="CANCEL" onClick="javascript:history.go(-1)" class="za_button">
+        <input type=BUTTON name="CANCEL2" value="Hủy bỏ" id="CANCEL" onClick="javascript:history.go(-1)" class="za_button">
       </td>
     </tr>
   </table>

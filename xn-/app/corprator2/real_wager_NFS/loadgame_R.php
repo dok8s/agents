@@ -23,7 +23,7 @@ require ("../../member/include/traditional.$langx.inc.php");
 
 <html>
 <head>
-<title>冠軍</title>
+<title>嚙窮嚙綞</title>
 <meta http-equiv="Content-Type" content="text/html; charset=Big5">
 <meta http-equiv='Page-Exit' content='revealTrans(Duration=0,Transition=5)'>
 <!--link href="/style/control/control_body_fs.css" rel="stylesheet" type="text/css"-->
@@ -64,37 +64,37 @@ start_time=get_timer();
 	play_sound();
 }
 function layer_screen(gid,layers){
-	//檢查賠率是否有變動
+	//嚙誼查嚙賠率嚙瞌嚙稻嚙踝蕭嚙豌堆蕭
 	changeRatio=check_ratio(gid).split(",");
-	//changeRatio[] [1=變動] 0:R_con  1:RH_Ratio 2:RH_Ratio 3:OU_con  4:OUH_Ratio 2:OUC_Ratio
+	//changeRatio[] [1=嚙豌堆蕭] 0:R_con  1:RH_Ratio 2:RH_Ratio 3:OU_con  4:OUH_Ratio 2:OUC_Ratio
 
 		gno=gidx[gid];
 		//GameFT[gno][4]=GameFT[gno][4].replace("[H]",top.str_home).replace("[M]",top.str_mid);
 		layers=layers.replace("*GID*",GameFT[gno][0]);/*gid*/
 		layers=layers.replace("*GID*",GameFT[gno][0]);/*gid*/
-		layers=layers.replace("*TIME*",change_time(GameFT[gno][1]));/*時間*/
+		layers=layers.replace("*TIME*",change_time(GameFT[gno][1]));/*嚙褕塚蕭*/
 
-		layers=layers.replace("*LEG*",GameFT[gno][2]);/*聯盟*/
-		layers=layers.replace("*ITEM*",GameFT[gno][3]); /*場次*/
-		//layers=layers.replace("*TEAM_H*",GameFT[gno][4]);/*主隊*/
-		//layers=layers.replace("*TEAM_C*",GameFT[gno][5]);/*客隊*/
+		layers=layers.replace("*LEG*",GameFT[gno][2]);/*嚙緘嚙踝蕭*/
+		layers=layers.replace("*ITEM*",GameFT[gno][3]); /*嚙踝蕭嚙踝蕭*/
+		//layers=layers.replace("*TEAM_H*",GameFT[gno][4]);/*嚙瘩嚙踝蕭*/
+		//layers=layers.replace("*TEAM_C*",GameFT[gno][5]);/*嚙褓塚蕭*/
 		//layers=layers.replace("*R_TODAY*",GameFT[gno][0]);
 
 
 		if (GameFT[gno][4]=="N"){
 			layers=layers.replace("*CLASS*",'bgcolor=#cccccc');
 			TBG='bgcolor="#cccccc"';
-			layers=layers.replace("*GOPEN*","<font color='blue' style='cursor:hand;' onclick=\"if (check_fl("+gid+",'6')) return;change_game('gopen','Y',"+gid+",'"+se+"');\">"+top.str_gopen+"</font>");/*開放*/
+			layers=layers.replace("*GOPEN*","<font color='blue' style='cursor:hand;' onclick=\"if (check_fl("+gid+",'6')) return;change_game('gopen','Y',"+gid+",'"+se+"');\">"+top.str_gopen+"</font>");/*嚙罷嚙踝蕭*/
 		}else{
 			layers=layers.replace("*CLASS*",'bgcolor=#ffffff');
 			TBG='bgcolor="#ffffff"';
-			layers=layers.replace("*GOPEN*","<font color='blue' style='cursor:hand;' onclick=\"if (check_fl("+gid+",'6')) return;change_game('gopen','N',"+gid+",'"+se+"');\">"+top.str_gameclose+"</font>");/*關閉*/
+			layers=layers.replace("*GOPEN*","<font color='blue' style='cursor:hand;' onclick=\"if (check_fl("+gid+",'6')) return;change_game('gopen','N',"+gid+",'"+se+"');\">"+top.str_gameclose+"</font>");/*嚙踝蕭嚙踝蕭*/
 		}
 		if (GameFT[gno][5]*1 > 0){
 			if (GameFT[gno][6]=="0"){
-				layers=layers.replace("*FL_SET*"," | <font style='cursor:hand;' color='red' onclick=change_game('FL_enable','1',"+gid+",'"+se+"')>"+top.str_FL+"</font>");/*跟盤*/
+				layers=layers.replace("*FL_SET*"," | <font style='cursor:hand;' color='red' onclick=change_game('FL_enable','1',"+gid+",'"+se+"')>"+top.str_FL+"</font>");/*嚙踝蕭L*/
 			}else{
-				layers=layers.replace("*FL_SET*"," | <font style='cursor:hand;' onclick=change_game('FL_enable','0',"+gid+",'"+se+"')>"+top.str_cancel+"</font>");/*取消*/
+				layers=layers.replace("*FL_SET*"," | <font style='cursor:hand;' onclick=change_game('FL_enable','0',"+gid+",'"+se+"')>"+top.str_cancel+"</font>");/*嚙踝蕭嚙踝蕭*/
 			}
 		}else{
 			layers=layers.replace("*FL_SET*","");
@@ -121,7 +121,7 @@ function layer_screen(gid,layers){
 
 		if (GameFT[gno][7]*1>0){
 			for (k=0;k<GameFT[gno][7];k++){
-				//如果被淘汰,賠出金額要乘以-1
+				//嚙緘嚙瘦嚙瞋嚙稷嚙瞌,嚙賠出嚙踝蕭嚙畿嚙緯嚙踝蕭嚙瘡-1
 				sellgold=1;
 
 				if (GameFT[gno][8+k*5]=="N"){
@@ -172,7 +172,7 @@ function layer_screen(gid,layers){
 		layers=layers.replace("*ORDERS*",orders);
 		layers=layers.replace("*OUT_ORDER*",outorders);
 
-		//layers=layers.replace("*RESULT*","<font color='blue' style='cursor:hand;' onclick=\"chk_result('"+gno+"');\">"+top.str_result+"</font>");/*開放*/
+		//layers=layers.replace("*RESULT*","<font color='blue' style='cursor:hand;' onclick=\"chk_result('"+gno+"');\">"+top.str_result+"</font>");/*嚙罷嚙踝蕭*/
 
 
 	return layers;
@@ -185,7 +185,7 @@ function getcolor(changeRatio,Rpos){
 	}
 	return backgrounds;
 	}
-//檢查賠率
+//嚙誼查嚙賠率
 function check_ratio(gid){
 
 	gnos=gidx[gid];
@@ -277,7 +277,7 @@ function key_result(resultFrom){
 
 
 function gtype_close(){
-str_close=top.str_close_ioratio;/*是否確定關閉賠率*/
+str_close=top.str_close_ioratio;/*嚙瞌嚙稻嚙確嚙緩嚙踝蕭嚙踝蕭嚙賠率*/
 a=confirm(str_close);
 	if (a==true){
 		grtypes="";
@@ -307,7 +307,7 @@ function check_sel(gid){
 	return true;
 	//return check_fl(gid,13);
 	}
-//自動關閉
+//嚙諛堆蕭嚙踝蕭嚙踝蕭
 function openWin(obj_Name,gid){
 	var obj = document.getElementById(obj_Name);
 	obj.style.display = "block";
@@ -344,13 +344,13 @@ function check(forms){
 	}
 
 	if(!OK){
-		alert("請填入正確格式");
+		alert("嚙請塚蕭J嚙踝蕭嚙確嚙賣式");
 		return OK;
 	}
 	forms.uid.value = top.uid;
 	forms.gsdate1.value = document.getElementById('gsdate').value;
 	forms.gedate1.value = document.getElementById('gedate').value;
-	if(!confirm("是否確定關閉時間??")){
+	if(!confirm("嚙瞌嚙稻嚙確嚙緩嚙踝蕭嚙踝蕭嚙褕塚蕭??")){
 		return false;
 	}
 	var obj = document.getElementById('AutoClose');
@@ -369,7 +369,7 @@ function chgDate() {
 
 	if(!chkCurrentDate(gsdate) || !chkCurrentDate(gedate)) tmpFlag = false;
 
-	// 判斷起始日期是否小於終止日期
+	// 嚙瞑嚙稻嚙稻嚙締嚙踝蕭嚙踝蕭O嚙稻嚙緘嚙踝蕭蚺嚙踝蕭嚙�
 	if(tmpGS[0]*1 > tmpGE[0] *1) tmpFlag = false;
 	else if(tmpGS[0]*1 == tmpGE[0]*1 && tmpGS[1]*1 > tmpGE[1]*1) tmpFlag = false;
 	else if(tmpGS[1]*1 == tmpGE[1]*1 && tmpGS[2]*1 > tmpGE[2]*1) tmpFlag = false;
@@ -381,12 +381,12 @@ function chgDate() {
 	reloadPHP.location.href=homepage;
 
 }
-// 判斷是否為正確的日期格式
+// 嚙瞑嚙稻嚙瞌嚙稻嚙踝蕭嚙踝蕭嚙確嚙踝蕭嚙踝蕭嚙踝蕭璁�
 function chkCurrentDate(val){
 	var mydate = val.split("-");
-	var year = mydate[0] % 4;	// 取得是否潤年
-	var month = mydate[1];		// 取得月
-	var day = mydate[2];		// 取得日
+	var year = mydate[0] % 4;	// 嚙踝蕭嚙緻嚙瞌嚙稻嚙踝蕭~
+	var month = mydate[1];		// 嚙踝蕭嚙緻嚙踝蕭
+	var day = mydate[2];		// 嚙踝蕭嚙緻嚙踝蕭
 
 	if(mydate[0].length != 4) return false;
 	if(month > 12 || month == 0 || day == 0) {return false;}
@@ -394,7 +394,7 @@ function chkCurrentDate(val){
 		if(day>30) return false;
 		else return true;
 	} else if(month==2) {
-		if(year == 0 && day > 29) return  false;  // 潤年
+		if(year == 0 && day > 29) return  false;  // 嚙踝蕭~
 		else if(year !=0 && day > 28) return false;
 		else return true;
 	} else {
@@ -447,7 +447,7 @@ function ShowLeague(lid){
 	sel_leg.innerHTML=txt_bodyH;
 }
 
-//===選擇區域===
+//===嚙踝蕭黹炾嚙�===
 function chg_area(){
 	var obj_area = document.getElementById('sel_aid');
 	sel_area=obj_area.value;
@@ -484,7 +484,7 @@ function ShowArea(aid){
 	sel_areas.innerHTML=txt_bodyA;
 }
 
-//===選擇類別===
+//===嚙踝蕭嚙踝蕭嚙踝蕭O===
 function chg_item(){
 	var obj_item = document.getElementById('sel_itemid');
 	sel_item=obj_item.value;
@@ -532,41 +532,41 @@ function chg_account(set_account){
 }
 </script>
 <script>
-top.str_input_pwd = "密碼請務必輸入!!";
-top.str_input_repwd = "確認密碼請務必輸入!!";
-top.str_err_pwd = "密碼確認錯誤,請重新輸入!!";
-top.str_err_pwd_fail = "該密碼您已使用過, 為了安全起見, 請使用新密碼!!";
-top.str_pwd_limit = "您的密碼必須6至12個字元長,您只能使用數字和英文字母並至少 1 個英文字母,其它 特殊符號不能使用 。";
-top.str_pwd_limit2 = "您的密碼需使用字母加上數字!!";
-//信用額度
-top.str_maxcre = "總信用額度僅能輸入數字!!";
+top.str_input_pwd = "嚙皺嚙碼嚙請務伐蕭嚙踝蕭J!!";
+top.str_input_repwd = "嚙確嚙緹嚙皺嚙碼嚙請務伐蕭嚙踝蕭J!!";
+top.str_err_pwd = "嚙皺嚙碼嚙確嚙緹嚙踝蕭嚙羯,嚙請哨蕭嚙編嚙踝蕭J!!";
+top.str_err_pwd_fail = "嚙諉密嚙碼嚙緲嚙緩嚙誕用過, 嚙踝蕭嚙瘤嚙緩嚙踝蕭嚙稻嚙踝蕭, 嚙請使用新嚙皺嚙碼!!";
+top.str_pwd_limit = "嚙緲嚙踝蕭嚙皺嚙碼嚙踝蕭嚙踝蕭6嚙踝蕭12嚙諉字嚙踝蕭嚙踝蕭,嚙緲嚙線嚙踝蕭洏弮あr嚙瞎嚙稷嚙踝蕭r嚙踝蕭嚙衛至歹蕭 1 嚙諉英嚙踝蕭r嚙踝蕭,嚙賭它 嚙磅嚙踝蕭顫嚙踝蕭嚙踝蕭嚙誕伐蕭 嚙瘠";
+top.str_pwd_limit2 = "嚙緲嚙踝蕭嚙皺嚙碼嚙豎使用字嚙踝蕭嚙稼嚙磕嚙複字!!";
+//嚙瘡嚙踝蕭嚙畿嚙踝蕭
+top.str_maxcre = "嚙窯嚙瘡嚙踝蕭嚙畿嚙論僅荔蕭嚙皚嚙複字!!";
 
-top.str_gopen="開放";
-top.str_gameclose="關閉";
-top.str_gopenY="是否確定賽程開放";
-top.str_gopenN="是否確定賽程關閉";
-top.str_strongH="是否確定強弱互換";
-top.str_strongC="是否確定強弱互換";
-top.str_close_ioratio="是否確定關閉賠率";
+top.str_gopen="嚙罷嚙踝蕭";
+top.str_gameclose="嚙踝蕭嚙踝蕭";
+top.str_gopenY="嚙瞌嚙稻嚙確嚙緩嚙褕程嚙罷嚙踝蕭";
+top.str_gopenN="嚙瞌嚙稻嚙確嚙緩嚙褕程嚙踝蕭嚙踝蕭";
+top.str_strongH="嚙瞌嚙稻嚙確嚙緩嚙篌嚙緲嚙踝蕭嚙踝蕭";
+top.str_strongC="嚙瞌嚙稻嚙確嚙緩嚙篌嚙緲嚙踝蕭嚙踝蕭";
+top.str_close_ioratio="嚙瞌嚙稻嚙確嚙緩嚙踝蕭嚙踝蕭嚙賠率";
 
-//新冠軍
-top.str_scoreY="負";
-top.str_scoreN="勝";
-top.str_change="確定重置結果!!";
-top.str_eliminate="是否淘汰";
-top.str_format="請填入正確格式";
-top.str_close_time="是否確定關閉時間??"
-top.str_check_date="請檢查日期格式 !!";
-top.str_champ_win="冠軍是否為:";
-top.str_champ_wins="請再確認冠軍是否為:";
-top.str_NOchamp="無勝出隊伍，請重新設定!!";
-top.str_NOloser="無淘汰隊伍，請重新設定!!";
-top.str_FT="足球";
-top.str_FS="冠軍";
-top.str_BK="籃球";
-top.str_TN="網球";
-top.str_VB="排球";
-top.str_BS="棒球";</script>
+//嚙編嚙窮嚙綞
+top.str_scoreY="嚙緣";
+top.str_scoreN="嚙踝蕭";
+top.str_change="嚙確嚙緩嚙踝蕭嚙練嚙踝蕭嚙瘦!!";
+top.str_eliminate="嚙瞌嚙稻嚙稷嚙瞌";
+top.str_format="嚙請塚蕭J嚙踝蕭嚙確嚙賣式";
+top.str_close_time="嚙瞌嚙稻嚙確嚙緩嚙踝蕭嚙踝蕭嚙褕塚蕭??"
+top.str_check_date="嚙踝蕭嚙誼查嚙踝蕭嚙踝蕭璁� !!";
+top.str_champ_win="嚙窮嚙綞嚙瞌嚙稻嚙踝蕭:";
+top.str_champ_wins="嚙請再嚙確嚙緹嚙窮嚙綞嚙瞌嚙稻嚙踝蕭:";
+top.str_NOchamp="嚙盤嚙諉出嚙踝蕭嚙踝蕭A嚙請哨蕭嚙編嚙稽嚙緩!!";
+top.str_NOloser="嚙盤嚙稷嚙瞌嚙踝蕭嚙踝蕭A嚙請哨蕭嚙編嚙稽嚙緩!!";
+top.str_FT="嚙踝蕭嚙緙";
+top.str_FS="嚙窮嚙綞";
+top.str_BK="嚙綞嚙緙";
+top.str_TN="嚙踝蕭嚙緙";
+top.str_VB="嚙複球";
+top.str_BS="嚙諄球";</script>
 <script>
 //if(top.uid=="" || self==top || top.document.domain!=document.domain){ top.location="http://"+document.domain;}
 var rangMax=0;
@@ -641,7 +641,7 @@ function reload_var(){
 
 }
 /*
-----------------功能menu--------------
+----------------嚙穀嚙踝蕭menu--------------
 */
 function change_game(gtype,vals,gid,se){
 //alert(gtype);
@@ -652,8 +652,8 @@ str_gopenY=top.str_gopenY;
 str_gopenN=top.str_gopenN;
 str_strongH=top.str_strongH;
 str_strongC=top.str_strongC;
-str_FL_enable1="確定改變跟盤狀態";
-str_FL_enable0="確定改變跟盤狀態";
+str_FL_enable1="嚙確嚙緩嚙踝蕭嚙豌賂蕭L嚙踝蕭嚙璀";
+str_FL_enable0="嚙確嚙緩嚙踝蕭嚙豌賂蕭L嚙踝蕭嚙璀";
 
 a=true;
 if ((gtype=="gopen" || gtype=="strong" || gtype=="FL_enable") && (gid!="all"))
@@ -672,8 +672,8 @@ if (a==true){
 	}
 }
 /*
-公用 FUNC
-小數點位數
+嚙踝蕭嚙踝蕭 FUNC
+嚙緘嚙踝蕭嚙瘢嚙踝蕭嚙�
 */
 function printf(vals,points){
 	vals=""+vals;
@@ -688,11 +688,11 @@ function printf(vals,points){
 	return vals;
 }
 /*
-計數器
+嚙緘嚙複橘蕭
 */
 function get_timer(){return (new Date()).getTime();}
 /*
-鍵盤
+嚙踝蕭L
 */
 document.onkeypress=checkfunc;
 function checkfunc(e) {
@@ -712,7 +712,7 @@ function CheckKey(){
 	}
 }
 /*
-parser 球頭
+parser 嚙緙嚙磐
 */
 function get_cr_str(cr){
 	var crs=new Array();
@@ -806,7 +806,7 @@ function  change_time(get_time){
 	return dates[0].substring(5,10) + "<br>" +gtime[0]+":"+gtime[1]+"a";
 }
 /*
-設定分頁
+嚙稽嚙緩嚙踝蕭嚙踝蕭
 */
 function setpage(){
 
@@ -1044,41 +1044,40 @@ function chk_Key(obj,value){
 <bgsound id=bsound_nt loop=1>
 
 <table width="810" border="0" cellpadding="0" cellspacing="0">
-  <tr><td width="780" class="m_tline">
+  <tr><td width="780" class="">
  <table border="0" cellspacing="0" cellpadding="0">
           <tr>
-            <td width="60">&nbsp;&nbsp;冠軍全場 :</td>
+            <td width="60">&nbsp;&nbsp;嚙窮嚙綞嚙踝蕭嚙踝蕭 :</td>
 <td>
 <select id="game_type" name="game_type" onChange="chg_gtype(this.value);" class="za_select">
-	<option value="">全部</option>
-	<option value="FT">足球</option>
-	<option value="BK" >籃球</option>
-	<option value="BS">棒球</option>
-	<option value="TN">網球</option>
-	<option value="VB">排球</option>
+	<option value="">嚙踝蕭嚙踝蕭</option>
+	<option value="FT">嚙踝蕭嚙緙</option>
+	<option value="BK" >嚙綞嚙緙</option>
+	<option value="BS">嚙諄球</option>
+	<option value="TN">嚙踝蕭嚙緙</option>
+	<option value="VB">嚙複球</option>
 </select>
 </td>
-<td width="65">&nbsp;--&nbsp;重新整理:</td>
+<td width="65">&nbsp;--&nbsp;嚙踝蕭嚙編嚙踝蕭z:</td>
 <td>
 <select name="retime" class="za_select" id="retime" onChange="reloadtime()">
-	<option value="-1">不更新</option>
+	<option value="-1">嚙踝蕭嚙踝蕭s</option>
 	<option value="10">10 sec</option>
 	<option value="20">20 sec</option>
 	<option value="60">60 sec</option>
 </select>
 </td>
-<td>美東時間:<span id=times></span></td>
+<td>嚙踝蕭嚙瘤嚙褕塚蕭:<span id=times></span></td>
 
 
-<td>--日期區間: </td>
+<td>--嚙踝蕭嚙踝蕭炩嚙�: </td>
 <td><input type="text" id="gsdate" name="gsdate" value="" size="9" maxlength="10"></td>
 <td>~</td>
 <td><input type="text" id="gedate" name="gedate" value="" size="9" maxlength="10"></td>
-<td><input type="button" value="確定" onClick="chgDate();"></td>
+<td><input type="button" value="嚙確嚙緩" onClick="chgDate();"></td>
           </tr>
       </table>
  </td>
-      <td width="30"><img src="/images/control/zh-tw/top_04.gif" width="30" height="24"></td>
   </tr>
 
 </table>
@@ -1086,14 +1085,14 @@ function chk_Key(obj,value){
 
 <table height="0" cellpadding="1" cellspacing="1">
   <tr>
-<td><font color="#000099">&nbsp;區域:</font></td><td><span id="sel_areas"></span></td>
+<td><font color="#000099">&nbsp;嚙誕堆蕭:</font></td><td><span id="sel_areas"></span></td>
 
-<td>&nbsp;&nbsp;選擇聯盟 :</td><td><span id="sel_leg"></span></td>
+<td>&nbsp;&nbsp;嚙踝蕭嚙踝蕭p嚙踝蕭 :</td><td><span id="sel_leg"></span></td>
 
-<td>&nbsp;&nbsp;選擇類別 :</td><td><span id="sel_items"></span></td>
-<td>觀看方式 :&nbsp;<select id="set_account" name="set_account" onchange="chg_account(this.value);" class="za_select">
-        		<option value="0">全部</option>
-			<option value="1">自己</option>
+<td>&nbsp;&nbsp;嚙踝蕭嚙踝蕭嚙踝蕭O :</td><td><span id="sel_items"></span></td>
+<td>嚙稼嚙豎方式 :&nbsp;<select id="set_account" name="set_account" onchange="chg_account(this.value);" class="za_select">
+        		<option value="0">嚙踝蕭嚙踝蕭</option>
+			<option value="1">嚙諛己</option>
 		</select></td>
 </tr></table>
 </div>
@@ -1101,12 +1100,12 @@ function chk_Key(obj,value){
 <div id=showlayers style="display: none">
 <table id="glist_table"  border="0" cellspacing="1" cellpadding="0" bgcolor="#CC9900" class="m_tab">
    <tr class="m_title_nfs">
-   <td>時間</td>
-      <td>聯盟 / 項目</td>
-      <td>隊伍 (球員)</td>
-      <td>淘汰</td>
-      <td>賠率</td>
-      <td>注單</td>
+   <td>嚙褕塚蕭</td>
+      <td>嚙緘嚙踝蕭 / 嚙踝蕭嚙踝蕭</td>
+      <td>嚙踝蕭嚙踝蕭 (嚙緙嚙踝蕭)</td>
+      <td>嚙稷嚙瞌</td>
+      <td>嚙賠率</td>
+      <td>嚙窯嚙踝蕭</td>
 
 
     </tr>
@@ -1132,9 +1131,9 @@ function chk_Key(obj,value){
 
 
 <div class="bord"><b></b><a href="#">TO TOP</a></div>
-<!----------------------更改賠率視窗---------------------------->
+<!----------------------嚙踝蕭嚙賠率嚙踝蕭嚙踝蕭---------------------------->
 
-<!----------------自動關閉設定視窗---------------->
+<!----------------嚙諛堆蕭嚙踝蕭嚙踝蕭嚙稽嚙緩嚙踝蕭嚙踝蕭---------------->
 <div id=AutoClose style="display: none;position: absolute;">
 <FORM NAME="FS_RatioForm" ACTION="FS_ctl_fs_ratio.php" METHOD="POST" target="reloadPHP" onSubmit="return check(this);">
 	<INPUT TYPE="HIDDEN" NAME="uid" value="">
@@ -1147,24 +1146,24 @@ function chk_Key(obj,value){
 	    <td bgcolor="#FFFFFF">
 	      <table width="220" border="0" cellspacing="0" cellpadding="0" class="m_tab_fix">
 	          <tr bgcolor="#0163A2">
-	          <td width="200" id=bet_title><font color="#FFFFFF">請設定關閉時間</font></td>
+	          <td width="200" id=bet_title><font color="#FFFFFF">嚙請設嚙緩嚙踝蕭嚙踝蕭嚙褕塚蕭</font></td>
 	          <td align="right" valign="top"><a style="cursor:hand;" onClick="close_win('AutoClose');"><img src="/images/control/zh-tw/edit_dot.gif" width="16" height="14"></a></td>
 	          </tr>
 	          <tr bgcolor="#CC0000">
 	          	<td width="200" colspan="2" >
-	          		<font color="#FFFFFF" >日期：</font>
+	          		<font color="#FFFFFF" >嚙踝蕭嚙踝蕭G</font>
 	          		<input type="text" name="setDate" id="setDate"  size="10" maxlength="10"><font color="#FFFFFF"  size="1">(YYYY-MM-DD)</font>
 	          	</td>
 	          </tr>
 	          <tr bgcolor="#CC0000">
 	          	<td width="200" colspan="2">
-	          		<font color="#FFFFFF">時間：</font>
+	          		<font color="#FFFFFF">嚙褕塚蕭嚙瘦</font>
 	          		<input type="text" name="setTime" id="setTime" size="5" maxlength="5"><font color="#FFFFFF" size="1">(HH:MM)</font>
 	          	</td>
 	          </tr>
 	          <tr bgcolor="#CC0000">
 	          	<td width="200" colspan="2" id="setTime">
-	          		<input type="submit" name="confirm" value="確定">
+	          		<input type="submit" name="confirm" value="嚙確嚙緩">
 	          	</td>
 	          </tr>
 	      </table>
@@ -1174,42 +1173,42 @@ function chk_Key(obj,value){
 
 </FORM>
 </div>
-<!----------------------更改下拉視窗---------------------------->
-<!--選擇聯盟 START-->
+<!----------------------嚙踝蕭嚙磊嚙諂蛛蕭嚙踝蕭---------------------------->
+<!--嚙踝蕭嚙踝蕭p嚙踝蕭 START-->
 <span id="bowling" style="position:absolute; display: none">
 	<option value="*LEAGUE_ID*" *SELECT*>*LEAGUE_NAME*</option>
 </span>
 <span id="bodyH" style="position:absolute; display: none">
 	<select id="sel_lid" name="sel_lid" onChange="chg_league();" class="za_select">
-	<option value="">全部</option>
+	<option value="">嚙踝蕭嚙踝蕭</option>
 		*SHOW_H*
 	</select>
 </span>
-<!--選擇聯盟 END-->
+<!--嚙踝蕭嚙踝蕭p嚙踝蕭 END-->
 
-<!--區域 START-->
+<!--嚙誕堆蕭 START-->
 <span id="area" style="position:absolute; display: none">
 	<option value="*AREA_ID*" *SELECT_AREA*>*AREA_NAME*</option>
 </span>
 <span id="bodyA" style="position:absolute; display: none">
 	<select id="sel_aid" name="sel_aid" onChange="chg_area();" class="za_select">
-	<option value="">全部</option>
+	<option value="">嚙踝蕭嚙踝蕭</option>
 		*SHOW_A*
 	</select>
 </span>
-<!--區域 END-->
+<!--嚙誕堆蕭 END-->
 
-<!--類別 START-->
+<!--嚙踝蕭嚙瞌 START-->
 <span id="item" style="position:absolute; display: none">
 	<option value="*ITEM_ID*" *SELECT_ITEM*>*ITEM_NAME*</option>
 </span>
 <span id="bodyI" style="position:absolute; display: none">
 	<select id="sel_itemid" name="sel_itemid" onChange="chg_item();" class="za_select">
-	<option value="">全部</option>
+	<option value="">嚙踝蕭嚙踝蕭</option>
 		*SHOW_I*
 	</select>
 </span>
-<!--類別 END-->
+<!--嚙踝蕭嚙瞌 END-->
 
 
 <iframe id=reloadPHP name=reloadPHP width=0 height=0></iframe>

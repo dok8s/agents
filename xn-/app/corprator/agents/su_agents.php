@@ -159,7 +159,7 @@ $result = mysql_query( $mysql);
 <form name="myFORM" action="/app/corprator/agents/su_agents.php?uid=<?=$uid?>" method=POST>
 <table width="780" border="0" cellspacing="0" cellpadding="0">
   <tr>
-	<td class="m_tline">
+	<td class="">
         <table border="0" cellspacing="0" cellpadding="0" >
           <tr>
             <td width="70">&nbsp;&nbsp;<?=$wld_selagent?></td>
@@ -215,7 +215,6 @@ $result = mysql_query( $mysql);
           </tr>
         </table>
 	</td>
-    <td width="30"><img src="/images/control/zh-tw/top_04.gif" width="30" height="24"></td>
 </tr>
 <tr>
 	<td colspan="2" height="4"></td>

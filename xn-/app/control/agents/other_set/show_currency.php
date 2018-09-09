@@ -23,14 +23,13 @@ exit;
   <form name="LAYOUTFORM" action="" method=POST >
     <input type="HIDDEN" name="active" value="0">
     <tr> 
-      <td class="m_tline"> 
+      <td class="">
         <table border="0" cellspacing="0" cellpadding="0" >
           <tr> 
             <td width="85" >&nbsp;&nbsp;币值</td>
           </tr>
         </table>
       </td>
-      <td width="30"><img src="/images/control/zh-tw/top_04.gif" width="30" height="24"></td>
     </tr>
     <tr> 
       <td colspan="2" height="4"></td>

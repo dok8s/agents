@@ -9,7 +9,34 @@ require ("../../../member/include/config.inc.php");
 require ("../../../member/include/define_function_list.inc.php");
 
 $uid=$_REQUEST["uid"];
-$sql = "select * from web_world where Oid='$uid'";
+$langx=$_REQUEST["langx"];
+$sql = "select id,subuser,agname,subname,status,super,setdata from web_world where Oid='$uid'";
+$result = mysql_query($sql);
+$row = mysql_fetch_array($result);
+$agname=$row['agname'];
+$super=$row['super'];
+$d1set = @unserialize($row['setdata']);
+$level=$_REQUEST['level']?$_REQUEST['level']:3;
+$agents_id=$_REQUEST['world'];
+$world=$_REQUEST["agents_id"];
+
+if($world==''){
+	$winloss=0;
+}else{
+	$sql="select corprator,winloss,winloss_parents,credit from web_world where agname='$world'";
+	$result = mysql_query($sql);
+	$row = mysql_fetch_array($result);
+	$corprator=$row['corprator'];
+	$credit=$row['credit'];
+
+	$sql="select winloss from web_world where agname='$corprator'";
+	$result1 = mysql_query($sql);
+	$row1 = mysql_fetch_array($result1);
+	$winloss=$row1['winloss'];
+
+}
+$credit=intval($credit);
+$sql = "select Agname,ID,language,super,winloss,winloss_parents from web_world where Oid='$uid'";
 $result = mysql_query($sql);
 $cou=mysql_num_rows($result);
 if($cou==0){
@@ -21,84 +48,93 @@ $row = mysql_fetch_array($result);
 $agname=$row['Agname'];
 $agid=$row['ID'];
 $langx=$row['language'];
-$corprator=$row['corprator'];
-$credit=$row['Credit'];
 $super=$row['super'];
-$count=$row['mcount'];
-$winloss_as=$row['winloss'];
-$winloss_ac=$row['winloss_parents'];
-$world=$row['Agname'];
 
-$sql="select winloss from web_corprator where agname='$corprator'";
-$result1 = mysql_query($sql);
-$row1 = mysql_fetch_array($result1);
-$winloss=$winloss_ac;
+require ("../../../member/include/traditional.zh-vn.inc.php");
 
-require ("../../../member/include/traditional.$langx.inc.php");
 $keys=$_REQUEST['keys'];
 if ($keys=='add'){
 	$AddDate=date('Y-m-d H:i:s');
 	$memname=$_REQUEST['username'];
 	$mempasd=substr(md5(md5($_REQUEST['password']."abc123")),0,16);
 	$maxcredit=$_REQUEST['maxcredit'];
-	$maxcount=$_REQUEST['maxcount']+0;
-	if($maxcount==0){$maxcount=9999;}
-	if ($memname==''){
-		echo wterror("您输入的帐号 $memname 已经有人使用了，请回上一页重新输入");
-		exit;
-	}
-	$chk=chk_pwd($mempasd);
-
+	$maxmember=$_REQUEST['maxmember'];
 	//总信用额度
-	$wager=$_REQUEST['type'];// 即时注单
+		$chk=chk_pwd($mempasd);
+
+	$wager=$_REQUEST['type']+0;// 即时注单
 	$alias=$_REQUEST['alias'];
+	$num_1=$_REQUEST['num_1'];
+	$num_2=$_REQUEST['num_2'];
+	$num_3=$_REQUEST['num_3'];
+
+	if($maxmember==''){$maxmember=99999;}
+
+	if ($memname==''){
+		echo wterror("Tên tác nhân không được để trống. Vui lòng quay lại và nhập lại");
+		exit();
+	}
+
 	$winloss_a=$_REQUEST['winloss_a'];//代理
 	$winloss_s=$_REQUEST['winloss_s'];//总代理
-	$winloss_c=$winloss-$winloss_a-$winloss_s;
 
-	$kk=$winloss_s+$winloss_a;
-	if($kk>$winloss_ac || $kk<$winloss_as){
-		echo wterror("总代理商与代理商占成数之和".($winloss_as*0.01)."~".($winloss_ac*0.01)."成之间，请回上一面重新输入");
-		exit;
+	$mysql="select agname from web_agents where Agname='$memname'";
+	$result = mysql_query($mysql);
+	$count=mysql_num_rows($result);
+	if ($count>0){
+		echo wterror("Tài khoản bạn đã nhập$memname Đã được sử dụng, vui lòng quay lại trang trước và nhập lại");
+		exit();
 	}
+
+	$mysql="select * from web_world where agname='$agents_id'";
+	$result = mysql_query($mysql);
+	$row = mysql_fetch_array($result);
+	$credit=$row['Credit'];
+	$mcount=$row['mcount'];
+	$corprator=$row['corprator'];
+	$winloss_ac=$row['winloss_parents'];
+	$winloss_as=$row['winloss'];
 
 	$skey='';
 	$svalue='';
-	$fs='';
 	while (list($key, $value) = each($row)) {
   	if (preg_match("/Scene/i",$key) || preg_match ("/Bet/i",$key) || preg_match ("/Turn/i",$key)){
   		//if (preg_match("/Scene/i",$key) || preg_match ("/Bet/i",$key)){
-			$skey=$skey==''?$key:$skey.','.$key;$fs=$fs.$skey."=";
-			$svalue=$svalue==''?$value:$svalue."','".$value;$fs=$fs.$svalue.",";
-			
+			$skey=$skey==''?$key:$skey.','.$key;
+			$svalue=$svalue==''?$value:$svalue."','".$value;
 		}
 	}
 	$svalue="'".$svalue."'";
 
-	$mysql="select sum(Credit) as credit,sum(count) as mcount from web_agents where world='$agname'";
+	$mysql="select winloss,winloss_parents from web_corprator where agname='$corprator'";
+	$result1 = mysql_query($mysql);
+	$row1 = mysql_fetch_array($result1);
+	$winloss_c	=$row1['winloss']-$winloss_a-$winloss_s;
+
+	$kk=$winloss_s+$winloss_a;
+	if($kk>$winloss_ac || $kk<$winloss_as){
+		echo wterror("Tổng số đại lý và đại lý".($winloss_as*0.01)."~".($winloss_ac*0.01)."Ở giữa, vui lòng quay lại và nhập lại");
+		exit;
+	}
+
+	$mysql="select sum(Credit) as credit,sum(count) as mcount from web_agents where world='$agents_id'";
+
 	$result = mysql_query($mysql);
 	$row = mysql_fetch_array($result);
+
 	if ($row['credit']+$maxcredit>$credit){
-		echo wterror("目前代理商 最大信用额度为$maxcredit<br>目前总代理商 最大信用额度为$credit<br>,所属代理商累计信用额度为".mynumberformat($row[credit],0)."<br>已超过总代理商信用额度，请回上一面重新输入");
+		echo wterror("Hạn mức tín dụng tối đa của đại lý hiện tại là$maxcredit<br>Hiện tại, giới hạn tín dụng tối đa của tổng đại lý là$credit<br>,Giới hạn tín dụng tích lũy của đại lý là".number_format($row[credit],0)."<br>Tổng hạn mức tín dụng đại lý đã bị vượt quá. Vui lòng quay lại và nhập lại");
 		exit();
 	}
 
-	$mysql="select * from web_agents where Agname='$memname'";
-	$result = mysql_query($mysql);
-	$count=mysql_num_rows($result);
 
-	if ($count>0){
-		echo wterror("您输入的帐号 $memname 已经有人使用了，请回上一页重新输入");
-		exit;
-	}else{
-	$mysql="insert into web_agents(count,Agname,Passwd,Credit,Alias,AddDate,Wager,Winloss_c,Winloss_S,Winloss_A,world,corprator,super,$skey) values ('$maxcount','$memname','$mempasd','$maxcredit','$alias','$AddDate','$wager','$winloss_c','$winloss_s','$winloss_a','$agname','$corprator','$super',$svalue)";
-		mysql_query($mysql) or die ("操作失败!");
-		$mysql="insert into  agents_log (M_DateTime,M_czz,M_xm,M_user,M_jc,Status) values('".date("Y-m-d H:i:s")."','$agname','新增','$memname','代理',4)";
-		mysql_query($mysql) or die ("操作失败!");
-		//$mysql="update web_world set agCount=agCount+1 where agname='".$agname."'";
-		//mysql_query($mysql) or die ("操作失败!");
-		echo "<script languag='JavaScript'>self.location='./su_agents.php?uid=$uid'</script>";
-	}
+	$mysql="insert into web_agents(count,Agname,Passwd,Credit,Alias,AddDate,Wager,Winloss_S,Winloss_A,Winloss_c,world,corprator,super,$skey) values ('$maxmember','$memname','$mempasd','$maxcredit','$alias','$AddDate','$wager','$winloss_s','$winloss_a','$winloss_c','$agents_id','$agname','$super',$svalue)";
+	mysql_query($mysql) or die ("Thao tác thất bại!");
+	$mysql="update web_world set agCount=agCount+1 where agname='".$agents_id."'";
+	mysql_query($mysql) or die ("Thao tác thất bại!");
+	$mysql="insert into  agents_log (M_DateTime,M_czz,M_xm,M_user,M_jc,Status) values('".date("Y-m-d H:i:s")."','$agname','Thêm','$memname',' Đại lý',3)";
+	mysql_query($mysql) or die ("Thao tác thất bại!");
+	echo "<script languag='JavaScript'>self.location='./su_agents.php?uid=$uid'</script>";
 }else{
 ?>
 <html>
@@ -116,31 +152,51 @@ function LoadBody(){
 document.all.num_1.selectedIndex=document.all.num_1[0];
 document.all.num_2.selectedIndex=document.all.num_2[0];
 document.all.num_3.selectedIndex=document.all.num_3[0];
+document.all.agents_id.value='<?=$world?>';
 }
+
+
 function SubChk()
 {
+//if(document.all.myForm1.super_agents_id.value=='')
+//{ document.all.myForm1.super_agents_id.focus(); alert("请选择总代理!!"); return false; }
 if(document.all.num_1.value=='')
-{ document.all.num_1.focus(); alert("帐号请务必输入!!"); return false; }
+{ document.all.num_1.focus(); alert("Vui lòng nhập số tài khoản của bạn!!"); return false; }
 if(document.all.num_2.value=='')
-{ document.all.num_2.focus(); alert("帐号请务必输入!!"); return false; }
+{ document.all.num_2.focus(); alert("Vui lòng nhập số tài khoản của bạn!!"); return false; }
 if(document.all.num_3.value=='')
-{ document.all.num_3.focus(); alert("帐号请务必输入!!"); return false; }
+{ document.all.num_3.focus(); alert("Vui lòng nhập số tài khoản của bạn!!"); return false; }
  if(document.all.password.value=='')
- { document.all.password.focus(); alert("密码请务必输入!!"); return false; }
+ { document.all.password.focus(); alert("Vui lòng nhập mật khẩu của bạn!!"); return false; }
   if(document.all.repassword.value=='')
- { document.all.repassword.focus(); alert("确认密码请务必输入!!"); return false; }
+ { document.all.repassword.focus(); alert("Vui lòng xác nhận mật khẩu và nhập mật khẩu.!!"); return false; }
  if(document.all.password.value != document.all.repassword.value)
- { document.all.password.focus(); alert("密码确认错误,请重新输入!!"); return false; }
+ { document.all.password.focus(); alert("Lỗi xác nhận mật khẩu, vui lòng nhập lại!!"); return false; }
  if(document.all.alias.value=='')
- { document.all.alias.focus(); alert("代理商名称请务必输入!!"); return false; }
+ { document.all.alias.focus(); alert("Vui lòng nhập tên của đại lý.!!"); return false; }
   if(document.all.maxcredit.value=='' || document.all.maxcredit.value=='0')
- { document.all.maxcredit.focus(); alert("总信用额度请务必输入!!"); return false; }
+ { document.all.maxcredit.focus(); alert("Vui lòng nhập tổng hạn mức tín dụng!!"); return false; }
 
- if(!confirm("是否确定写入代理商?"))
+  if(document.all.winloss_s.value=='')
+ { document.all.winloss_s.focus(); alert("Vui lòng chọn tổng số đại lý!!"); return false; }
+  if(document.all.winloss_a.value=='' )
+ { document.all.winloss_a.focus(); alert("Vui lòng chọn số lượng đại lý!!"); return false; }
+ var winloss_a,winloss_s;
+ winloss_s=eval(document.all.winloss_s.value);
+ winloss_a=eval(document.all.winloss_a.value);
+ if ((winloss_s+winloss_a) > <?=200-$winloss?>) //表示总代理及代理商相加不得大于八成,小于五成 .
+ {
+
+ alert("Tổng số lượng nhà phân phối và đại lý phải nhỏ hơn<?=$winloss/10?>Tổng số lượng nhà phân phối và đại lý phải nhỏ hơn... !! ");
+ document.all.winloss_s.focus();
+ return false;
+ }
+
+ if(!confirm("Bạn có chắc chắn để viết các đại lý??"))
  {
   return false;
  }
- document.all.username.value = document.all.ag_count.innerHTML;
+ //document.all.username.value = document.all.ag_count.innerHTML;
 }
 
 function roundBy(num,num2) {
@@ -148,45 +204,110 @@ function roundBy(num,num2) {
 }
 function show_count(w,s) {
 	//alert(w+' - '+s);
-	var org_str=document.all.ag_count.innerHTML
+	var org_str=document.all.username.value;//org_str.substr(1,5)
 	if (s!=''){
 		switch(w){
-			//case 0:document.all.ag_count.innerHTML = s+org_str.substr(1,4);break;
-			case 1:document.all.ag_count.innerHTML = org_str.substr(0,3)+s+org_str.substr(4,5);break;
-			case 2:document.all.ag_count.innerHTML = org_str.substr(0,4)+s+org_str.substr(5,6);break;
-			case 3:document.all.ag_count.innerHTML = org_str.substr(0,5)+s+org_str.substr(6,7);break;
+			case 0:	document.all.username.value = s.substr(0,3);break;
+			case 1:document.all.username.value = org_str.substr(0,3)+s+org_str.substr(4,3);break;
+			case 2:document.all.username.value = org_str.substr(0,4)+s+org_str.substr(5,2);break;
+			case 3:document.all.username.value = org_str.substr(0,5)+s+org_str.substr(6,1);break;
+			case 4:document.all.username.value= org_str.substr(0,6)+s;break;
 		}
 	}
 }
 </SCRIPT>
 </head>
+<link rel="stylesheet" href="/style/control/control_main.css" type="text/css">
+<link rel="stylesheet" href="/style/control/account_management.css" type="text/css">
+<link rel="stylesheet" href="/style/control/edit_agents2.css" type="text/css">
+<link rel="stylesheet" href="/bootstrap/css/bootstrap.css" type="text/css">
+<link rel="stylesheet" href="/bootstrap/css/bootstrap-theme.css" type="text/css">
+<link rel="stylesheet" href="/style/control/announcement/a1.css" type="text/css">
+<link rel="stylesheet" href="/style/control/announcement/a2.css" type="text/css">
+<script src="/js/jquery-1.10.2.js" type="text/javascript"></script>
+<script src="/js/ClassSelect_ag.js" type="text/javascript"></script>
+<script>
+    var uid='<?=$uid?>';
+    var level='<?=$level?>';
+    function ch_level(i)
+    {
+        if(i === 2) {
+            self.location = '/app/control/world/su_list.php?uid='+uid+'&level='+i;;
+        } else if(i === 3) {
+            self.location = '/app/control/world/agents/su_agents.php?uid='+uid+'&level='+i;
+        } else if(i === 4) {
+            self.location = '/app/control/world/members/su_members.php?uid='+uid+'&level='+i;
+        } else if(i === 6) {
+            self.location = '/app/control/world/wager_list/wager_add.php?uid='+uid+'&level='+i;
+        } else if(i === 5) {
+            self.location = '/app/control/world/su_subuser.php?uid=='+uid+'&level='+i;
+        }else {
+            self.location = '/app/control/world/wager_list/wager_hide.php?uid='+uid+'&level='+i;
+        }
 
+    }
+</script>
+
+<link rel="stylesheet" href="../css/loader.css" type="text/css">
+<script type="text/javascript">
+    // 等待所有加载
+    $(window).load(function(){
+        $('body').addClass('loaded');
+        $('#loader-wrapper .load_title').remove();
+    });
+</script>
 <body oncontextmenu="window.event.returnValue=false" bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" vlink="#0000FF" alink="#0000FF" onLoad="LoadBody();">
- <FORM NAME="myFORM" ACTION="" METHOD=POST onsubmit="return SubChk()">
- <FORM NAME="myFORM" ACTION="" METHOD=POST onSubmit="return SubChk()">
- <INPUT TYPE=HIDDEN NAME="sid" VALUE="<?=$agid?>">
- <input TYPE=HIDDEN NAME="keys" VALUE="add">
- <input TYPE=HIDDEN NAME="username" VALUE="">
+<div id="loader-wrapper">
+    <div id="loader"></div>
+    <div class="loader-section section-left"></div>
+    <div class="loader-section section-right"></div>
+    <div class="load_title">Đang tải...</div>
+</div>
+<div id="top_nav_container" name="fixHead" class="top_nav_container_ann" style="position: relative;">
+    <div id="important_btn" class="<? if ($level == 2) {echo 'nav_btn_on';} else {echo 'nav_btn';}?>" onclick="ch_level(2);">Đại lý tổng hợp</div>
+    <div id="general_btn1" class="<? if ($level == 3) {echo 'nav_btn_on';} else {echo 'nav_btn';}?>" onclick="ch_level(3);">Đại lý</div>
+    <div id="important_btn1" class="<? if ($level == 4) {echo 'nav_btn_on';} else {echo 'nav_btn';}?>" onclick="ch_level(4);">Thành viên</div>
+    <div id="general_btn2" class="<? if ($level == 5) {echo 'nav_btn_on';} else {echo 'nav_btn';}?>" onclick="ch_level(5);">Tài khoản phụ</div>
+    <? if($d1set['d1_wager_add']==1){ ?>
+        <div id="general_btn3" class="<? if ($level == 6) {echo 'nav_btn_on';} else {echo 'nav_btn';}?>" onclick="ch_level(6);">Thêm tài khoản</div>
+    <? } ?>
+    <? if($d1set['d1_wager_hide']==1){ ?>
+        <div id="general_btn4" class="<? if ($level == 7) {echo 'nav_btn_on';} else {echo 'nav_btn';}?>" onclick="ch_level(7);">Tài khoản ẩn</div>
+    <? } ?>
+</div>
+<FORM NAME="myFORM1" ACTION="" METHOD=POST onSubmit="return SubChk()" style="padding-left:20px;padding-top:10px;">
  <input TYPE=HIDDEN NAME="uid" VALUE="<?=$uid?>">
- <input type="hidden" name="winloss_c" value="10">
-
  <input type="hidden" name="checkpay" value="Y">
-  <table width="780" border="0" cellspacing="0" cellpadding="0">
-<tr>
-<td class="m_tline">&nbsp;&nbsp;代理商新增
-</td><td width="30"><img src="/images/control/zh-tw/top_04.gif" width="30" height="24"></td>
+<table width="780" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+	<td class="">&nbsp;&nbsp;<?=$mem_agents?><?=$mem_add?>&nbsp;&nbsp;<select name="agents_id" class="za_select" onChange="document.myFORM1.submit();">
+          <option value=""></option>
+                    	<?
+			$mysql="select ID,Agname from web_world where status=1 and corprator='".$agname."'";
+			$ag_result = mysql_query( $mysql);
+			while ($ag_row = mysql_fetch_array($ag_result)){
+				echo "<option value=".$ag_row['Agname'].">".$ag_row['Agname']."</option>";
+			}
+			?>
+        </select>
 </tr>
 <tr>
 <td colspan="2" height="4"></td>
 </tr>
 </table>
+</form>
+ <FORM NAME="myFORM" ACTION="" METHOD=POST onSubmit="return SubChk()">
+ <input TYPE=HIDDEN NAME="keys" VALUE="add">
+ <input TYPE=HIDDEN NAME="world" VALUE="<?=$world?>">
+ <input TYPE=HIDDEN NAME="uid" VALUE="<?=$uid?>">
+
 <table width="780" border="0" cellspacing="1" cellpadding="0" class="m_tab_ed">
   <tr class="m_title_edit">
-    <td colspan="2" >基本资料设定</td>
+    <td colspan="2" >Cài đặt dữ liệu cơ bản</td>
   </tr>
   <tr class="m_bc_ed">
-      <td width="120" class="m_ag_ed"> 帐号:<font id=ag_count><?=substr($agname,0,3)?></font></td>
-      <td>
+      <td width="120" class="m_ag_ed"><?=$sub_user?> </td>
+        <td><input type="hidden" name="username" size=4 maxlength=4 value="<?=substr($world,0,3)?>" class="za_text"><?=substr($world,0,3)?>
 	  <select size="1" name="num_1" style="border-style: solid; border-width: 0" onChange="show_count(1,this.value);" class="za_select_t">
                 <option value=""></option>
 				<option value="0">0</option>
@@ -226,14 +347,14 @@ function show_count(w,s) {
                 <option value="8">8</option>
                 <option value="9">9</option>
               </select>
-      </td>
+
+	  </td>
   </tr>
   <tr class="m_bc_ed">
-    <td class="m_ag_ed">密码:</td>
+    <td class="m_ag_ed"><?=$sub_pass?>:</td>
       <td>
         <input type=PASSWORD name="password" value="" size=12 maxlength=12 class="za_text">
-        密码必须至少6个字元长，最多12个字元长，并只能有数字(0-9)，及英文大小写字母
-      </td>
+          Mật khẩu phải dài ít nhất 6 ký tự, dài tối đa 12 ký tự và chỉ có thể có số (0-9) và chữ hoa và chữ thường tiếng Anh. </td>
   </tr>
   <tr class="m_bc_ed">
     <td class="m_ag_ed"><?=$acc_repasd?>:</td>
@@ -253,7 +374,7 @@ function show_count(w,s) {
       <td colspan="2" ><?=$mem_betset?></td>
     </tr>
     <tr class="m_bc_ed">
-      <td width="120" class="m_ag_ed"><?=$real_wager?>:</td>
+      <td width="120" class="m_ag_ed">Đặt cược tức thì:</td>
       <td>
         <select id="type" name="type" class="za_select">
           <option value="0"><?=$mem_disable?></option>
@@ -261,19 +382,13 @@ function show_count(w,s) {
         </select>
       </td>
     </tr>
- <!--tr class="m_bc_ed">
-      <td class="m_ag_ed">可开会员数:</td>
-      <td>
-        <input type=TEXT name="maxcount" value="" size=10 maxlength=10 class="za_text">
-      </td>
-    </tr-->
     <tr class="m_bc_ed">
       <td class="m_ag_ed"><?=$mem_maxcredit?>:</td>
       <td>
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
 	<tr>
 		<td><input type=TEXT name="maxcredit" value="0" size=10 maxlength=10 class="za_text"></td>
-		<td>使用状况／启用:0　停用:0　暂停:0　可用:0
+		<td>Sử dụng / Kích hoạt: 0 Tắt: 0 Tạm dừng: 0 Sẵn có: 0
 		<?
 	$sql = "select credit_balance from web_super where Agname='$super'";
 	$result = mysql_query($sql);
@@ -284,7 +399,7 @@ function show_count(w,s) {
 		$row = mysql_fetch_array($result);
 		$credit_used = intval($row['credit_used']);
 		$credit_canuse = $credit-$credit_used;
-			echo "<BR><font color=#FF0000> $world </font>的信用馀额提示／总额:$credit 已用:$credit_used  可用:$credit_canuse"; 
+			echo "<BR><font color=#FF0000> $world </font>Sử dụng / Kích hoạt: 0 Tắt: 0 Tạm dừng: 0 Sẵn có: 0...:$credit Đã sử dụng:$credit_used  Có sẵn:$credit_canuse";
 			}
 		?>
 		</td>
@@ -292,11 +407,13 @@ function show_count(w,s) {
 </table>
       </td>
     </tr>
-<?
-
-?>
-
- 	<tr class=m_bc_ed>
+    <!--tr class="m_bc_ed">
+      <td class="m_ag_ed">Số lượng :</td>
+      <td>
+        <input type=TEXT name="maxmember" value="" size=10 maxlength=10 class="za_text">
+      </td>
+    </tr-->
+	<tr class=m_bc_ed>
     <td class=m_ag_ed><?=$wld_percent2?>:</td>
     <td><select class=za_select name=winloss_s>
 	<?
@@ -341,7 +458,6 @@ function show_count(w,s) {
     </tr>
   </table>
 </form>
-<iframe id="getData" src="../../../../ok.html" width=0 height=0></iframe>
 </body>
 </html>
 

@@ -161,7 +161,7 @@ $rep_wtype_uou = 'Kích thước một nửa';
 $rep_wtype_ut = 'thấp hơn đơn và đôi';
 $rep_readme0 = 'Vẫn còn các trường trong giải đấu chưa được nhập';
 $rep_readme1 = 'Kết quả ban đầu đã được nhập';
-$rep_readme2 ​​= 'Không có sự kiện';
+$rep_readme2 = 'Không có sự kiện';
 // report_agent
 $rag_name = 'Đại lý';
 $rag_date = 'Ngày';

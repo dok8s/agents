@@ -103,9 +103,8 @@ if ($act=='Y'){
   <INPUT TYPE=HIDDEN NAME="sid" VALUE="<?=$agents_id?>">
 <table width="780" border="0" cellspacing="0" cellpadding="0">
   <tr>
-    <td class="m_tline">&nbsp;&nbsp;代理商详细设定&nbsp;&nbsp;&nbsp;<?=$sub_user?>:<?=$agents_name?> --
+    <td class="">&nbsp;&nbsp;代理商详细设定&nbsp;&nbsp;&nbsp;<?=$sub_user?>:<?=$agents_name?> --
       <?=$sub_name?>:<?=$alias?> -- <a href="./su_agents.php?uid=<?=$uid?>">回上一页</a></td>
-    <td width="30"><img src="/images/control/zh-tw/top_04.gif" width="30" height="24"></td>
   </tr>
   <tr>
     <td colspan="2" height="4"></td>

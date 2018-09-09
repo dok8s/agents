@@ -70,7 +70,7 @@ while ($row=mysql_fetch_array($result)){
 }
 
 ?>
-<HTML><HEAD><TITLE>嚙踝蕭嚙緙嚙豌數哨蕭</TITLE>
+<HTML><HEAD><TITLE>足球變數值</TITLE>
 <META http-equiv=Content-Type content="text/html; charset=big5">
 <SCRIPT language=JavaScript>
 parent.t_page=<?=$page_count?>;
@@ -88,7 +88,7 @@ parent.show_page();
 }
 ?>
 <!--
-if(self == top) location='/xn/app/control/agents/'
+if(self == top) location='/app/control/agents/'
 parent.uid='<?=$uid?>';
 parent.stype_var = '<?=$rtype?>';
 parent.ltype = <?=$ltype?>;
@@ -187,7 +187,7 @@ case "OU":
 		//}
 
 
-		echo "parent.GameTN[$K] = Array('$row[MID]','$row[M_Date]<br>$row[M_Time]','$league','$row[MB_MID]','$row[TG_MID]','$row[MB_Team]','$row[TG_Team]','$row[ShowType]','$show','$row[M_LetB_en]','$row[M_LetB_en]','$MB_LetB_Rate','$TG_LetB_Rate','$h2c','$c2c','$h2s','$c2s','$row[MB_Dime_en]','$TG_Dime_Rate','$MB_Dime_Rate','$h3c','$c3c','$h3s','$c3s','$row[MB_Win]','$row[TG_Win]','$row[M_Flat]','$h1c','$c1c','$n1c','$h1s','$c1s','$n1s','嚙踝蕭','嚙踝蕭','0.000','0.000','0','0','0','0','0','0');\n";
+		echo "parent.GameTN[$K] = Array('$row[MID]','$row[M_Date]<br>$row[M_Time]','$league','$row[MB_MID]','$row[TG_MID]','$row[MB_Team]','$row[TG_Team]','$row[ShowType]','$show','$row[M_LetB_en]','$row[M_LetB_en]','$MB_LetB_Rate','$TG_LetB_Rate','$h2c','$c2c','$h2s','$c2s','$row[MB_Dime_en]','$TG_Dime_Rate','$MB_Dime_Rate','$h3c','$c3c','$h3s','$c3s','$row[MB_Win]','$row[TG_Win]','$row[M_Flat]','$h1c','$c1c','$n1c','$h1s','$c1s','$n1s','單','雙','0.000','0.000','0','0','0','0','0','0');\n";
 		$K=$K+1;
 	}
 	break;
@@ -551,7 +551,7 @@ case "PL":
 </body>
 </html>
 <?
-$loginfo='嚙踝蕭戙嚙踝蕭嚙踝蕭'.$rtype.'嚙踝蕭:嚙踝蕭奀蛁嚙踝蕭';
+$loginfo='脤戙齬⑩'.$rtype.'濬:撈奀蛁等';
 $ip_addr = $_SERVER['REMOTE_ADDR'];
 $mysql="insert into web_mem_log(username,logtime,context,logip,level) values('$agname',now(),'$loginfo','$ip_addr','2')";
 mysql_query($mysql);

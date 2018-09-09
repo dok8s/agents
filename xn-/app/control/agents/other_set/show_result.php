@@ -122,7 +122,7 @@ function chg_pg(pg)
 <FORM NAME="REFORM">
 <table width="780" border="0" cellspacing="0" cellpadding="0">
   <tr> 
-    <td class="m_tline"> 
+    <td class="">
       <table border="0" cellspacing="0" cellpadding="0" >
         <tr> 
           
@@ -149,8 +149,6 @@ if ($flag==''){
         </tr>
       </table>
     </td>
-    
-    <td width="30"><img src="/images/control/zh-tw/top_04.gif" width="30" height="24"></td>
   </tr>
   <tr> 
     <td colspan="2" height="4"></td>

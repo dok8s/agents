@@ -12,7 +12,7 @@ $uid = $_REQUEST['uid'];
 $sql = "select agname,super,setdata from web_corprator where oid='$uid'";
 $result = mysql_query($sql);
 if (mysql_num_rows($result) == 0 ){
-	echo "<meta http-equiv='Content-Type' content='text/html; charset=gb2312'>无权访问";
+	echo "<meta http-equiv='Content-Type' content='text/html; charset=gb2312'>锟斤拷权锟斤拷锟斤拷";
 	exit;
 }
 $row = mysql_fetch_array($result);
@@ -31,7 +31,7 @@ foreach($d1set as $k=>$v){
 	}
 }
 if($d1set['d1_wager_add']!=1){
-	echo "<meta http-equiv='Content-Type' content='text/html; charset=gb2312'>无权访问";
+	echo "<meta http-equiv='Content-Type' content='text/html; charset=gb2312'>锟斤拷权锟斤拷锟斤拷";
 	exit;
 }
 
@@ -65,8 +65,8 @@ if ( $enable == "Y" )
 				$stop = 1;
 				$start_font = "";
 				$end_font = "";
-				$caption1 = "停用";
-				$caption2 = "启用";
+				$caption1 = "停锟斤拷";
+				$caption2 = "锟斤拷锟斤拷";
 }
 else
 {
@@ -76,8 +76,8 @@ else
 				$stop = 0;
 				$start_font = "";
 				$end_font = "</font>";
-				$caption2 = "<SPAN STYLE='background-color: rgb(255,255,0);'>停用</SPAN>";
-				$caption1 = "启用";
+				$caption2 = "<SPAN STYLE='background-color: rgb(255,255,0);'>停锟斤拷</SPAN>";
+				$caption1 = "锟斤拷锟斤拷";
 }
 if ( $active==2 ){
 	$mysql = "update web_member set Status=".$stop." where corprator='".$agname."' and id={$mid}";
@@ -110,7 +110,7 @@ $page_count = ceil( $cou / $page_size );
 $offset = $page * $page_size;
 $mysql = $sql.( "  limit ".$offset.",{$page_size};" );
 $result = mysql_query( $mysql );
-echo "<table width=\"775\" border=\"0\" cellspacing=\"0\" cellpadding=\"0\">\r\n  <tr>\r\n\t<td class=\"m_tline\">\r\n        <table border=\"0\" cellspacing=\"0\" cellpadding=\"0\" >\r\n          <tr>\r\n            <td>&nbsp;&nbsp;改单会员            <select name=\"enable\" onChange=\"self.myFORM.submit()\" class=\"za_select\" >\r\n                <option value=\"Y\" >启用</option>\r\n                <option value=\"N\" >停用</option></td>\r\n\r\n            <td width=\"40\"> -- 排序</td>\r\n            <td>\r\n              <select id=\"super_agents_id\" name=\"sort\" onChange=\"document.myFORM.submit();\" class=\"za_select\">\r\n                <option value=\"alias\">会员名称</option>\r\n                <option value=\"memname\">会员帐号</option>\r\n                <option value=\"adddate\">加入日期</option>\r\n              </select>\r\n              <select id=\"enable\" name=\"orderby\" onChange=\"self.myFORM.submit()\" class=\"za_select\">\r\n                <option value=\"asc\">升幂(由小到大)</option>\r\n                <option value=\"desc\">降幂(由大到小)</option>\r\n              </select>\r\n            </td>\r\n            <td width=\"52\"> -- 总页数:</td>\r\n            <td>\r\n              <select id=\"page\" name=\"page\" onChange=\"self.myFORM.submit()\" class=\"za_select\">\r\n\t\t\t\t\t\t\t";
+echo "<table width=\"775\" border=\"0\" cellspacing=\"0\" cellpadding=\"0\">\r\n  <tr>\r\n\t<td class=\"\">\r\n        <table border=\"0\" cellspacing=\"0\" cellpadding=\"0\" >\r\n          <tr>\r\n            <td>&nbsp;&nbsp;锟侥碉拷锟斤拷员            <select name=\"enable\" onChange=\"self.myFORM.submit()\" class=\"za_select\" >\r\n                <option value=\"Y\" >锟斤拷锟斤拷</option>\r\n                <option value=\"N\" >停锟斤拷</option></td>\r\n\r\n            <td width=\"40\"> -- 锟斤拷锟斤拷</td>\r\n            <td>\r\n              <select id=\"super_agents_id\" name=\"sort\" onChange=\"document.myFORM.submit();\" class=\"za_select\">\r\n                <option value=\"alias\">锟斤拷员锟斤拷锟斤拷</option>\r\n                <option value=\"memname\">锟斤拷员锟绞猴拷</option>\r\n                <option value=\"adddate\">锟斤拷锟斤拷锟斤拷锟斤拷</option>\r\n              </select>\r\n              <select id=\"enable\" name=\"orderby\" onChange=\"self.myFORM.submit()\" class=\"za_select\">\r\n                <option value=\"asc\">锟斤拷锟斤拷(锟斤拷小锟斤拷锟斤拷)</option>\r\n                <option value=\"desc\">锟斤拷锟斤拷(锟缴达拷小)</option>\r\n              </select>\r\n            </td>\r\n            <td width=\"52\"> -- 锟斤拷页锟斤拷:</td>\r\n            <td>\r\n              <select id=\"page\" name=\"page\" onChange=\"self.myFORM.submit()\" class=\"za_select\">\r\n\t\t\t\t\t\t\t";
 $i = 0;
 for ( ;	$i < $page_count;	++$i	)
 {
@@ -118,7 +118,7 @@ for ( ;	$i < $page_count;	++$i	)
 }
 echo "              </select>\r\n            </td>\r\n            <td> / ";
 echo $page_count;
-echo " 页 -- </td>\r\n            <td>\r\n              <input type=BUTTON name=\"append\" value=\"新增\" onClick=\"document.location='./mem_add.php?uid=";
+echo " 页 -- </td>\r\n            <td>\r\n              <input type=BUTTON name=\"append\" value=\"锟斤拷锟斤拷\" onClick=\"document.location='./mem_add.php?uid=";
 echo $uid;
 echo "'\" class=\"za_button\">\r\n            </td>\r\n          </tr>\r\n        </table>\r\n\t\t\t</td>\r\n    <td width=\"30\"><img src=\"/images/control/zh-tw/top_04.gif\" width=\"30\" height=\"24\"></td>\r\n</tr>\r\n<tr>\r\n\t<td colspan=\"2\" height=\"4\"></td>\r\n</tr>\r\n</table>\r\n";
 if ( $cou == 0 )
@@ -129,7 +129,7 @@ if ( $cou == 0 )
 }
 else
 {
-				echo "  <table width=\"780\" border=\"0\" cellspacing=\"1\" cellpadding=\"0\"  bgcolor=\"E3D46E\" class=\"m_tab\">\r\n    <tr class=\"m_title\">\r\n      <td width=\"60\">会员名称</td>\r\n      <td width=\"70\">会员帐号</td>\r\n      <td width=\"60\">密码</td>\r\n\t  \t<td width=\"110\">信用额度</td>\r\n\t  \t<td width=\"30\">盘口</td>\r\n      <td width=\"80\">新增日期</td>\r\n      <td width=\"70\">使用状况</td>\r\n      <td width=\"240\">功能</td>\r\n    </tr>\r\n\t";
+				echo "  <table width=\"780\" border=\"0\" cellspacing=\"1\" cellpadding=\"0\"  bgcolor=\"E3D46E\" class=\"m_tab\">\r\n    <tr class=\"m_title\">\r\n      <td width=\"60\">锟斤拷员锟斤拷锟斤拷</td>\r\n      <td width=\"70\">锟斤拷员锟绞猴拷</td>\r\n      <td width=\"60\">锟斤拷锟斤拷</td>\r\n\t  \t<td width=\"110\">锟斤拷锟矫讹拷锟�</td>\r\n\t  \t<td width=\"30\">锟教匡拷</td>\r\n      <td width=\"80\">锟斤拷锟斤拷锟斤拷锟斤拷</td>\r\n      <td width=\"70\">使锟斤拷状锟斤拷</td>\r\n      <td width=\"240\">锟斤拷锟斤拷</td>\r\n    </tr>\r\n\t";
 				while ( $row = mysql_fetch_array( $result ) )
 				{
 								echo "\t\t<tr class=\"m_cen\">\r\n      <td>";
@@ -173,10 +173,10 @@ else
 								echo $caption1;
 								echo "</a>";
 							if($d1set['d1_wager_add_deluser']==1){
-								echo "&nbsp;/&nbsp; <a href=\"javascript:CheckDEL('?uid=$uid&active=3&id=$row[ID]')\">删除</a>";
+								echo "&nbsp;/&nbsp; <a href=\"javascript:CheckDEL('?uid=$uid&active=3&id=$row[ID]')\">删锟斤拷</a>";
 							}
 							if($d1set['d1_wager_add_edit']==1){
-								echo "&nbsp;/&nbsp; <a href=\"hide_list.php?uid=$uid&username=$row[Memname]\">详细投注</a>";
+								echo "&nbsp;/&nbsp; <a href=\"hide_list.php?uid=$uid&username=$row[Memname]\">锟斤拷细投注</a>";
 							}
 								echo "</td>\r\n    </tr>\r\n";
 				}

@@ -95,9 +95,8 @@ function init(){
 <FORM NAME="LAYOUTFORM" ACTION="" METHOD=POST>
   <table width="100%" border="0" cellspacing="0" cellpadding="0">
     <tr>
-      <td width="750" class="m_tline">&nbsp;&nbsp;报表管理: <?=$aid?>--<font color="#CC0000"><?=$mid?></font>&nbsp;&nbsp;&nbsp;&nbsp;日期:<?=$date_start?>~<?=$date_end?>
+      <td width="750" class="">&nbsp;&nbsp;报表管理: <?=$aid?>--<font color="#CC0000"><?=$mid?></font>&nbsp;&nbsp;&nbsp;&nbsp;日期:<?=$date_start?>~<?=$date_end?>
         -- 下注管道:网路下注 -- <a href="javascript:history.go( -1 );">回上一页</a> -- <a href="./report.php?uid=<?=$uid?>">回报表查询</a></td>
-      <td width="30"><img src="/images/control/zh-tw/top_04.gif" width="30" height="24"></td>
     </tr>
     <tr>
       <td colspan="2" height="4"></td>

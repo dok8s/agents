@@ -34,7 +34,7 @@ $sql="select date_format(BetTime,'%m%d%H%i%s')+id as ID,date_format(BetTime,'%H:
 $result = mysql_query($sql);
 $cou=mysql_num_rows($result);
 if ($cou==0){
-	$msg=wterror('Î´ËÑÑ°µ½Ö¸¶¨Ïà¹Ø×ÊÁÏ');
+	$msg=wterror('Î´ï¿½ï¿½Ñ°ï¿½ï¿½Ö¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
 	echo $msg;
 }else{
 	$page_size=30;
@@ -54,7 +54,7 @@ if ($cou==0){
 <FORM NAME="LAYOUTFORM" ACTION="" METHOD=POST>
   <table width="780" border="0" cellspacing="0" cellpadding="0">
     <tr>
-      <td class="m_tline">
+      <td class="">
         <table border="0" cellspacing="0" cellpadding="0" >
           <tr>
           <TD>&nbsp;&nbsp;<?=$rag_date?>:<?=date('Y-m-d')?>~<?=date('Y-m-d')?> -- <?=$rag_type?> -- <?=$bet_pages?>:</TD>
@@ -74,7 +74,6 @@ if ($cou==0){
 		 </TBODY>
 		</TABLE>
 	</TD>
-    <TD width=30><IMG height=24 src="/images/control/zh-tw/top_04.gif" width=30></TD></TR>
   <TR>
     <TD colSpan=2 height=4></TD></TR>
   <TR>
@@ -130,7 +129,7 @@ if ($cou==0){
 }
 ?>
 <?
-$loginfo='¹Ú¾ü¼´Ê±×¢µ¥Ã÷Ï¸';
+$loginfo='ï¿½Ú¾ï¿½ï¿½ï¿½Ê±×¢ï¿½ï¿½ï¿½ï¿½Ï¸';
 $ip_addr = $_SERVER['REMOTE_ADDR'];
 $mysql="insert into web_mem_log(username,logtime,context,logip,level) values('$agname',now(),'$loginfo','$ip_addr','3')";
 mysql_query($mysql);

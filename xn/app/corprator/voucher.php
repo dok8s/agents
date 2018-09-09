@@ -83,7 +83,7 @@ $wager_sec=$row4['wager_sec']*1000;
 	}
 	function reload()
 {
-    var url = '/xn/app/member/include/showrecord.php';
+    var url = '/app/member/include/showrecord.php';
     var pars = 'uid=<?=$uid?>';
     var myAjax = new Ajax.Request(
     url,{
@@ -112,21 +112,21 @@ function show3RecordResponse(originalRequest){
   <tr>
   <td width="3">&nbsp;
           </td>
-    <td class="m_tline">下注流水 --
-	  <input name=button type=button class="za_button" onClick="refresh()" value="更新"></td>
-    <td class="m_tline"> 排序：            <select name="sort" onChange="document.myFORM.submit();" class="za_select">
-            <option value="bettime">投注时间</option>
-            <option value="betscore">投注金额</option>
-            <option value="m_name">会员名称</option>
-            <option value="bettype">投注种类</option>
+    <td class="">Cá cược nước --
+	  <input name=button type=button class="za_button" onClick="refresh()" value="Cập nhật"></td>
+    <td class=""> Sắp xếp：            <select name="sort" onChange="document.myFORM.submit();" class="za_select">
+            <option value="bettime">Thời gian đặt cược</option>
+            <option value="betscore">Số tiền đặt cược</option>
+            <option value="m_name">Tên thành viên</option>
+            <option value="bettype">Loại cược</option>
 
           </select>
               <select name="orderby" onChange="self.myFORM.submit()" class="za_select">
-            <option value="asc">升序(由小到大)</option>
-            <option value="desc">降序(由大到小)</option>
+            <option value="asc">Tăng dần(Từ nhỏ đến lớn)</option>
+            <option value="desc">Giảm dần(Lớn đến nhỏ)</option>
           </select>
 </td>
-        <td class="m_tline" align="right">显示第<?=($page)*20?>-<?=($page+1)*20?>条记录，共 <?=$cou?> 条记录　到第 <select name='page' onChange="self.myFORM.submit()">
+        <td class="m_tline" align="right">Hiển thị<?=($page)*20?>-<?=($page+1)*20?>Ghi lại,Ghi lạiTổng số <?=$cou?> Ghi lại　Đến đầu tiên <select name='page' onChange="self.myFORM.submit()">
 <?
 		if ($page_count==0){$page_count=1;}
 		for($i=0;$i<$page_count;$i++){
@@ -137,8 +137,7 @@ function show3RecordResponse(originalRequest){
 			}
 		}
 		?></select>
-页，共 <?=$page_count?> 页 </td>
-    <td width="33"><img src="/images/control/zh-tw/top_04.gif" width="30" height="24"></td>
+            Trang，Tổng số <?=$page_count?> Trang </td>
   </tr>
   <tr>
     <td colspan="3" height="4"></td>
@@ -147,13 +146,13 @@ function show3RecordResponse(originalRequest){
 <table width="778" border="0" cellspacing="1" cellpadding="0" class="m_tab" bgcolor="#000000">
 
         <tr class="m_title_ft">
-          <td width="61"align="center">投注时间</td>
-          <td width="90" align="center">流水号</td>
-          <td width="90" align="center">用户名称</td>
-          <td width="60" align="center">球赛种类</td>
-          <td width="200" align="center">內容</td>
-          <td width="100" align="center">投注</td>
-<td width="100" align="center">可赢金额</td>
+          <td width="61"align="center">Thời gian đặt cược</td>
+          <td width="90" align="center">Chạy số nước</td>
+          <td width="90" align="center">Tên người dùng</td>
+          <td width="60" align="center">Loại bóng</td>
+          <td width="200" align="center">Nội dung</td>
+          <td width="100" align="center">Cá cược</td>
+<td width="100" align="center">Số tiền trúng thầu</td>
         </tr>
 <?
 while ($row = mysql_fetch_array($result))
@@ -167,13 +166,13 @@ while ($row = mysql_fetch_array($result))
 <?
 switch($row['danger']){
 case 1:
-	echo '<br><font color=#ffffff style=background-color:#ff0000><b>&nbsp;确认中&nbsp;</b></font></font>';
+	echo '<br><font color=#ffffff style=background-color:#ff0000><b>&nbsp;Xác nhận&nbsp;</b></font></font>';
 	break;
 case 2:
-	echo '<br><font color=#ffffff style=background-color:#ff0000><b>未确认</b></font></font>';
+	echo '<br><font color=#ffffff style=background-color:#ff0000><b>Chưa được</b></font></font>';
 	break;
 case 3:
-	echo '<br><font color=#ffffff style=background-color:#ff0000><b>&nbsp;确认&nbsp;</b></font></font>';
+	echo '<br><font color=#ffffff style=background-color:#ff0000><b>&nbsp;Xác nhận&nbsp;</b></font></font>';
 	break;
 default:
 	break;
@@ -184,19 +183,19 @@ default:
 </td>
           <td align="right"><?=$row['ShowTop'];?><?=$row['Middle'];?></td>
 <td><?
-$wager_vars_re=array('正常注单',
-										'非正常注单',
-										'进球取消',
-										'红卡取消',
-										'赛事腰斩',
-                    '赛事延期',
-										'赔率错误',
-                    '赛事无pk/加时',
-                    '球员弃权',
-                    '队名错误',
-										'确认注单',
-										'未确认注单',
-										'取消');
+$wager_vars_re=array('Đặt cược bình',
+										'Ghi chú bất',
+										'Hủy mục tiêu',
+										'Hủy thẻ đỏ',
+										'Đua vòng eo',
+                    'Tiện ích sự kiện',
+										'Lỗi tỷ lệ cược',
+                    'Không có pk / giờ làm thêm',
+                    'Người chơi kiêng',
+                    'Lỗi tên nhóm',
+										'Ghi chú xác nhận',
+										'Đặt cược chưa',
+										'Hủy bỏ');
     	if($row['status']>0){
     		echo '<s>'.mynumberformat($row['BetScore'],1).'</s>';
     	}else{
@@ -221,7 +220,7 @@ $wager_vars_re=array('正常注单',
 </html>
 <?
 }
-$loginfo='流水注单明细';
+$loginfo='Chi tiết danh';
 $ip_addr = $_SERVER['REMOTE_ADDR'];
 $mysql="insert into web_mem_log(username,logtime,context,logip,level) values('$agname',now(),'$loginfo','$ip_addr','1')";
 mysql_query($mysql);

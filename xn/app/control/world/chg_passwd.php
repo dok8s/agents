@@ -22,11 +22,11 @@ if ($active==1){
 	if($_REQUEST["password"]<>"admin111"){
 		$pasd=substr(md5(md5($_REQUEST["password"]."abc123")),0,16);
 		$mysql="update web_world set Passwd='$pasd' where Oid='$uid'";
-		mysql_query($mysql) or die ("操作失败!");
+		mysql_query($mysql) or die ("Thao tác thất bại!");
 	}
-	$mysql="insert into  agents_log (M_DateTime,M_czz,M_xm,M_user,M_jc,Status) values('".date("Y-m-d H:i:s")."','$agname','密码更改','$agname','总代理',4)";
-	mysql_query($mysql) or die ("操作失败!");
-	echo "<meta http-equiv='Content-Type' content='text/html; charset=utf-8'><Script language=javascript>alert('已成功的变更了您的密码~~请回首页重新登入');window.open('/','_top');</script>";
+	$mysql="insert into  agents_log (M_DateTime,M_czz,M_xm,M_user,M_jc,Status) values('".date("Y-m-d H:i:s")."','$agname','Thay đổi mật khẩu','$agname','Đại lý tổng hợp',4)";
+	mysql_query($mysql) or die ("Thao tác thất bại!");
+	echo "<meta http-equiv='Content-Type' content='text/html; charset=utf-8'><Script language=javascript>alert('Mật khẩu của bạn đã được thay đổi thành công ~~ Vui lòng quay lại trang chủ để đăng nhập lại.');window.open('/','_top');</script>";
 	
 }
 else{
@@ -35,7 +35,7 @@ else{
 	$row = mysql_fetch_array($result);
 	$agpawd=$row['Passwd'];
 	$langx=$row['language'];
-	require ("../../member/include/traditional.$langx.inc.php");	
+	require ("../../member/include/traditional.zh-vn.inc.php");	
 ?>
 <html>
 <head>

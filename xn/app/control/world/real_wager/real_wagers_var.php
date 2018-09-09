@@ -124,7 +124,7 @@ parent.show_page();
 }
 ?>
 <!--
-if(self == top) location='/xn/app/control/agents/'
+if(self == top) location='/app/control/agents/'
 parent.uid='<?=$uid?>';
 parent.stype_var = '<?=$rtype?>';
 parent.ltype = <?=$ltype?>;
@@ -142,7 +142,7 @@ $bdate=date('Y-m-d');
 switch ($rtype){
 case "OU":
 	$sql1 = "select mid,concat(M_Date,'<br>',M_Time,if(m_type=0,'','<br><font style=background-color=red>走地</font>')) as pdate,$mb_team as MB_Team,$tg_team as TG_Team,m_letb as M_LetB_en,m_league_TW as league,MB_Win,TG_Win,M_Flat,MB_Dime_Rate,TG_Dime_Rate,if(m_dime='','',concat('o',m_dime)) as MB_Dime_en,MB_LetB_Rate,TG_LetB_Rate,MB_MID,TG_MID,ShowType,M_Type,R_Show from foot_match where r_show=1 and `m_Date` ='$mDate' and `m_start` > now( ) ".$sleague."  order by display,mid limit $offset,40";
-	$sql2="select mid as mid2,sum(if(linetype=1 and mtype='H',1,0)) as mhc,sum(if(linetype=1 and mtype='H',betscore,0)) as mhs,sum(if(linetype=1 and mtype='C',1,0)) as mcc,sum(if(linetype=1 and mtype='C',betscore,0)) as mcs,sum(if(linetype=1 and mtype='N',1,0)) as mnc,sum(if(linetype=1 and mtype='N',betscore,0)) as mns,sum(if(linetype=2 and mtype='H',betscore,0)) as rhs,sum(if(linetype=2 and mtype='H',1,0)) as rhc,sum(if(linetype=2 and mtype='C',1,0)) as rcc,sum(if(linetype=2 and mtype='C',betscore,0)) as rcs,sum(if(linetype=3 and mtype='H',betscore,0)) as ouhs,sum(if(linetype=3 and mtype='H',1,0)) as ouhc,sum(if(linetype=3 and mtype='C',1,0)) as oucc,sum(if(linetype=3 and mtype='C',betscore,0)) as oucs from web_db_io where linetype in (1,2,3) and world='$agname' and hidden=0 and m_date='$bdate' group by mid order by id";
+	$sql2="select mid as mid2,sum(if(linetype=1 and mtype='H',1,0)) as mhc,sum(if(linetype=1 and mtype='H',betscore,0)) as mhs,sum(if(linetype=1 and mtype='C',1,0)) as mcc,sum(if(linetype=1 and mtype='C',betscore,0)) as mcs,sum(if(linetype=1 and mtype='N',1,0)) as mnc,sum(if(linetype=1 and mtype='N',betscore,0)) as mns,sum(if(linetype=2 and mtype='H',betscore,0)) as rhs,sum(if(linetype=2 and mtype='H',1,0)) as rhc,sum(if(linetype=2 and mtype='C',1,0)) as rcc,sum(if(linetype=2 and mtype='C',betscore,0)) as rcs,sum(if(linetype=3 and mtype='H',betscore,0)) as ouhs,sum(if(linetype=3 and mtype='H',1,0)) as ouhc,sum(if(linetype=3 and mtype='C',1,0)) as oucc,sum(if(linetype=3 and mtype='C',betscore,0)) as oucs from web_db_io where linetype in (1,2,3) and corprator='$agname' and hidden=0 and m_date='$bdate' group by mid order by id";
 	$sql="select * from (($sql1) as s) left join (($sql2) as o) on (s.mid=o.mid2)";
 	$result = mysql_query( $sql);
 	$cou=mysql_num_rows($result);
@@ -180,7 +180,7 @@ case "OU":
 case "HOU":
 
 	$sql1 = "select mid,concat(M_Date,'<br>',M_Time,if(m_type=0,'','<br><font style=background-color=red>走地</font>')) as pdate,$mb_team as MB_Team,$tg_team as TG_Team,m_letb as M_LetB_en,m_league_TW as league,MB_Win,TG_Win,M_Flat,MB_Dime_Rate,TG_Dime_Rate,if(m_dime='','',concat('o',m_dime)) as MB_Dime_en,MB_LetB_Rate,TG_LetB_Rate,MB_MID,TG_MID,ShowType,M_Type,R_Show from foot_match where r_show=2 and mid%2=0 and `m_Date` ='$mDate' and `m_start` > now( ) ".$sleague."  order by display,mid limit $offset,40";
-	$sql2="select mid as mid2,sum(if(linetype=11 and mtype='H',1,0)) as mhc,sum(if(linetype=11 and mtype='H',betscore,0)) as mhs,sum(if(linetype=11 and mtype='C',1,0)) as mcc,sum(if(linetype=11 and mtype='C',betscore,0)) as mcs,sum(if(linetype=11 and mtype='N',1,0)) as mnc,sum(if(linetype=11 and mtype='N',betscore,0)) as mns,sum(if(linetype=12 and mtype='H',betscore,0)) as rhs,sum(if(linetype=12 and mtype='H',1,0)) as rhc,sum(if(linetype=12 and mtype='C',1,0)) as rcc,sum(if(linetype=12 and mtype='C',betscore,0)) as rcs,sum(if(linetype=13 and mtype='H',betscore,0)) as ouhs,sum(if(linetype=13 and mtype='H',1,0)) as ouhc,sum(if(linetype=13 and mtype='C',1,0)) as oucc,sum(if(linetype=13 and mtype='C',betscore,0)) as oucs from web_db_io where linetype in (11,12,13) and world='$agname'  and hidden=0  and m_date='$bdate' group by mid";
+	$sql2="select mid as mid2,sum(if(linetype=11 and mtype='H',1,0)) as mhc,sum(if(linetype=11 and mtype='H',betscore,0)) as mhs,sum(if(linetype=11 and mtype='C',1,0)) as mcc,sum(if(linetype=11 and mtype='C',betscore,0)) as mcs,sum(if(linetype=11 and mtype='N',1,0)) as mnc,sum(if(linetype=11 and mtype='N',betscore,0)) as mns,sum(if(linetype=12 and mtype='H',betscore,0)) as rhs,sum(if(linetype=12 and mtype='H',1,0)) as rhc,sum(if(linetype=12 and mtype='C',1,0)) as rcc,sum(if(linetype=12 and mtype='C',betscore,0)) as rcs,sum(if(linetype=13 and mtype='H',betscore,0)) as ouhs,sum(if(linetype=13 and mtype='H',1,0)) as ouhc,sum(if(linetype=13 and mtype='C',1,0)) as oucc,sum(if(linetype=13 and mtype='C',betscore,0)) as oucs from web_db_io where linetype in (11,12,13) and corprator='$agname'  and hidden=0  and m_date='$bdate' group by mid";
 	$sql="select * from (($sql1) as s) left join (($sql2) as o) on (s.mid=o.mid2)";
 	$result = mysql_query( $sql);
 
@@ -218,14 +218,13 @@ case "HOU":
 case "RE":
 
 	$sql1 = "select mid,fopen,M_Date,if(m_time='H/T','<font style=background-color=red>中场</font>',M_Time) as M_Time,$mb_team as MB_Team,$tg_team as TG_Team,M_RE_LetB,$m_league as M_League,mb_re_dime_rate as MB_Dime_Rate,tg_re_dime_rate as TG_Dime_Rate,if(m_re_dime='','',concat('o',m_re_dime)) as MB_Dime_en,mb_re_letb_rate as MB_LetB_Rate,tg_re_letb_rate as TG_LetB_Rate,MB_MID,TG_MID,ShowType,mb_ball as balla,tg_ball as ballb  from foot_match where  date_add(uptime,interval 30 second)>now() and Re_Show=1 ".$league."  and mb_team<>'' and mb_team_tw<>'' and mb_team_en<>'' and cancel<>1 and m_start<now()  order by m_start,mid";
-	$sql2	=	"select mid as mid2,sum(if(linetype=9 and mtype='H',betscore,0)) as rhs,sum(if(linetype=9 and mtype='H',1,0)) as rhc,sum(if(linetype=9 and mtype='C',1,0)) as rcc,sum(if(linetype=9 and mtype='C',betscore,0)) as rcs,sum(if(linetype=10 and mtype='H',betscore,0)) as ouhs,sum(if(linetype=10 and mtype='H',1,0)) as ouhc,sum(if(linetype=10 and mtype='C',1,0)) as oucc,sum(if(linetype=10 and mtype='C',betscore,0)) as oucs from web_db_io where linetype in (9,10) and world='$agname'  and hidden=0  and m_date='$bdate' group by mid";
-	$sql3	=	"select mid as mid3,sum(if(linetype=19 and mtype='H',betscore,0)) as rhs2,sum(if(linetype=19 and mtype='H',1,0)) as rhc2,sum(if(linetype=19 and mtype='C',1,0)) as rcc2,sum(if(linetype=19 and mtype='C',betscore,0)) as rcs2,sum(if(linetype=30 and mtype='H',betscore,0)) as ouhs2,sum(if(linetype=30 and mtype='H',1,0)) as ouhc2,sum(if(linetype=30 and mtype='C',1,0)) as oucc2,sum(if(linetype=30 and mtype='C',betscore,0)) as oucs2 from web_db_io where linetype in (19,30) and world='$agname'  and hidden=0  and m_date='$bdate'  group by mid";
+	$sql2	=	"select mid as mid2,sum(if(linetype=9 and mtype='H',betscore,0)) as rhs,sum(if(linetype=9 and mtype='H',1,0)) as rhc,sum(if(linetype=9 and mtype='C',1,0)) as rcc,sum(if(linetype=9 and mtype='C',betscore,0)) as rcs,sum(if(linetype=10 and mtype='H',betscore,0)) as ouhs,sum(if(linetype=10 and mtype='H',1,0)) as ouhc,sum(if(linetype=10 and mtype='C',1,0)) as oucc,sum(if(linetype=10 and mtype='C',betscore,0)) as oucs from web_db_io where linetype in (9,10) and corprator='$agname'  and hidden=0  and m_date='$bdate' group by mid";
+	$sql3	=	"select mid as mid3,sum(if(linetype=19 and mtype='H',betscore,0)) as rhs2,sum(if(linetype=19 and mtype='H',1,0)) as rhc2,sum(if(linetype=19 and mtype='C',1,0)) as rcc2,sum(if(linetype=19 and mtype='C',betscore,0)) as rcs2,sum(if(linetype=30 and mtype='H',betscore,0)) as ouhs2,sum(if(linetype=30 and mtype='H',1,0)) as ouhc2,sum(if(linetype=30 and mtype='C',1,0)) as oucc2,sum(if(linetype=30 and mtype='C',betscore,0)) as oucs2 from web_db_io where linetype in (19,30) and corprator='$agname'  and hidden=0  and m_date='$bdate'  group by mid";
 	$sql4 = "select mid as mid4,M_RE_LetB as M_RE_LetB2,mb_re_dime_rate as MB_Dime_Rate2,tg_re_dime_rate as TG_Dime_Rate2,if(m_re_dime='','',concat('o',m_re_dime)) as MB_Dime_en2,mb_re_letb_rate as MB_LetB_Rate2,tg_re_letb_rate as TG_LetB_Rate2,showtype as ShowType2 from foot_match where mid%2=0 and RE_Show=1 order by m_start,mid";
 	$sql	=	"select * from (($sql1) as s) left join (($sql2) as o) on (s.mid=o.mid2) left join (($sql3) as hr) on (s.mid=hr.mid3-1) left join (($sql4) as re) on (s.mid=re.mid4-1)";
 	$result = mysql_query( $sql);
 	$cou=mysql_num_rows($result);
 	echo "parent.gamount=$cou;\n";
-
 
 	while ($row=mysql_fetch_array($result)){
 		$MB_Dime_Rate=$row["MB_Dime_Rate"];
@@ -271,7 +270,7 @@ case "RE":
 	break;
 case "PD":
 	$sql1 = "select mid,M_Date,M_Time,$mb_team as MB_Team,$tg_team as TG_Team,m_league_TW as league,ShowType,if(PD_Show=1,'Y','N') as pd_show from foot_match where pd_show=1 and mid%2=1 and `m_start` > now( ) AND `m_Date` ='$mDate' ".$sleague." order by m_start,mid limit $offset,40";
-	$sql2	=	"select mid as mid2,count(*) as cou,sum(BetScore) as score FROM `web_db_io` where linetype=4 and world='$agname' and hidden=0  and m_date='$bdate' group by mid order by id";
+	$sql2	=	"select mid as mid2,count(*) as cou,sum(BetScore) as score FROM `web_db_io` where linetype=4 and corprator='$agname' and hidden=0  and m_date='$bdate' group by mid order by id";
 	$sql="select * from (($sql1) as s) left join (($sql2) as o) on (s.mid=o.mid2)";
 
 	$result = mysql_query( $sql);
@@ -289,7 +288,7 @@ case "PD":
 	break;
 case "HPD":
 	$sql1 = "select mid,M_Date,M_Time,$mb_team as MB_Team,$tg_team as TG_Team,m_league_TW as league,ShowType,if(PD_Show=2,'Y','N') as pd_show from foot_match where pd_show=2 and mid%2=0 and `m_start` > now( ) AND `m_Date` ='$mDate' ".$sleague." order by m_start,mid limit $offset,40";
-	$sql2	=	"select mid as mid2,count(*) as cou,sum(BetScore) as score FROM `web_db_io` where linetype=34 and world='$agname' and hidden=0 and m_date='$bdate'  group by mid order by id";
+	$sql2	=	"select mid as mid2,count(*) as cou,sum(BetScore) as score FROM `web_db_io` where linetype=34 and corprator='$agname' and hidden=0 and m_date='$bdate'  group by mid order by id";
 	$sql="select * from (($sql1) as s) left join (($sql2) as o) on (s.mid=o.mid2)";
 
 	$result = mysql_query( $sql);
@@ -307,7 +306,7 @@ case "HPD":
 	break;
 case "EO":
 	$sql1 = "select if(t_show=1,'Y','N') as t_show,mid,M_Date,M_Time,$mb_team as MB_Team,$tg_team as TG_Team,m_league_tw as M_Sleague,S_Single,S_Double,S_0_1,S_2_3,S_4_6,S_7UP,MB_MID,TG_MID,ShowType from foot_match where`m_start` > now( ) AND `m_Date` ='$mDate' and t_show=1 ".$sleague." order by m_start,mid limit $offset,40";
-	$sql2	=	"select mid as mid2,sum(if(mtype='ODD',1,0)) as oc,sum(if(mtype='ODD',betscore,0)) as os,	sum(if(mtype='EVEN',1,0)) as ec,sum(if(mtype='EVEN',betscore,0)) as es,sum(if(mtype='0~1',1,0)) as 1c,sum(if(mtype='0~1',betscore,0)) as 1s,	sum(if(mtype='2~3',1,0)) as 2c,sum(if(mtype='2~3',betscore,0)) as 2s,sum(if(mtype='4~6',1,0)) as 4c,sum(if(mtype='4~5',betscore,0)) as 4s,	sum(if(mtype='OVER',1,0)) as 7c,sum(if(mtype='OVER',betscore,0)) as 7s	from web_db_io where linetype in (5,6) and world='$agname'  and hidden=0 and m_date='$bdate'  group by mid";
+	$sql2	=	"select mid as mid2,sum(if(mtype='ODD',1,0)) as oc,sum(if(mtype='ODD',betscore,0)) as os,	sum(if(mtype='EVEN',1,0)) as ec,sum(if(mtype='EVEN',betscore,0)) as es,sum(if(mtype='0~1',1,0)) as 1c,sum(if(mtype='0~1',betscore,0)) as 1s,	sum(if(mtype='2~3',1,0)) as 2c,sum(if(mtype='2~3',betscore,0)) as 2s,sum(if(mtype='4~6',1,0)) as 4c,sum(if(mtype='4~5',betscore,0)) as 4s,	sum(if(mtype='OVER',1,0)) as 7c,sum(if(mtype='OVER',betscore,0)) as 7s	from web_db_io where linetype in (5,6) and corprator='$agname'  and hidden=0 and m_date='$bdate'  group by mid";
 	$sql	=	"select * from (($sql1) as s) left join (($sql2) as o) on (s.mid=o.mid2)";
 	$result = mysql_query( $sql);
 
@@ -344,7 +343,7 @@ case "EO":
 
 case "F":
 	$sql1 = "select mid,M_Date,M_Time,$mb_team as MB_Team,$tg_team as TG_Team,m_league_tw as league,MBMB,MBFT,MBTG,FTMB,FTFT,FTTG,TGMB,TGFT,TGTG,MB_MID,TG_MID,ShowType,if(f_Show=1,'Y','N') as f_show from foot_match where f_show=1 and `m_start` > now( ) AND `m_Date` ='$mDate' ".$sleague." order by m_start,mid limit $offset,40";
-	$sql2	=	"select mid as mid2,count(*) as cou,sum(BetScore) as score FROM `web_db_io` where linetype=14 and world='$agname' and hidden=0 and m_date='$bdate'  group by mid order by id";
+	$sql2	=	"select mid as mid2,count(*) as cou,sum(BetScore) as score FROM `web_db_io` where linetype=14 and corprator='$agname' and hidden=0 and m_date='$bdate'  group by mid order by id";
 	$sql="select * from (($sql1) as s) left join (($sql2) as o) on (s.mid=o.mid2)";
 
 	$result = mysql_query( $sql);
@@ -370,7 +369,7 @@ case "P":
 	sum(if(mtype='C',1,0)) as mcc,
 	sum(if(mtype='C',betscore,0)) as mcs,
 	sum(if(mtype='N',1,0)) as mnc,
-	sum(if(mtype='N',betscore,0)) as mns from web_db_io where linetype in (7,8) and world='$agname' and hidden=0 and m_date='$bdate' group by mid order by id";
+	sum(if(mtype='N',betscore,0)) as mns from web_db_io where linetype in (7,8) and corprator='$agname' and hidden=0 and m_date='$bdate' group by mid order by id";
 	$sql="select * from (($sql1) as s) left join (($sql2) as o) on (s.mid=o.mid2)";
 	$result = mysql_query( $sql);
 	$cou=mysql_num_rows($result);
@@ -398,7 +397,7 @@ case "P":
 	break;
 case "PL":
 	$sql1 = "select mid,M_Date,lower(substring(DATE_FORMAT(m_start,'%h:%i%p'),1,6)) as M_Time,$mb_team as MB_Team,$tg_team as TG_Team,m_letb,$m_league as M_League,MB_Win,TG_Win,M_Flat,MB_Dime_Rate,TG_Dime_Rate,concat('O',m_dime) as MB_Dime_en,MB_LetB_Rate,TG_LetB_Rate,MB_MID,TG_MID,ShowType,M_Type,R_Show,if(MB_Inball='','N','Y') as shown from foot_match where mid%2=1 and `m_Date` ='$mDate' and m_start<now() order by m_start,mid limit $offset,40";
-	$sql2	=	"select mid as mid2,sum(if(linetype=2 and mtype='H',betscore,0)) as rhs,sum(if(linetype=2 and mtype='H',1,0)) as rhc,sum(if(linetype=2 and mtype='C',1,0)) as rcc,sum(if(linetype=2 and mtype='C',betscore,0)) as rcs,sum(if(linetype=3 and mtype='H',betscore,0)) as ouhs,sum(if(linetype=3 and mtype='H',1,0)) as ouhc,sum(if(linetype=3 and mtype='C',1,0)) as oucc,sum(if(linetype=3 and mtype='C',betscore,0)) as oucs,sum(if(linetype=9 and mtype='H',betscore,0)) as rhs9,sum(if(linetype=9 and mtype='H',1,0)) as rhc9,sum(if(linetype=9 and mtype='C',1,0)) as rcc9,sum(if(linetype=9 and mtype='C',betscore,0)) as rcs9,sum(if(linetype=10 and mtype='H',betscore,0)) as ouhs10,sum(if(linetype=10 and mtype='H',1,0)) as ouhc10,sum(if(linetype=10 and mtype='C',1,0)) as oucc10,sum(if(linetype=10 and mtype='C',betscore,0)) as oucs10 from web_db_io where linetype in (9,10,2,3) and world='$agname' and hidden=0  and m_date='$bdate' group by mid";
+	$sql2	=	"select mid as mid2,sum(if(linetype=2 and mtype='H',betscore,0)) as rhs,sum(if(linetype=2 and mtype='H',1,0)) as rhc,sum(if(linetype=2 and mtype='C',1,0)) as rcc,sum(if(linetype=2 and mtype='C',betscore,0)) as rcs,sum(if(linetype=3 and mtype='H',betscore,0)) as ouhs,sum(if(linetype=3 and mtype='H',1,0)) as ouhc,sum(if(linetype=3 and mtype='C',1,0)) as oucc,sum(if(linetype=3 and mtype='C',betscore,0)) as oucs,sum(if(linetype=9 and mtype='H',betscore,0)) as rhs9,sum(if(linetype=9 and mtype='H',1,0)) as rhc9,sum(if(linetype=9 and mtype='C',1,0)) as rcc9,sum(if(linetype=9 and mtype='C',betscore,0)) as rcs9,sum(if(linetype=10 and mtype='H',betscore,0)) as ouhs10,sum(if(linetype=10 and mtype='H',1,0)) as ouhc10,sum(if(linetype=10 and mtype='C',1,0)) as oucc10,sum(if(linetype=10 and mtype='C',betscore,0)) as oucs10 from web_db_io where linetype in (9,10,2,3) and corprator='$agname' and hidden=0  and m_date='$bdate' group by mid";
 	$sql="select * from (($sql1) as s) left join (($sql2) as o) on (s.mid=o.mid2)";
 
 	$result = mysql_query( $sql);
@@ -458,10 +457,9 @@ case "PL":
 </body>
 </html>
 <?
-$loginfo='足球即时注单';
+$loginfo='足球即时注单明细';
 $ip_addr = $_SERVER['REMOTE_ADDR'];
-$mysql="insert into web_mem_log(username,logtime,context,logip,level) values('$agname',now(),'$loginfo','$ip_addr','2')";
+$mysql="insert into web_mem_log(username,logtime,context,logip,level) values('$agname',now(),'$loginfo','$ip_addr','1')";
 mysql_query($mysql);
-
 mysql_close();
 ?>

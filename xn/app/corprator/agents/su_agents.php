@@ -8,6 +8,14 @@ exit;
 require ("../../member/include/config.inc.php");
 require ("../../member/include/define_function_list.inc.php");
 $uid=$_REQUEST["uid"];
+$langx=$_REQUEST["langx"];
+$sql = "select id,subuser,agname,subname,status,super,setdata from web_corprator where Oid='$uid'";
+$result = mysql_query($sql);
+$row = mysql_fetch_array($result);
+$agname=$row['agname'];
+$super=$row['super'];
+$d1set = @unserialize($row['setdata']);
+$level=$_REQUEST['level']?$_REQUEST['level']:3;
 $sql = "select Agname,ID,language,super from web_corprator where Oid='$uid'";
 $result = mysql_query($sql);
 $cou=mysql_num_rows($result);
@@ -24,7 +32,7 @@ $super=$row['super'];
 $langx=$row['language'];
 $abcd=$row['winloss_c'];
 
-require ("../../member/include/traditional.zh-cn.inc.php");
+require ("../../member/include/traditional.zh-vn.inc.php");
 
 $enable=$_REQUEST["enable"];
 $enabled=$_REQUEST["enabled"];
@@ -58,7 +66,7 @@ case "Y":
 	$end_font="";
 	$caption1=$mem_disable;
 	$caption2=$mem_enable;
-	$xm="启用";
+	$xm="Bật";
 	break;
 case "N":
 	$enable='N';
@@ -70,7 +78,7 @@ case "N":
 	$end_font="</font>";
 	$caption2="<SPAN STYLE='background-color: rgb(255,0,0);'>$mem_disable</SPAN>";
 	$caption1=$mem_enable;
-	$xm="停用";
+	$xm="Tắt";
 	break;
 default:
 	$enable='S';
@@ -79,9 +87,9 @@ default:
 	$stop=2;
 	$start_font="";
 	$end_font="</font>";
-	$caption2="<SPAN STYLE='background-color: rgb(0,255,0);'>暂停</SPAN>";
+	$caption2="<SPAN STYLE='background-color: rgb(0,255,0);'>Tạm ngưng</SPAN>";
 	$caption1=$mem_enable;
-	$xm="暂停";
+	$xm="Tạm ngưng";
 	break;
 }
 
@@ -99,8 +107,8 @@ if ($active==2){
 
 	$mysql="update web_member set oid='',Status=$stop where agents='$agent_name'";
 	mysql_query( $mysql);
-	$mysql="insert into  agents_log (M_DateTime,M_czz,M_xm,M_user,M_jc,Status) values('".date("Y-m-d H:i:s")."','$agname','$xm','$agent_name','代理商',3)";
-	mysql_query($mysql) or die ("操作失败!");
+	$mysql="insert into  agents_log (M_DateTime,M_czz,M_xm,M_user,M_jc,Status) values('".date("Y-m-d H:i:s")."','$agname','$xm','$agent_name','Đại lý',3)";
+	mysql_query($mysql) or die ("Thao tác thất bại!");
 /*
 	if ($agstop==0){
 		$mysql="update web_world set agcount=agcount-1 where agname='$world'";
@@ -155,11 +163,71 @@ $result = mysql_query( $mysql);
 // -->
 </SCRIPT>
 </head>
+<link rel="stylesheet" href="/style/control/control_main.css" type="text/css">
+<link rel="stylesheet" href="/style/control/account_management.css" type="text/css">
+<link rel="stylesheet" href="/style/control/edit_agents2.css" type="text/css">
+<link rel="stylesheet" href="/bootstrap/css/bootstrap.css" type="text/css">
+<link rel="stylesheet" href="/bootstrap/css/bootstrap-theme.css" type="text/css">
+<link rel="stylesheet" href="/style/control/announcement/a1.css" type="text/css">
+<link rel="stylesheet" href="/style/control/announcement/a2.css" type="text/css">
+<script src="/js/jquery-1.10.2.js" type="text/javascript"></script>
+<script src="/js/ClassSelect_ag.js" type="text/javascript"></script>
+<script>
+    var uid='<?=$uid?>';
+    var level='<?=$level?>';
+    function ch_level(i)
+    {
+        if(i === 1) {
+            self.location = '/app/corprator/cor_list.php?uid='+uid+'&level='+i;
+        } else if(i === 2) {
+            self.location = '/app/corprator/super_agent/body_super_agents.php?uid='+uid+'&level='+i;
+        } else if(i === 3) {
+            self.location = '/app/corprator/agents/su_agents.php?uid='+uid+'&level='+i;
+        } else if(i === 4) {
+            self.location = '/app/corprator/members/su_members.php?uid='+uid+'&level='+i;
+        } else if(i === 6) {
+            self.location = '/app/corprator/wager_list/wager_add.php?uid='+uid+'&level='+i;
+        } else if(i === 5) {
+            self.location = '/app/corprator/su_subuser.php?uid=='+uid+'&level='+i;
+        }else {
+            self.location = '/app/corprator/wager_list/wager_hide.php?uid='+uid+'&level='+i;
+        }
+
+    }
+</script>
+
+<link rel="stylesheet" href="../css/loader.css" type="text/css">
+<script type="text/javascript">
+    // 等待所有加载
+    $(window).load(function(){
+        $('body').addClass('loaded');
+        $('#loader-wrapper .load_title').remove();
+    });
+</script>
 <body oncontextmenu="window.event.returnValue=false" bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" vlink="#0000FF" alink="#0000FF" onLoad="onLoad()">
-<form name="myFORM" action="/xn/app/corprator/agents/su_agents.php?uid=<?=$uid?>" method=POST>
+<div id="loader-wrapper">
+    <div id="loader"></div>
+    <div class="loader-section section-left"></div>
+    <div class="loader-section section-right"></div>
+    <div class="load_title">Đang tải...</div>
+</div>
+<div id="top_nav_container" name="fixHead" class="top_nav_container_ann" style="position: relative;">
+    <div id="general_btn" class="<? if ($level == 1) {echo 'nav_btn_on';} else {echo 'nav_btn';}?>" onclick="ch_level(1);">Cổ đông</div>
+    <div id="important_btn" class="<? if ($level == 2) {echo 'nav_btn_on';} else {echo 'nav_btn';}?>" onclick="ch_level(2);">Đại lý tổng hợp</div>
+    <div id="general_btn1" class="<? if ($level == 3) {echo 'nav_btn_on';} else {echo 'nav_btn';}?>" onclick="ch_level(3);">Đại lý</div>
+    <div id="important_btn1" class="<? if ($level == 4) {echo 'nav_btn_on';} else {echo 'nav_btn';}?>" onclick="ch_level(4);">Thành viên</div>
+    <div id="general_btn2" class="<? if ($level == 5) {echo 'nav_btn_on';} else {echo 'nav_btn';}?>" onclick="ch_level(5);">Tài khoản phụ</div>
+    <? if($d1set['d1_wager_add']==1){ ?>
+        <div id="general_btn3" class="<? if ($level == 6) {echo 'nav_btn_on';} else {echo 'nav_btn';}?>" onclick="ch_level(6);">Thêm tài khoản</div>
+    <? } ?>
+    <? if($d1set['d1_wager_hide']==1){ ?>
+        <div id="general_btn4" class="<? if ($level == 7) {echo 'nav_btn_on';} else {echo 'nav_btn';}?>" onclick="ch_level(7);">Tài khoản ẩn</div>
+    <? } ?>
+</div>
+<form name="myFORM" action="/xn/app/corprator/agents/su_agents.php?uid=<?=$uid?>" method=POST style="padding-left:20px;padding-top:10px;">
 <table width="780" border="0" cellspacing="0" cellpadding="0">
   <tr>
-	<td class="m_tline">
+	<td class="">
         <table border="0" cellspacing="0" cellpadding="0" >
           <tr>
             <td width="70">&nbsp;&nbsp;<?=$wld_selagent?></td>
@@ -180,9 +248,9 @@ $result = mysql_query( $mysql);
 				?>
 			</select>
               <select  name="enable" onChange="self.myFORM.submit()" class="za_select">
-                <option value="Y">启用</option>
-                <option value="N">停用</option>
-                <option value="S">暂停</option>
+                <option value="Y">Bật</option>
+                <option value="N">Tắt</option>
+                <option value="S">Tạm ngưng</option>
               </select>
             </td>
             <td> -- <?=$mem_orderby?></td>
@@ -215,7 +283,6 @@ $result = mysql_query( $mysql);
           </tr>
         </table>
 	</td>
-    <td width="30"><img src="/images/control/zh-tw/top_04.gif" width="30" height="24"></td>
 </tr>
 <tr>
 	<td colspan="2" height="4"></td>
@@ -226,7 +293,7 @@ $result = mysql_query( $mysql);
 if ($cou==0){
 ?>
 <table width="780" border="0" cellspacing="1" cellpadding="0"  bgcolor="4B8E6F" class="m_tab">    <tr class="m_title">
-      <td height="30" >目前无任何代理商</td>
+      <td height="30" >Hiện tại không có đại lý</td>
     </tr>
   </table>
 <?
@@ -236,11 +303,11 @@ if ($cou==0){
    <tr class="m_title">
       <td width="80"><?=$rcl_agent?><?=$sub_name?></td>
       <td width="80"><?=$rcl_agent?><?=$sub_user?></td>
-      <td width="80">登录帐号</td>
+      <td width="80">Đăng nhập tài khoản</td>
 	  <td width="110"><?=$rep_pay_type_c?></td>
       <td width="50"><?=$wld_memcount?></td>
       <td width="80"><?=$mem_adddate?></td>
-      <td width="64">帐号状况</td>
+      <td width="64">Thời gian hết hạn</td>
       <td width="220"><?=$mem_option?></td>
     </tr>
 	<?
@@ -266,11 +333,11 @@ if ($cou==0){
 <?
 if($enable=='Y'){
 ?>
-<a href="javascript:CheckSTOP('/xn/app/corprator/agents/su_agents.php?uid=<?=$uid?>&active=2&mid=<?=$row['ID']?>&enable=S','S')">暂停</a> /
+<a href="javascript:CheckSTOP('/xn/app/corprator/agents/su_agents.php?uid=<?=$uid?>&active=2&mid=<?=$row['ID']?>&enable=S','S')">Tạm ngưng</a> /
 <?
 }
 ?>
-        <a href="javascript:CheckSTOP('/xn/app/corprator/agents/su_agents.php?uid=<?=$uid?>&active=2&mid=<?=$row['ID']?>&enable=<?=$memstop?>','<?=$memstop?>')"><?=$caption1?></a>
+        <a href="javascript:CheckSTOP('/app/corprator/agents/su_agents.php?uid=<?=$uid?>&active=2&mid=<?=$row['ID']?>&enable=<?=$memstop?>','<?=$memstop?>')"><?=$caption1?></a>
         / <a href="/xn/app/corprator/agents/su_ag_edit.php?uid=<?=$uid?>&id=<?=$row['ID']?>&agents_id=<?=$memrow['id']?>"><?=$mem_acount?></a>
         / <a href="/xn/app/corprator/agents/su_ag_set.php?uid=<?=$uid?>&id=<?=$row['ID']?>&agents_id=<?=$memrow['id']?>"><?=$mem_setopt?></a></td>
     </tr>
@@ -289,17 +356,17 @@ if($enable=='Y'){
     <td bgcolor="#FFFFFF">
     <table width="220" border="0" cellspacing="0" cellpadding="0" bgcolor="0163A2" class="m_tab_fix">
       <tr bgcolor="0163A2">
-        <td id=acc_title><font color="#FFFFFF">请输入查账日期</font></td>
+        <td id=acc_title><font color="#FFFFFF">Vui lòng nhập ngày kiểm tra</font></td>
     <td align="right" valign="top" ><a style="cursor:hand;" onClick="close_win();"><img src="/images/control/zh-tw/edit_dot.gif" width="16" height="14"></a></td>
       </tr>
        <tr bgcolor="#000000">
           <td colspan="2" height="1"></td>
         </tr>
       <tr>
-        <td colspan="2">日  期:
+        <td colspan="2">Ngày tháng:
           <input type=text name=acc_date value="2005-06-06" class="za_text" size="12" maxlength="10" >
           &nbsp;&nbsp;
-          <input type=submit name=acc_ok value="确定" class="za_button">
+          <input type=submit name=acc_ok value="Xác định" class="za_button">
           &nbsp; </td>
       </tr>
     </table>
@@ -318,17 +385,17 @@ if($enable=='Y'){
     <td bgcolor="#FFFFFF">
       <table width="220" border="0" cellspacing="0" cellpadding="0" class="m_tab_fix" >
         <tr bgcolor="0163A2">
-          <td width="200" id=re_title><font color="#FFFFFF">&nbsp;请输入回复日期</font></td>
+          <td width="200" id=re_title><font color="#FFFFFF">&nbsp;Vui lòng nhập ngày phản hồi</font></td>
           <td align="right" valign="top" ><a style="cursor:hand;" onClick="close_win();"><img src="/images/control/zh-tw/edit_dot.gif" width="16" height="14"></a></td>
         </tr>
         <tr bgcolor="#000000">
           <td colspan="2" height="1"></td>
         </tr>
         <tr>
-          <td colspan="2">日  期：
+          <td colspan="2">Ngày tháng：
           <input type=text name=acc_date value="2005-06-06" class="za_text" size="12" maxlength="10">
           &nbsp;&nbsp;
-          <input type=submit name=acc_ok value="确定" class="za_button"></td>
+          <input type=submit name=acc_ok value="Xác định" class="za_button"></td>
        </tr>
       </table>
     </td>

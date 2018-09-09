@@ -456,9 +456,8 @@ function init(){
 <body oncontextmenu="window.event.returnValue=false" bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" vlink="#0000FF" alink="#0000FF" onLoad="init();">
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
   <tr>
-    <td class="m_tline" width="750">&nbsp;&nbsp;<?=$rag_date?>:<?=$date_start?>~<?=$date_end?>
+    <td class="" width="750">&nbsp;&nbsp;<?=$rag_date?>:<?=$date_start?>~<?=$date_end?>
       -- <?=$rep_kind?>:<?=$rep_kind_a?> -- <?=$rep_pay_type?>:<?=$rep_pay?> -- <?=$rep_wtype?>:<?=$type_caption?> -- <?=$rag_type?> -- <a href="javascript:history.go( -1 );">回上一页</a></td>
-    <td width="30"><img src="/images/control/zh-tw/top_04.gif" width="30" height="24"></td>
   </tr>
   <tr>
     <td colspan="2" height="4"></td>

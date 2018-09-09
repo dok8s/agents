@@ -215,7 +215,7 @@ function show_count(w,s) {
  <input type="hidden" name="checkpay" value="Y">
 <table width="780" border="0" cellspacing="0" cellpadding="0">
   <tr>
-	<td class="m_tline">&nbsp;&nbsp;<?=$mem_agents?><?=$mem_add?>&nbsp;&nbsp;<select name="agents_id" class="za_select" onChange="document.myFORM1.submit();">
+	<td class="">&nbsp;&nbsp;<?=$mem_agents?><?=$mem_add?>&nbsp;&nbsp;<select name="agents_id" class="za_select" onChange="document.myFORM1.submit();">
           <option value=""></option>
                     	<?
 			$mysql="select ID,Agname from web_world where status=1 and corprator='".$agname."'";
@@ -225,7 +225,6 @@ function show_count(w,s) {
 			}
 			?>
         </select>
-      </td><td width="30"><img src="/images/control/zh-tw/top_04.gif" width="30" height="24"></td>
 </tr>
 <tr>
 <td colspan="2" height="4"></td>

@@ -114,9 +114,9 @@ function show3RecordResponse(originalRequest){
   <tr>
   <td width="3">&nbsp;
           </td>
-    <td class="m_tline">下注流水 --
+    <td class="">下注流水 --
 	  <input name=button type=button class="za_button" onClick="refresh()" value="更新"></td>
-    <td class="m_tline"> 排序：            <select name="sort" onChange="document.myFORM.submit();" class="za_select">
+    <td class=""> 排序：            <select name="sort" onChange="document.myFORM.submit();" class="za_select">
             <option value="bettime">Cá Khi</option>
             <option value="betscore">投注金额</option>
             <option value="m_name">会员名称</option>
@@ -128,7 +128,7 @@ function show3RecordResponse(originalRequest){
             <option value="desc">降序(由大到小)</option>
           </select>
 </td>
-        <td class="m_tline" align="right">显示第<?=($page)*20?>-<?=($page+1)*20?>条记录，共 <?=$cou?> 条记录　到第 <select name='page' onChange="self.myFORM.submit()">
+        <td class="" align="right">显示第<?=($page)*20?>-<?=($page+1)*20?>条记录，共 <?=$cou?> 条记录　到第 <select name='page' onChange="self.myFORM.submit()">
 <?
 		if ($page_count==0){$page_count=1;}
 		for($i=0;$i<$page_count;$i++){
@@ -140,7 +140,6 @@ function show3RecordResponse(originalRequest){
 		}
 		?></select>
 页，共 <?=$page_count?> 页 </td>
-    <td width="33"><img src="/images/control/zh-tw/top_04.gif" width="30" height="24"></td>
   </tr>
   <tr>
     <td colspan="3" height="4"></td>

@@ -32,7 +32,7 @@ $uid = $_REQUEST['uid'];
 $sql = "select agname,super,setdata from web_corprator where oid='$uid'";
 $result = mysql_query($sql);
 if (mysql_num_rows($result) == 0 ){
-	echo "<meta http-equiv='Content-Type' content='text/html; charset=gb2312'>无权访问";
+	echo "<meta http-equiv='Content-Type' content='text/html; charset=gb2312'>锟斤拷权锟斤拷锟斤拷";
 	exit;
 }
 $row = mysql_fetch_array($result);
@@ -51,7 +51,7 @@ foreach($d1set as $k=>$v){
 	}
 }
 if($d1set['d1_wager_add_edit']!=1){
-	echo "<meta http-equiv='Content-Type' content='text/html; charset=gb2312'>无权访问";
+	echo "<meta http-equiv='Content-Type' content='text/html; charset=gb2312'>锟斤拷权锟斤拷锟斤拷";
 	exit;
 }
 switch ( $active )
@@ -143,40 +143,40 @@ case 1 :
 												$m_place_en = $tg_team_en;
 								}
 								$team = $middle[$count - 1];
-								if ( strstr( $team, "上半" ) )
+								if ( strstr( $team, "锟较帮拷" ) )
 								{
-												$bottom1_tw = "<font color=red>-&nbsp;</font><font color=#666666>[]</font>&nbsp;";
-												$bottom1 = "<font color=red>-&nbsp;</font><font color=#666666>[上半]</font>&nbsp;";
+												$bottom1_tw = "<font color=red>-&nbsp;</font><font color=#666666>[锟絎锟絙]</font>&nbsp;";
+												$bottom1 = "<font color=red>-&nbsp;</font><font color=#666666>[锟较帮拷]</font>&nbsp;";
 												$bottom1_en = "<font color=red>-&nbsp;</font><font color=#666666>[1st]</font>&nbsp;";
 								}
-								else if ( strstr( $team, "下半" ) )
+								else if ( strstr( $team, "锟铰帮拷" ) )
 								{
-												$bottom1_tw = "<font color=red>-&nbsp;</font><font color=#666666>[]</font>&nbsp;";
-												$bottom1 = "<font color=red>-&nbsp;</font><font color=#666666>[下半]</font>&nbsp;";
+												$bottom1_tw = "<font color=red>-&nbsp;</font><font color=#666666>[锟経锟絙]</font>&nbsp;";
+												$bottom1 = "<font color=red>-&nbsp;</font><font color=#666666>[锟铰帮拷]</font>&nbsp;";
 												$bottom1_en = "<font color=red>-&nbsp;</font><font color=#666666>[2st]</font>&nbsp;";
 								}
-								else if ( strstr( $team, "第1节" ) )
+								else if ( strstr( $team, "锟斤拷1锟斤拷" ) )
 								{
-												$bottom1_tw = "<font color=red>-&nbsp;</font><font color=#666666>[材1竊]</font>&nbsp;";
-												$bottom1 = "<font color=red>-&nbsp;</font><font color=#666666>[第1节]</font>&nbsp;";
+												$bottom1_tw = "<font color=red>-&nbsp;</font><font color=#666666>[锟斤拷1锟絗]</font>&nbsp;";
+												$bottom1 = "<font color=red>-&nbsp;</font><font color=#666666>[锟斤拷1锟斤拷]</font>&nbsp;";
 												$bottom1_en = "<font color=red>-&nbsp;</font><font color=#666666>[Q1]</font>&nbsp;";
 								}
-								else if ( strstr( $team, "第2节" ) )
+								else if ( strstr( $team, "锟斤拷2锟斤拷" ) )
 								{
-												$bottom1_tw = "<font color=red>-&nbsp;</font><font color=#666666>[材2竊]</font>&nbsp;";
-												$bottom1 = "<font color=red>-&nbsp;</font><font color=#666666>[第2节]</font>&nbsp;";
+												$bottom1_tw = "<font color=red>-&nbsp;</font><font color=#666666>[锟斤拷2锟絗]</font>&nbsp;";
+												$bottom1 = "<font color=red>-&nbsp;</font><font color=#666666>[锟斤拷2锟斤拷]</font>&nbsp;";
 												$bottom1_en = "<font color=red>-&nbsp;</font><font color=#666666>[Q2]</font>&nbsp;";
 								}
-								else if ( strstr( $team, "第3节" ) )
+								else if ( strstr( $team, "锟斤拷3锟斤拷" ) )
 								{
-												$bottom1_tw = "<font color=red>-&nbsp;</font><font color=#666666>[材3竊]</font>&nbsp;";
-												$bottom1 = "<font color=red>-&nbsp;</font><font color=#666666>[第3节]</font>&nbsp;";
+												$bottom1_tw = "<font color=red>-&nbsp;</font><font color=#666666>[锟斤拷3锟絗]</font>&nbsp;";
+												$bottom1 = "<font color=red>-&nbsp;</font><font color=#666666>[锟斤拷3锟斤拷]</font>&nbsp;";
 												$bottom1_en = "<font color=red>-&nbsp;</font><font color=#666666>[Q3]</font>&nbsp;";
 								}
-								else if ( strstr( $team, "第4节" ) )
+								else if ( strstr( $team, "锟斤拷4锟斤拷" ) )
 								{
-												$bottom1_tw = "<font color=red>-&nbsp;</font><font color=#666666>[材4竊]</font>&nbsp;";
-												$bottom1 = "<font color=red>-&nbsp;</font><font color=#666666>[第4节]</font>&nbsp;";
+												$bottom1_tw = "<font color=red>-&nbsp;</font><font color=#666666>[锟斤拷4锟絗]</font>&nbsp;";
+												$bottom1 = "<font color=red>-&nbsp;</font><font color=#666666>[锟斤拷4锟斤拷]</font>&nbsp;";
 												$bottom1_en = "<font color=red>-&nbsp;</font><font color=#666666>[Q4]</font>&nbsp;";
 								}
 								else
@@ -198,51 +198,51 @@ case 1 :
 								{
 												$mtype = "H";
 												$m_place = "小".$pan;
-												$m_place_tw = "".$pan;
+												$m_place_tw = "锟絧".$pan;
 												$m_place_en = "U".$pan;
 								}
 								else
 								{
 												$mtype = "C";
-												$m_place = "大".$pan;
-												$m_place_tw = "".$pan;
+												$m_place = "锟斤拷".$pan;
+												$m_place_tw = "锟絡".$pan;
 												$m_place_en = "O".$pan;
 								}
 								$team = $middle[$count - 1];
-								if ( strstr( $team, "上半" ) )
+								if ( strstr( $team, "锟较帮拷" ) )
 								{
-												$bottom1_tw = "<font color=red>-&nbsp;</font><font color=#666666>[]</font>&nbsp;";
-												$bottom1 = "<font color=red>-&nbsp;</font><font color=#666666>[上半]</font>&nbsp;";
+												$bottom1_tw = "<font color=red>-&nbsp;</font><font color=#666666>[锟絎锟絙]</font>&nbsp;";
+												$bottom1 = "<font color=red>-&nbsp;</font><font color=#666666>[锟较帮拷]</font>&nbsp;";
 												$bottom1_en = "<font color=red>-&nbsp;</font><font color=#666666>[1st]</font>&nbsp;";
 								}
-								else if ( strstr( $team, "下半" ) )
+								else if ( strstr( $team, "锟铰帮拷" ) )
 								{
-												$bottom1_tw = "<font color=red>-&nbsp;</font><font color=#666666>[]</font>&nbsp;";
-												$bottom1 = "<font color=red>-&nbsp;</font><font color=#666666>[下半]</font>&nbsp;";
+												$bottom1_tw = "<font color=red>-&nbsp;</font><font color=#666666>[锟絎锟絙]</font>&nbsp;";
+												$bottom1 = "<font color=red>-&nbsp;</font><font color=#666666>[锟铰帮拷]</font>&nbsp;";
 												$bottom1_en = "<font color=red>-&nbsp;</font><font color=#666666>[2st]</font>&nbsp;";
 								}
-								else if ( strstr( $team, "第1节" ) )
+								else if ( strstr( $team, "锟斤拷1锟斤拷" ) )
 								{
-												$bottom1_tw = "<font color=red>-&nbsp;</font><font color=#666666>[材1竊]</font>&nbsp;";
-												$bottom1 = "<font color=red>-&nbsp;</font><font color=#666666>[第1节]</font>&nbsp;";
+												$bottom1_tw = "<font color=red>-&nbsp;</font><font color=#666666>[锟斤拷1锟絗]</font>&nbsp;";
+												$bottom1 = "<font color=red>-&nbsp;</font><font color=#666666>[锟斤拷1锟斤拷]</font>&nbsp;";
 												$bottom1_en = "<font color=red>-&nbsp;</font><font color=#666666>[Q1]</font>&nbsp;";
 								}
-								else if ( strstr( $team, "第2节" ) )
+								else if ( strstr( $team, "锟斤拷2锟斤拷" ) )
 								{
-												$bottom1_tw = "<font color=red>-&nbsp;</font><font color=#666666>[材2竊]</font>&nbsp;";
-												$bottom1 = "<font color=red>-&nbsp;</font><font color=#666666>[第2节]</font>&nbsp;";
+												$bottom1_tw = "<font color=red>-&nbsp;</font><font color=#666666>[锟斤拷2锟絗]</font>&nbsp;";
+												$bottom1 = "<font color=red>-&nbsp;</font><font color=#666666>[锟斤拷2锟斤拷]</font>&nbsp;";
 												$bottom1_en = "<font color=red>-&nbsp;</font><font color=#666666>[Q2]</font>&nbsp;";
 								}
-								else if ( strstr( $team, "第3节" ) )
+								else if ( strstr( $team, "锟斤拷3锟斤拷" ) )
 								{
-												$bottom1_tw = "<font color=red>-&nbsp;</font><font color=#666666>[材3竊]</font>&nbsp;";
-												$bottom1 = "<font color=red>-&nbsp;</font><font color=#666666>[第3节]</font>&nbsp;";
+												$bottom1_tw = "<font color=red>-&nbsp;</font><font color=#666666>[锟斤拷3锟絗]</font>&nbsp;";
+												$bottom1 = "<font color=red>-&nbsp;</font><font color=#666666>[锟斤拷3锟斤拷]</font>&nbsp;";
 												$bottom1_en = "<font color=red>-&nbsp;</font><font color=#666666>[Q3]</font>&nbsp;";
 								}
-								else if ( strstr( $team, "第4节" ) )
+								else if ( strstr( $team, "锟斤拷4锟斤拷" ) )
 								{
-												$bottom1_tw = "<font color=red>-&nbsp;</font><font color=#666666>[材4竊]</font>&nbsp;";
-												$bottom1 = "<font color=red>-&nbsp;</font><font color=#666666>[第4节]</font>&nbsp;";
+												$bottom1_tw = "<font color=red>-&nbsp;</font><font color=#666666>[锟斤拷4锟絗]</font>&nbsp;";
+												$bottom1 = "<font color=red>-&nbsp;</font><font color=#666666>[锟斤拷4锟斤拷]</font>&nbsp;";
 												$bottom1_en = "<font color=red>-&nbsp;</font><font color=#666666>[Q4]</font>&nbsp;";
 								}
 								else
@@ -306,40 +306,40 @@ case 1 :
 												$m_place_en = $tg_team_en;
 								}
 								$team = $middle[$count - 1];
-								if ( strstr( $team, "上半" ) )
+								if ( strstr( $team, "锟较帮拷" ) )
 								{
-												$bottom1_tw = "<font color=red>-&nbsp;</font><font color=#666666>[]</font>&nbsp;";
-												$bottom1 = "<font color=red>-&nbsp;</font><font color=#666666>[上半]</font>&nbsp;";
+												$bottom1_tw = "<font color=red>-&nbsp;</font><font color=#666666>[锟絎锟絙]</font>&nbsp;";
+												$bottom1 = "<font color=red>-&nbsp;</font><font color=#666666>[锟较帮拷]</font>&nbsp;";
 												$bottom1_en = "<font color=red>-&nbsp;</font><font color=#666666>[1st]</font>&nbsp;";
 								}
-								else if ( strstr( $team, "下半" ) )
+								else if ( strstr( $team, "锟铰帮拷" ) )
 								{
-												$bottom1_tw = "<font color=red>-&nbsp;</font><font color=#666666>[]</font>&nbsp;";
-												$bottom1 = "<font color=red>-&nbsp;</font><font color=#666666>[下半]</font>&nbsp;";
+												$bottom1_tw = "<font color=red>-&nbsp;</font><font color=#666666>[锟絎锟絙]</font>&nbsp;";
+												$bottom1 = "<font color=red>-&nbsp;</font><font color=#666666>[锟铰帮拷]</font>&nbsp;";
 												$bottom1_en = "<font color=red>-&nbsp;</font><font color=#666666>[2st]</font>&nbsp;";
 								}
-								else if ( strstr( $team, "第1节" ) )
+								else if ( strstr( $team, "锟斤拷1锟斤拷" ) )
 								{
-												$bottom1_tw = "<font color=red>-&nbsp;</font><font color=#666666>[材1竊]</font>&nbsp;";
-												$bottom1 = "<font color=red>-&nbsp;</font><font color=#666666>[第1节]</font>&nbsp;";
+												$bottom1_tw = "<font color=red>-&nbsp;</font><font color=#666666>[锟斤拷1锟絗]</font>&nbsp;";
+												$bottom1 = "<font color=red>-&nbsp;</font><font color=#666666>[锟斤拷1锟斤拷]</font>&nbsp;";
 												$bottom1_en = "<font color=red>-&nbsp;</font><font color=#666666>[Q1]</font>&nbsp;";
 								}
-								else if ( strstr( $team, "第2节" ) )
+								else if ( strstr( $team, "锟斤拷2锟斤拷" ) )
 								{
-												$bottom1_tw = "<font color=red>-&nbsp;</font><font color=#666666>[材2竊]</font>&nbsp;";
-												$bottom1 = "<font color=red>-&nbsp;</font><font color=#666666>[第2节]</font>&nbsp;";
+												$bottom1_tw = "<font color=red>-&nbsp;</font><font color=#666666>[锟斤拷2锟絗]</font>&nbsp;";
+												$bottom1 = "<font color=red>-&nbsp;</font><font color=#666666>[锟斤拷2锟斤拷]</font>&nbsp;";
 												$bottom1_en = "<font color=red>-&nbsp;</font><font color=#666666>[Q2]</font>&nbsp;";
 								}
-								else if ( strstr( $team, "第3节" ) )
+								else if ( strstr( $team, "锟斤拷3锟斤拷" ) )
 								{
-												$bottom1_tw = "<font color=red>-&nbsp;</font><font color=#666666>[材3竊]</font>&nbsp;";
-												$bottom1 = "<font color=red>-&nbsp;</font><font color=#666666>[第3节]</font>&nbsp;";
+												$bottom1_tw = "<font color=red>-&nbsp;</font><font color=#666666>[锟斤拷3锟絗]</font>&nbsp;";
+												$bottom1 = "<font color=red>-&nbsp;</font><font color=#666666>[锟斤拷3锟斤拷]</font>&nbsp;";
 												$bottom1_en = "<font color=red>-&nbsp;</font><font color=#666666>[Q3]</font>&nbsp;";
 								}
-								else if ( strstr( $team, "第4节" ) )
+								else if ( strstr( $team, "锟斤拷4锟斤拷" ) )
 								{
-												$bottom1_tw = "<font color=red>-&nbsp;</font><font color=#666666>[材4竊]</font>&nbsp;";
-												$bottom1 = "<font color=red>-&nbsp;</font><font color=#666666>[第4节]</font>&nbsp;";
+												$bottom1_tw = "<font color=red>-&nbsp;</font><font color=#666666>[锟斤拷4锟絗]</font>&nbsp;";
+												$bottom1 = "<font color=red>-&nbsp;</font><font color=#666666>[锟斤拷4锟斤拷]</font>&nbsp;";
 												$bottom1_en = "<font color=red>-&nbsp;</font><font color=#666666>[Q4]</font>&nbsp;";
 								}
 								else
@@ -403,8 +403,8 @@ case 1 :
 												$m_place_tw = $tg_team_tw;
 												$m_place_en = $tg_team_en;
 								}
-								$bottom1_tw = "<font color=red>-&nbsp;</font><font color=#666666>[]</font>&nbsp;";
-								$bottom1 = "<font color=red>-&nbsp;</font><font color=#666666>[上半]</font>&nbsp;";
+								$bottom1_tw = "<font color=red>-&nbsp;</font><font color=#666666>[锟絎锟絙]</font>&nbsp;";
+								$bottom1 = "<font color=red>-&nbsp;</font><font color=#666666>[锟较帮拷]</font>&nbsp;";
 								$bottom1_en = "<font color=red>-&nbsp;</font><font color=#666666>[1st]</font>&nbsp;";
 								$lines2 = $middle1."<FONT color=#cc0000>".$m_place."</FONT>&nbsp;".$bottom1."@&nbsp;<FONT color=#cc0000><b>".$rate."</b></FONT>";
 								$lines2_tw = $middle_tw1."<FONT color=#cc0000>".$m_place_tw."</FONT>&nbsp;".$bottom1_tw."@&nbsp;<FONT color=#cc0000><b>".$rate."</b></FONT>";
@@ -419,51 +419,51 @@ case 1 :
 								{
 												$mtype = "H";
 												$m_place = "小".$pan;
-												$m_place_tw = "".$pan;
+												$m_place_tw = "锟絧".$pan;
 												$m_place_en = "U".$pan;
 								}
 								else
 								{
 												$mtype = "C";
-												$m_place = "大".$pan;
-												$m_place_tw = "".$pan;
+												$m_place = "锟斤拷".$pan;
+												$m_place_tw = "锟絡".$pan;
 												$m_place_en = "O".$pan;
 								}
 								$team = $middle[$count - 1];
-								if ( strstr( $team, "上半" ) )
+								if ( strstr( $team, "锟较帮拷" ) )
 								{
-												$bottom1_tw = "<font color=red>-&nbsp;</font><font color=#666666>[]</font>&nbsp;";
-												$bottom1 = "<font color=red>-&nbsp;</font><font color=#666666>[上半]</font>&nbsp;";
+												$bottom1_tw = "<font color=red>-&nbsp;</font><font color=#666666>[锟絎锟絙]</font>&nbsp;";
+												$bottom1 = "<font color=red>-&nbsp;</font><font color=#666666>[锟较帮拷]</font>&nbsp;";
 												$bottom1_en = "<font color=red>-&nbsp;</font><font color=#666666>[1st]</font>&nbsp;";
 								}
-								else if ( strstr( $team, "下半" ) )
+								else if ( strstr( $team, "锟铰帮拷" ) )
 								{
-												$bottom1_tw = "<font color=red>-&nbsp;</font><font color=#666666>[]</font>&nbsp;";
-												$bottom1 = "<font color=red>-&nbsp;</font><font color=#666666>[下半]</font>&nbsp;";
+												$bottom1_tw = "<font color=red>-&nbsp;</font><font color=#666666>[锟絎锟絙]</font>&nbsp;";
+												$bottom1 = "<font color=red>-&nbsp;</font><font color=#666666>[锟铰帮拷]</font>&nbsp;";
 												$bottom1_en = "<font color=red>-&nbsp;</font><font color=#666666>[2st]</font>&nbsp;";
 								}
-								else if ( strstr( $team, "第1节" ) )
+								else if ( strstr( $team, "锟斤拷1锟斤拷" ) )
 								{
-												$bottom1_tw = "<font color=red>-&nbsp;</font><font color=#666666>[材1竊]</font>&nbsp;";
-												$bottom1 = "<font color=red>-&nbsp;</font><font color=#666666>[第1节]</font>&nbsp;";
+												$bottom1_tw = "<font color=red>-&nbsp;</font><font color=#666666>[锟斤拷1锟絗]</font>&nbsp;";
+												$bottom1 = "<font color=red>-&nbsp;</font><font color=#666666>[锟斤拷1锟斤拷]</font>&nbsp;";
 												$bottom1_en = "<font color=red>-&nbsp;</font><font color=#666666>[Q1]</font>&nbsp;";
 								}
-								else if ( strstr( $team, "第2节" ) )
+								else if ( strstr( $team, "锟斤拷2锟斤拷" ) )
 								{
-												$bottom1_tw = "<font color=red>-&nbsp;</font><font color=#666666>[材2竊]</font>&nbsp;";
-												$bottom1 = "<font color=red>-&nbsp;</font><font color=#666666>[第2节]</font>&nbsp;";
+												$bottom1_tw = "<font color=red>-&nbsp;</font><font color=#666666>[锟斤拷2锟絗]</font>&nbsp;";
+												$bottom1 = "<font color=red>-&nbsp;</font><font color=#666666>[锟斤拷2锟斤拷]</font>&nbsp;";
 												$bottom1_en = "<font color=red>-&nbsp;</font><font color=#666666>[Q2]</font>&nbsp;";
 								}
-								else if ( strstr( $team, "第3节" ) )
+								else if ( strstr( $team, "锟斤拷3锟斤拷" ) )
 								{
-												$bottom1_tw = "<font color=red>-&nbsp;</font><font color=#666666>[材3竊]</font>&nbsp;";
-												$bottom1 = "<font color=red>-&nbsp;</font><font color=#666666>[第3节]</font>&nbsp;";
+												$bottom1_tw = "<font color=red>-&nbsp;</font><font color=#666666>[锟斤拷3锟絗]</font>&nbsp;";
+												$bottom1 = "<font color=red>-&nbsp;</font><font color=#666666>[锟斤拷3锟斤拷]</font>&nbsp;";
 												$bottom1_en = "<font color=red>-&nbsp;</font><font color=#666666>[Q3]</font>&nbsp;";
 								}
-								else if ( strstr( $team, "第4节" ) )
+								else if ( strstr( $team, "锟斤拷4锟斤拷" ) )
 								{
-												$bottom1_tw = "<font color=red>-&nbsp;</font><font color=#666666>[材4竊]</font>&nbsp;";
-												$bottom1 = "<font color=red>-&nbsp;</font><font color=#666666>[第4节]</font>&nbsp;";
+												$bottom1_tw = "<font color=red>-&nbsp;</font><font color=#666666>[锟斤拷4锟絗]</font>&nbsp;";
+												$bottom1 = "<font color=red>-&nbsp;</font><font color=#666666>[锟斤拷4锟斤拷]</font>&nbsp;";
 												$bottom1_en = "<font color=red>-&nbsp;</font><font color=#666666>[Q4]</font>&nbsp;";
 								}
 								else
@@ -485,18 +485,18 @@ case 1 :
 								{
 												$mtype = "H";
 												$m_place = "小".$pan;
-												$m_place_tw = "".$pan;
+												$m_place_tw = "锟絧".$pan;
 												$m_place_en = "U".$pan;
 								}
 								else
 								{
 												$mtype = "C";
-												$m_place = "大".$pan;
-												$m_place_tw = "".$pan;
+												$m_place = "锟斤拷".$pan;
+												$m_place_tw = "锟絡".$pan;
 												$m_place_en = "O".$pan;
 								}
-								$bottom1_tw = "<font color=red>-&nbsp;</font><font color=#666666>[]</font>&nbsp;";
-								$bottom1 = "<font color=red>-&nbsp;</font><font color=#666666>[上半]</font>&nbsp;";
+								$bottom1_tw = "<font color=red>-&nbsp;</font><font color=#666666>[锟絎锟絙]</font>&nbsp;";
+								$bottom1 = "<font color=red>-&nbsp;</font><font color=#666666>[锟较帮拷]</font>&nbsp;";
 								$bottom1_en = "<font color=red>-&nbsp;</font><font color=#666666>[1st]</font>&nbsp;";
 								$lines2 = $middle1."<FONT color=#cc0000>".$m_place."</FONT>&nbsp;".$bottom1."@&nbsp;<FONT color=#cc0000><b>".$rate."</b></FONT>";
 								$lines2_tw = $middle_tw1."<FONT color=#cc0000>".$m_place_tw."</FONT>&nbsp;".$bottom1_tw."@&nbsp;<FONT color=#cc0000><b>".$rate."</b></FONT>";
@@ -553,8 +553,8 @@ case 1 :
 												$m_place_tw = $tg_team_tw;
 												$m_place_en = $tg_team_en;
 								}
-								$bottom1_tw = "<font color=red>-&nbsp;</font><font color=#666666>[]</font>&nbsp;";
-								$bottom1 = "<font color=red>-&nbsp;</font><font color=#666666>[上半]</font>&nbsp;";
+								$bottom1_tw = "<font color=red>-&nbsp;</font><font color=#666666>[锟絎锟絙]</font>&nbsp;";
+								$bottom1 = "<font color=red>-&nbsp;</font><font color=#666666>[锟较帮拷]</font>&nbsp;";
 								$bottom1_en = "<font color=red>-&nbsp;</font><font color=#666666>[1st]</font>&nbsp;";
 								$lines2 = $middle1."<FONT color=#cc0000>".$m_place."</FONT>&nbsp;".$bottom1."@&nbsp;<FONT color=#cc0000><b>".$rate."</b></FONT>";
 								$lines2_tw = $middle_tw1."<FONT color=#cc0000>".$m_place_tw."</FONT>&nbsp;".$bottom1_tw."@&nbsp;<FONT color=#cc0000><b>".$rate."</b></FONT>";
@@ -569,18 +569,18 @@ case 1 :
 								{
 												$mtype = "H";
 												$m_place = "小".$pan;
-												$m_place_tw = "".$pan;
+												$m_place_tw = "锟絧".$pan;
 												$m_place_en = "U".$pan;
 								}
 								else
 								{
 												$mtype = "C";
-												$m_place = "大".$pan;
-												$m_place_tw = "".$pan;
+												$m_place = "锟斤拷".$pan;
+												$m_place_tw = "锟絡".$pan;
 												$m_place_en = "O".$pan;
 								}
-								$bottom1_tw = "<font color=red>-&nbsp;</font><font color=#666666>[]</font>&nbsp;";
-								$bottom1 = "<font color=red>-&nbsp;</font><font color=#666666>[上半]</font>&nbsp;";
+								$bottom1_tw = "<font color=red>-&nbsp;</font><font color=#666666>[锟絎锟絙]</font>&nbsp;";
+								$bottom1 = "<font color=red>-&nbsp;</font><font color=#666666>[锟较帮拷]</font>&nbsp;";
 								$bottom1_en = "<font color=red>-&nbsp;</font><font color=#666666>[1st]</font>&nbsp;";
 								$lines2 = $middle1."<FONT color=#cc0000>".$m_place."</FONT>&nbsp;".$bottom1."@&nbsp;<FONT color=#cc0000><b>".$rate."</b></FONT>";
 								$lines2_tw = $middle_tw1."<FONT color=#cc0000>".$m_place_tw."</FONT>&nbsp;".$bottom1_tw."@&nbsp;<FONT color=#cc0000><b>".$rate."</b></FONT>";
@@ -663,13 +663,13 @@ $mysql = "select date_format(BetTime,'%m%d%H%i%s')+id as WID,danger,QQ526738,res
 $result = mysql_query( $mysql );
 echo "<html>\r\n<head>\r\n<title></title>\r\n<META http-equiv=Content-Type content=\"text/html; charset=gb2312\">\r\n<link rel=\"stylesheet\" href=\"/style/control/control_main.css\" type=\"text/css\">\r\n<META content=\"Microsoft FrontPage 4.0\" name=GENERATOR>\r\n<SCRIPT>\r\n<!--\r\n function onLoad()\r\n {\r\n  var gdate = document.getElementById('gdate');\r\n  gdate.value = '";
 echo $gdate;
-echo "';\r\n }\r\nfunction CheckCLOSE(str)\r\n {\r\n  if(confirm(\"确实要取消本场比赛吗?\"))\r\n  document.location=str;\r\n }\r\n function reload()\r\n{\r\n\r\n\tself.location.href='wager_list.php?uid=";
+echo "';\r\n }\r\nfunction CheckCLOSE(str)\r\n {\r\n  if(confirm(\"确实要取锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷?\"))\r\n  document.location=str;\r\n }\r\n function reload()\r\n{\r\n\r\n\tself.location.href='wager_list.php?uid=";
 echo $uid;
 echo "&username=";
 echo $username;
 echo "&gdate=";
 echo $gdate;
-echo "';\r\n}\r\nfunction Del(str)\r\n {\r\n  if(confirm(\"确实要删除比投注纪录吗?\"))\r\n  document.location=str;\r\n }\r\n\r\n// -->\r\n</SCRIPT>\r\n</HEAD>\r\n<body bgcolor=\"#FFFFFF\" text=\"#000000\" leftmargin=\"0\" topmargin=\"0\" vlink=\"#0000FF\" alink=\"#0000FF\"  onload=\"onLoad()\";>\r\n<form name=\"myFORM\" method=\"post\" action=\"\">\r\n<table width=\"769\" border=\"0\" cellspacing=\"0\" cellpadding=\"0\">\r\n  <tr>\r\n          <td class=\"m_tline\" width=\"744\">注单管理&nbsp;&nbsp;<input name=button type=button class=\"za_button\" onclick=\"reload()\" value=\"更新\"> &nbsp;&nbsp;投注日期：<font color=\"#cc0000\">\r\n                    <select class=za_select onchange=document.myFORM.submit(); name=gdate>\r\n\t\t\t\t<option value=\"\"></option>\r\n\t\t\t\t";
+echo "';\r\n}\r\nfunction Del(str)\r\n {\r\n  if(confirm(\"确实要删锟斤拷锟斤拷投注锟斤拷录锟斤拷?\"))\r\n  document.location=str;\r\n }\r\n\r\n// -->\r\n</SCRIPT>\r\n</HEAD>\r\n<body bgcolor=\"#FFFFFF\" text=\"#000000\" leftmargin=\"0\" topmargin=\"0\" vlink=\"#0000FF\" alink=\"#0000FF\"  onload=\"onLoad()\";>\r\n<form name=\"myFORM\" method=\"post\" action=\"\">\r\n<table width=\"769\" border=\"0\" cellspacing=\"0\" cellpadding=\"0\">\r\n  <tr>\r\n          <td class=\"\" width=\"744\">注锟斤拷锟斤拷锟斤拷&nbsp;&nbsp;<input name=button type=button class=\"za_button\" onclick=\"reload()\" value=\"锟斤拷锟斤拷\"> &nbsp;&nbsp;投注锟斤拷锟节ｏ拷<font color=\"#cc0000\">\r\n                    <select class=za_select onchange=document.myFORM.submit(); name=gdate>\r\n\t\t\t\t<option value=\"\"></option>\r\n\t\t\t\t";
 $dd = 86400;
 $t = time( );
 $aa = 0;
@@ -688,9 +688,9 @@ for ( ;	$i < 10;	++$i	)
 				}
 				$t -= $dd;
 }
-echo "\t\t\t</select>\r\n            </font>&nbsp;&nbsp;&nbsp;&nbsp;帐号:<font color=\"cc0000\">\r\n            ";
+echo "\t\t\t</select>\r\n            </font>&nbsp;&nbsp;&nbsp;&nbsp;锟绞猴拷:<font color=\"cc0000\">\r\n            ";
 echo $username;
-echo "            </font>&nbsp;&nbsp;&nbsp;&nbsp;<a href=\"javascript:history.go( -1 );\"> 回上一页</a>&nbsp;&nbsp;</font></font></td>\r\n    <td width=\"32\"><img src=\"/images/control/top_04.gif\" width=\"30\" height=\"24\"></td>\r\n  </tr>\r\n  <tr>\r\n    <td colspan=\"2\" height=\"4\" width=\"778\">\r\n<table width=\"769\" border=\"0\" align=\"left\" cellPadding=\"0\" cellSpacing=\"0\" background=\"/images/body_title_ph12b.gif\" class=\"b_title\">\r\n  <tbody>\r\n\r\n    <tr>\r\n       <td width=\"394\"><div align=\"right\"></div></td>\r\n                  <td width=\"375\">&nbsp;</td>\r\n    </tr>\r\n\r\n  </tbody>\r\n</table>\r\n    </td>\r\n  </tr>\r\n</table>\r\n      <table width=\"810\" border=\"0\" cellspacing=\"1\" cellpadding=\"0\" class=\"m_tab\" bgcolor=\"#000000\">\r\n  <tr class=\"m_title_ft\">\r\n          <td width=\"60\"align=\"center\">投注时间</td>\r\n          <td width=\"90\" align=\"center\">用户名称</td>\r\n          <td width=\"100\" align=\"center\">球赛种类</td>\r\n          <td width=\"230\" align=\"center\">內容</td>\r\n          <td width=\"70\" align=\"center\">投注</td>\r\n          <td width=\"70\" align=\"center\">会员</td>\r\n          <td width=\"180\" align=\"center\">功能</td>\r\n        </tr>\r\n        ";
+echo "            </font>&nbsp;&nbsp;&nbsp;&nbsp;<a href=\"javascript:history.go( -1 );\"> 锟斤拷锟斤拷一页</a>&nbsp;&nbsp;</font></font></td>\r\n    <td width=\"32\"><img src=\"/images/control/top_04.gif\" width=\"30\" height=\"24\"></td>\r\n  </tr>\r\n  <tr>\r\n    <td colspan=\"2\" height=\"4\" width=\"778\">\r\n<table width=\"769\" border=\"0\" align=\"left\" cellPadding=\"0\" cellSpacing=\"0\" background=\"/images/body_title_ph12b.gif\" class=\"b_title\">\r\n  <tbody>\r\n\r\n    <tr>\r\n       <td width=\"394\"><div align=\"right\"></div></td>\r\n                  <td width=\"375\">&nbsp;</td>\r\n    </tr>\r\n\r\n  </tbody>\r\n</table>\r\n    </td>\r\n  </tr>\r\n</table>\r\n      <table width=\"810\" border=\"0\" cellspacing=\"1\" cellpadding=\"0\" class=\"m_tab\" bgcolor=\"#000000\">\r\n  <tr class=\"m_title_ft\">\r\n          <td width=\"60\"align=\"center\">投注时锟斤拷</td>\r\n          <td width=\"90\" align=\"center\">锟矫伙拷锟斤拷锟斤拷</td>\r\n          <td width=\"100\" align=\"center\">锟斤拷锟斤拷锟斤拷锟斤拷</td>\r\n          <td width=\"230\" align=\"center\">锟斤拷锟斤拷</td>\r\n          <td width=\"70\" align=\"center\">投注</td>\r\n          <td width=\"70\" align=\"center\">锟斤拷员</td>\r\n          <td width=\"180\" align=\"center\">锟斤拷锟斤拷</td>\r\n        </tr>\r\n        ";
 while ( $row = mysql_fetch_array( $result ) )
 {
 				$url = "wager_list.php?uid=".$uid."&id=".$row[id]."&active=1&username=".$username."&gdate=".$gdate;
@@ -709,13 +709,13 @@ while ( $row = mysql_fetch_array( $result ) )
 				switch ( $row['danger'] )
 				{
 				case 1 :
-								echo "<br><font color=#ffffff style=background-color:#ff0000><b>&nbsp;确认中&nbsp;</b></font></font>";
+								echo "<br><font color=#ffffff style=background-color:#ff0000><b>&nbsp;确锟斤拷锟斤拷&nbsp;</b></font></font>";
 								break;
 				case 2 :
-								echo "<br><font color=#ffffff style=background-color:#ff0000><b>未确认</b></font></font>";
+								echo "<br><font color=#ffffff style=background-color:#ff0000><b>未确锟斤拷</b></font></font>";
 								break;
 				case 3 :
-								echo "<br><font color=#ffffff style=background-color:#ff0000><b>&nbsp;确认&nbsp;</b></font></font>";
+								echo "<br><font color=#ffffff style=background-color:#ff0000><b>&nbsp;确锟斤拷&nbsp;</b></font></font>";
 				}
 				echo "</td>\r\n  <td align=\"right\">\r\n  ";
 				if ( $row['linetype'] == 7 || $row['linetype'] == 8 )
@@ -755,13 +755,13 @@ while ( $row = mysql_fetch_array( $result ) )
 				
 				$htmlarr = array();
 				if ($d1set['d1_edit_list_re']==1 && in_array($row['linetype'], array(2,3,12,13,9,10,19,30)) ){
-					$htmlarr[]="<a href='$url'>对调</a>";
+					$htmlarr[]="<a href='$url'>锟皆碉拷</a>";
 				}
 				if($d1set['d1_edit_list_edit']==1){
-					$htmlarr[]="<a href='wager_edit.php?uid=$uid&id=$row[id]&username=$row[M_Name]&gdate=$gdate'>修改</a>";
+					$htmlarr[]="<a href='wager_edit.php?uid=$uid&id=$row[id]&username=$row[M_Name]&gdate=$gdate'>锟睫革拷</a>";
 				}
 				if($d1set['d1_edit_list_del']==1){
-					$htmlarr[]="<a href='javascript:Del(\"?uid=$uid&id=$row[id]&active=3&username=$username&gdate=$gdate\")'>删除</a>";
+					$htmlarr[]="<a href='javascript:Del(\"?uid=$uid&id=$row[id]&active=3&username=$username&gdate=$gdate\")'>删锟斤拷</a>";
 				}
 				echo join('&nbsp;/&nbsp;', $htmlarr);
 				

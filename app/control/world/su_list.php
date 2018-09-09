@@ -58,7 +58,7 @@ $level=$_REQUEST['level']?$_REQUEST['level']:2;
             function ch_level(i)
             {
                 if(i === 2) {
-                    self.location = '/app/control/world/su_list.php?uid='+uid+'&level='+i;;
+                    self.location = '/app/control/world/su_list.php?uid='+uid+'&level='+i;
                 } else if(i === 3) {
                     self.location = '/app/control/world/agents/su_agents.php?uid='+uid+'&level='+i;
                 } else if(i === 4) {
@@ -66,7 +66,7 @@ $level=$_REQUEST['level']?$_REQUEST['level']:2;
                 } else if(i === 6) {
                     self.location = '/app/control/world/wager_list/wager_add.php?uid='+uid+'&level='+i;
                 } else if(i === 5) {
-                    self.location = '/app/control/world/su_subuser.php?uid=='+uid+'&level='+i;;
+                    self.location = '/app/control/world/su_subuser.php?uid=='+uid+'&level='+i;
                 }else {
                     self.location = '/app/control/world/wager_list/wager_hide.php?uid='+uid+'&level='+i;
                 }
@@ -107,9 +107,8 @@ $level=$_REQUEST['level']?$_REQUEST['level']:2;
   <INPUT TYPE=HIDDEN NAME="sid" VALUE="<?=$agents_id?>">
 <table width="780" border="0" cellspacing="0" cellpadding="0" style="padding-left:20px;padding-top:10px;">
   <tr> 
-    <td class="m_tline">&nbsp;&nbsp;总代理 详细设定&nbsp;&nbsp;&nbsp;<?=$sub_user?>:<?=$agents_name?> -- 
+    <td class="">&nbsp;&nbsp;总代理 详细设定&nbsp;&nbsp;&nbsp;<?=$sub_user?>:<?=$agents_name?> --
       <?=$sub_name?>:<?=$alias?> -- <a href="./body_home.php?uid=<?=$uid?>&super_agents_id=<?=$id?>">回上一页</a></td>
-    <td width="30"><img src="/images/control/zh-tw/top_04.gif" width="30" height="24"></td>
   </tr>
   <tr> 
     <td colspan="2" height="4"></td>

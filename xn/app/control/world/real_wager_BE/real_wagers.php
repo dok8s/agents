@@ -20,7 +20,7 @@ $row = mysql_fetch_array($result);
 $id=$row['ID'];
 $agname=$row['Agname'];
 $langx=$row['language'];
-require ("../../../member/include/traditional.$langx.inc.php");
+require ("../../../member/include/traditional.zh-vn.inc.php");
 
 if ($rtype==''){
 	$rtype='OU';

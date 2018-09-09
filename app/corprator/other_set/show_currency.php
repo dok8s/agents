@@ -40,7 +40,7 @@ exit;
   <form name="LAYOUTFORM" action="" method=POST >
     <input type="HIDDEN" name="active" value="0">
     <tr>
-      <td class="m_tline">
+      <td class="">
         <table border="0" cellspacing="0" cellpadding="0" >
           <tr>
           </tr>

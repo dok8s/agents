@@ -315,7 +315,7 @@ function announcement(){
     //setTimeout(function(){
     var getHttp = new _top["HttpRequestXMLClass"];
     getHttp.addEventListener("LoadComplete", _self.saveData);
-    getHttp.loadURL("/app/scoll.php","POST", _self.targetParam());
+    getHttp.loadURL("/xn/app/scoll.php","POST", _self.targetParam());
     //},2000);
   }
 

@@ -159,7 +159,7 @@ file://-->
 <form name="myFORM" method="post" action="" >
  <table width='773' border='0' cellspacing='0' cellpadding='0'>
     <tr>
-      <td class='m_tline' width='746'>&nbsp;<font color='#CC0000'>代理日志</font>&nbsp;&nbsp;&nbsp; <input name=button type=button class='za_button' onclick='reload()' value='更新'>&nbsp;&nbsp;&nbsp;
+      <td class='' width='746'>&nbsp;<font color='#CC0000'>代理日志</font>&nbsp;&nbsp;&nbsp; <input name=button type=button class='za_button' onclick='reload()' value='更新'>&nbsp;&nbsp;&nbsp;
 	 <select name='level'  onChange="document.myFORM.submit();" class='za_select'>
             <option value='3'>代理商</option>
             <option value='2'>总代理</option>
@@ -167,7 +167,6 @@ file://-->
           </select>
         <span id='timeinfo'></span> -- 20分钟内在线人数据(<?=count($rts)?>) -- 代理的历史日志:<INPUT TYPE="text" size=10 NAME="so_log_name"> <input name=button type=button onclick='so_log()' value='搜索'> -- <a href='javascript:history.go( -1 );'>回上一页</a>
       </td>
-      <td width='34'><img src='/images/control/top_04.gif' width='30' height='24'></td>
     </tr>
   </table>
   <table width='774' border='0' cellspacing='0' cellpadding='0'>

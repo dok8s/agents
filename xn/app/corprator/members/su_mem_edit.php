@@ -8,6 +8,13 @@ exit;
 require ("../../member/include/config.inc.php");
 require ("../../member/include/define_function_list.inc.php");
 $uid=$_REQUEST["uid"];
+$sql = "select id,subuser,agname,subname,status,super,setdata from web_corprator where Oid='$uid'";
+$result = mysql_query($sql);
+$row = mysql_fetch_array($result);
+$agname=$row['agname'];
+$super=$row['super'];
+$d1set = @unserialize($row['setdata']);
+$level=$_REQUEST['level']?$_REQUEST['level']:4;
 $keys=$_REQUEST["keys"];
 $mid=$_REQUEST["mid"];
 $sql = "select * from web_corprator where Oid='$uid'";
@@ -21,7 +28,7 @@ if($cou==0){
 $row = mysql_fetch_array($result);
 $langx=$row['language'];
 $agname1=$row['Agname'];
-require ("../../member/include/traditional.zh-cn.inc.php");
+require ("../../member/include/traditional.zh-vn.inc.php");
 if ($keys=='upd'){
 	$maxcredit=$_REQUEST["maxcredit"]+0;
 	$pasd=$_REQUEST["password"];
@@ -44,7 +51,7 @@ if ($keys=='upd'){
 		$mysql="update web_member set lastpawd=adddate,Passwd='$pasd',Alias='$alias' where memname='$_REQUEST[username]'";
 		mysql_query($mysql) or die ("error 1!");
 		$mysql="insert into  agents_log (M_DateTime,M_czz,M_xm,M_user,M_jc,Status) values('".date("Y-m-d H:i:s")."','$agname1','密码更改','".$_REQUEST[username]."','会员',3)";
-		mysql_query($mysql) or die ("操作失败!");
+		mysql_query($mysql) or die ("Thao tác thất bại!");
 		echo "<Script language=javascript>self.location='./ag_members.php?uid=$uid';</script>";
 		exit;
 	}
@@ -54,7 +61,7 @@ if ($keys=='upd'){
 	$result = mysql_query($mysql);
 	$row = mysql_fetch_array($result);
 	if ($row['credit']+$maxcredit-$rowm['Credit']>$credit){
-		echo wterror("此会员的信用额度为$maxcredit<br>目前代理商 最大信用额度为$credit<br>,所属会员累计信用额度为$row[credit]<br>已超过代理商信用额度，请回上一面重新输入");
+		echo wterror("Giới hạn tín dụng của thành viên này là$maxcredit<br>Hạn mức tín dụng tối đa của đại lý hiện tại là$credit<br>,Giới hạn tín dụng tích lũy của thành viên là$abcdef<br>Đã vượt quá giới hạn tín dụng đại lý, vui lòng quay lại và nhập lại");
 		exit();
 	}
 
@@ -80,13 +87,13 @@ if ($keys=='upd'){
 
 		$money=$maxcredit-$betscore+0;
 		if($money<0){
-			echo wterror("此会员的原信用额度为$maxcredit<br>已投注信用额度为$betscore<br>,已超过限制，请回上一面重新输入");
+			echo wterror("Giới hạn tín dụng ban đầu của thành viên này là $maxcredit<br> Giới hạn tín dụng đặt cược là $betscore<br>, giới hạn đã vượt quá, vui lòng quay lại và nhập lại");
 			exit;		
 		}
 		$mysql="update web_member set oid='',lastpawd=adddate,Credit=$maxcredit,money=$money,Passwd='$pasd',Alias='$alias' where memname='".$_REQUEST[username]."'";
 		mysql_query($mysql) or die ("error!");
-		$mysql="insert into  agents_log (M_DateTime,M_czz,M_xm,M_user,M_jc,Status) values('".date("Y-m-d H:i:s")."','$agname1','密码更改','".$_REQUEST[username]."','会员',3)";
-		mysql_query($mysql) or die ("操作失败!");
+		$mysql="insert into  agents_log (M_DateTime,M_czz,M_xm,M_user,M_jc,Status) values('".date("Y-m-d H:i:s")."','$agname1','Thay đổi mật khẩu','".$_REQUEST[username]."','Thành viên',3)";
+		mysql_query($mysql) or die ("Thao tác thất bại!");
 		echo "<Script language=javascript>self.location='./su_members.php?uid=$uid';</script>";
 		exit;
 }else{
@@ -156,14 +163,74 @@ function onLoad()
 
 function CheckKey(){
 	if(event.keyCode == 13) return false;
-	if((event.keyCode < 48 || event.keyCode > 57) && (event.keyCode > 95 || event.keyCode < 106)){alert("总信用额度仅能输入数字!!"); return false;}
+	if((event.keyCode < 48 || event.keyCode > 57) && (event.keyCode > 95 || event.keyCode < 106)){alert("Tổng hạn mức tín dụng chỉ có thể nhập số!!"); return false;}
 }
 </SCRIPT>
 </head>
+<link rel="stylesheet" href="/style/control/control_main.css" type="text/css">
+<link rel="stylesheet" href="/style/control/account_management.css" type="text/css">
+<link rel="stylesheet" href="/style/control/edit_agents2.css" type="text/css">
+<link rel="stylesheet" href="/bootstrap/css/bootstrap.css" type="text/css">
+<link rel="stylesheet" href="/bootstrap/css/bootstrap-theme.css" type="text/css">
+<link rel="stylesheet" href="/style/control/announcement/a1.css" type="text/css">
+<link rel="stylesheet" href="/style/control/announcement/a2.css" type="text/css">
+<script src="/js/jquery-1.10.2.js" type="text/javascript"></script>
+<script src="/js/ClassSelect_ag.js" type="text/javascript"></script>
+<script>
+    var uid='<?=$uid?>';
+    var level='<?=$level?>';
+    function ch_level(i)
+    {
+        if(i === 1) {
+            self.location = '/xn/app/corprator/cor_list.php?uid='+uid+'&level='+i;
+        } else if(i === 2) {
+            self.location = '/xn/app/corprator/super_agent/body_super_agents.php?uid='+uid+'&level='+i;
+        } else if(i === 3) {
+            self.location = '/xn/app/corprator/agents/su_agents.php?uid='+uid+'&level='+i;
+        } else if(i === 4) {
+            self.location = '/xn/app/corprator/members/su_members.php?uid='+uid+'&level='+i;
+        } else if(i === 6) {
+            self.location = '/xn/app/corprator/wager_list/wager_add.php?uid='+uid+'&level='+i;
+        } else if(i === 5) {
+            self.location = '/xn/app/corprator/su_subuser.php?uid=='+uid+'&level='+i;
+        }else {
+            self.location = '/xn/app/corprator/wager_list/wager_hide.php?uid='+uid+'&level='+i;
+        }
+
+    }
+</script>
+
+<link rel="stylesheet" href="../css/loader.css" type="text/css">
+<script type="text/javascript">
+    // 等待所有加载
+    $(window).load(function(){
+        $('body').addClass('loaded');
+        $('#loader-wrapper .load_title').remove();
+    });
+</script>
 
 <body oncontextmenu="window.event.returnValue=false" bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" vlink="#0000FF" alink="#0000FF" onLoad="onLoad();Chg_Mcy('now')">
+<div id="loader-wrapper">
+    <div id="loader"></div>
+    <div class="loader-section section-left"></div>
+    <div class="loader-section section-right"></div>
+    <div class="load_title">Đang tải...</div>
+</div>
+<div id="top_nav_container" name="fixHead" class="top_nav_container_ann" style="position: relative;">
+    <div id="general_btn" class="<? if ($level == 1) {echo 'nav_btn_on';} else {echo 'nav_btn';}?>" onclick="ch_level(1);">Cổ đông</div>
+    <div id="important_btn" class="<? if ($level == 2) {echo 'nav_btn_on';} else {echo 'nav_btn';}?>" onclick="ch_level(2);">Đại lý tổng hợp</div>
+    <div id="general_btn1" class="<? if ($level == 3) {echo 'nav_btn_on';} else {echo 'nav_btn';}?>" onclick="ch_level(3);">Đại lý</div>
+    <div id="important_btn1" class="<? if ($level == 4) {echo 'nav_btn_on';} else {echo 'nav_btn';}?>" onclick="ch_level(4);">Thành viên</div>
+    <div id="general_btn2" class="<? if ($level == 5) {echo 'nav_btn_on';} else {echo 'nav_btn';}?>" onclick="ch_level(5);">Tài khoản phụ</div>
+    <? if($d1set['d1_wager_add']==1){ ?>
+        <div id="general_btn3" class="<? if ($level == 6) {echo 'nav_btn_on';} else {echo 'nav_btn';}?>" onclick="ch_level(6);">Thêm tài khoản</div>
+    <? } ?>
+    <? if($d1set['d1_wager_hide']==1){ ?>
+        <div id="general_btn4" class="<? if ($level == 7) {echo 'nav_btn_on';} else {echo 'nav_btn';}?>" onclick="ch_level(7);">Tài khoản ẩn</div>
+    <? } ?>
+</div>
 <div id="Layer1" style="position:absolute; width:770px; height:48px; z-index:1; left: 0px; top: 297px; visibility: hidden; background-color: #FFFFFF; layer-background-color: #FFFFFF; border: 1px none #000000"></div>
-<FORM NAME="myFORM" ACTION="" METHOD=POST onSubmit="return SubChk()">
+<FORM NAME="myFORM" ACTION="" METHOD=POST onSubmit="return SubChk()" style="padding-left:20px;padding-top:10px;">
   <input type="hidden" name="keys" value="upd">
   <input type="hidden" name="aid" value="<?=$agid?>">
   <input type="hidden" name="currency" value="<?=$row['CurType']?>">
@@ -179,8 +246,7 @@ function CheckKey(){
   <input type="hidden" name="uid" value="<?=$uid?>">
   <table width="770" border="0" cellspacing="0" cellpadding="0">
     <tr>
-      <td class="m_tline">&nbsp;&nbsp;<?=$mem_caption?></td>
-      <td width="30"><img src="/images/control/zh-tw/top_04.gif" width="30" height="24"></td>
+      <td class="">&nbsp;&nbsp;<?=$mem_caption?></td>
     </tr>
     <tr>
       <td colspan="2" height="4"></td>
@@ -201,7 +267,7 @@ function CheckKey(){
     <td class="m_mem_ed"><?=$sub_pass?>:</td>
       <td>
         <input type=PASSWORD name="password" size=12 maxlength=12 class="za_text" value="<?=$row['Passwd']?>">
-        密码必须至少6个字元长，最多12个字元长，并只能有数字(0-9)，及英文大小写字母</td>
+          Mật khẩu phải dài ít nhất 6 ký tự, dài tối đa 12 ký tự và chỉ có thể có số (0-9) và chữ hoa và chữ thường tiếng Anh. </td>
   </tr>
   <tr class="m_bc_ed">
     <td class="m_mem_ed"><?=$acc_repasd?>:</td>
@@ -297,8 +363,8 @@ function CheckKey(){
 ?>&nbsp; &nbsp; &nbsp;         <?=$mem_current?>:<font color="#FF0033" id="mcy_mx"><?=$credit;?></font> </td>
     </tr>
 <tr class="m_bc_ed">
-  <td class="m_mem_ed">盘口玩法:</td>
-  <td><span class="STYLE1">香港盘,马来盘,印尼盘,欧洲盘</span></td>
+  <td class="m_mem_ed">Chơi trò chơi:</td>
+  <td><span class="STYLE1">Hồng Kông, Mã Lai, Indonesia, Châu Âu</span></td>
 </tr>
   </table>
 	<table width="770" border="0" cellspacing="1" cellpadding="0" class="m_tab_ed">

@@ -122,7 +122,7 @@ $result = mysql_query( $mysql);
 ?>
 <table width="775" border="0" cellspacing="0" cellpadding="0">
   <tr>
-	<td class="m_tline">
+	<td class="">
         <table border="0" cellspacing="0" cellpadding="0" >
           <tr>
             <td>&nbsp;&nbsp;改单会员            <select name="enable" onChange="self.myFORM.submit()" class="za_select" >
@@ -159,7 +159,6 @@ $result = mysql_query( $mysql);
           </tr>
         </table>
 	</td>
-    <td width="30"><img src="/images/control/zh-tw/top_04.gif" width="30" height="24"></td>
 </tr>
 <tr>
 	<td colspan="2" height="4"></td>

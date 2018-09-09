@@ -165,8 +165,7 @@ if ($keys=="upd"){
  <input type=HIDDEN name="uid" value="<?=$uid?>">
  <table width="780" border="0" cellspacing="0" cellpadding="0">
 <tr>
-  <td class="m_tline">&nbsp;&nbsp; <?=$wld_selagent?></td>
-     <td width="30"><img src="/images/control/zh-tw/top_04.gif" width="30" height="24"></td>
+  <td class="">&nbsp;&nbsp; <?=$wld_selagent?></td>
 </tr>
 <tr>
 <td colspan="2" height="4"></td>

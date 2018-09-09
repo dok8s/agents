@@ -54,18 +54,18 @@ $bdate=date('Y-m-d');
 ?>
 <html>
 <head>
-<title>足球變數值</title>
+<title>嚙踝蕭嚙緙嚙豌數哨蕭</title>
 <meta http-equiv="Content-Type" content="text/html; charset=big5">
 <script language="JavaScript">
 <!--
-if(self == top) location='/app/control/agents/'
+if(self == top) location='/xn/app/control/agents/'
 parent.uid='<?=$uid?>';
 parent.ltype = <?=$ltype?>;
 parent.stype_var = 'fs';
 parent.aid = '';
 parent.dt_now = '<?=date('Y-m-d H:i:s')?>';
-parent.gmt_str = '美東時間';
-parent.draw = '和局';
+parent.gmt_str = '嚙踝蕭嚙瘤嚙褕塚蕭';
+parent.draw = '嚙瞎嚙踝蕭';
 <?
 	echo "parent.retime=0;\n";
 	echo "parent.gamount=0;\n";

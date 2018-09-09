@@ -52,8 +52,8 @@ if ( $enable == "Y" )
 				$stop = 1;
 				$start_font = "";
 				$end_font = "";
-				$caption1 = "Í£ÓÃ";
-				$caption2 = "ÆôÓÃ";
+				$caption1 = "Í£ï¿½ï¿½";
+				$caption2 = "ï¿½ï¿½ï¿½ï¿½";
 }
 else
 {
@@ -63,8 +63,8 @@ else
 				$stop = 0;
 				$start_font = "";
 				$end_font = "</font>";
-				$caption2 = "<SPAN STYLE='background-color: rgb(255,255,0);'>Í£ÓÃ</SPAN>";
-				$caption1 = "ÆôÓÃ";
+				$caption2 = "<SPAN STYLE='background-color: rgb(255,255,0);'>Í£ï¿½ï¿½</SPAN>";
+				$caption1 = "ï¿½ï¿½ï¿½ï¿½";
 }
 switch ( $active )
 {
@@ -99,7 +99,7 @@ $page_count = ceil( $cou / $page_size );
 $offset = $page * $page_size;
 $mysql = $sql.( "  limit ".$offset.",{$page_size};" );
 $result = mysql_query( $mysql );
-echo "<table width=\"775\" border=\"0\" cellspacing=\"0\" cellpadding=\"0\">\r\n  <tr>\r\n\t<td class=\"m_tline\">\r\n        <table border=\"0\" cellspacing=\"0\" cellpadding=\"0\" >\r\n          <tr>\r\n            <td>&nbsp;&nbsp;¸Äµ¥»áÔ±            <select name=\"enable\" onChange=\"self.myFORM.submit()\" class=\"za_select\" >\r\n                <option value=\"Y\" >ÆôÓÃ</option>\r\n                <option value=\"N\" >Í£ÓÃ</option></td>\r\n\r\n            <td width=\"40\"> -- ÅÅÐò</td>\r\n            <td>\r\n              <select id=\"super_agents_id\" name=\"sort\" onChange=\"document.myFORM.submit();\" class=\"za_select\">\r\n                <option value=\"alias\">»áÔ±Ãû³Æ</option>\r\n                <option value=\"memname\">»áÔ±ÕÊºÅ</option>\r\n                <option value=\"adddate\">¼ÓÈëÈÕÆÚ</option>\r\n              </select>\r\n              <select id=\"enable\" name=\"orderby\" onChange=\"self.myFORM.submit()\" class=\"za_select\">\r\n                <option value=\"asc\">ÉýÃÝ(ÓÉÐ¡µ½´ó)</option>\r\n                <option value=\"desc\">½µÃÝ(ÓÉ´óµ½Ð¡)</option>\r\n              </select>\r\n            </td>\r\n            <td width=\"52\"> -- ×ÜÒ³Êý:</td>\r\n            <td>\r\n              <select id=\"page\" name=\"page\" onChange=\"self.myFORM.submit()\" class=\"za_select\">\r\n\t\t\t\t\t\t\t";
+echo "<table width=\"775\" border=\"0\" cellspacing=\"0\" cellpadding=\"0\">\r\n  <tr>\r\n\t<td class=\"\">\r\n        <table border=\"0\" cellspacing=\"0\" cellpadding=\"0\" >\r\n          <tr>\r\n            <td>&nbsp;&nbsp;ï¿½Äµï¿½ï¿½ï¿½Ô±            <select name=\"enable\" onChange=\"self.myFORM.submit()\" class=\"za_select\" >\r\n                <option value=\"Y\" >ï¿½ï¿½ï¿½ï¿½</option>\r\n                <option value=\"N\" >Í£ï¿½ï¿½</option></td>\r\n\r\n            <td width=\"40\"> -- ï¿½ï¿½ï¿½ï¿½</td>\r\n            <td>\r\n              <select id=\"super_agents_id\" name=\"sort\" onChange=\"document.myFORM.submit();\" class=\"za_select\">\r\n                <option value=\"alias\">ï¿½ï¿½Ô±ï¿½ï¿½ï¿½ï¿½</option>\r\n                <option value=\"memname\">ï¿½ï¿½Ô±ï¿½Êºï¿½</option>\r\n                <option value=\"adddate\">ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½</option>\r\n              </select>\r\n              <select id=\"enable\" name=\"orderby\" onChange=\"self.myFORM.submit()\" class=\"za_select\">\r\n                <option value=\"asc\">ï¿½ï¿½ï¿½ï¿½(ï¿½ï¿½Ð¡ï¿½ï¿½ï¿½ï¿½)</option>\r\n                <option value=\"desc\">ï¿½ï¿½ï¿½ï¿½(ï¿½É´ï¿½Ð¡)</option>\r\n              </select>\r\n            </td>\r\n            <td width=\"52\"> -- ï¿½ï¿½Ò³ï¿½ï¿½:</td>\r\n            <td>\r\n              <select id=\"page\" name=\"page\" onChange=\"self.myFORM.submit()\" class=\"za_select\">\r\n\t\t\t\t\t\t\t";
 $i = 0;
 for ( ;	$i < $page_count;	++$i	)
 {
@@ -107,7 +107,7 @@ for ( ;	$i < $page_count;	++$i	)
 }
 echo "              </select>\r\n            </td>\r\n            <td> / ";
 echo $page_count;
-echo " Ò³ -- </td>\r\n            <td>\r\n              <input type=BUTTON name=\"append\" value=\"ÐÂÔö\" onClick=\"document.location='./mem_add.php?uid=";
+echo " Ò³ -- </td>\r\n            <td>\r\n              <input type=BUTTON name=\"append\" value=\"ï¿½ï¿½ï¿½ï¿½\" onClick=\"document.location='./mem_add.php?uid=";
 echo $uid;
 echo "'\" class=\"za_button\">\r\n            </td>\r\n          </tr>\r\n        </table>\r\n\t\t\t</td>\r\n    <td width=\"30\"><img src=\"/images/control/zh-tw/top_04.gif\" width=\"30\" height=\"24\"></td>\r\n</tr>\r\n<tr>\r\n\t<td colspan=\"2\" height=\"4\"></td>\r\n</tr>\r\n</table>\r\n";
 if ( $cou == 0 )
@@ -118,7 +118,7 @@ if ( $cou == 0 )
 }
 else
 {
-				echo "  <table width=\"780\" border=\"0\" cellspacing=\"1\" cellpadding=\"0\"  bgcolor=\"E3D46E\" class=\"m_tab\">\r\n    <tr class=\"m_title\">\r\n      <td width=\"60\">»áÔ±Ãû³Æ</td>\r\n      <td width=\"70\">»áÔ±ÕÊºÅ</td>\r\n      <td width=\"60\">ÃÜÂë</td>\r\n\t  \t<td width=\"110\">ÐÅÓÃ¶î¶È</td>\r\n\t  \t<td width=\"30\">ÅÌ¿Ú</td>\r\n      <td width=\"80\">ÐÂÔöÈÕÆÚ</td>\r\n      <td width=\"70\">Ê¹ÓÃ×´¿ö</td>\r\n      <td width=\"240\">¹¦ÄÜ</td>\r\n    </tr>\r\n\t";
+				echo "  <table width=\"780\" border=\"0\" cellspacing=\"1\" cellpadding=\"0\"  bgcolor=\"E3D46E\" class=\"m_tab\">\r\n    <tr class=\"m_title\">\r\n      <td width=\"60\">ï¿½ï¿½Ô±ï¿½ï¿½ï¿½ï¿½</td>\r\n      <td width=\"70\">ï¿½ï¿½Ô±ï¿½Êºï¿½</td>\r\n      <td width=\"60\">ï¿½ï¿½ï¿½ï¿½</td>\r\n\t  \t<td width=\"110\">ï¿½ï¿½ï¿½Ã¶ï¿½ï¿½</td>\r\n\t  \t<td width=\"30\">ï¿½Ì¿ï¿½</td>\r\n      <td width=\"80\">ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½</td>\r\n      <td width=\"70\">Ê¹ï¿½ï¿½×´ï¿½ï¿½</td>\r\n      <td width=\"240\">ï¿½ï¿½ï¿½ï¿½</td>\r\n    </tr>\r\n\t";
 				while ( $row = mysql_fetch_array( $result ) )
 				{
 								echo "\t\t<tr class=\"m_cen\">\r\n      <td>";
@@ -164,11 +164,11 @@ else
 								echo $uid;
 								echo "&active=3&id=";
 								echo $row['ID'];
-								echo "')\">É¾³ý</a>&nbsp; /&nbsp; <a href=\"wager_list.php?uid=";
+								echo "')\">É¾ï¿½ï¿½</a>&nbsp; /&nbsp; <a href=\"wager_list.php?uid=";
 								echo $uid;
 								echo "&username=";
 								echo $row['Memname'];
-								echo "\">ÏêÏ¸Í¶×¢</a></td>\r\n    </tr>\r\n";
+								echo "\">ï¿½ï¿½Ï¸Í¶×¢</a></td>\r\n    </tr>\r\n";
 				}
 				echo "\t</table>\r\n</form>\r\n\r\n";
 }

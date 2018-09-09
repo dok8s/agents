@@ -304,7 +304,7 @@ FS_chg_box_R_title = "请输入冠军-冠军设定";
   <INPUT TYPE=HIDDEN NAME="sid" VALUE="{SID}">
 <table width="780" border="0" cellspacing="0" cellpadding="0">
   <tr>  
-    <td class="m_tline">&nbsp;&nbsp;<?=$mnu_member?><?=$mem_setopt?>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;帐号:<?=$row['Memname']?> 
+    <td class="">&nbsp;&nbsp;<?=$mnu_member?><?=$mem_setopt?>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;帐号:<?=$row['Memname']?>
       -- 会员名称:<?=$row['Alias']?> -- 盘口:<?=$row['OpenType']?> -- 使用币别:<?=$row['CurType']?> -- <?=$rep_pay_type?>: <?
 	  if ($row['pay_type']==0){
 	  	echo $rep_pay_type_c;
@@ -312,7 +312,6 @@ FS_chg_box_R_title = "请输入冠军-冠军设定";
   	  	echo $rep_pay_type_m;
 	  }
 	  ?> --  <a href="./ag_members.php?uid=<?=$uid?>">回上一页</a></td>
-    <td width="30"><img src="/images/control/zh-tw/top_04.gif" width="30" height="24"></td>
   </tr>
   <tr> 
     <td colspan="2" height="4"></td>

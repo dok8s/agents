@@ -113,22 +113,22 @@ function get_new_top(){
 <div id="main_body">
   <table width="800" border="0" cellspacing="0" cellpadding="0">
     <tr>
-      <td class="m_tline">
+      <td class="">
         <table border="0" cellspacing="0" cellpadding="0" >
           <tr>
-            <td width="60" >&nbsp;&nbsp;½u¤W¾Þ½L:</td>
+            <td width="60" >&nbsp;&nbsp;ï¿½uï¿½Wï¿½Þ½L:</td>
             <td>
               <select id="ltype" name="ltype" onChange="chg_ltype()" class="za_select">
-                <option value="1">«a­xA</option>
-                <option value="2">«a­xB</option>
-                <option value="3">«a­xC</option>
-                <option value="4">«a­xD</option>
+                <option value="1">ï¿½aï¿½xA</option>
+                <option value="2">ï¿½aï¿½xB</option>
+                <option value="3">ï¿½aï¿½xC</option>
+                <option value="4">ï¿½aï¿½xD</option>
               </select>
             </td>
-            <td width="65">&nbsp;--&nbsp;­«·s¾ã²z:</td>
+            <td width="65">&nbsp;--&nbsp;ï¿½ï¿½ï¿½sï¿½ï¿½z:</td>
             <td>
               <select id="retime" name="retime" onChange="chg_retime()" class="za_select">
-                <option value="-1">¤£§ó·s</option>
+                <option value="-1">ï¿½ï¿½ï¿½ï¿½s</option>
 				<option value="180" >180 sec</option>
               </select>
             </td>
@@ -136,36 +136,35 @@ function get_new_top(){
             <td>&nbsp;--&nbsp;</td>
             <td>
             	<select id="game_type" name="game_type" onchange="chg_gtype();" class="za_select">
-            		<option value="">¥þ³¡</option>
-            		<option value="FT">¨¬²y</option>
-            		<option value="BK">Äx²y</option>
-            		<option value="TN">ºô²y</option>
-            		<option value="VB">±Æ²y</option>
+            		<option value="">ï¿½ï¿½ï¿½ï¿½</option>
+            		<option value="FT">ï¿½ï¿½ï¿½y</option>
+            		<option value="BK">ï¿½xï¿½y</option>
+            		<option value="TN">ï¿½ï¿½ï¿½y</option>
+            		<option value="VB">ï¿½Æ²y</option>
             	</select>
             </td>
-            <!--td> -- <A HREF="#" onClick="chg_page('ou');" onMouseOver="window.status='³æ¦¡'; return true;" onMouseOut="window.status='';return true;" style="background-color:">³æ¦¡</a>
-              &nbsp;<A HREF="#" onClick="chg_page('hou');" onMouseOver="window.status='¤W¥b³õ'; return true;" onMouseOut="window.status='';return true;"style="background-color:">¤W¥b³õ</a>
-              &nbsp;<A HREF="#" onClick="chg_page('re');" onMouseOver="window.status='¨«¦a'; return true;" onMouseOut="window.status='';return true;"style="background-color:">ºu²y</a>
-              &nbsp;<A HREF="#" onClick="chg_page('pd');" onMouseOver="window.status='ªiÁx'; return true;" onMouseOut="window.status='';return true;"style="background-color:">ªiÁx</a>
-              &nbsp;<A HREF="#" onClick="chg_page('eo');" onMouseOver="window.status='Á`¤J²y'; return true;" onMouseOut="window.status='';return true;"style="background-color:">Á`¤J²y</a>
-              &nbsp;<A HREF="#" onClick="chg_page('f');" onMouseOver="window.status='¥b¥þ³õ'; return true;" onMouseOut="window.status='';return true;"style="background-color: ">¥b¥þ³õ</a>
-              &nbsp;<A HREF="#" onClick="chg_page('par');" onMouseOver="window.status='¹LÃö'; return true;" onMouseOut="window.status='';return true;"style="background-color:">¹LÃö</a>
-              &nbsp;<A HREF="#" onClick="chg_page('fs');" onMouseOver="window.status='¯S®í'; return true;" onMouseOut="window.status='';return true;"style="background-color:#3399FF">¯S®í</a>
-              &nbsp;<A HREF="#" onClick="chg_page('p');" onMouseOver="window.status='¤w¶}ÁÉ'; return true;" onMouseOut="window.status='';return true;"style="background-color:">¤w¶}ÁÉ</a>
+            <!--td> -- <A HREF="#" onClick="chg_page('ou');" onMouseOver="window.status='ï¿½æ¦¡'; return true;" onMouseOut="window.status='';return true;" style="background-color:">ï¿½æ¦¡</a>
+              &nbsp;<A HREF="#" onClick="chg_page('hou');" onMouseOver="window.status='ï¿½Wï¿½bï¿½ï¿½'; return true;" onMouseOut="window.status='';return true;"style="background-color:">ï¿½Wï¿½bï¿½ï¿½</a>
+              &nbsp;<A HREF="#" onClick="chg_page('re');" onMouseOver="window.status='ï¿½ï¿½ï¿½a'; return true;" onMouseOut="window.status='';return true;"style="background-color:">ï¿½uï¿½y</a>
+              &nbsp;<A HREF="#" onClick="chg_page('pd');" onMouseOver="window.status='ï¿½iï¿½x'; return true;" onMouseOut="window.status='';return true;"style="background-color:">ï¿½iï¿½x</a>
+              &nbsp;<A HREF="#" onClick="chg_page('eo');" onMouseOver="window.status='ï¿½`ï¿½Jï¿½y'; return true;" onMouseOut="window.status='';return true;"style="background-color:">ï¿½`ï¿½Jï¿½y</a>
+              &nbsp;<A HREF="#" onClick="chg_page('f');" onMouseOver="window.status='ï¿½bï¿½ï¿½ï¿½ï¿½'; return true;" onMouseOut="window.status='';return true;"style="background-color: ">ï¿½bï¿½ï¿½ï¿½ï¿½</a>
+              &nbsp;<A HREF="#" onClick="chg_page('par');" onMouseOver="window.status='ï¿½Lï¿½ï¿½'; return true;" onMouseOut="window.status='';return true;"style="background-color:">ï¿½Lï¿½ï¿½</a>
+              &nbsp;<A HREF="#" onClick="chg_page('fs');" onMouseOver="window.status='ï¿½Sï¿½ï¿½'; return true;" onMouseOut="window.status='';return true;"style="background-color:#3399FF">ï¿½Sï¿½ï¿½</a>
+              &nbsp;<A HREF="#" onClick="chg_page('p');" onMouseOver="window.status='ï¿½wï¿½}ï¿½ï¿½'; return true;" onMouseOut="window.status='';return true;"style="background-color:">ï¿½wï¿½}ï¿½ï¿½</a>
             </td-->
           </tr>
         </table>
       </td>
-      <td width="30"><img src="/images/control/zh-tw/top_04.gif" width="30" height="24"></td>
     </tr>
     <tr>
       <td colspan="2" height="4"></td>
     </tr>
     <tr>
-      <td colspan="2"><font color="#000099">&nbsp;&nbsp;¯S®í&nbsp;&nbsp;</font>
-		Æ[¬Ý¤è¦¡&nbsp;<select id="set_account" name="set_account" onchange="chg_account(this.value);" class="za_select">
-        		<option value="0">¥þ³¡</option>
-			<option value="1">¦Û¤v</option>
+      <td colspan="2"><font color="#000099">&nbsp;&nbsp;ï¿½Sï¿½ï¿½&nbsp;&nbsp;</font>
+		ï¿½[ï¿½Ý¤è¦¡&nbsp;<select id="set_account" name="set_account" onchange="chg_account(this.value);" class="za_select">
+        		<option value="0">ï¿½ï¿½ï¿½ï¿½</option>
+			<option value="1">ï¿½Û¤v</option>
 		</select></td>
     </tr>
   </table>
@@ -176,12 +175,12 @@ function get_new_top(){
 </div>
   <table id="glist_table" width="835" border="0" cellspacing="1" cellpadding="0"  bgcolor="006255" class="m_tab">
     <tr class="m_title_ft"  >
-    <td width="38" >®É¶¡</td>
-    <td width="100">Áp·ù</td>
-    <td>¶¤¥î/½ß²v</td>
+    <td width="38" >ï¿½É¶ï¿½</td>
+    <td width="100">ï¿½pï¿½ï¿½</td>
+    <td>ï¿½ï¿½ï¿½ï¿½/ï¿½ß²v</td>
     </tr>
   </table>
 </div>
-<div id="update_msg" style="display: none"><br><br><center>§ó·s¤¤............</center></div>
+<div id="update_msg" style="display: none"><br><br><center>ï¿½ï¿½sï¿½ï¿½............</center></div>
 </body>
 </html>

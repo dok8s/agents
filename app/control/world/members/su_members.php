@@ -8,16 +8,8 @@ exit;
 require ("../../../member/include/config.inc.php");
 require ("../../../member/include/define_function_list.inc.php");
 $uid=$_REQUEST["uid"];
-$sql = "select id,subuser,agname,subname,status,super,setdata from web_world where Oid='$uid'";
+$sql = "select super,Agname,ID,language from web_world where Oid='$uid'";
 $result = mysql_query($sql);
-$row = mysql_fetch_array($result);
-$agname=$row['agname'];
-$super=$row['super'];
-$d1set = @unserialize($row['setdata']);
-$level=$_REQUEST['level']?$_REQUEST['level']:4;
-$sql = "select Agname,ID,language,super,edit,setdata from `web_world` where Oid='$uid'";
-$result = mysql_query($sql);
-
 $cou=mysql_num_rows($result);
 if($cou==0){
 	echo "<script>window.open('$site/index.php','_top')</script>";
@@ -27,37 +19,22 @@ if($cou==0){
 $row = mysql_fetch_array($result);
 $agname=$row['Agname'];
 $agid=$row['ID'];
-$langx=$row['language'];
-$uname=$_REQUEST["uname"];
 $super=$row['super'];
-$d1set = @unserialize($row['setdata']);
-
-$sql = "select setdata,d1edit from web_super where agname='$super'";
-$result = mysql_query($sql);
-$row = mysql_fetch_array($result);
-$d0set = @unserialize($row['setdata']);
-$d0set['d1_edit']=$row['d1edit'];
-foreach($d1set as $k=>$v){
-	if($v==1 && substr($k,0,2)=='d1'){
-		$d1set[$k] = $d0set[$k];
-	}
-}
-$edit=1;
-if($d1set['d1_edit']!=1 && $d1set['d1_wager_add_edit']!=1 && $d1set['d1_wager_hide_edit']!=1){
-	$edit=0;
-}
-
+$level=$_REQUEST['level']?$_REQUEST['level']:4;
+$langx=$row['language'];
 require ("../../../member/include/traditional.zh-cn.inc.php");
-$enable	=	$_REQUEST["enable"];
-$enabled=	$_REQUEST["enabled"];
-$sort		=	$_REQUEST["sort"];
-$orderby=	$_REQUEST["orderby"];
-$mid		=	$_REQUEST["id"];
-
+$enable=$_REQUEST["enable"];
+$enabled=$_REQUEST["enabled"];
+$uname=$_REQUEST["uname"];
+$sort=$_REQUEST["sort"];
+$orderby=$_REQUEST["orderby"];
+$mid=$_REQUEST["id"];
+$active=$_REQUEST["active"];
 $super_agents_id=$_REQUEST['super_agents_id'];
-$page		=	$_REQUEST["page"];
-$active	=	$_REQUEST["active"];
-
+if ($enable==""){
+    $enable='Y';
+}
+$page=$_REQUEST["page"];
 if ($page==''){
 	$page=0;
 }
@@ -71,9 +48,6 @@ if ($sort=='' and $orderby==''){
 	$sort='alias';
 }else{
 	$order=' order by '.$sort.' '.$orderby;
-}
-if ($enable==""){
-	$enable='Y';
 }
 
 switch($enable){
@@ -113,35 +87,25 @@ default:
 
 switch ($active){
 case 2:
-	$mysql="update web_member set oid='',Status=$stop where id=$mid";
-	mysql_query( $mysql);
+    $sql = "select Memname from web_member where id=$mid";
+    $result = mysql_query($sql);
+    $row = mysql_fetch_array($result);
+    $memname=$row["Memname"];
+    $mysql="update web_member set oid='',Status=$stop where id=$mid";
+    mysql_query( $mysql);
 
-	$mysql="select agents,Memname from web_member where ID=$mid";
-	$result = mysql_query( $mysql);
-	$row = mysql_fetch_array($result);
-	$agents=$row['agents'];
-	$agent_name=$row['Memname'];
 	if ($stop==0){
 		$mysql="update web_agents set mcount=mcount-1 where agname='$agents'";
 	}else{
 		$mysql="update web_agents set mcount=mcount+1 where agname='$agents'";
 	}
 	mysql_query( $mysql);
-	$mysql="insert into  agents_log (M_DateTime,M_czz,M_xm,M_user,M_jc,Status) values('".date("Y-m-d H:i:s")."','$agname','$xm','$agent_name','会员',3)";
-	mysql_query($mysql) or die ("操作失败!");
+    $mysql="update web_member set oid='',Status=$stop where id=$mid";
+    mysql_query( $mysql);
+    $mysql="insert into  agents_log (M_DateTime,M_czz,M_xm,M_user,M_jc,Status) values('".date("Y-m-d H:i:s")."','$agname','$xm','$memname','代理',4)";
+    mysql_query($mysql) or die ("操作失败!");
 	break;
 case 3:
-	/*
-	$sql = 'SELECT web_db_io.m_name from web_db_io,web_member WHERE (web_member.Memname=web_db_io.m_name) and web_member.id='.$mid;
-	$result = mysql_query( $sql);
-	$cou=mysql_num_rows($result);
-	if ($cou>0){
-		echo wterror("森颇埜眒衄芘蛁椁翘ㄛ拸杨辆俴刉壶ㄐㄐ");
-		exit();
-	}else{
-		$sql="delete from web_member where id=$mid";
-		mysql_query( $sql);
-	}*/
 	break;
 }
 if($uname<>""){
@@ -152,7 +116,6 @@ if ($super_agents_id==''){
 }else{
 	$sql = "select ID,Memname,loginname,passwd,money,Alias,Credit,ratio,date_format(AddDate,'%m-%d/%H:%i') as AddDate,pay_type,Agents,OpenType from web_member where ".$nu." Status='$enabled' and super='$super' and Agents='$super_agents_id'".$order;
 }
-
 $result = mysql_query( $sql);
 $cou=mysql_num_rows($result);
 $page_size=30;
@@ -238,7 +201,6 @@ $result = mysql_query( $mysql);
     <div class="load_title">正在加载...</div>
 </div>
 <div id="top_nav_container" name="fixHead" class="top_nav_container_ann" style="position: relative;">
-    <div id="general_btn" class="<? if ($level == 1) {echo 'nav_btn_on';} else {echo 'nav_btn';}?>" onclick="ch_level(1);">股东</div>
     <div id="important_btn" class="<? if ($level == 2) {echo 'nav_btn_on';} else {echo 'nav_btn';}?>" onclick="ch_level(2);">总代理</div>
     <div id="general_btn1" class="<? if ($level == 3) {echo 'nav_btn_on';} else {echo 'nav_btn';}?>" onclick="ch_level(3);">代理</div>
     <div id="important_btn1" class="<? if ($level == 4) {echo 'nav_btn_on';} else {echo 'nav_btn';}?>" onclick="ch_level(4);">会员</div>
