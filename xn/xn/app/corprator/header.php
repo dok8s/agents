@@ -1,0 +1,368 @@
+<?
+Session_start();
+if (!$_SESSION["akak"])
+{
+echo "<script>window.open('/index.php','_top')</script>";
+exit;
+}
+require ("../member/include/config.inc.php");
+$uid=$_REQUEST["uid"];
+$mysql="select Agname,ID,status from web_corprator where Oid='$uid'";
+$result = mysql_query($mysql);
+$cou=mysql_num_rows($result);
+if($cou==0){
+	echo "<script>window.open('$site/index.php','_top')</script>";
+	exit;
+}
+
+$langx=$_REQUEST["langx"];
+$sql = "select id,subuser,agname,subname,status,super,setdata from web_corprator where Oid='$uid'";
+$result = mysql_query($sql);
+$row = mysql_fetch_array($result);
+$agname=$row['agname'];
+$super=$row['super'];
+$d1set = @unserialize($row['setdata']);
+
+if ($row['subuser']==1 or $row['status']==2){
+	$PFLAG_S='';
+	$GFLAG_S='!--';
+	$PFLAG_E='';
+	$GFLAG_E='--';
+	$CFLAG_S='!--';
+}else{
+	$PFLAG_S='!--';
+	$GFLAG_S='';
+	$PFLAG_E='--';
+	$GFLAG_E='';
+	$CFLAG_E='';
+}
+
+$sql = "select setdata,d1edit from web_super where agname='$super'";
+$result = mysql_query($sql);
+$row = mysql_fetch_array($result);
+$d0set = @unserialize($row['setdata']);
+$d0set['d1_edit']=$row['d1edit'];
+foreach($d1set as $k=>$v){
+	if($v==1 && substr($k,0,2)=='d1'){
+		$d1set[$k] = $d0set[$k];
+	}
+}
+
+?>
+<script>
+top.str_FT = "Bóng đá.";
+top.str_FS = "Nhà vô địch.";
+top.str_BK = "Bóng rổ.";
+top.str_TN = "Quần vợt";
+top.str_VB = "Bóng chuyền";
+top.str_BS = "Bóng chày.";
+top.str_OP = "Khác";
+top.str_RB = "Những người Trái đất";
+top.str_SFS = "Đặc biệt, nhà vô địch.";
+
+//信用额度
+top.str_maxcre = "tổng tín dụng chỉ có thể nhập số!!";
+
+top.str_gopen = "Mở.";
+top.str_gameclose = "Đóng cửa";
+top.str_gopenY = "Có chắc là bảng đấu mở.";
+top.str_gopenN = "Có chắc là bảng đấu đóng cửa";
+top.str_strongH = "Có chắc là trao đổi";
+top.str_strongC = "Có chắc là trao đổi";
+top.str_close_ioratio = "Có chắc đóng tỷ lệ";
+top.str_checknum = "CAPTCHA sai lầm, hÃ£y thá»­ láº¡i";
+
+//新冠军
+top.str_scoreY = "Phụ";
+top.str_scoreN = "Thắng";
+top.str_change = "Chắc chắn là khởi động lại kết quả.!!";
+top.str_eliminate = "Có loại";
+top.str_format = "Hãy điền bằng định dạng đúng.";
+top.str_close_time = "Có chắc là đóng cửa rồi.??"
+top.str_check_date = "Hãy kiểm tra lại định dạng ngày!!";
+top.str_champ_win = "Dù cho nhà vô địch:";
+top.str_champ_wins = "Xin hãy xác nhận cho nhà vô địch có:";
+top.str_NOchamp = "Các đội không giành chiến thắng, xin tái lập!!";
+top.str_NOloser = "Không có loại đội, hãy tái lập!!";
+
+//帐号
+top.str_co = "Cổ đông.";
+top.str_su = "Tổng đại lý";
+top.str_ag = "Các đặc vụ";
+top.str_mem = "Thành viên.";
+top.str_input_account = "Làm ơn hãy nhập vào tài khoản!!";
+top.str_input_alias = "Làm ơn hãy nhập tên!!";
+top.str_input_credit = "Làm ơn hãy nhập tổng tín dụng.!!";
+top.str_confirm_add_su = "Có chắc là ghi tổng đại lý?";
+top.str_confirm_add_ag = "Có chắc là ghi các đặc vụ?";
+top.chk_input_use_date = "Có chắc là thành viên ghi dữ liệu?";
+top.str_sub_select ="Hãy chọn kiểu số tài khoản!!";
+top.str_mem_ag="Làm ơn hãy lựa chọn các đặc vụ!!";
+top.str_input_pwd_self="Mã an toàn. Cùng với số tài khoản mật khẩu!!";
+top.str_input_name="Làm ơn hãy nhập tên thành viên.!!";
+top.str_use_length="Số tài khoản dài ít nhất 4 người.!!!";
+top.str_use_ag_chg_Detail="Anh đã thay đổi này là thành viên của các đặc vụ lắng nghe xin tái lập nên thiết lập chi tiết của thành viên.!!";
+top.str_Pre_inquiry_use="Hãy nhập vào tài khoản của Pre - Query!";
+top.str_Pre_inquiry_use1="Hãy nhập vào một tài khoản truy vấn!!";
+top.ck_del_user="Chắc chắn là xóa tài khoản??";
+top.str_safe_paswrd="Mã an toàn.";
+top.str_longinuser="Đăng nhập tài khoản";
+top.str_confirm_enableY = "Có chắc chắn.\"Bật\"Nên";
+top.str_confirm_enableN = "Có chắc chắn.\"Tắt.\"Nên";
+top.str_confirm_enableS = "Có chắc chắn.\"Dừng lại.\"Nên";
+top.str_input_please = "Hãy nhập vào";
+top.str_water_set = "Rút nước";
+
+//成数
+top.str_winloss_set = "Chiếm thành";
+top.str_err_default_winloss = "Mặc định là không thể có số [ - ] Không.";
+top.str_confirm_default_winloss1 = "Mặc định sẽ trở thành trong số ";
+top.str_confirm_default_winloss2 = " Sau khi xác nhận. Mặc định là không có hiệu lực!!?";
+top.str_default = "Mặc định";
+top.str_err_winloss_range = " Tổng đại lý và đại diện của tổng số thành phải ở 5 - 8 thành Nội, xin tái lập !! ";
+
+//密码
+top.str_input_pwd = "Làm ơn hãy nhập mật mã.!!";
+top.str_input_repwd = "Làm ơn hãy nhập mã xác nhận.!!";
+top.str_input_pwd2 = top.str_input_pwd;
+top.str_input_repwd2 = top.str_input_repwd;
+top.str_pwd_limit = "Mật khẩu của bạn phải 6 đến 12 dài, bạn chỉ có thể sử dụng các số liệu, và bảng chữ cái tiếng Anh và ít nhất một bảng chữ cái tiếng Anh, đặc biệt là không dùng biểu tượng khác. 。";
+top.str_pwd_limit1 = "Mã an toàn. Ít nhất phải có kích thước 2 tiếng Anh viết chữ và số (0~9) kết hợp nhập vào giới hạn (6~12)";
+top.str_pwd_limit2 = "Mật khẩu của bạn cần sử dụng chữ cái thêm số!!";
+top.str_err_pwd = "Hãy tái nhập mã xác nhận sai lầm,!!";
+top.str_err_pwd_fail = "Nên ông đã sử dụng mật mã, để an toàn, hãy dùng mã mới!!";
+
+top.str_input_longin_id = "Đăng nhập vào tài khoản các em hãy nhập!!";
+top.str_longin_limit1 = "Đăng nhập vào tài khoản. Ít nhất phải có kích thước 2 tiếng Anh viết chữ và số (0~9) kết hợp nhập vào giới hạn (6~12)";
+top.str_longin_limit2 = "Tài khoản đăng nhập của bạn cần sử dụng chữ cái thêm số!!";
+
+//私域网址
+top.dPrivate = "Tên miền riêng tư.";
+top.dPublic = "Công";
+top.grep = "Nhóm";
+top.grepIP = "Nhóm IP";
+top.IP_list = "Danh sách";
+top.Group = "Nhóm";
+top.choice = "Hãy lựa chọn.";
+top.webset="Mạng lưới thông tin.";
+
+top.str_oddf="Làm ơn hãy nhập rồi đấy";
+
+top.str_PlsSel = "Hãy lựa chọn.";
+top.str_please_select = "Hãy lựa chọn.";
+
+top.strRtypeSP = new Array();
+top.strRtypeSP["PGF"]="Bàn thắng đầu tiên.";
+top.strRtypeSP["OSF"]="Người đầu tiên vượt quyền";
+top.strRtypeSP["STF"]="Cầu thủ đầu tiên thay thế.";
+top.strRtypeSP["CNF"]="Quả phạt góc đầu tiên";
+top.strRtypeSP["CDF"]="Lá bài đầu tiên.";
+top.strRtypeSP["RCF"]="Sẽ ghi bàn";
+top.strRtypeSP["YCF"]="Tấm thẻ vàng đầu tiên";
+top.strRtypeSP["GAF"]="Có bóng";
+top.strRtypeSP["PGL"]="Bàn thắng cuối cùng.";
+top.strRtypeSP["OSL"]="Cuối cùng, vượt quyền";
+top.strRtypeSP["STL"]="Cuối cùng cầu thủ thay thế.";
+top.strRtypeSP["CNL"]="Cuối cùng, một quả phạt góc";
+top.strRtypeSP["CDL"]="Lá bài cuối cùng.";
+top.strRtypeSP["RCL"]="Không ghi bàn";
+top.strRtypeSP["YCL"]="Cuối cùng, một tấm thẻ vàng.";
+top.strRtypeSP["GAL"]="Không có bóng";
+top.strRtypeSP["PG"]="Bàn thắng đầu tiên / cuối cùng đội.";
+top.strRtypeSP["OS"]="Cuối cùng đội bóng đầu tiên vượt quyền /";
+top.strRtypeSP["ST"]="Đầu tiên, cuối cùng thay thế cầu thủ đội /";
+top.strRtypeSP["CN"]="Cuối cùng một quả phạt góc đầu tiên viên /";
+top.strRtypeSP["CD"]="Album đầu tiên / lá bài cuối cùng.";
+top.strRtypeSP["RC"]="Sẽ ghi bàn / không ghi bàn";
+top.strRtypeSP["YC"]="Album đầu tiên, cuối cùng một tấm thẻ vàng /";
+top.strRtypeSP["GA"]="Có bóng / không có bóng";
+
+//停權
+top.str_confirm_enable_priY = "Có chắc chắn.\"Bật\"Nên";
+top.str_confirm_enable_priN = "Có chắc chắn.\"Cấm đăng nhập.\"Nên";
+</script>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>登入1</title>
+<link rel="stylesheet" href="/style/control/control_header.css" type="text/css">
+<script src="/js/lock.js" type="text/javascript"></script>
+<script src="/js/wmenu.js" type="text/javascript"></script>
+</head>
+<script type="text/javascript">
+<!--
+document.onmousedown = initDown;
+document.onmouseup   = initUp;
+document.onmousemove = initMove;
+ad_count=0;
+mad_count=0;
+mo_count=0;
+rp_count=0;
+function initDown() {
+	doDown();
+	moveme_onmousedown();
+}
+function initUp() {
+	doUp();
+	moveme_onmouseup();
+}
+function initMove() {
+	moveme_onmousemove();
+}
+//-->
+function show_webs(sw) {
+	try{
+		ad_list.style.display='none';
+	}catch(e){
+	}
+	try{
+		mad_list.style.display='none';
+	}catch(e){
+	}
+	try{
+		mo_list.style.display='none';
+	}catch(e){
+	}
+	try{
+		rp_list.style.display='none';
+	}catch(e){
+	}
+	switch(sw){
+		case'ad':
+			if (ad_count==0){
+				ad_list.style.display='block';
+				ad_count=1;
+				mad_count=0;
+				mo_count=0;
+				rp_count=0;
+			}else{
+				ad_list.style.display='none';
+				ad_count=0;
+			}
+			break;
+		case'mad':
+			if (mad_count==0){
+				mad_list.style.display='block';
+				ad_count=0;
+				mad_count=1;
+				mo_count=0;
+				rp_count=0;
+			}else{
+				mad_list.style.display='none';
+				mad_count=0;
+			}
+			break;
+		case'mo':
+			if (mo_count==0){
+				mo_list.style.display='block';
+				mo_count=1;
+				ad_count=0;
+				mad_count=0;
+				rp_count=0;
+			}else{
+				mo_list.style.display='none';
+				mo_count=0;
+			}
+			break;
+		case'rp':
+			if (rp_count==0){
+				rp_list.style.display='block';
+				mo_count=0;
+				ad_count=0;
+				mad_count=0;
+				rp_count=1;
+			}else{
+				rp_list.style.display='none';
+				rp_count=0;
+			}
+			break;
+	}
+}
+function go_web(sw1,sw2,sw3) {
+	if(sw1==1 && sw2==5){Go_Chg_pass(1);}
+	else{window.open('corp.php?sw1='+sw1+'&sw2='+sw2+'&sw3='+sw3,'main');}
+}
+function Go_Chg_pass(a){
+  var uid="<?=$uid?>";
+  Real_Win=window.open("chg_passwd.php"+"?uid="+uid+"&flag="+a,"main","width=255,height=135,status=no");
+}
+function ShowNumber(){
+	var uid="<?=$uid?>";
+	var LAYER="ag";
+	window.open("/xn/app/other_set/grp_ip_view.php?uid="+uid+"&layer="+LAYER,"GRP_IP","width=350,height=430,toolbar=yes,scrollbars=yes,resizable=no,personalbar=no");
+}
+
+</script>
+<body onLoad="show_webs();" oncontextmenu="window.event.returnValue=false"  bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" >
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="183"><img src="/images/800/800_top_01.gif" width="183" height="29"></td>
+    <td class="top_color">Đăng--<?=$agname?>
+	<? if($d1set['d1_ag_online_show']==1){ ?>
+	<a href='system/syslog.php?uid=<?=$uid?>' target="main"><span style='color:#FFFF66'>Tài khoản</span></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	<? } ?>
+	<? if($d1set['d1_mem_online_show']==1){ ?>
+	<a href='system/memlog.php?uid=<?=$uid?>' target="main"><span style='color:#FFFF66'>Thành viên.</span></a>
+	<? } ?>
+	<div class="rig">
+                    <a href="/url.html" target="_blank" >URL</a>
+                    | <a href="javascript:void(0);" OnClick="" class="customer"><img src="/images/control/header_customer.gif" width="16" height="15" border="0">Tư vấn</a>
+                    | <a href="javascript:void(0);" OnClick=""><font class="service">Điện thoại.</font></a>
+					| <a href="#" onClick="Go_Chg_pass(2);" style="cursor:hand">Đổi mật</a>
+                    | <a href="/quit.php?level=3&uid=<?=$uid?>" target="_top" onMouseOver="window.status='Lùi lại'; return true;" onMouseOut="window.status='';return true;">Lùi lại</a>
+      </div>
+	</td>
+  </tr>
+  <tr>
+    <td><img src="/images/800/800_top_02.gif" width="183" height="21"></td>
+    <td  class="coolBar">
+	<table border="0" cellspacing="0" cellpadding="0"  style="position: relative; z-index: 99; top: 0px; left: 0px;" id="toolbar1">
+	<tr>
+	<td nowrap class="coolButton" onClick="show_webs('ad');">&nbsp;<nobr>[Ghi chú]</nobr>&nbsp;</td>
+	<td id=ad_list style="color: blue;"><nobr>
+	<a onClick="go_web(0,0,'/app/corprator/real_wager/index.php?uid=<?=$uid?>');" style="cursor:hand"><img src="/images/control/tri.gif">Chân</a>
+	<a onClick="go_web(0,1,'/app/corprator/real_wager_BK/index.php?uid=<?=$uid?>');" style="cursor:hand"><img src="/images/control/tri.gif">Giỏ / đẹp.</a>
+	<a onClick="go_web(0,0,'/app/corprator/real_wager_TN/index.php?uid=<?=$uid?>');" style="cursor:hand"><img src="/images/control/tri.gif">Lưới</a>
+	<a onClick="go_web(0,0,'/app/corprator/real_wager_VB/index.php?uid=<?=$uid?>');" style="cursor:hand"><img src="/images/control/tri.gif">Hàng</a>
+	<a onClick="go_web(0,0,'/app/corprator/real_wager_BS/index.php?uid=<?=$uid?>');" style="cursor:hand"><img src="/images/control/tri.gif">Bóng chày.</a>
+	<a onClick="go_web(0,1,'/app/corprator/voucher.php?uid=<?=$uid?>');" style="cursor:hand"><img src="/images/control/tri.gif">Ghi chú đơn</a>
+	</nobr></td>
+	<td nowrap class="coolButton" onClick="show_webs('mad');">&nbsp;<nobr>[Sớm đơn]</nobr>&nbsp;</td>
+	<td id=mad_list style="color: blue;"><nobr>
+	<a onClick="go_web(0,1,'/app/corprator/real_wager_FU/index.php?uid=<?=$uid?>');" style="cursor:hand"><img src="/images/control/tri.gif">Chân sớm.</a>
+	<a onClick="go_web(0,1,'/app/corprator/real_wager_BU/index.php?uid=<?=$uid?>');" style="cursor:hand"><img src="/images/control/tri.gif">Giỏ / Mỹ đã</a>
+	<a onClick="go_web(0,1,'/app/corprator/real_wager_BSFU/index.php?uid=<?=$uid?>');" style="cursor:hand"><img src="/images/control/tri.gif">Tuyệt vời đã</a>
+	<a onClick="go_web(0,0,'/app/corprator/real_wager_TU/index.php?uid=<?=$uid?>');" style="cursor:hand"><img src="/images/control/tri.gif">Lưới sớm</a>
+	<a onClick="go_web(0,0,'/app/corprator/real_wager_VU/index.php?uid=<?=$uid?>');" style="cursor:hand"><img src="/images/control/tri.gif">Hàng sớm</a>
+	</nobr></td>
+	
+	
+	
+	<<?=$CFLAG_S?>td nowrap class="coolButton" onClick="show_webs('mo');">&nbsp;<nobr>[Quản lý.]</nobr>&nbsp;</td>
+	<td id=mo_list style="color: blue;"><nobr>
+	<a onClick="go_web(1,1,'/app/corprator/cor_list.php?uid=<?=$uid?>');" style="cursor:hand"><img src="/images/control/tri.gif">Giới hạn cược</a>
+	<a onClick="go_web(1,1,'/app/corprator/super_agent/body_super_agents.php?uid=<?=$uid?>');" style="cursor:hand"><img src="/images/control/tri.gif">Tạo TK</a>
+	<a onClick="go_web(1,2,'/app/corprator/agents/su_agents.php?uid=<?=$uid?>');" style="cursor:hand"><img src="/images/control/tri.gif">Đặc vụ</a>
+	<a onClick="go_web(1,3,'/app/corprator/members/su_members.php?uid=<?=$uid?>');" style="cursor:hand"><img src="/images/control/tri.gif">TV Đang online</a>
+	<a onClick="go_web(1,4,'/app/corprator/su_subuser.php?uid=<?=$uid?>');" style="cursor:hand;"><img src="/images/control/tri.gif">Trumpet</a>
+	<? if($d1set['d1_wager_add']==1){ ?>
+	<a onClick="go_web(1,6,'/app/corprator/wager_list/wager_add.php?uid=<?=$uid?>');" style="cursor:hand"><img src="/images/control/tri.gif">Số liệu</a>
+	<? } ?>
+	<? if($d1set['d1_wager_hide']==1){ ?>
+	<a onClick="go_web(1,7,'/xn/app/corprator/wager_list/wager_hide.php?uid=<?=$uid?>');" style="cursor:hand"><img src="/images/control/tri.gif">Ẩn số</a>
+	<? } ?>
+	</nobr></td<?=$GFLAG_E?>>
+	<td nowrap><a href="/xn/app/corprator/report_new/report.php?uid=<?=$uid?>" style="cursor:hand;color:#bb0000" target="main" onMouseOver="window.status='Báo cáo'; return true;" onMouseOut="window.status='';return true;">&nbsp;[Báo cáo]</a></td>
+	<<?=$GFLAG_S?>td nowrap><a href="/xn/app/corprator/other_set/show_currency.php?uid=<?=$uid?>" style="cursor:hand;color:#bb0000" target="main" onMouseOver="window.status='Rand'; return true;" onMouseOut="window.status='';return true;">&nbsp;[Rand]</a></td>
+	<td nowrap><a href="/xn/app/corprator/other_set/show_result.php?uid=<?=$uid?>" style="cursor:hand;color:#bb0000" target="main" onMouseOver="window.status='Kết quả.'; return true;" onMouseOut="window.status='';return true;">&nbsp;[Kết quả.]</a></td<?=$GFLAG_E?>>
+	<td nowrap><A HREF="javascript://" style="cursor:hand;color:#bb0000" onClick="javascript: window.showModalDialog('scroll_history.php?uid=<?=$uid?>&langx=<?=$langx?>&scoll_set=scoll_set3','','help:no')">&nbsp;[Hồ sơ]</a></td>
+	<td nowrap><A HREF="javascript://" style="cursor:hand;color:#bb0000" onClick="javascript: window.showModalDialog('scroll_history.php?uid=<?=$uid?>&langx=<?=$langx?>&scoll_set=scoll_cor_set','','help:no')">&nbsp;[Ghi chép cổ đông.]</a></td>
+	<td nowrap><a href="/xn/app/corprator/body_home.php?uid=<?=$uid?>&langx=<?=$langx?>" style="cursor:hand;color:#bb0000" target="main" onMouseOver="window.status='公告'; return true;" onMouseOut="window.status='';return true;">&nbsp;[Bulletin]</a></td>
+	</tr>
+	</table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

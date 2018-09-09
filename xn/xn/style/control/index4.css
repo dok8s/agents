@@ -1,0 +1,161 @@
+body {behavior:url(/style/control/csshover.htc);background:url(/images/control/index_bg.jpg) repeat-x 0 0;text-align: center; font-family:Arial ,SimSun ;margin:0;padding: 0;}
+input{font-family:Arial; }
+/*IE10框框X和小眼睛去除*/
+input::-ms-clear { display:none;}
+input::-ms-reveal { display:none;}
+from { margin:0px;}
+
+.main{ width:356px;margin:0 auto; position:relative}
+
+.lang{height:55px;margin:0 auto auto 18px;}
+a{text-decoration: none;}
+.lan_word, .lan_word_on{ display:block;float:left;width:108px; height:55px; line-height:55px;  text-align:center;color:#B26563; font-size:16px;font-family:Arial;}
+.lan_word_on{color:#F3D7D7;font-family:Arial ; background-color:#961f1d;}
+.lan_word:hover{ background-color:#961f1d; color:#F3D7D7;
+-o-transition: color .20s linear, background-color .20s linear, border-color .20s linear;
+-webkit-transition: color .20s linear, background-color .20s linear, border-color .20s linear;
+-moz-transition: color .20s linear, background-color .20s linear, border-color .20s linear;
+transition: color .20s linear, background-color .20s linear, border-color .20s linear;}
+
+
+.agLOGO{ clear:both;width:72px; height:72px; background:url(/images/control/agLOGO.png) no-repeat; margin:27px auto}
+
+.loginBOX{clear:both;width:100%; padding-top:19px; background-color:#e2e2e2;margin-bottom:19px;}
+/*.word_tw, .word_cn, .word_us{position:absolute; width:635px; height:418px; top:1px;left:-12px;}
+.word_tw{background: url(/images/control/Mobile_managersite_tw.jpg) no-repeat;}
+.word_cn{background: url(/images/control/Mobile_managersite_cn.jpg) no-repeat;}
+.word_us{background: url(/images/control/Mobile_managersite_en.jpg) no-repeat;}*/
+
+.log_btnG{height:55px;font-size:16px; margin:0 auto 19px 19px ;}
+.log_btn, .log_btnON{ display:block;float:left;width:106px; height:55px; line-height:55px;color:#a49e9e; background-color:#585757; overflow:hidden;}
+.log_btnON{width:106px;color:#FFFFFF; background-color:#8b8b8b;}
+.log_btn:hover{ background-color:#8b8b8b; color:#FFF;
+-o-transition: color .20s linear, background-color .20s linear, border-color .20s linear;
+-webkit-transition: color .20s linear, background-color .20s linear, border-color .20s linear;
+-moz-transition: color .20s linear, background-color .20s linear, border-color .20s linear;
+transition: color .20s linear, background-color .20s linear, border-color .20s linear;}
+
+.login{ width:318px;width:320px \9; margin:auto}
+/*IE10+*/
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+    .login { width:318px;}
+}
+.account, .password{ width:316px; width:318px \9; height:56px; border-top:1px solid #bdbdbd;border-left:1px solid #bdbdbd;border-right:1px solid #bdbdbd; background-color:#fff}
+/*IE10+*/
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+    .account, .password { width:316px;}
+}
+.password{border-bottom:1px solid #bdbdbd;border-top: none;}
+.notice{ width:100%; height:52px; height:54px \9; line-height:52px; line-height:54px \9; color:#737373; text-align:left;text-shadow:2px 1px #fff; font-size:14px;}
+.notice_en{ width:100%; height:48px; height:49px \9; line-height:48px; color:#737373; text-align:left;text-shadow:2px 1px #fff; font-size:14px;}
+/*IE10+*/
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+    .notice {  height:52px; line-height:52px;}
+	.notice_en { height:48px;}
+}
+
+
+.safe{ width:316px; width:318px \9; height:53px; background-color:#fff;border:1px solid #bdbdbd; margin-top:-3px \9;}
+.safe_en{ width:316px; width:318px \9; height:53px; background-color:#fff;border:1px solid #bdbdbd; margin-top:-1px \9;}
+/*IE10+*/
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+    .safe { width:316px; line-height:52px; margin-top:0px;}
+	.safe_en { width:316px; line-height:52px; margin-top:0px;}
+}
+
+.warn{width:271px; width:318px \9; height: auto; padding:17px 10px 16px 35px; font-size:16px; line-height:20px; color:#a73439; text-align:left; border:1px solid #d37a7d; background-color:#f1d9da;background: url(/images/control/warn_icon.png) no-repeat 10px center #f1d9da; margin-top:19px; }
+/*IE10+*/
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+    .warn { width:271px;}
+}
+
+.input_box{ font-size:16px;color:#323232; width:300px;padding-left:48px; height:57px; height:54px \9; line-height:57px \9; background:none;border:0;margin:auto; outline:none;}
+/*IE10+*/
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+    .input_box {  height:57px;}
+}
+/*--------------input_box text 1px left----------------*/
+@media screen and (-webkit-min-device-pixel-ratio:0) { 
+    ::i-block-chrome,.input_box { padding-left:47px;}
+} /*for Safari*/
+@-moz-document url-prefix() { .input_box { padding-left:47px; } } /*for firefox*/
+
+
+/*------>input placeholder change color<------*/
+::-webkit-input-placeholder { /* WebKit browsers */
+    color:#868686;
+	/*opacity:0.8;
+	-moz-opacity:0.8;
+	-khtml-opacity: 0.8;
+	filter:alpha(opacity=80);*/
+	zoom:1;
+}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    color:#868686;
+	/*filter:alpha(opacity=80);
+	-moz-opacity:0.8;
+	-khtml-opacity: 0.8;
+	opacity:0.8;*/
+	zoom:1;
+}
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+    color:#868686;
+	/*filter:alpha(opacity=80);
+	-moz-opacity:0.8;
+	-khtml-opacity: 0.8;
+	opacity:0.8;*/
+	zoom:1;
+}
+:-ms-input-placeholder { /* Internet Explorer 10+ */
+    color:#868686;
+	/*filter:alpha(opacity=80);
+	-moz-opacity:0.8;
+	-khtml-opacity: 0.8;
+	opacity:0.8;*/
+	zoom:1;
+
+
+}
+
+.account .input_box{ background: url(/images/control/account_icon.png) no-repeat 7px center; border-bottom:1px solid #d1d1d1}
+.password .input_box{ background: url(/images/control/password_icon.png) no-repeat 10px center;}
+.safe .input_box,.safe_en .input_box {height:55px; height:51px \9; line-height:51px \9; background: url(/images/control/safe_icon.png) no-repeat 6px center;}
+/*IE10+*/
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+	.safe .input_box,.safe_en .input_box { height:55px;}
+}
+
+.remember{ width:100%; height:55px;color:#737373; font-size:14px;text-shadow:2px 1px #fff; text-align:left;}
+.remember label{ display:block; float:left;margin:19px 6px 0 0; margin:15px 6px 0 -3px \9;}
+/*IE10+*/
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+	.remember label{ margin:19px 6px 0 0;}
+}
+
+input[type="checkbox"] {display:none; }
+label input[type="checkbox"] + span{display: inline-block;width:16px;height:16px;
+vertical-align:middle;background: url(/images/control/select_icon.png) left  center no-repeat;cursor:pointer;}
+label input[type="checkbox"]:checked + span{background: url(/images/control/select_icon.png) right top no-repeat;}
+
+.remember_word{ display:block; float:left;height:54px; line-height:54px; font-size:14px;}
+.remember_word_en{ display:block; float:left;height:51px; line-height:50px; font-size:14px;}
+
+.send_btn{ clear:both;width:318px; height:55px; line-height:55px; border:0;background-color:#27a67b; color:#fff; font-size:16px;text-align:center; margin-bottom:19px;margin-bottom:0 \9; margin-top:-1px; margin-top:-4px \9;}
+/*IE10+*/
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+	.send_btn{ margin-bottom:19px; margin-top:-1px;}
+
+}
+.send_btn:hover{ background-color:#729e1b;
+-o-transition: color .20s linear, background-color .20s linear, border-color .20s linear;
+-webkit-transition: color .20s linear, background-color .20s linear, border-color .20s linear;
+-moz-transition: color .20s linear, background-color .20s linear, border-color .20s linear;
+transition: color .20s linear, background-color .20s linear, border-color .20s linear;}
+
+.AD{ width:100%; height:145px; margin-bottom:85px;}
+.ad_tw { display: none; background:url(/images/control/manager_tc.jpg) no-repeat;}
+.ad_cn { display: none; background:url(/images/control/manager_sc.jpg) no-repeat;}
+.ad_us { display: none; background:url(/images/control/manager_eng.jpg) no-repeat;}
+
+/*------------Link hand----------------*/
+.lan_word, .log_btn, .log_btnON, .send_btn{cursor: pointer; cursor:hand;}
