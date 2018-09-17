@@ -86,9 +86,9 @@ b { color:#C30;}
       <div name="MaxTag" id="home" src="/js/home.js" linkage="home">
 
         <div id="home_contain" class="home_contain" onresize="setDivSize(this)" style="width: 67%;min-width: 1200px;">
-          <div id="home_box" class="home_box">
+          <div id="home_box" class="home_box" >
             <div id="top_title" class="top_title"><span>首页</span></div>
-            <div id="account_contain" class="account_contain">
+            <div id="account_contain" class="account_contain" style="width: 32.5%;">
               <div id="ac_title" class="ac_title"><span class="left_panding">帐户摘要</span></div>
               <div id="credits" class="acc_box">
                 <span class="left_panding">信用额度</span>
@@ -112,7 +112,7 @@ b { color:#C30;}
               </div>
             </div>
 
-            <div id="status_contain" class="status_contain">
+            <div id="status_contain" class="status_contain" style="width: 52%; float: left;padding-left: 20px;">
               <div id="status_title" class="status_title">
                 <span class="title_box" style="min-width: 150px;">时间</span>
                 <span class="title_box2 margin_right" style="min-width: 60px;">操作者</span>
@@ -144,8 +144,8 @@ b { color:#C30;}
                 </div>
             </div>
           </div>
-              <div id="important_title" class="important_title"><span>重要公告</span></div>
-              <div id="important_contain" class="important_contain">
+              <div id="important_title" class="important_title" style="width: 85%;"><span>重要公告</span></div>
+              <div id="important_contain" class="important_contain" style="width: 85%;">
                   <table id="important_table" border="0" cellpadding="0" cellspacing="0">
                       <tbody>
                       <?
@@ -164,15 +164,15 @@ b { color:#C30;}
                       ?>
                       </tbody></table>
               </div>
-              <div id="viewmore_contain" class="viewmore_contain">
+              <div id="viewmore_contain" class="viewmore_contain" style="width: 85%;">
                   <a href="/app/control/agents/announcement/get_an.php?uid=<?$uid?>&langx=<?=$langx?>">
                       <input id="btn" type="button" class="btn_more" value="查看更多">
                   </a>
                   <div id="load" class="load"></div>
               </div>
 
-              <div id="important_title" class="important_title"><span>最新公告</span></div>
-              <div id="important_contain" class="important_contain">
+              <div id="important_title" class="important_title" style="width: 85%;"><span>最新公告</span></div>
+              <div id="important_contain" class="important_contain" style="width: 85%;">
                   <table id="important_table" border="0" cellpadding="0" cellspacing="0">
                       <tbody>
                       <?
@@ -191,7 +191,7 @@ b { color:#C30;}
                       ?>
                       </tbody></table>
               </div>
-              <div id="viewmore_contain" class="viewmore_contain">
+              <div id="viewmore_contain" class="viewmore_contain" style="width: 85%;">
                   <a href="/app/control/agents/announcement/get_an.php?uid=<?$uid?>&langx=<?=$langx?>">
                       <input id="btn" type="button" class="btn_more" value="查看更多">
                   </a>
